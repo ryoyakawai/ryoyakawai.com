@@ -1,0 +1,347 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Fitbit OS向けのClock Faceを開発してみた &#8211; Delicious Days</title>
+<meta name="description" content="">
+<meta name="keywords" content="Fitbit, Fitbit OS, Versa, clock face, Develop">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ryoyakawai">
+<meta name="twitter:title" content="Fitbit OS向けのClock Faceを開発してみた">
+<meta name="twitter:text:title" content="Fitbit OS向けのClock Faceを開発してみた">
+<meta name="twitter:creator" content="@ryoyakawai">
+<meta name="twitter:image" content="/~ryoya/github/ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta name="twitter:description" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="summary">
+<meta property="og:image" content="/~ryoya/github/ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta property="og:title" content="Fitbit OS向けのClock Faceを開発してみた">
+<meta property="og:description" content="">
+<meta property="og:url" content="/~ryoya/github/ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html">
+<meta property="og:site_name" content="Fitbit OS向けのClock Faceを開発してみた">
+
+
+
+
+
+<link rel="canonical" href="/~ryoya/github/ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html">
+<link href="/~ryoya/github/ryoyakawai.com/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Polymer -->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="/~ryoya/github/ryoyakawai.com/blog/assets/components/youtube-play.html">
+<link rel="import" href="/~ryoya/github/ryoyakawai.com/blog/assets/components/language-selector.html">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/~ryoya/github/ryoyakawai.com/blog/images/profile_photo.jpg">
+<link rel="icon" type="image/jpeg" href="/~ryoya/github/ryoyakawai.com/blog/images/profile_photo.jpg">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/header-title.css">
+  <link rel="stylesheet" type="text/css" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/post.css">
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/~ryoya/github/ryoyakawai.com/blog/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/~ryoya/github/ryoyakawai.com/blog/images/avatar.jpg" alt="Ryoya Kawai photo" class="author-photo">
+					<h4>Ryoya Kawai</h4>
+					<p></p>
+				</li>
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:blog@ryoyakawai.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/ryoyakawai"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://facebook.com/ryoyakawai"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				<li>
+					<a href="https://google.com/+ryoyakawai"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/ryoya-kawai-11342b57"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/ryoyakawai"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/posts/">All Posts</a></li>
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap entry-header">
+        
+          <h1 class="entry-title entry-title-post header-title-text"><a href="/~ryoya/github/ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html" rel="bookmark" title="Fitbit OS向けのClock Faceを開発してみた">Fitbit OS向けのClock Faceを開発してみた</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2018-05-27T00:00:00+09:00">May 27, 2018</time></span></h2>
+<!--
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+
+        </p>--><!-- /.entry-reading-time -->
+        <!---->
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="//apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+<script id="pocket-btn-js" src="//widgets.getpocket.com/v1/j/btn.js?v=1"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12&appId=611626902509108&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="social-share">
+  <style>
+    .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
+    .fb-like span {vertical-align: inherit !important}
+  </style>
+  <a href="http://b.hatena.ne.jp/entry//~ryoya/github/ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
+  <div class="fb-like" data-href="/~ryoya/github/ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+</div>
+
+
+      <div> </div>
+
+<p><a href="http://amzn.asia/flUA9LK">Fitbit Versa</a>を買って1ヶ月くらいとっても便利に使ってて満足なんだけど「タイムゾーンを2つ表示できるClock Faceがあったらもっと便利だな〜」とは思ってはいて、<a href="https://dev.fitbit.com/build/guides/clockfaces/">ググってみたらJavaScriptで開発できる</a>って書いてったので試してみました。</p>
+
+<h2 id="fitbit-versaとは">Fitbit Versaとは</h2>
+<p>所謂スマートウォッチで、心拍計、歩数計、睡眠計(と表現したらよいのかな？)とかがついてて、基本的にフィットネス向けです。スマホのアプリからユーザログインを行い、スマートウォッチのセンサが取得した時系列のデータはペアリングしているスマホからクラウドにアップロードされる、というよくある仕組みです。</p>
+
+<p>デバイス自体に関して、デザイン的にもスッキリしていて、それでいて軽く、交換用ベルトも豊富でとても好印象です。</p>
+
+<div class="post-image-center">
+<img src="/~ryoya/github/ryoyakawai.com/blog/images/2018/05/20180527_Versa.jpg" width="70%" />
+</div>
+
+<h2 id="開発のいろは">開発のいろは</h2>
+<p><a href="https://www.fitbit.com/fitbitos">Fitbit OS</a>とはFitbit社の開発しているOSで、現在のところFitbit社のFitbit IonicとFitbit Versaに搭載されています。ここからはこのOS上での開発について、Clock Faceを開発した経験から少しご紹介します。</p>
+
+<p>開発に関してデバイス周辺の接続図を簡単に描くと以下のようにつながります。母艦となるスマホとはBluetoothで接続されていますが開発はBluetooth経由で行うわけではなく、それぞれの機器がインターネットにWi-Fiで直接接続してFitbit社が用意したクラウドを経由することでやりとりが行われます。</p>
+<div class="post-image-center">
+<img src="/~ryoya/github/ryoyakawai.com/blog/images/2018/05/20180527_sdk_connection.jpg" width="70%" />
+</div>
+
+<h3 id="fitbit-studioの準備と開発そして実機へのデプロイ">Fitbit Studioの準備と、開発、そして実機へのデプロイ</h3>
+<p>アプリにせよ、Clock Faceにせよ開発は<a href="https://dev.fitbit.com/blog/2017-09-26-fitbit-sdk-preview-get-started/"><strong>Fitbit Studio</strong></a>というブラウザで動作するIDE上で行います。コードのアップロードがドラッグ＆ドロップでしかできないところが不便だった（2018年5月27日現在）ので、CLI（Command-line interface）が提供されることを期待しています。（<a href="https://community.fitbit.com/t5/SDK-Development/Fitbit-CLI-Command-Line-Tool-Or-all-Fitbit-Studio/td-p/2163131">開発中かも</a>）。</p>
+
+<p>実機（スマホとスマートウォッチ）にFitbit Studioからコードを送る準備は以下のような手順です。実機側からFitbit社のクラウドへの接続を行います。Fitbit Studioはユーザログインが必要になっており、このユーザログインで利用したメールアドレスとスマホでログインしたメールアドレスとが同じである場合に紐付けられ、先ほどクラウドに接続した実機がFitbit Studioの接続メニューにリストされ、開発者がFitbit Studioから接続を行う、という準備をします。</p>
+
+<p>デプロイはFitbit Studioで<strong>Run</strong>をクリックすると開始されます。コンパイルされて、上記の図のCode（青色の矢印）の流れでFitbit Studioに接続された実機（スマホとスマートウォッチ）にデプロイされます。</p>
+
+<h3 id="開発言語">開発言語</h3>
+<p>Fitbit OS上のアプリは<a href="http://jerryscript.net/">JerryScript</a>で開発することになります。JerryScriptとは、ハードウェアからの制約が大きな、例えばIoTデバイスで使われることを想定しているLightweightなJavaScriptです。Fitbit OSがJerryScriptを使ったことが<a href="https://js.foundation/blog/2018/02/07/javascript-internet-things-jerryscript-fitbit-ionic">JS Foundiationの記事</a>にもなっています。
+スマホ側で設定画面を用意する場合はJSXを使います。ちなみに、ES6 Modules, Arrow Function、Classは利用することができました。</p>
+
+<p>開発に関しての公式ドキュメントは<a href="https://dev.fitbit.com/">こちら</a>です。気になる方はご覧になってください。</p>
+
+<h3 id="デバッグ">デバッグ</h3>
+<p>デバッグする場合のログはFitbit Studioへ送られ、Consoleとして表示されます。（Logの流れは上図のオレンジ色のLogの矢印）Chrome DevToolsのコンソールのようにArray、Objectがすべて展開されての表示ではないので、少し勝手が違うところはあります。</p>
+
+<h3 id="アプリclock-faceの公開">アプリ、Clock Faceの公開</h3>
+<p>開発したアプリ、Clock Faceは<a href="https://dev.fitbit.com/blog/2017-11-17-app-gallery-submit/">公開してFitbit Gallery（以下「ギャラリ」と略）に並べることが可能</a>です。
+<a href="https://gam.fitbit.com/apps">Fitbit Gallery App Manager(GAM)</a>に以下の項目をを入力して、Fitbit社のレビュー受けて通過すると公開されるようです。以下はClock Faceの公開時に記入、アップロードが必要だった項目です。</p>
+
+<ul>
+  <li>タグ（Analog, Digital, Status Heabyの3つから1つ以上を選択）</li>
+  <li>サポート情報（メールアドレス、または、サポートウェブサイトのURL）</li>
+  <li>アプリ名</li>
+  <li>アプリの説明</li>
+  <li>スクリーンショット（Clock FaceはFitbit Studioから取得可能）</li>
+  <li>コード本体のアップロード（Fitbit Stusioから所得したhoge.fbaというファイル）</li>
+  <li>コードのVersion情報</li>
+</ul>
+
+<h2 id="今回の開発したclock-face">今回の開発したClock Face</h2>
+<p>以下のようなClock Faceを作りました。</p>
+<div class="post-image-center">
+<img src="/~ryoya/github/ryoyakawai.com/blog/images/2018/05/secondarytimezone00.png" width="50%" />
+</div>
+<p>特徴は心拍計、歩数計、消費カロリーと同時に2つのTimezoneの時間を同時に表示できる、というところです。メインのTimezoneはスマホ側の時間に合わせられ、その下に表示される時間のTimezoneはスマホから任意の時間が設定できるようになっています。改善の余地はいろいろあると思っていますが、重要なのをリストすると以下かなと思っています。</p>
+
+<ul>
+  <li>メインのTimezoneの時間の文字の色を変更できるように</li>
+  <li>12時間表示、24時間表示をユーザが指定できるように</li>
+</ul>
+
+<p>コードは<a href="https://github.com/ryoyakawai/secondarytimezone">こちらで公開しています</a>。このブログを書いている時点ではFitbitのレビュー中で、ギャラリには並んでおりませんで、リンク等は書けませんが、問題なく無事に並べられることを祈っています・・・。</p>
+
+<h2 id="感想">感想</h2>
+<p>開発自体はいつも通りで楽しかったです。提供されているSDKのAPIにはバグがあるみたいでドキュメント通り動かないところがある（<a href="https://dev.fitbit.com/build/reference/companion-api/settings/">このSettings APIは動きませんでした</a>、<a href="https://community.fitbit.com/t5/SDK-Development/SettingsStorage-getItem-from-settings-component/td-p/2577978">公式回答</a>）のですが、JavaScriptだけでここまで開発できるのは明らかに便利だし、分かりやすいし（個人的に・・・）、いい時代だな〜、と思いました。</p>
+
+<p>積み残しは、いつか実装したいと思っています。</p>
+
+<h2 id="要望とか">要望とか</h2>
+<p>以下の2つが強化されると快適になると思いました。</p>
+
+<ul>
+  <li>ファイルアップロード用のCLIの提供</li>
+  <li>Fitbit StudioとFitbit Gallery App Managerが統合しシームレスな公開作業を提供</li>
+</ul>
+
+<h2 id="リンク">リンク</h2>
+<ul>
+  <li><a href="https://dev.fitbit.com/blog/2017-09-26-fitbit-sdk-preview-get-started/">“Ready, Set, Go!” with the Fitbit SDK（公式ブログ）</a></li>
+  <li><a href="https://dev.fitbit.com/blog/2017-11-17-app-gallery-submit/">App, App, and Away! The Fitbit App Gallery is Open for Submissions（公式ブログ）</a></li>
+</ul>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Fitbit" title="Pages tagged Fitbit" class="tag"><span class="term">Fitbit</span></a><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Fitbit OS" title="Pages tagged Fitbit OS" class="tag"><span class="term">Fitbit OS</span></a><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Versa" title="Pages tagged Versa" class="tag"><span class="term">Versa</span></a><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#clock face" title="Pages tagged clock face" class="tag"><span class="term">clock face</span></a><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Develop" title="Pages tagged Develop" class="tag"><span class="term">Develop</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2018-05-27">May 27, 2018</time></span></span>
+        <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
+      </footer>
+    </div><!-- /.entry-content -->
+<!--
+    <section id="disqus_thread"></section><!-- /#disqus_thread --><!---->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/~ryoya/github/ryoyakawai.com/blog/2018/04/18/impossible-burger.html" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3 class="read-more-next"><a href="/~ryoya/github/ryoyakawai.com/blog/2019/02/01/farewellparty.html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！">旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</a></h3>
+      <span class="read-more-next">Published on February 01, 2019</span>
+      <p> <a href="/~ryoya/github/ryoyakawai.com/blog/2019/02/01/farewellparty.html">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/~ryoya/github/ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" title="パンダエクスプレスメニューのコピーを作ってみた">パンダエクスプレスメニューのコピーを作ってみた</a></h4>
+        <span>Published on January 20, 2019</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/~ryoya/github/ryoyakawai.com/blog/2018/12/31/endof2018.html" title="2018年最終日">2018年最終日</a></h4>
+        <span>Published on December 31, 2018</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Ryoya Kawai. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/scripts.min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-116678332-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+<!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '美味しい毎日のブログ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+-->
+
+
+	        
+
+<script type="text/javascript" src="/~ryoya/github/ryoyakawai.com/blog/assets/js/header-title-post.js"></script>
+
+</body>
+</html>

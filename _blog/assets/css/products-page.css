@@ -1,0 +1,17 @@
+body {
+  background-color: rgba(244, 244, 244, 1)
+}
+h1.header-product-title-text {
+  color: rgba(58, 149, 195, 1)
+}
+h2 {
+  margin-bottom: 10px !important
+}
+h1.pp-title {
+  font-size:2.2em;
+  margin-bottom: 0px
+}
+div#ss-pp {
+  margin: 60px 0 0 0;
+  font-size: 0.7em;
+}

@@ -1,0 +1,503 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Web MIDI API Wrapper 公開したよ ^^v (2) &#8211; Delicious Days</title>
+<meta name="description" content="">
+<meta name="keywords" content="Web MIDI API, Web Music">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ryoyakawai">
+<meta name="twitter:title" content="Web MIDI API Wrapper 公開したよ ^^v (2)">
+<meta name="twitter:text:title" content="Web MIDI API Wrapper 公開したよ ^^v (2)">
+<meta name="twitter:creator" content="@ryoyakawai">
+<meta name="twitter:image" content="/~ryoya/github/ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta name="twitter:description" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="summary">
+<meta property="og:image" content="/~ryoya/github/ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta property="og:title" content="Web MIDI API Wrapper 公開したよ ^^v (2)">
+<meta property="og:description" content="">
+<meta property="og:url" content="/~ryoya/github/ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html">
+<meta property="og:site_name" content="Web MIDI API Wrapper 公開したよ ^^v (2)">
+
+
+
+
+
+<link rel="canonical" href="/~ryoya/github/ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html">
+<link href="/~ryoya/github/ryoyakawai.com/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Polymer -->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="/~ryoya/github/ryoyakawai.com/blog/assets/components/youtube-play.html">
+<link rel="import" href="/~ryoya/github/ryoyakawai.com/blog/assets/components/language-selector.html">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/~ryoya/github/ryoyakawai.com/blog/images/profile_photo.jpg">
+<link rel="icon" type="image/jpeg" href="/~ryoya/github/ryoyakawai.com/blog/images/profile_photo.jpg">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/header-title.css">
+  <link rel="stylesheet" type="text/css" href="/~ryoya/github/ryoyakawai.com/blog/assets/css/post.css">
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/~ryoya/github/ryoyakawai.com/blog/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/~ryoya/github/ryoyakawai.com/blog/images/avatar.jpg" alt="Ryoya Kawai photo" class="author-photo">
+					<h4>Ryoya Kawai</h4>
+					<p></p>
+				</li>
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:blog@ryoyakawai.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/ryoyakawai"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://facebook.com/ryoyakawai"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				<li>
+					<a href="https://google.com/+ryoyakawai"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/ryoya-kawai-11342b57"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/ryoyakawai"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/posts/">All Posts</a></li>
+				<li><a href="/~ryoya/github/ryoyakawai.com/blog/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap entry-header">
+        
+          <h1 class="entry-title entry-title-post header-title-text"><a href="/~ryoya/github/ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html" rel="bookmark" title="Web MIDI API Wrapper 公開したよ ^^v (2)">Web MIDI API Wrapper 公開したよ ^^v (2)</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2013-08-24T00:00:00+09:00">August 24, 2013</time></span></h2>
+<!--
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+
+        </p>--><!-- /.entry-reading-time -->
+        <!---->
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="//apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+<script id="pocket-btn-js" src="//widgets.getpocket.com/v1/j/btn.js?v=1"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12&appId=611626902509108&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="social-share">
+  <style>
+    .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
+    .fb-like span {vertical-align: inherit !important}
+  </style>
+  <a href="http://b.hatena.ne.jp/entry//~ryoya/github/ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
+  <div class="fb-like" data-href="/~ryoya/github/ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+</div>
+
+
+      <div> </div>
+
+<p><a href="/~ryoya/github/ryoyakawai.com/blog/2013/08/webmidiapi-wrapper.html" target="_blank">前回</a>に引き続き <a href="https://github.com/ryoyakawai/WebMIDIAPIWrapper" target="_blank">Web MIDI API Wrapper</a> についての説明です。今回は具体的な MIDI メッセージの送信の方法になります。</p>
+
+<p>本題の前に、またまた MIDI ってどこで使われているかコーナーです。
+MIDI には Show Control(MSC) という仕様があります。
+前回の Universal Studio の Water World も MSC の一例でした。今回もその続きです。
+そして Showといえば、Las Vegas かな？っていう勝手な想いがありまして、
+今回はそこで利用されている例です。<a href="http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%B3%E3%82%BA11" target="_blank">映画 Ocean’s Eleven</a> って御存知ですか？？
+Las Vegas のカジノに泥棒に入るっていうストーリーですが、
+最後のシーンで噴水ショーがが出てくるんです。あれが Las Vegas の
+ベラージオ (<a href="http://www.bellagiolasvegas.com/ja/" target="_blank">Bellagio</a>) のショーというのは有名だと思います。なんと、あのコントロールのオリジナルのシステムは MIDI なんですよ〜！！</p>
+
+<div>
+  <youtube-play contentid="401wv1eKc2c" size="80%" imgsrc="/~ryoya/github/ryoyakawai.com/blog/images/2013/08/20130824-fountain.png" start="0" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>さて、本題です。前回もお伝えしましたが、Web MIDI API Wrapperは基本的な以下のメッセージに対応にしています。</p>
+
+<ul>
+  <li>NoteOn：音を鳴らす</li>
+  <li>NoteOff：音を止める</li>
+  <li>PitchBend：ピッチを上下させる</li>
+  <li>Sustain：ダンパーペダルの操作</li>
+  <li>Modulation：揺らぎ</li>
+  <li>AllSoundOff：残響、Sustainを含め即時に全ての音を止める</li>
+  <li>ResetAllController：PitchBend、After-Touchなどのコントローラを初期値に戻す</li>
+  <li>AllNoteOff：発音している音を全て止める</li>
+</ul>
+
+<p>ということで、まずは NoteOn/NoteOff についてです。
+NoteOnは「音を発音させてね」、NoteOffは「発音している音を停止させてね」
+を知らせる Message です。えっ「コンピュータで音を鳴らすんだから、
+例えばNoteOnの時にどれだけ長さ(時間)音を出すか指定しちゃえばいいじゃない。」
+という印象をお持ちの方もいらっしゃると思いますが、もともと MIDI というのは電子楽器と電子楽器を
+つなげ相互にコントロールを可能とする Protocol なので、コンピュータなら最初から音を出す時間を指定できちゃいますが、
+リアルタイムの演奏ではそれはできないですよね〜、というところから NoteOn、NoteOff に分かれているのです。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendNoteOn</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">note</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>note：鳴らすnote番号を指定</li>
+  <li>velocity：鳴らすnoteのvelocityを指定</li>
+  <li>time：音を鳴らすタイミング(いつ音を鳴らすかをミリ秒で指定)</li>
+</ul>
+
+<p>NoteOnのvelocityに関して：velocityを直訳すると「速さ、速力」ですが、MIDI機器側では音の強弱に割り当てられている場合がほとんどです。数値の目安は1：ppp、64：mpとmfの中間、127：fff というのが目安です。
+note番号に関して：中央のC(C4：ド)を60として白鍵、黒鍵関係なく鍵盤1つに対して数字が割り当てられています。
+よって、88鍵ですと21〜108まで割り当てられていることになります。
+例えばC4の右隣の白鍵D4は62、その間にある黒鍵は61です。<a href="http://upload.wikimedia.org/wikipedia/commons/7/7a/NoteNamesFrequenciesAndMidiNumbers.svg" target="_blank">note番号の図</a>  右にスクロールすると見えてきます。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendNoteOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">note</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>note：停止するnote番号を指定</li>
+  <li>velocity：停止するnoteのvelocityを指定</li>
+  <li>time：音を停止するタイミング(いつ音を鳴らすかをミリ秒で指定)</li>
+  <li>NoteOffのvelocityに関して：鍵盤から手を離す速度と認識する機器もあり、その場合は音の余韻の長さを指定できます。NoteOnのvelocityをゼロにしてNoteOffの代わりにすることも可能です。
+<br />
+<br /></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendProgramChange</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">programNo</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>programNo：変更する音色番号</li>
+  <li>time：適応するタイミング(いつ音色を変更するかミリ秒で指定)</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">setPitchBendValue</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">center</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：設定するMIDI機器(Port)を指定</li>
+  <li>min：PitchBendの最小値</li>
+  <li>max：PitchBendの最大値</li>
+  <li>center：PitchBendの中央値(PitchBendがかかっていない状態)</li>
+  <li>PitchBendに関して：範囲は16383と決まっていますが、MIDI機器によって中央を0、または中央が8192と違う場合があります。Web MIDI API Wrapperの初期設定値は中央：8192、最小：0、最大：16383 としています。</li>
+  <li>sendPitchBend(portNo, ch, value, time);</li>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>value：適応するPitchBendの値を指定</li>
+  <li>time：適応するタイミング(いつPitchBendを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>数値に関してはここが参考になると思います。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendSustainStatus</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>status：Sustainの指定を”on”、”off”で指定</li>
+  <li>time：適応するタイミング(いつSustainを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>Sustainとは：ピアノで言うと一番右のペダルを踏んだ時の効果です。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendModulationValue</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>value：Modulationのかけ具合を数値で指定</li>
+  <li>time：適応するタイミング(いつModulationを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>Modulationとは：音の揺らぎです。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">endAllSoundOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつallSoundOffを適応すかをミリ秒で指定)</li>
+  <li>Sustainが動作していて、残響があったとしても即座に全ての音を停止する。AllNoteOffよりも強力。
+<br />
+<br /></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendAllNoteOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつallNoteOffを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>その名の通りで、全てのNoteOnをNoteOffにする。よって、Sustainが動作していて残響ある場合はこの範囲ではない。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendResetAllController</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつResetAllControllerを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>PitchBend, After-Touch等のコントローラを初期値に戻す。 
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">sendRaw</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>msg：送信するMIDIメッセージをArray型で指定</li>
+  <li>time：適応するタイミング(いつSustainを適応すかをミリ秒で指定)
+生のMIDIメッセージを送ることができます。例えばSysExを送信します。</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">initializePerformanceNow</span><span class="p">();</span>
+</code></pre>
+</div>
+
+<p>時間を初期化して、現在をスタート時間とします。再生する前に必ず実行してください。</p>
+
+<p>さて、以上が Web MIDI API Wrapper が現状サポートしている MIDI メッセージになります。それでは引き続き実際に、 NoteOn/NoteOff と ProgramChange で馴染みのあるだろうこんなのを作ってみました。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="cm">/** 
+ * 前回からの引き続きですので、Constructor は引き継いていでいます。
+ * 詳しくは前回のPOSTを御覧ください。 
+ */</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">initializePerformanceNow</span><span class="p">();</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendProgramChange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>詳しく見てみます。</p>
+
+<ul>
+  <li>5行目：時間を初期化</li>
+  <li>6行目：音色を12（マリンバ）に変更</li>
+  <li>8, 9行目：D4(レ)を120ms鳴らす</li>
+  <li>11, 12行目：A4(ラ)を120ms鳴らす</li>
+  <li>14, 15行目：D5(レ)を120ms鳴らす</li>
+</ul>
+
+<p>ということが行われています。
+実際にどうなるかというのは <a href="https://dl.dropboxusercontent.com/u/695740/WebMIDIAPIWrapper/index.html" target="_blank">デモページ</a> のここ▼に実装してありますので試してみてください。多分聞いたことがあると思いますよ。</p>
+
+<div class="post-image-center">
+  <img src="/~ryoya/github/ryoyakawai.com/blog/images/2013/08/20130824-webmidiapiwrapper-demo.png" width="80%" />
+</div>
+
+<p>では今回はこの辺にして、次回は初心に戻り、素で Web MIDI API を使う場合について説明していこうと思います！！</p>
+
+<p>お楽しみに^^v
+<br />
+<br /></p>
+
+<p>[更新履歴] 2013/08/26 sendRaw() の説明を追加しました。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Web MIDI API" title="Pages tagged Web MIDI API" class="tag"><span class="term">Web MIDI API</span></a><a href="/~ryoya/github/ryoyakawai.com/blog/tags/#Web Music" title="Pages tagged Web Music" class="tag"><span class="term">Web Music</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2013-08-24">August 24, 2013</time></span></span>
+        <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
+      </footer>
+    </div><!-- /.entry-content -->
+<!--
+    <section id="disqus_thread"></section><!-- /#disqus_thread --><!---->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/~ryoya/github/ryoyakawai.com/blog/2013/08/22/web-midi-api-send.html" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3 class="read-more-next"><a href="/~ryoya/github/ryoyakawai.com/blog/2019/02/01/farewellparty.html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！">旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</a></h3>
+      <span class="read-more-next">Published on February 01, 2019</span>
+      <p> <a href="/~ryoya/github/ryoyakawai.com/blog/2019/02/01/farewellparty.html">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/~ryoya/github/ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" title="パンダエクスプレスメニューのコピーを作ってみた">パンダエクスプレスメニューのコピーを作ってみた</a></h4>
+        <span>Published on January 20, 2019</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/~ryoya/github/ryoyakawai.com/blog/2018/12/31/endof2018.html" title="2018年最終日">2018年最終日</a></h4>
+        <span>Published on December 31, 2018</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Ryoya Kawai. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/~ryoya/github/ryoyakawai.com/blog/assets/js/scripts.min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-116678332-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+<!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '美味しい毎日のブログ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+-->
+
+
+	        
+
+<script type="text/javascript" src="/~ryoya/github/ryoyakawai.com/blog/assets/js/header-title-post.js"></script>
+
+</body>
+</html>

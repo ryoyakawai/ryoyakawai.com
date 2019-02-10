@@ -1,0 +1,341 @@
+<!--
+     Copyright 2018 Ryoya Kawai
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<link rel="import"  href="./polymer-2.x/polymer-element.html">
+
+<dom-module id="youtube-play">
+  
+  <template>
+    <style>
+     :host {
+       display: block;
+     }
+     .outer-container {
+       position:relative;
+       margin: 5px 0 15px 0;
+     }
+     #container {
+       display: flex;
+       justify-content: center;
+     }
+
+     #playme,
+     #youtube-iframe {
+       box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.1);
+       transition: 0.3s;
+       border-radius: 5px;
+     }
+     #youtube-iframe {
+       opacity: 0;
+     }
+     .yt-button-frame {
+       position: relative;
+     }
+     
+     .yt-image,
+     .yt-button {
+       position: absolute;
+       align-items: center;
+       justify-content: center;       
+       cursor: pointer;
+     }
+     .yt-button {
+       z-index:1;
+       transition: 0.4s;
+     }
+     .ytplay { 
+       background: #8e8e8e;
+       border-radius: 50% / 10%;
+       color: #FFFFFF;
+       font-size: 2em; /* change this to change size */
+       height: 3em;
+       margin: 20px auto;
+       padding: 0;
+       position: relative;
+       text-align: center;
+       text-indent: 0.1em;
+       transition: all 150ms ease-out;
+       width: 4em;
+     }
+
+     .ytplay:hover {
+       background: hsl(0, 100%, 50%);
+     }
+
+     .ytplay::before { 
+       background: inherit;
+       border-radius: 5% / 50%;
+       bottom: 9%;
+       content: "";
+       left: -5%;
+       position: absolute;
+       right: -5%;
+       top: 9%;
+     }
+
+     .ytplay::after {
+       border-style: solid;
+       border-width: 1em 0 1em 1.732em;
+       border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+       content: ' ';
+       font-size: 0.75em;
+       height: 0;
+       margin: -1em 0 0 -0.75em;
+       top: 50%;
+       position: absolute;
+       width: 0;
+     }
+     .ytiframe {
+       display: flex;
+       align-items: center;
+       justify-content: center;       
+       width: 100%;
+       height: 100%;
+     }
+
+
+    </style>
+    <div class="outer-container">
+      <div id="container" class="yt-button-frame">
+        <div class="yt-button"><div class="ytplay"></div></div>
+      </div>
+      <div id="container" class="yt-image-frame">
+        <div class="yt-image"><img id="playme" src=""></div>
+      </div>
+    </div>
+
+  </template>
+  
+  <script type="text/javascript">
+   class YouTubePlay extends Polymer.Element {
+
+       static get is() { return "youtube-play"; }
+
+       static get youtubeurl () { return 'https://www.youtube.com/embed/'; }
+       
+       static get template() {
+           let templateContents = Polymer.DomModule.import(this.is, 'template');
+           return templateContents;
+       }
+       
+       static get properties() {
+           return {
+               width: {
+                   type: Number,
+                   value: '',
+                   reflectToAttribute: true
+               },
+               uniqid: {
+                   type: String,
+                   value: '',
+                   notify: true,
+                   reflectToAttribute: true
+               }
+
+           }
+       }
+       
+       ready () {
+           super.ready();
+           console.log(YouTubePlay.is + ' is ready!');
+
+           this.max = { width:0, height: 0 };
+           this.max.width = 800 + 'px';
+           this.max.height = 9 * parseInt(this.max.width) / 16 + 'px'; 
+           
+           let shadowR = this.shadowRoot;
+           let iSize = this._computeHeight.bind(this)();
+           let tSize = parseInt(this.getAttribute('size')) / 100;
+           this.height = tSize * parseInt(iSize.height) + 'px';
+           this.width = tSize * parseInt(iSize.width) + 'px';
+           this.uniqid = this._createUniqid();
+           
+           window.addEventListener('resize', event => {
+               let iSize = this._computeHeight.bind(this)();
+               let tSize = parseInt(this.getAttribute('size')) / 100;
+               this.height = tSize * parseInt(iSize.height) + 'px';
+               this.width = tSize * parseInt(iSize.width) + 'px';
+               
+               let shadowR = this.shadowRoot;
+               shadowR.querySelector('#playme').style.setProperty('height', this.height);
+               shadowR.querySelector('.outer-container').style.setProperty('height', this.height);
+               shadowR.querySelector('.yt-button-frame').style.setProperty('top', _computeButtonTop.bind(this)() );
+               if(shadowR.querySelector('#youtube-iframe')!=null) {
+                   shadowR.querySelector('#youtube-iframe').style.setProperty('height', this.height);
+                   shadowR.querySelector('#youtube-iframe').style.setProperty('width', this.width);
+               }
+
+           });
+           
+           let img = this.shadowRoot.querySelector('#playme');
+           img.src = this.getAttribute('imgsrc');
+           img.style.height = this.height;
+           //img.style.height = this.height;
+           
+           document.body.addEventListener('kickout', kickEventHandler.bind(this));
+           function kickEventHandler( event ) {
+               if(event.detail.uniqid != this.uniqid) {
+                   this.removeAttribute('playing');
+                   this.hideVideo( event );
+               }
+           }
+    
+           // YouTube Button: size 140 x 82
+           function _computeButtonTop () {
+               let out = Math.abs( parseInt(this.height) / 2 - 65) + 'px';
+               if( parseInt(this.width) >= this.max.width ) {
+                   out = Math.abs( (this.max.height * parseInt(this.getAttribute('size')) / 100) / 2 - 65) + 'px';
+               }
+               return out;
+           }
+
+           shadowR.querySelector('.yt-button-frame').style.setProperty('top', _computeButtonTop.bind(this)() );
+           shadowR.querySelector('.outer-container').style.setProperty('height', this.height);
+
+           let start = 0;
+           if(this.getAttribute('start').match(':') != 0) {
+               let startTime = this.getAttribute('start').split(':');
+               var pow = 0;
+               while(startTime.length > 0) {
+                   start = start + Math.pow(60, pow) * startTime.pop();
+                   pow++;
+               }
+           } else if(this.getAttribute('start').match(/[0-9]*/) != 0) {
+               start = this.getAttribute('start');
+           }
+           start = 'start=' + start;
+
+           let rel = ( this.getAttribute('rel') == 0 ) ? 'rel=0' : '';
+           let controls = ( this.getAttribute('controls') == 0 ) ? 'controls=0' : '';
+           let showinfo = ( this.getAttribute('showinfo') == 0 ) ? 'showinfo=0' : '';
+           let autoplay = ( this.getAttribute('autoplay') == 1 ) ? 'autoplay=1' : '';
+
+           // adding autoplay to the URL
+           this.ytContenturl = 
+               YouTubePlay.youtubeurl + this.getAttribute('contentid')
+               + '?' + rel + '&' + controls + '&' + showinfo
+               + '&' + start + '&' + autoplay;
+       }
+
+       _createUniqid() {
+           return '_' + Math.random().toString(36).substr(2, 14);
+       }
+       
+       _computeHeight() {
+           // convert width to height by 16:9 aspect ratio.
+           let out = {
+               width:  Math.floor(( parseInt(this.getAttribute('size')) / 100) * window.innerWidth ) + 'px',
+               height: Math.floor(( parseInt(this.getAttribute('size')) / 100) * (9 * window.innerWidth / 16)) + 'px'
+           }
+               
+           if( parseInt(out.width) >=  parseInt(this.max.width) ) {
+               out = this.max;
+           }
+           return out;
+       }
+       
+       revealVideo( event ) {
+           event.stopPropagation();
+           event.preventDefault();
+
+           document.body.dispatchEvent(new CustomEvent('kickout', { detail : {uniqid: this.uniqid} } ));
+
+           let shadowR = this.shadowRoot;
+
+           let iframe = document.createElement('iframe');
+           iframe.id = 'youtube-iframe';
+           iframe.width = this.width;
+           iframe.height = this.height;
+           
+           iframe.setAttribute('frameborder', '0');
+           iframe.src = this.ytContenturl;
+
+           
+           if( this.getAttribute('allowfullscreen') == 1 ) {
+               iframe.setAttribute('allowfullscreen', 'allowfullscreen');
+           }
+
+           let div = document.createElement('div');
+           div.classList.add('ytiframe');
+           div.appendChild(iframe);
+
+           shadowR.querySelector('.outer-container').appendChild(div);
+
+           shadowR.querySelector('#playme').style.setProperty('opacity', '0');
+           shadowR.querySelector('.yt-button').style.setProperty('opacity', '0');
+           setTimeout( function() {
+               shadowR.querySelector('#playme').style.setProperty('display', 'none');
+               shadowR.querySelector('#playme').style.removeProperty('opacity');
+               shadowR.querySelector('.yt-button').style.setProperty('display', 'none');
+               shadowR.querySelector('.yt-button').style.removeProperty('opacity');
+               shadowR.querySelector('#youtube-iframe').style.setProperty('opacity', '1');
+           }, 400);
+
+       }
+
+       // Hiding the lightbox and removing YouTube autoplay
+       hideVideo( event ) {
+           event.stopPropagation();
+           event.preventDefault();
+
+           if( this.shadowRoot.querySelector('#youtube-iframe') === null ) {
+               return;
+           }
+
+           this.shadowRoot.querySelector('#playme').style.removeProperty('display');
+           this.shadowRoot.querySelector('.yt-button').style.removeProperty('display');
+           let rmTarget = this.shadowRoot.querySelector('#youtube-iframe');
+           rmTarget.parentNode.remove(rmTarget);
+       }
+       
+       created () {
+           super.created();
+       }
+
+       connectedCallback () {
+           super.connectedCallback();
+
+           let playMe = this.shadowRoot.querySelector('#playme');
+           playMe.addEventListener('mousedown', this.revealVideo.bind(this));
+
+           let ytPlayButton = this.shadowRoot.querySelector('.ytplay');
+           ytPlayButton.addEventListener('mousedown', this.revealVideo.bind(this));
+           
+           let outerContainer = this.shadowRoot.querySelector('.outer-container');
+           outerContainer.addEventListener('mousedown', this.hideVideo.bind(this)); 
+       }
+
+       disconnectedCallback () {
+           super.disconnectedCallback();
+       }
+       
+       detached () {
+           super.detached();
+       }
+
+       attributeChangedCallback (name, old, value) {
+           super.attributeChangedCallback(name, old, value);
+       }
+
+       attributeChanged () {
+           super.attributeChanged();
+       }
+       
+   }
+   customElements.define(YouTubePlay.is, YouTubePlay);
+  </script>
+
+</dom-module>
