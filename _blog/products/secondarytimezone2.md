@@ -9,10 +9,10 @@ image:
 og:
   locale: en_US
   tw_card_type: app
-  tw_card_image: /images/products/secondarytimezone2/product-image-1200x630.png
+  tw_card_image: https://ryoyakawai.com/blog/images/products/secondarytimezone2/product-image-1200x630.png
   type: website
   site_name: Product Page of Secondary Timezone 2
-  image: /images/products/secondarytimezone2/product-image-sm.png
+  image: https://ryoyakawai.com/blog/images/products/secondarytimezone2/product-image-sm.png
   title: Secondary Timezone 2 for Fitbit
   description: App to dispaly two timezone
 comments: false
@@ -21,7 +21,7 @@ modified: 2018-12-31
 {% if page.share != false %}{% include social-share.html %}{% endif %}
 
 <div class="post-image-center">
-<img src="/images/products/secondarytimezone2/product-image-sm.png" width="100%" style="border:1px solid #eee;">
+<img src="{{ site.url }}/images/products/secondarytimezone2/product-image-sm.png" width="100%" style="border:1px solid #eee;">
 </div>
 
 ## What is the Secondary Timezonee 2?
@@ -72,13 +72,13 @@ All of the Q&A listed below is the as of December 2018.
 </ul>
 
 <div class="post-image-center">
-<img src="/images/products/secondarytimezone2/howtosetup00.png" width="80%" style="border:1px solid #eee;">
+<img src="{{ site.url }}/images/products/secondarytimezone2/howtosetup00.png" width="80%" style="border:1px solid #eee;">
 </div>
 
 <div id="ss-pp" class="post-image-center">
 <a href="https://gam.fitbit.com/gallery/clock/7fddd4e5-fe97-40ae-9c06-f9dbbbc3498f" target="_blank">Clockface Page</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="/products/secondarytimezone2pp" target="_blank">Privacy Policy</a>
+<a href="{{ site.url }}/../products/secondarytimezone2pp" target="_blank">Privacy Policy</a>
 </div>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
