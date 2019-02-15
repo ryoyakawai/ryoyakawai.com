@@ -399,21 +399,21 @@ export class MIDIUtils {
           }
           break;
         case "c":
-        	 event.subType = 'programChange';
-				      event.programNumber = msg[1];
+ 	        event.subType = 'programChange';
+          event.programNumber = msg[1];
           break;
-				    case "d":
-				      event.subType = 'channelAftertouch';
-				      event.amount = msg[1];
+        case "d":
+          event.subType = 'channelAftertouch';
+          event.amount = msg[1];
           break;
-				    case "e":
-				      event.subType = 'pitchBend';
+        case "e":
+          event.subType = 'pitchBend';
           let msb = msg[2], lsb = msg[1];
           if( (msg[2]>>6).toString(2) == "1" ) {
             event.value = -1*(((msb-64)<<7) + lsb +1) ;
           } else {
             let bsMsb = msb<<7;
-				        event.value  =  bsMsb + lsb;
+            event.value  =  bsMsb + lsb;
           }
           break;
         default:
