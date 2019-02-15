@@ -1,3 +1,18 @@
+/**
+ * Copyright (c) 2019 Ryoya Kawai. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
 "use strict";
 
 export class MIDIUtils {
@@ -42,7 +57,7 @@ export class MIDIUtils {
       this.connectedDevice = await navigator.bluetooth.requestDevice(ble_options);
       let server = await this.connectedDevice.gatt.connect();
       let service = await server.getPrimaryService(this.SERVICE_UUID);
-		    await this.startBleMIDIService(service, this.MIDI_CHARA_UUID);
+      await this.startBleMIDIService(service, this.MIDI_CHARA_UUID);
       this.startBleCallabck();
     } catch(err) {
       console.log("[ERROR] " + err);
@@ -81,11 +96,11 @@ export class MIDIUtils {
     let out = [];
     let str = "";
     for (let i = 0; i < data.buffer.byteLength; i++) {
-		    let val = data.getUint8(i);
-		    //if (val < 0x10) str += "0";
-		    str += val.toString(16) + " ";
+      let val = data.getUint8(i);
+      //if (val < 0x10) str += "0";
+      str += val.toString(16) + " ";
       out.push(val);
-	   }
+    }
     event.detail = this.parseMIDIMessage(out.slice(2));
     this.onMidiEventHandleCallback.bind(this)(event);    
   }
@@ -212,8 +227,8 @@ export class MIDIUtils {
           break;
         case "b":
           event.subType = "controller";
-				      event.ctrlNo  =  msg[1];
-				      event.value  =  msg[2];
+		        event.ctrlNo  =  msg[1];
+		        event.value  =  msg[2];
           switch(event.ctrlNo) {
           case 0x00:
           case "0x00":
@@ -399,7 +414,7 @@ export class MIDIUtils {
           }
           break;
         case "c":
- 	        event.subType = 'programChange';
+          event.subType = 'programChange';
           event.programNumber = msg[1];
           break;
         case "d":
@@ -430,7 +445,5 @@ export class MIDIUtils {
     };
     return out;
   }
-  
-
 }
 
