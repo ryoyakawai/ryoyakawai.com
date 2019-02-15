@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MIDI Message Viewer | HTML5 Conference 2016</title>
+    <meta name="theme-color" content="#424242">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="./md/material.green-light_green.min.css">
+    <link rel="stylesheet" href="./md/icon_family_material_icons.css">
+    <script src="./md/material.min.js"></script>
+    <link href="./md/family_roboto_mono.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <script type="text/javascript" src="register_sw.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="bower_components/x-webmidi/x-webmidirequestaccess.html">
+    <div id="title">MIDI Message Viewer</div>
+
+    <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
+    <div id="inputblock">
+      <div>
+        <span><button id="start-ble">Connect BLE MIDI</button></span>
+      </div>
+      <div>
+        <span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span>
+      </div>
+      <div>
+        <span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span>
+      </div>
+      
+      <div id="disp-msg-exp">
+        <div id="button-area">
+          <div id="state-button">
+            <button id="disp-state" class="mdl-button mdl-js-button mdl-button--icon">
+              <i id="disp-state-icon" class="material-icons">pause_circle_outline</i>
+            </button>
+          </div>
+          <div id="clear-button">
+            <button id="clear-button" class="mdl-button mdl-js-button mdl-button--icon">
+              <i id="clear-icon" class="material-icons">clear_all</i>
+            </button>
+          </div>
+        </div>
+        <div id="clear"></div>
+
+        <div id="exp-msg"></div>
+        <div id="exp-name"></div>
+      </div>
+
+      <div id="message-area">
+        <div id="disp-input-port"></div>
+        <div id="message-history"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./scripts/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116678332-1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-116678332-1');
+    </script>
+
+  </body>
+</html>
