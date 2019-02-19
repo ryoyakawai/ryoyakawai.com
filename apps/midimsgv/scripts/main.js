@@ -27,10 +27,12 @@ mdUtls.setnMidiEventHandleCallback( event => {
 mdUtls.setStartBleCallabck( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth_connected";
   document.getElementById("start-ble").classList.add('ble-connected');
+  updateFavicon();
 });
 mdUtls.setEndBleCallabck( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth";
   document.getElementById("start-ble").classList.remove('ble-connected');
+  updateFavicon();
 });
 document.querySelector("#start-ble").addEventListener("mousedown", event => {
   let state = mdUtls.getDeviceConnected();
@@ -40,6 +42,22 @@ document.querySelector("#start-ble").addEventListener("mousedown", event => {
     mdUtls.endBle.bind(mdUtls)(event);
   }
 }, false);
+function updateFavicon() {
+  let head_ = document.getElementsByTagName('head');
+  let link_ = head_[0].getElementsByTagName('link');
+  for( let key in link_) {
+    if(typeof link_[key].relList != 'undefined' ) {
+      if(link_[key].relList.contains('icon')) {
+        if(link_[key].href.match(/_on/) != null) {
+          link_[key].href = link_[key].href.replace('_on', '_off');
+        } else {
+          link_[key].href = link_[key].href.replace('_off', '_on');
+        }
+        //console.log(link_[key].href);
+      }
+    }
+  }
+}
 
 
 // for legacy wired MIDI
