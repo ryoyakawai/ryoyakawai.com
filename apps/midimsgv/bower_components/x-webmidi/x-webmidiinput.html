@@ -101,20 +101,20 @@ Polymer({
                 if(result.autoselected===true) {
                     // fire setMIDIINDevice
                     var target={"value":result.idx}
-                    self.setMIDIINDevice.bind(self)(target);
+                  self.setMIDIINDevice.bind(self)(target);
                     self.fire("midiin-autoselected:"+self.id, {"idx": result.idx});
                 }
                 self.$["midiin"].addEventListener("change", function(event){
                     self.setMIDIINDevice.bind(self)(event.target);
                 });
                 self.midiAccess.addEventListener("x-webmidi:input-updated", function(event){
-                    var result={"autoselected": false, "idx":false};
+                  var result={"autoselected": false, "idx":false};
                     var port=event.detail.port, detail=event.detail;
                     var elem=self.$["midiin"];
                     var selected=false
                     switch(detail.member) {
                         case "new":
-                            result=self.midiAccess.addOptions("input", "add", detail, elem, selected, self.autoselect);
+                        result=self.midiAccess.addOptions("input", "add", detail, elem, selected, self.autoselect);
                             break;
                         case "old":
                             if(self.autoreselect==false && port.state=="disconnected") {

@@ -9,7 +9,7 @@ let timerId = 0;
 
 document.querySelector("#clear-button").addEventListener("mousedown", clearToDefault, false);
 
-// for MIDI over Web Bluetooth
+// for Web Bluetooth
 let mdUtls = new MIDIUtils();
 let state = mdUtls.getDeviceConnected();
 mdUtls.setnMidiEventHandleCallback( event => {
@@ -42,7 +42,7 @@ document.querySelector("#start-ble").addEventListener("mousedown", event => {
     mdUtls.endBle.bind(mdUtls)(event);
   }
 }, false);
-function updateFavicon() {
+const updateFavicon = () => {
   let head_ = document.getElementsByTagName('head');
   let link_ = head_[0].getElementsByTagName('link');
   for( let key in link_) {
@@ -53,18 +53,17 @@ function updateFavicon() {
         } else {
           link_[key].href = link_[key].href.replace('_off', '_on');
         }
-        //console.log(link_[key].href);
       }
     }
   }
-}
+};
 
 
-// for legacy wired MIDI
+// for Web MIDI
 window.addEventListener('midiin-event:input-port', event => {
   // send msg to output
-  let output=document.getElementById("output-port");
-  if(output.checkOutputIdx!="false") {
+  let output = document.getElementById("output-port");
+  if(output.checkOutputIdx != "false") {
     output.sendRawMessage(event.detail.data);
   }
 
@@ -75,13 +74,12 @@ window.addEventListener('midiin-event:input-port', event => {
   } else {
     dispParsedMIDI(event);
     dispParsedMIDIExp(event);
-
     window.clearTimeout(timerId);
     timerId = window.setTimeout(() => {
       timerId = timerId;
       if(dispState == "remove") {
         clearToDefault();
-        document.querySelector("#disp-input-port").innerText="";
+        document.querySelector("#disp-input-port").innerText = "";
       }
     }, 3000);
   }
@@ -89,19 +87,19 @@ window.addEventListener('midiin-event:input-port', event => {
 
 document.querySelector("#disp-state").addEventListener("mousedown", event => {
   let outVal=0;
-  if(dispState=="leave") {
-    dispState="remove";
-    event.target.innerHTML="pause_circle_outline";
+  if(dispState == "leave") {
+    dispState = "remove";
+    event.target.innerHTML = "pause_circle_outline";
     outVal=0x00;
   } else {
-    dispState="leave";
-    event.target.innerHTML="play_circle_outline";
-    outVal=0x40;
+    dispState = "leave";
+    event.target.innerHTML = "play_circle_outline";
+    outVal = 0x40;
   }
   // search output port which has same name with input port
   let midi = document.getElementById("x-webmidi").midi;
   let outputs = midi.outputs, inputs = midi.inputs;
-  let inputIdx=document.getElementById("input-port").inputIdx;
+  let inputIdx = document.getElementById("input-port").inputIdx;
   for(let i=0; i<outputs.length; i++) {
     if(outputs[i].name == inputs[inputIdx].name) {
       outputs[i].send([0xb0, 0x11, outVal]);

@@ -118,7 +118,8 @@ Polymer({
                 }
                 if(event.port.type=="input") this.midi.inputs=portList;
                 if(event.port.type=="output") this.midi.outputs=portList;
-                this.fire("x-webmidi:"+event.port.type+"-updated", {"idx": Idx, "member": (exist==true ? "old" : "new"), "port": event.port});
+              console.log(Idx);
+              this.fire("x-webmidi:"+event.port.type+"-updated", {"idx": Idx, "member": (exist==true ? "old" : "new"), "port": event.port});
             }.bind(this);
                 var inputIterator=access.inputs.values();
                 for(var o=inputIterator.next(); !o.done; o=inputIterator.next()) {
@@ -174,7 +175,8 @@ Polymer({
              */
         },
         addOptions: function(midiType, updateType, detail, selectElem, exSelected, autoSelect) {
-            var ports, result={"autoselected": false, "idx":false};
+          console.log(midiType, updateType, detail, selectElem, exSelected, autoSelect)
+          var ports, result={"autoselected": false, "idx":false};
             var addIdx=detail.idx;
             switch(midiType) {
                 case "output":

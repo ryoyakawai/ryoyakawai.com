@@ -30,45 +30,51 @@
     <script type="text/javascript" src="register_sw.js"></script>
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
     <link rel="import" href="bower_components/x-webmidi/x-webmidirequestaccess.html">
-    <div id="title">MIDI Message Viewer</div>
 
     <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
-    <div id="inputblock">
-      <div class="select-area-parent">
-        <div class="system-button-area">
-          <div><span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span></div>
-          <div><span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span></div>
-        </div>
-        <div class="separator"><div class="v-line">.</div></div>
-        <div class="ble-button-area">
-          <span><button id="start-ble" class="ble_button"><i id="ble-icon" class="material-icons">bluetooth</i></button></span>
-        </div>
-      </div>
-      <div id="disp-msg-exp">
-        <div id="button-area">
-          <div id="state-button">
-            <button id="disp-state" class="mdl-button mdl-js-button mdl-button--icon">
-              <i id="disp-state-icon" class="material-icons">pause_circle_outline</i>
-            </button>
+
+    <div class="content-parent">
+      <div class="content">
+        <div class="title">MIDI Message Viewer</div>
+
+        <div class="select-area-parent">
+          <div class="system-button-area">
+            <div><span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span></div>
+            <div><span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span></div>
           </div>
-          <div id="clear-button">
-            <button id="clear-button" class="mdl-button mdl-js-button mdl-button--icon">
-              <i id="clear-icon" class="material-icons">clear_all</i>
-            </button>
+          <div class="separator"><div class="v-line">.</div></div>
+          <div class="ble-button-area">
+            <span><button id="start-ble" class="ble_button"><i id="ble-icon" class="material-icons">bluetooth</i></button></span>
           </div>
         </div>
-        <div id="clear"></div>
+        
+        <div class="disp-msg-exp">
+          <div class="button-area">
+            <div class="state-button">
+              <button id="disp-state" class="mdl-button mdl-js-button mdl-button--icon">
+                <i id="disp-state-icon" class="material-icons">pause_circle_outline</i>
+              </button>
+            </div>
+            <div class="clear-button">
+              <button id="clear-button" class="mdl-button mdl-js-button mdl-button--icon">
+                <i id="clear-icon" class="material-icons">clear_all</i>
+              </button>
+            </div>
+          </div>
 
-        <div id="exp-msg"></div>
-        <div id="exp-name"></div>
-      </div>
+          <div id="exp-msg" class="exp-msg"></div>
+          <div id="exp-name" class="exp-name"></div>
+        </div>
 
-      <div id="message-area">
-        <div id="disp-input-port"></div>
-        <div id="message-history"></div>
+        <div class="message-area">
+          <div id="disp-input-port" class="disp-input-port"></div>
+          <div id="message-history" class="message-history"></div>
+        </div>
       </div>
     </div>
 
+    <div class="footer">(c) 2019 Ryoya Kawai</div>
+    
     <script type="module" src="./scripts/main.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

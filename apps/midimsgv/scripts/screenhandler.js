@@ -25,10 +25,11 @@ export const dispParsedMIDI = event => {
     }
     let keyName = key;
     if(key == "frequency") keyName = "freq";
-    out.push("[" + keyName + "] " + event.detail.property[key]);
+    let div = "<div>[" + keyName + "] " + event.detail.property[key] + "</div>";
+    out.push(div);
   }
   let disparea = document.getElementById(msg_disp_elemId);
-  disparea.innerHTML = out.join("<br>");
+  disparea.innerHTML = out.join("\n");
 };
 
 export const dispParsedMIDIExp = event => {
