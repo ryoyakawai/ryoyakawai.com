@@ -10,7 +10,8 @@ let timerId = 0;
 document.querySelector("#clear-button").addEventListener("mousedown", clearToDefault, false);
 
 // for MIDI over Web Bluetooth
-let mdUtls = new MIDIUtils();    
+let mdUtls = new MIDIUtils();
+let state = mdUtls.getDeviceConnected();
 mdUtls.setnMidiEventHandleCallback( event => {
   dispParsedMIDI(event);
   dispParsedMIDIExp(event);
@@ -24,14 +25,16 @@ mdUtls.setnMidiEventHandleCallback( event => {
   }, 3000);
 });
 mdUtls.setStartBleCallabck( event => {
-  document.getElementById("start-ble").innerText = "Disconnect BLE MIDI";
+  document.getElementById("ble-icon").innerHTML = "bluetooth_connected";
+  document.getElementById("start-ble").classList.add('ble-connected');
 });
 mdUtls.setEndBleCallabck( event => {
-  document.getElementById("start-ble").innerText = "Connect BLE MIDI";
+  document.getElementById("ble-icon").innerHTML = "bluetooth";
+  document.getElementById("start-ble").classList.remove('ble-connected');
 });
 document.querySelector("#start-ble").addEventListener("mousedown", event => {
-  let name = document.getElementById("start-ble").innerText;
-  if(name == "Connect BLE MIDI") {
+  let state = mdUtls.getDeviceConnected();
+  if(state == false) {
     mdUtls.startBle.bind(mdUtls)(event);
   } else {
     mdUtls.endBle.bind(mdUtls)(event);
@@ -46,7 +49,7 @@ window.addEventListener('midiin-event:input-port', event => {
   if(output.checkOutputIdx!="false") {
     output.sendRawMessage(event.detail.data);
   }
-  
+
   // handle input msg
   let out = [], disp = true;
   if(event.detail.data[0]==0xfe || event.detail.data[0]==0xf8) {

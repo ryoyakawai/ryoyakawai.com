@@ -33,16 +33,16 @@
 
     <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
     <div id="inputblock">
-      <div>
-        <span><button id="start-ble">Connect BLE MIDI</button></span>
+      <div class="select-area-parent">
+        <div class="system-button-area">
+          <div><span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span></div>
+          <div><span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span></div>
+        </div>
+        <div class="separator"><div class="v-line">.</div></div>
+        <div class="ble-button-area">
+          <span><button id="start-ble" class="ble_button"><i id="ble-icon" class="material-icons">bluetooth</i></button></span>
+        </div>
       </div>
-      <div>
-        <span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span>
-      </div>
-      <div>
-        <span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span>
-      </div>
-      
       <div id="disp-msg-exp">
         <div id="button-area">
           <div id="state-button">

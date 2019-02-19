@@ -17,14 +17,15 @@
 
 export class MIDIUtils {
   constructor() {
+    this.device_connected = false;
     this.MIDI_UUID = this.SERVICE_UUID =
       '03b80e5a-ede8-4b33-a751-6ce34ec4c700';
     this.MIDI_CHARA_UUID = '7772e5db-3868-4112-a1a9-f2669d106bf3';
     this.connectedDevice = null;
-    
+
     this.itnl2Key = new Array();
     this.key2Itnl = new Array();
-    
+
     let key = {
       "note": ["C", "D", "E", "F", "G", "A", "B"],
       "order": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
@@ -40,8 +41,14 @@ export class MIDIUtils {
     this.itnl2Key["A0"] = 21,  this.key2Itnl[21]="A0";
     this.itnl2Key["A#0"]= 22,  this.key2Itnl[22]="A#0";
     this.itnl2Key["B0"] = 23,  this.key2Itnl[23]="B0";
-    
+
     this.timerId = 0;
+  }
+  getDeviceConnected() {
+    return this.device_connected;
+  }
+  setDeviceConnected(state) {
+    this.device_connected = state;
   }
   convertKey2Itnl(keyno) {
     return this.key2Itnl[parseInt(keyno)];
@@ -51,7 +58,7 @@ export class MIDIUtils {
   }
   async startBle () {
     let ble_options = {
-      filters: [ {	services: [ this.MIDI_UUID ] } ]
+      filters: [ { services: [ this.MIDI_UUID ] } ]
     };
     try {
       this.connectedDevice = await navigator.bluetooth.requestDevice(ble_options);
@@ -70,12 +77,13 @@ export class MIDIUtils {
     this.startBleCallabck = callback;
   }
   endBle() {
-    if (this.connectedDevice===null
+    if (this.connectedDevice === null
         || typeof this.connectedDevice.gatt.connected == "undefined") {
       console.log('[No devices are connected!]');
     } else {
       this.connectedDevice.gatt.disconnect();
       console.log('[Disconnected]');
+      this.device_connected = false;
       this.endBleCallabck();
     }
   }
@@ -88,7 +96,8 @@ export class MIDIUtils {
   async startBleMIDIService(service, charUUID) {
     let characteristic = await service.getCharacteristic(charUUID);
     await characteristic.startNotifications();
-    console.log("[Connected] " + characteristic);
+    this.device_connected = true;
+    console.log("[Connected] ", characteristic.uuid);
     characteristic.addEventListener('characteristicvaluechanged', this.onMIDIEvent.bind(this));
   }
   onMIDIEvent(event) {
@@ -102,7 +111,7 @@ export class MIDIUtils {
       out.push(val);
     }
     event.detail = this.parseMIDIMessage(out.slice(2));
-    this.onMidiEventHandleCallback.bind(this)(event);    
+    this.onMidiEventHandleCallback.bind(this)(event);
   }
   setnMidiEventHandleCallback(callback) {
     this.onMidiEventHandleCallback = callback;
@@ -125,7 +134,7 @@ export class MIDIUtils {
       }
       let eventTypeByte = msg[0].toString(16);
       event.raw = msg;
-      
+
       if(eventTypeByte.substr(0,1) == "f") {
         // System Common Event & System Realtime
         switch(eventTypeByte) {
