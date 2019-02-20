@@ -1,0 +1,292 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Web Bluetooth経由でBluetooth MIDIデバイスを使う &#8211; Delicious Days</title>
+<meta name="description" content="">
+<meta name="keywords" content="WebMusic, WebBluetooth, MIDI">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ryoyakawai">
+<meta name="twitter:title" content="Web Bluetooth経由でBluetooth MIDIデバイスを使う">
+<meta name="twitter:text:title" content="Web Bluetooth経由でBluetooth MIDIデバイスを使う">
+<meta name="twitter:creator" content="@ryoyakawai">
+<meta name="twitter:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta name="twitter:description" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="summary">
+<meta property="og:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta property="og:title" content="Web Bluetooth経由でBluetooth MIDIデバイスを使う">
+<meta property="og:description" content="">
+<meta property="og:url" content="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">
+<meta property="og:site_name" content="Web Bluetooth経由でBluetooth MIDIデバイスを使う">
+
+
+
+
+
+<link rel="canonical" href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">
+<link href="https://ryoyakawai.com/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://ryoyakawai.com/blog/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://ryoyakawai.com/blog/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Polymer -->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="https://ryoyakawai.com/blog/assets/components/youtube-play.html">
+<link rel="import" href="https://ryoyakawai.com/blog/assets/components/language-selector.html">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://ryoyakawai.com/blog/images/profile_photo.jpg">
+<link rel="icon" type="image/jpeg" href="https://ryoyakawai.com/blog/images/profile_photo.jpg">
+
+
+
+<!-- AdSense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9891854265132215",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://ryoyakawai.com/blog/assets/css/header-title.css">
+  <link rel="stylesheet" type="text/css" href="https://ryoyakawai.com/blog/assets/css/post.css">
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="https://ryoyakawai.com/blog/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="https://ryoyakawai.com/blog/images/avatar.jpg" alt="Ryoya Kawai photo" class="author-photo">
+					<h4>Ryoya Kawai</h4>
+					<p></p>
+				</li>
+				<li><a href="https://ryoyakawai.com/blog/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:blog@ryoyakawai.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/ryoyakawai"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://facebook.com/ryoyakawai"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				<li>
+					<a href="https://google.com/+ryoyakawai"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/ryoya-kawai-11342b57"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/ryoyakawai"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="https://ryoyakawai.com/blog/posts/">All Posts</a></li>
+				<li><a href="https://ryoyakawai.com/blog/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap entry-header">
+        
+          <h1 class="entry-title entry-title-post header-title-text"><a href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="bookmark" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う">Web Bluetooth経由でBluetooth MIDIデバイスを使う</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2019-02-20T00:00:00+09:00">February 20, 2019</time></span></h2>
+<!--
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+
+        </p>--><!-- /.entry-reading-time -->
+        <!---->
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="//apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+<script id="pocket-btn-js" src="//widgets.getpocket.com/v1/j/btn.js?v=1"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12&appId=611626902509108&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="social-share">
+  <style>
+    .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
+    .fb-like span {vertical-align: inherit !important}
+  </style>
+  <a href="http://b.hatena.ne.jp/entry/https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
+  <div class="fb-like" data-href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+</div>
+
+
+      <div> </div>
+
+<p>2019年2月19日に<a href="https://html5j-robot.connpass.com/event/117812/">「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」</a>というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
+久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜<br />
+ありがとうございました！＆スタッフの皆様お疲れ様でした！</p>
+
+<p>今回の<a href="https://ryoyakawai.com/apps/midimsgv/">アプリはこちら</a>です。<a href="https://github.com/ryoyakawai/midimessageviewer">コードはここ</a>。<br />
+以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。</p>
+<div class="post-image-center">
+<a href="https://ryoyakawai.com/apps/midimsgv/">
+<img src="https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png" width="100%" />
+</a>
+</div>
+
+<p>技術的な詳細は<a href="https://qiita.com/ryoyakawai/items/200b3b05d8bd0096f68d">Qiitaに記事としてこちら</a>にまとめたので、気になる方はそちらを御覧ください！気がついたら結局ライブラリにしていたので公開することにしました。ご自由にお使い下さい。</p>
+
+<p>日進月歩でブラウザでできることが増えて来て本当にうれしいです。<br />
+ウェブって本当にいいですねっ👍</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="https://ryoyakawai.com/blog/tags/#WebMusic" title="Pages tagged WebMusic" class="tag"><span class="term">WebMusic</span></a><a href="https://ryoyakawai.com/blog/tags/#WebBluetooth" title="Pages tagged WebBluetooth" class="tag"><span class="term">WebBluetooth</span></a><a href="https://ryoyakawai.com/blog/tags/#MIDI" title="Pages tagged MIDI" class="tag"><span class="term">MIDI</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2019-02-20">February 20, 2019</time></span></span>
+        <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
+      </footer>
+    </div><!-- /.entry-content -->
+
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！">旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</a></h3>
+      <span class="read-more-next">Published on February 01, 2019</span>
+      <p> <a href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" title="パンダエクスプレスメニューのコピーを作ってみた">パンダエクスプレスメニューのコピーを作ってみた</a></h4>
+        <span>Published on January 20, 2019</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="https://ryoyakawai.com/blog/2018/12/31/endof2018.html" title="2018年最終日">2018年最終日</a></h4>
+        <span>Published on December 31, 2018</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+ 
+    
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Ryoya Kawai.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://ryoyakawai.com/blog/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://ryoyakawai.com/blog/assets/js/scripts.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116678332-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116678332-1');
+</script>
+
+
+
+<!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '美味しい毎日のブログ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+-->
+
+
+	        
+
+<script type="text/javascript" src="https://ryoyakawai.com/blog/assets/js/header-title-post.js"></script>
+
+</body>
+</html>
