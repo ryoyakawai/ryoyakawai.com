@@ -1,45 +1,46 @@
 "use strict";
 
-import { MIDIUtils } from "./midiutils.js";
+import { BLEMIDIUtils } from "./blemidiutils.js";
+import { MIDIMessageUtils } from "./midimessageutils.js";
 import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from "./screenhandler.js";
 
+const dispClearDuration = 3000; // (ms)
 clearToDefault();
-let dispState = "remove"; // leave/remove
+let dispState = "remove"; // [leave/remove]
 let timerId = 0;
 
-document.querySelector("#clear-button").addEventListener("mousedown", clearToDefault, false);
-
 // for Web Bluetooth
-let mdUtls = new MIDIUtils();
-let state = mdUtls.getDeviceConnected();
-mdUtls.setnMidiEventHandleCallback( event => {
+let bleMIDIUtls = new BLEMIDIUtils();
+let midiMsgUtls = new MIDIMessageUtils();
+bleMIDIUtls.setMIDIParser(midiMsgUtls.parseMIDIMessage.bind(midiMsgUtls));
+let state = bleMIDIUtls.getDeviceConnected();
+bleMIDIUtls.setnMidiEventHandleCallback( event => {
   dispParsedMIDI(event);
   dispParsedMIDIExp(event);
   window.clearTimeout(timerId);
-  timerId = window.setTimeout(() => {
-    timerId = timerId;
-    if(dispState == "remove") {
+  if(dispState == "remove") {
+    timerId = window.setTimeout(() => {
       clearToDefault();
       document.querySelector("#disp-input-port").innerText="";
-    }
-  }, 3000);
+    }, dispClearDuration);
+  }
 });
-mdUtls.setStartBleCallabck( event => {
+bleMIDIUtls.setConnectedBleCallback( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth_connected";
   document.getElementById("start-ble").classList.add('ble-connected');
   updateFavicon();
 });
-mdUtls.setEndBleCallabck( event => {
+bleMIDIUtls.setDisconnectedBleCallback( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth";
   document.getElementById("start-ble").classList.remove('ble-connected');
   updateFavicon();
 });
 document.querySelector("#start-ble").addEventListener("mousedown", event => {
-  let state = mdUtls.getDeviceConnected();
+  let state = bleMIDIUtls.getDeviceConnected();
   if(state == false) {
-    mdUtls.startBle.bind(mdUtls)(event);
+    bleMIDIUtls.startBle.bind(bleMIDIUtls)(event);
   } else {
-    mdUtls.endBle.bind(mdUtls)(event);
+    bleMIDIUtls.endBle.bind(bleMIDIUtls)(event);
   }
 }, false);
 const updateFavicon = () => {
@@ -75,22 +76,24 @@ window.addEventListener('midiin-event:input-port', event => {
     dispParsedMIDI(event);
     dispParsedMIDIExp(event);
     window.clearTimeout(timerId);
-    timerId = window.setTimeout(() => {
-      timerId = timerId;
-      if(dispState == "remove") {
+    if(dispState == "remove") {
+      timerId = window.setTimeout(() => {
         clearToDefault();
         document.querySelector("#disp-input-port").innerText = "";
-      }
-    }, 3000);
+      }, dispClearDuration);
+    }
   }
 });
 
+// for both Web MIDI and Web Bluetooth
+document.querySelector("#clear-button").addEventListener("mousedown", clearToDefault, false);
 document.querySelector("#disp-state").addEventListener("mousedown", event => {
   let outVal=0;
   if(dispState == "leave") {
     dispState = "remove";
     event.target.innerHTML = "pause_circle_outline";
-    outVal=0x00;
+    outVal = 0x00;
+    clearToDefault();
   } else {
     dispState = "leave";
     event.target.innerHTML = "play_circle_outline";

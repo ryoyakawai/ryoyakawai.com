@@ -13,6 +13,7 @@ export const clearToDefault = () => {
 };
 
 export const dispParsedMIDI = event => {
+  if(typeof event.detail == "undefined") return;
   if(event.detail.data[0]==0xfe) return;
   let out=[];
   for(let key in event.detail.property) {
@@ -33,6 +34,7 @@ export const dispParsedMIDI = event => {
 };
 
 export const dispParsedMIDIExp = event => {
+  if(typeof event.detail == "undefined") return;
   let vals = event.detail.property;
   let out = "", exp = "";
   let arrayRaw = vals.raw.split(" ");
