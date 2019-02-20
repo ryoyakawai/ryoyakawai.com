@@ -1,4 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-02-16T02:36:52+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-02-20T23:19:18+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
+
+&lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
+久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
+ありがとうございました！＆スタッフの皆様お疲れ様でした！&lt;/p&gt;
+
+&lt;p&gt;今回の&lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;アプリはこちら&lt;/a&gt;です。&lt;a href=&quot;https://github.com/ryoyakawai/midimessageviewer&quot;&gt;コードはここ&lt;/a&gt;。&lt;br /&gt;
+以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;技術的な詳細は&lt;a href=&quot;https://qiita.com/ryoyakawai/items/200b3b05d8bd0096f68d&quot;&gt;Qiitaに記事としてこちら&lt;/a&gt;にまとめたので、気になる方はそちらを御覧ください！気がついたら結局ライブラリにしていたので公開することにしました。ご自由にお使い下さい。&lt;/p&gt;
+
+&lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
+ウェブって本当にいいですねっ👍&lt;/p&gt;</content><category term="WebMusic" /><category term="WebBluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
 &lt;p&gt;「こんにちは」&lt;br /&gt;
 という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 &lt;br /&gt;
 スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw&lt;/p&gt;
@@ -524,55 +541,4 @@ ChromiumのコミッタとしてWeb MIDI APIを実装してくださっている
   &lt;li&gt;&lt;a href=&quot;https://bizhint.jp/keyword/110694&quot;&gt;役員とは？社員・執行役員・役職との違い、その種類や選出のポイントまでご紹介&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.icfpe.jp/corporation_law/administrative.html&quot;&gt;会社の機関は、法人として意思を決定し、実行するために設置される存在&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://keiei.freee.co.jp/2013/08/20/sonkin/&quot;&gt;損金って何？損金に算入されるとかされないってよくいうけど？&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="調べ物" /><category term="会社" /><summary></summary></entry><entry><title>Manzanar National Historic Site に行ってきた</title><link href="https://ryoyakawai.com/blog/2018/09/16/manzanar.html" rel="alternate" type="text/html" title="Manzanar National Historic Site に行ってきた" /><published>2018-09-16T00:00:00+09:00</published><updated>2018-09-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/09/16/manzanar</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/09/16/manzanar.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.nps.gov/manz/index.htm&quot;&gt;Manzanar National Historic Site&lt;/a&gt;とは第二次世界大戦中に当時米国在住の日系人が収容されていた施設の1つ。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_00.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;2017年末のことだったか、この地のことを聞いて理由はよく分からないけど、とても行きたい気持ちになっていた自分がいました。
-ただし、サンフランシスコ・ベイエリアからは非常に遠いんです。Yosemiteの山を超えた向こう側。1人だと日帰りでがんばれなくもない距離なので、1泊で行くのはちょっともったいない距離。迷ったものの日帰りで行っちゃいました。走行距離は835.5mile(1344.6km)。日本だと、東京から広島県尾道市の往復くらいの距離。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_01.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;感じたことの一端をブログに残そうと思いてます。&lt;/p&gt;
-
-&lt;h2 id=&quot;manzanarで感じたこと&quot;&gt;Manzanarで感じたこと&lt;/h2&gt;
-&lt;p&gt;つい先日「サンフランシスコ・ベイエリアと日本の歴史」に関して、サンフランシスコ領事館の加藤さんが分かりやすく詳しく書いたスライドを公開してくれています。すばらしい資料なので、興味のあるかたは一読してみてください。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;iframe src=&quot;https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fakihiro.kato.520%2Fposts%2F1839874526101334&amp;amp;width=500&quot; width=&quot;500&quot; height=&quot;605&quot; style=&quot;border:none;overflow:hidden&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; allow=&quot;encrypted-media&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;この中にも説明されていますが、第二次世界大戦中の日系人強制収容所は米国に10箇所あり、Manzanarはそのうちの1つで、主にロサンゼルス周辺に在住だった方々が収容されていたそうです。&lt;br /&gt;
-さて、今までの自分なら「大戦中に敵視されるのは自然」という理解で通り過ぎていたと思いますが、現地での生活を経験したからか通り過ぎることはできませんでした。「日系二世は？」「日系人だけど米国国籍の人はどうなったんだろう？」という疑問が浮かんだからです。米国で生まれれば米国国籍を保持できる訳ですから。&lt;br /&gt;
-でもその答えは「収容されていた」です。特に日系二世で収容されていたご本人の気持ちを考えると、複雑だっただろうな・・・と感じました。&lt;br /&gt;
-&lt;br /&gt;
-こんなことは二度と起こさないようにしないと、と感じました。
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_02.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;現地にあった国旗。第二次大戦中はアラスカとハワイは州ではなかったので星の数は48。
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_03.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;納得しかなかった1枚：「わずかな一時の安全を得るためにかけがえのない自由を棄てる人々は、自由も安全も与えられる資格がない」&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_04.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://goo.gl/maps/FL2NwEmwEpz&quot;&gt;ここ&lt;/a&gt;からの風景。グラデーションが見事過ぎる。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_05.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;実は12amを超えていて日帰り失敗の証拠＆Livemoreから39.0mile/g(16.58km/l)の燃費。いろいろがんばった。&lt;/p&gt;</content><category term="歴史探訪" /><category term="カリフォルニア" /><summary></summary></entry></feed>
+&lt;/ul&gt;</content><category term="調べ物" /><category term="会社" /><summary></summary></entry></feed>
