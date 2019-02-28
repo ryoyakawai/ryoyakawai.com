@@ -23,10 +23,10 @@ import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from 
   bleMIDIUtls.setMIDIParser(midiMsgUtls.parseMIDIMessage.bind(midiMsgUtls));
   let state = bleMIDIUtls.getDeviceConnected();
   bleMIDIUtls.setMidiEventHandleCallback( event => {
+    event.detail.data[0] += midi_out_ch;
     dispParsedMIDI(event);
     dispParsedMIDIExp(event);
     // send msg to output
-    event.detail.data[0] += midi_out_ch;
     xwm.sendRawMessage(event.detail.data);
     window.clearTimeout(timerId);
     if(dispState == "remove") {
