@@ -87,7 +87,7 @@ export class BLEMIDIUtils {
     event.detail = this.parseMIDIMessage(out.slice(2));
     this.onMidiEventHandleCallback.bind(this)(event);
   }
-  setnMidiEventHandleCallback(callback) {
+  setMidiEventHandleCallback(callback) {
     this.onMidiEventHandleCallback = callback;
   }
   onMidiEventHandleCallback(event) {

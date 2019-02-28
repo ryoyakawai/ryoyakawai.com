@@ -12,6 +12,7 @@
     <script src="./md/material.min.js"></script>
     <link href="./md/family_roboto_mono.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./xwebmidi.css">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
@@ -27,10 +28,6 @@
     <meta property="og:site_name" content="MIDI Message Viewer">
   </head>
   <body>
-    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
-    <link rel="import" href="bower_components/x-webmidi/x-webmidirequestaccess.html">
-
-    <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
 
     <div class="content-parent">
       <div class="content material-shadow">
@@ -38,8 +35,8 @@
 
         <div class="select-area-parent">
           <div class="system-button-area">
-            <div><span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span></div>
-            <div><span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span></div>
+            <div><span>INPUT: <select id="input-port" class="xwebmidi-select-midi"><option value="false">Not Selected</option></select> <span id="midiinput-event-01"></span></span></div>
+            <div><span>OUTPUT: <select id="output-port" class="xwebmidi-select-midi"><option value="false">Not Selected</option></select><span id="midioutput-event-01"></span></span></div>
           </div>
           <div class="separator"><div class="v-line">.</div></div>
           <div class="ble-button-area">
