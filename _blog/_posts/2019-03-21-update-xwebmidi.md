@@ -16,6 +16,8 @@ image:
 x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。  
 理由は簡単でHTML ImportがChromeから削除されてしまうからです。  
 
+[コードはGitHub](https://github.com/ryoyakawai/x-webmidi)にあります。  
+
 xwebmidi.jsでできることは以下です。
 
 - コンピュータに接続されているMIDIデバイスのリスト化
