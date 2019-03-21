@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-02-20T23:59:08+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-03-21T16:11:47+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
+
+&lt;p&gt;x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。&lt;br /&gt;
+理由は簡単でHTML ImportがChromeから削除されてしまうからです。&lt;/p&gt;
+
+&lt;p&gt;xwebmidi.jsでできることは以下です。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;コンピュータに接続されているMIDIデバイスのリスト化&lt;/li&gt;
+  &lt;li&gt;接続・切断したMIDIデバイスを自動でデバイスリストから追加・削除&lt;/li&gt;
+  &lt;li&gt;MIDI InputデバイスからのMIDIメッセージの受け取り&lt;/li&gt;
+  &lt;li&gt;MIDI OutputデバイスへのMIDIメッセージの送信&lt;/li&gt;
+  &lt;li&gt;MIDI Messageを自動でParse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まだあるかもしれませんが、これくらいが主な機能になります。&lt;/p&gt;
+
+&lt;p&gt;できる限り今までのx-webmidiと同じように簡単に実装できるようしています。詳細なREADMEを出来ていませんが、このHTML、JavaScriptを書くとブラウザ上に↑の機能を実装の土台ができあがります。&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./xwebmidi.css&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    INPUT: &lt;span class=&quot;nt&quot;&gt;&amp;lt;select&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;midiin&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xwebmidi-select-midi&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/select&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+    OUTPUT: &lt;span class=&quot;nt&quot;&gt;&amp;lt;select&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;midiout&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xwebmidi-select-midi&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/select&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;module&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;kr&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xWebMIDI&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./xwebmidi.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;kr&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xwm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xWebMIDI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;requestMIDIAccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;xwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;midiin&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+       &lt;span class=&quot;nx&quot;&gt;xwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initOutput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;midiout&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+       &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;midiin-event:midiin&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;xwm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sendRawMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+       &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;})();&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="WebMusic" /><category term="WebMIDI" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
 久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
@@ -468,79 +515,4 @@ ChromiumのコミッタとしてWeb MIDI APIを実装してくださっている
 &lt;p&gt;へ〜っ、って感じでした。&lt;/p&gt;
 
 &lt;h2 id=&quot;まとめ&quot;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;今までハッキリと調べたことがなかったのでスッキリしました。&lt;/p&gt;</content><category term="調べ物" /><category term="会社" /><summary></summary></entry><entry><title>取締役？執行役員？</title><link href="https://ryoyakawai.com/blog/2018/09/17/torishimari.html" rel="alternate" type="text/html" title="取締役？執行役員？" /><published>2018-09-17T00:00:00+09:00</published><updated>2018-09-17T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/09/17/torishimari</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/09/17/torishimari.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;取締役、執行役員ってよく聞くけど、正確に知らなかったので調べてみた、というエントリです。&lt;br /&gt;
-あっ、もちろん日本でのお話です。&lt;/p&gt;
-
-&lt;h2 id=&quot;役職名のいろいろ&quot;&gt;役職名のいろいろ&lt;/h2&gt;
-&lt;p&gt;普段よく聞く役職名も種類が3つあるそうです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;「会社法・商業登記法」で定められた役職&lt;/li&gt;
-  &lt;li&gt;社内外の敬称として用いられる役職&lt;/li&gt;
-  &lt;li&gt;「法人税法」で定められた役職&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;この分類すら知らなかった、恥ずかしながら・・・。&lt;br /&gt;
-列挙するとこんな感じ。&lt;/p&gt;
-
-&lt;h3 id=&quot;会社法商業登記法に定められた役職&quot;&gt;会社法・商業登記法に定められた役職&lt;/h3&gt;
-&lt;p&gt;以下が役員の種類で、法的な効力を持っています。法務局への登記も必要だそうです。&lt;br /&gt;
-役員と対になるのが従業員という言葉。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;取締役：株式会社の重要事項や方針を決定する権限を持つ&lt;/li&gt;
-  &lt;li&gt;監査役：取締役の業務執行や会計を監査する&lt;/li&gt;
-  &lt;li&gt;会計参与：取締役と共同して計算書類などを作成する（新会社法で定義）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;法人税法による取締役と執行役員&quot;&gt;法人税法による取締役と執行役員&lt;/h3&gt;
-&lt;p&gt;複雑ですが、法人税法による役員は上記の役員の定義とは違うそうです。&lt;br /&gt;
-法人税法の役員&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;実質的に経営に従事していると認められる人&lt;/li&gt;
-  &lt;li&gt;同族会社の従業員のうち、一定の要件をすべて満たす人&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;経営に従事するとは、お金の出入りに関しての決定権を持っていること、だそうです。&lt;br /&gt;
-ですので、法人税の視点から見ると役員として登記されていなくとも、条件を満たせば役員と扱われるそうです。しっかりしてますねお上は・・・。役員給与と従業員給与の違いもあるそうです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;役員報酬は一年間、原則金額の増減ができない（基本は一年間固定）&lt;/li&gt;
-  &lt;li&gt;役員に突発的に出る賞与は損金不算入&lt;/li&gt;
-  &lt;li&gt;従業員給与は、毎月も賞与も損金に出来る&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;損金とは簡単に言うと費用のことで、これが増えれば税金は減らすことができることになります。なので、一般的に役員に支払われる報酬は大きいので、これを損金にできてしまうと簡単に利益操作できてしまうので、そういった制限があるとのことです。&lt;/p&gt;
-
-&lt;h3 id=&quot;社内外の敬称&quot;&gt;社内外の敬称&lt;/h3&gt;
-&lt;p&gt;法的には効力を持ちません。敬称なので法務局への登記の必要はないそうです。&lt;br /&gt;
-従業員です。ただし、執行役員の場合、委任契約か雇用契約かで法人税法上では定義が変わるそうです。前者だと会社ないでは役員として同等で扱われるそうですが、法律て決まっていない敬称なので会社によって形態が異なるそうです。以下のリストは敬称ですので従業員ということになります。他にも敬称は存在すると思います。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;会長&lt;/li&gt;
-  &lt;li&gt;社長、副社長&lt;/li&gt;
-  &lt;li&gt;専務、常務&lt;/li&gt;
-  &lt;li&gt;執行役員&lt;/li&gt;
-  &lt;li&gt;本部長、事業部長、部長、次長、課長、係長&lt;/li&gt;
-  &lt;li&gt;主任&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;執行役員を置く場合は現場実務を担当する「従業員のリーダー」を任命するとよいそうです。&lt;/p&gt;
-
-&lt;h3 id=&quot;取締役と執行役員&quot;&gt;取締役と執行役員&lt;/h3&gt;
-&lt;p&gt;役割的に、&lt;strong&gt;取締役は会社の重要事項を決定する権限を持つ役員&lt;/strong&gt;で、&lt;strong&gt;執行役員は取締役（達）が決定した事項を実行する従業員&lt;/strong&gt;なので業務的には分離できますが、兼任することもあるとのことです。この場合、会社法・商業登記法上、また、法人税法上、どちらも役員となります。&lt;/p&gt;
-
-&lt;h2 id=&quot;まとめ&quot;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;何気なく使ってた、思い込んでた言葉、よくよく調べると意味があったり、なかったり、なんですね。その意味を各法律にするのか、世の中の認知度にするかでも変わるけど。しかし、執行役員には決定権はない、そして従業員なんだね。&lt;br /&gt;
-今回はほんの触りに過ぎないのだけだろうけどとても勉強になりました。&lt;/p&gt;
-
-&lt;h2 id=&quot;リファレンス&quot;&gt;リファレンス&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://switch.or.jp/board-director-operating-officer-329&quot;&gt;取締役と執行役員の違いがわかる押さえるべき5つのポイント&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://minnkane.com/news/5537&quot;&gt;執行役と執行役員の役割や違い！&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bizhint.jp/keyword/110694&quot;&gt;役員とは？社員・執行役員・役職との違い、その種類や選出のポイントまでご紹介&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.icfpe.jp/corporation_law/administrative.html&quot;&gt;会社の機関は、法人として意思を決定し、実行するために設置される存在&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://keiei.freee.co.jp/2013/08/20/sonkin/&quot;&gt;損金って何？損金に算入されるとかされないってよくいうけど？&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="調べ物" /><category term="会社" /><summary></summary></entry></feed>
+&lt;p&gt;今までハッキリと調べたことがなかったのでスッキリしました。&lt;/p&gt;</content><category term="調べ物" /><category term="会社" /><summary></summary></entry></feed>

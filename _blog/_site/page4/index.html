@@ -160,6 +160,95 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2018-06-17T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/06/17/wikipedia-shortener-chrome-extensions.html">June 17, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/06/17/wikipedia-shortener-chrome-extensions.html" rel="bookmark" title="Wikipedia URL Shortener for Chrome Extension" itemprop="url">Wikipedia URL Shortener for Chrome Extension</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p>Wikipediaで調べて、引用のためにURLをコピペすることがよくあります。</p>
+
+<p>でも例えば、現在開催中のワールドカップ。WikipediaのURLは大抵のウェブブラウザだとURLバーには</p>
+
+<p>https://ja.wikipedia.org/wiki/FIFAワールドカップ</p>
+
+<p>と見えている。そう、こんな感じで。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180617-url01.png" width="80%" style="border:1px solid #eee;" />
+</div>
+
+<p>なのですが、そのURLをコピペするとこうなっちゃうんです。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180617-url02.png" width="80%" style="border:1px solid #eee;" />
+</div>
+
+<p>URLエンコードってやつですね。ありがたいことに、ブラウザさんは人の目に優しく表示してくれてるのですがコピペするにはやっぱり困ります。</p>
+
+<p>というのがキッカケで<strong><a href="https://chrome.google.com/webstore/detail/wikipedia-url-shortener/ioekneldioljahdoiddhikknahbbkhan">Wikipedia URL Shortener</a></strong>っていうChrome Extensionを作ってみました。</p>
+
+<h2 id="wikipedia-url-shortener">Wikipedia URL Shortener</h2>
+
+<ul>
+  <li>ExtensionのURL(chrome web store)： <a href="https://chrome.google.com/webstore/detail/wikipedia-url-shortener/ioekneldioljahdoiddhikknahbbkhan">Wikipedia URL Shortener</a></li>
+  <li>ソース(GitHub)：<a href="https://github.com/ryoyakawai/wikipediaurlshortener">Source: Wikipedia URL Shortener</a></li>
+</ul>
+
+<p>さっきのFIFAワールドカップのWikipediaのページのURLはこうなります。</p>
+
+<p><a href="https://ja.wikipedia.org/?curid=288053">https://ja.wikipedia.org/?curid=288053</a></p>
+
+<p>URLが短く、そしてシンプルになります。<br />
+（モバイルのブラウザではExtension自体がサポートされていないので利用できません）</p>
+
+<p>動作している状態がこちらです。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180617-url04.png" width="80%" style="border:1px solid #eee;" />
+</div>
+
+<p>WikipediaのIDでURLを取得したいページを表示して、地球儀みたいなボタンを押す、以上です。</p>
+
+<h3 id="動作に関して">動作に関して</h3>
+<p>WikipediaのURLをIDを使って短くする仕様上、wikipedia.orgのドメインでしか動きませんので、インストールして「あれっ？？動かない。。。orz」となって、すぐに削除せずに以下の手順で試してみてくださいね。</p>
+
+<ol>
+  <li><a href="https://ja.wikipedia.org/wiki/FIFA%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%82%AB%E3%83%83%E3%83%97">FIFAワールドカップ</a> を表示</li>
+  <li>URLバーの右隣に出てくるであろう、地球みたいなExtensionのアイコンをクリック</li>
+</ol>
+
+<p>こんな手順でお願いします！！</p>
+
+<h2 id="経緯他にも方法はあるのですが">経緯：他にも方法はあるのですが、、、</h2>
+<p><a href="https://goo.gl/">GoogleさんのURL Shortener</a>とか<a href="https://bitly.com/">bitlyさんの</a>とかあるので、単純に「URLを短くしたい」という要望ならばこういった既存のサービスを使うのも手ですし、またテキストのみのフォーマットで文書を書いていない限り「ハイパーリンクにしてしまう」というのも可能です。なのですが、何となく他に頼らないでよいようなのがいいな〜、と思い調査を始めたところ、この記事に行き着きました。</p>
+
+<p><a href="https://sleepygamersmemo.blogspot.com/2017/06/wikipedia-url-shortener.html">WikipediaのURLを短縮する方法</a></p>
+
+<p>「おおっ、なるほど。できるじゃん。」ってなったけど、使いたい時にこのサイトに来るのも現実的じゃないし、ということでChrome Extensionにしてしまったという流れです。</p>
+
+<h1 id="おわりに">おわりに</h1>
+<p>久しぶりだったので<a href="https://developer.chrome.com/extensions/getstarted">このチュートリアル</a>からはじめました。楽しかったです！次はTimezoneに関わる不自由なのを解決できるのでも作ってみようと思います。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2018-06-04T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/06/04/fitbit-clockface-published.html">June 04, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -548,103 +637,6 @@ Reading time ~1 minute
 <ul>
   <li><a href="http://miselu.com/c-24/">Miselu C.24</a></li>
   <li><a href="https://www.amazon.com/gp/product/B074FZZ4SG/">Lenovo Tab 4 Plus, 8”</a></li>
-</ul>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2018-04-15T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/15/anova-roast-beef.html">April 15, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/04/15/anova-roast-beef.html" rel="bookmark" title="Anovaで低温調理のローストビーフ" itemprop="url">Anovaで低温調理のローストビーフ</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p><br />
-やっと書けたTech系以外のネタ🤘</p>
-
-<h2 id="1年以上ぶりのanova">1年以上ぶりのAnova</h2>
-
-<p>2017年6月に引越して以来（引越し以来、というか恐らく2016年末以来使ってなかったと思う）、低温調理機の<a href="https://anovaculinary.com/">Anova</a>はダンボールにしまわれたままでした。
-が、ふと思い立ってローストビーフを作ろうということになりました。</p>
-
-<h2 id="案外時間が必要な低温調理">案外時間が必要な低温調理</h2>
-<p>低温料理を敬遠していた理由は非常に簡単で、低温調理はとにかく時間がかかる、というところです。失敗はほとんどないのですが、
-調理に数時間の時間が必要なので</p>
-
-<p><strong>「今すぐ肉が食べたい！！！！」</strong></p>
-
-<p>というシチュエーションでは無力なのです。</p>
-
-<p>そこから導き出した調理法は、特にステーキに関してはスキレット（フライパン）とオーブンを使い、
-そして調理対象の肉には温度計を差して温度管理をしっかりする、という方法。この方法でも失敗もほぼないし快適だったので、
-長らく低温調理機の存在を忘れていました。</p>
-
-<p>けど、何となくやってみるかとなったので、1年の時を経てダンボールから低温調理のAnovaを取り出しました。
-（正確には最初どこにあるか分からず探しました）</p>
-
-<h2 id="結果がコレ">結果がコレ！</h2>
-<p>※ <a href="https://cookpad.com/recipe/5032269">調理の詳細はこちら（Cookpad）</a>をご覧ください。</p>
-
-<p>3.5cmくらいの厚さのリブアイ（日本では「ロース」でだいたい合ってる）を57℃で5.5時間、低温調理して、表面を焼いた結果です。</p>
-
-<p>肉はCostcoのプライムのリブアイです。購入してから2週間くらい冷凍庫で保存していました。</p>
-
-<p>低温調理の温度と時間に関しては<a href="https://www.chefsteps.com/activities/sous-vide-time-and-temperature-guide">ChefSteps</a>にいろいろ書かれていまして、ここを参考にしています。今回は根拠のないアレンジを入れた結果の温度と時間となっていますww</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef.jpg" width="80%" />
-</div>
-
-<p>見た目も美味しそうですが、味も柔らかさもとても良かったです。根拠のないアレンジ万歳みたいな感じでしたw</p>
-
-<h2 id="低温調理ってやっぱり便利かも">低温調理ってやっぱり便利かも</h2>
-
-<p>今回のローストビーフで改めて（ローストビーフでの）低温料理の偉大さを知った気がします。けどステーキでは負けませんよ！</p>
-
-<p>ということで、これから<strong>ローストビーフを調理する時は低温調理</strong>にしようと思います。</p>
-
-<h2 id="調理の流れを写真でダイジェスト">調理の流れを写真でダイジェスト</h2>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_05.jpg" width="40%" />
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_02.jpg" width="40%" style="margin-left:20px" />
-</div>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_03.jpg" width="40%" />
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_04.jpg" width="40%" style="margin-left:20px" />
-</div>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_01.jpg" width="40%" />
-<img src="https://ryoyakawai.com/blog/images/2018/04/anova_roast_beef_06.jpg" width="40%" style="margin-left:20px" />
-</div>
-
-<p>※ <a href="https://cookpad.com/recipe/5032269">調理の詳細はこちら（Cookpad）</a>をご覧ください。</p>
-
-<h2 id="リンク">リンク</h2>
-
-<ul>
-  <li><a href="https://anovaculinary.com/">Anova</a>：低温調理機</li>
-  <li><a href="https://cookpad.com/recipe/5032269">Anovaでローストビーフ@Cookpad</a>：今回の調理の記録</li>
-  <li><a href="https://cookpad.com/recipe/2259142">簡単ローストビーフ＊こく旨玉ねぎソース@Cookpad</a>：イケてるソース</li>
 </ul>
 
 
