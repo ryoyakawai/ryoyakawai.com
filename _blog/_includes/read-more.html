@@ -8,15 +8,6 @@
     <span class="read-more-next">Published on {{ post.date | date: "%B %d, %Y" }}</span>
     <p>{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 140 }}&hellip;{% endif %} <a href="{{ site.url }}{{ post.url }}">Continue reading</a></p>
   </div><!-- /.read-more-content -->
-  {% endfor %}
-  <div class="read-more-list">
-    {% for post in site.related_posts limit:2 offset:1 %}
-    <div class="list-item">
-      <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
-      <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
-    </div><!-- /.list-item -->
-    {% endfor %}
-  </div><!-- /.read-more-list -->
   <!-- auto ad: Adsense -->
   <div class="read-more-content" style="border-top: solid 2px rgba(238,238,238,0.8); padding-top: 1.625rem;">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -33,5 +24,14 @@
     </script>
   </div>
   <!-- auto ad: Adsense -->
+  {% endfor %}
+  <div class="read-more-list">
+    {% for post in site.related_posts limit:2 offset:1 %}
+    <div class="list-item">
+      <h4><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h4>
+      <span>Published on {{ post.date | date: "%B %d, %Y" }}</span>
+    </div><!-- /.list-item -->
+    {% endfor %}
+  </div><!-- /.read-more-list -->
 
 </div><!-- /.read-more -->
