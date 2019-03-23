@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-03-21T20:43:56+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="..//feed.xml" rel="self" type="application/atom+xml" /><link href="..//" rel="alternate" type="text/html" /><updated>2019-03-23T14:46:23+09:00</updated><id>..//</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="..//2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>..//2019/03/21/update-xwebmidi</id><content type="html" xml:base="..//2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。&lt;br /&gt;
 理由は簡単でHTML ImportがChromeから削除されてしまうからです。&lt;/p&gt;
@@ -47,7 +47,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="WebMusic" /><category term="WebMIDI" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="WebMusic" /><category term="WebMIDI" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="..//2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>..//2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="..//2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
 久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
@@ -57,7 +57,7 @@
 以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;..//images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 
@@ -66,7 +66,7 @@
 &lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
 ウェブって本当にいいですねっ👍&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="WebMusic" /><category term="WebBluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="WebMusic" /><category term="WebBluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="..//2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>..//2019/02/01/farewellparty</id><content type="html" xml:base="..//2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
 &lt;p&gt;「こんにちは」&lt;br /&gt;
 という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 &lt;br /&gt;
 スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw&lt;/p&gt;
@@ -84,13 +84,13 @@
 &lt;p&gt;と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;..//images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;そして、今回は1参加者のつもりだったのが、僕まで壮行されれる側にしていただけました。本当にありがとうございました。嬉しかったです。更にこんな素敵などんぶりまで記念品としていただいちゃいました！あの当時なら確実に「白米用」でしたが、これからは「スープ」または「ヨーグルト」用として使わせていただきますっ！ありがとうございます。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;..//images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;さて、未来に向けて引き続き一歩一歩着実に前進していくよっ！&lt;/p&gt;</content><category term="壮行会" /><category term="FarewellParty" /><summary>「こんにちは」
@@ -107,7 +107,7 @@
 
 「突き詰めていくと、最後は好き嫌いやで。」
 
-と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
+と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="..//2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>..//2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="..//2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;たまに食べたくなるパンダエクスプレスメニュー。作ってみたら、けっこう美味しくできたのでCookpadに公開しちゃいました。&lt;br /&gt;
 鶏のムネ肉ってパサっとしてしまうので避けがちだけど、そこまでパサつかずで良いかも。&lt;br /&gt;
@@ -126,7 +126,7 @@
 &lt;h3 id=&quot;鶏モモ肉のオイスターソースの中華炒め&quot;&gt;鶏モモ肉のオイスターソースの中華炒め&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="https://ryoyakawai.com/blog/2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/31/endof2018</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="..//2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>..//2018/12/31/endof2018</id><content type="html" xml:base="..//2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年も最終日。環境も、自分も動いた、動かした1年。お疲れ様でした！！&lt;br /&gt;
 転職、というのが一番大きかったけど、ブログを移行したり、FitbitのClock Faceを公開したり、ウェブサイトを最初から作ったり、Cookpadでレシピを公開し始めたり、大きいことから小さなことまでやってたんだな〜、と振り返り中。悩みは多い1年だったけど、よい1年だったかな。体重も維持できてるし。&lt;br /&gt;
@@ -143,7 +143,7 @@
   &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><category term="2018" /><summary></summary></entry><entry><title>Fitbit OSのClockfaceにAnalyticsを入れてみた</title><link href="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html" rel="alternate" type="text/html" title="Fitbit OSのClockfaceにAnalyticsを入れてみた" /><published>2018-12-22T23:00:00+09:00</published><updated>2018-12-22T23:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="2018" /><summary></summary></entry><entry><title>Fitbit OSのClockfaceにAnalyticsを入れてみた</title><link href="..//2018/12/22/fitbitos3_analytics.html" rel="alternate" type="text/html" title="Fitbit OSのClockfaceにAnalyticsを入れてみた" /><published>2018-12-22T23:00:00+09:00</published><updated>2018-12-22T23:00:00+09:00</updated><id>..//2018/12/22/fitbitos3_analytics</id><content type="html" xml:base="..//2018/12/22/fitbitos3_analytics.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年4月末くらいに買った&lt;a href=&quot;https://blog.ryoyakawai.com/2018/05/27/fitbit-clockface.html&quot;&gt;Fitbit Versa向けにClockfaceを作って半年&lt;/a&gt;経ちました。
 インド、英国、オーストラリア、米国のユーザから「サマータイム入ってね〜！」とか、「タイムゾーン追加して！」とかいろいろと要望いただき、
@@ -186,7 +186,7 @@
 &lt;p&gt;こっちも&lt;code class=&quot;highlighter-rouge&quot;&gt;fitbit-google-analytics/companion.js&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><category term="Fitbit" /><category term="FitbitOS" /><summary></summary></entry><entry><title>「Web Music Developers Meetup ＃3」を開催しました！</title><link href="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html" rel="alternate" type="text/html" title="「Web Music Developers Meetup ＃3」を開催しました！" /><published>2018-12-22T00:00:00+09:00</published><updated>2018-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Fitbit" /><category term="FitbitOS" /><summary></summary></entry><entry><title>「Web Music Developers Meetup ＃3」を開催しました！</title><link href="..//2018/12/22/webmusicmeetup_3.html" rel="alternate" type="text/html" title="「Web Music Developers Meetup ＃3」を開催しました！" /><published>2018-12-22T00:00:00+09:00</published><updated>2018-12-22T00:00:00+09:00</updated><id>..//2018/12/22/webmusicmeetup_3</id><content type="html" xml:base="..//2018/12/22/webmusicmeetup_3.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年12月21日に「Web Music Developers Meetup 3」を開催しました。&lt;br /&gt;
 20名ほどの参加者の中から、10分のLTが6つ行われ、LT後には質問、ノウハウ等が活発に飛び交う、
@@ -214,7 +214,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_toyoshim.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_toyoshim.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;lt-2--gcchaan&quot;&gt;LT-2 : &lt;a href=&quot;https://twitter.com/gcchaan&quot;&gt;@gcchaan&lt;/a&gt;&lt;/h3&gt;
@@ -230,7 +230,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_gcchan.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_gcchan.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://amei-music.github.io/CreatorsHub/about.html&quot;&gt;Creators’ Hub&lt;/a&gt;のJSONの形式を使えば、他のアプリとも会話がしやすくなるかも？というアドバイスが会場からありました。&lt;/p&gt;
@@ -248,7 +248,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_dorayaki0.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_dorayaki0.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;楽譜をリアルタイムに鳴らしたいけど実現が難しい・・・という@dorayaki0さんの悩みに対し、会場から「ExtentionならBackground Pageを作ってそこにEvent投げたらいけそう」という解決策が出されていました。&lt;/p&gt;
@@ -269,7 +269,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_sasacci.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_sasacci.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Roland社の&lt;a href=&quot;https://www.roland.com/jp/products/aerophone_go/&quot;&gt;Aerophone GO&lt;/a&gt;を持ち込んでのBLE MIDI on Web Bluetoothのお話で、写真は16進数のMIDIメッセージをネタに会場とやり取りをしているところ。&lt;/p&gt;
@@ -290,7 +290,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_tadfmac.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_tadfmac.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;途中からディスプレイが映らなくなるというトラブルがありました。&lt;/p&gt;
@@ -316,7 +316,7 @@
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_xsoundjs.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_xsoundjs.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;スポンサー&quot;&gt;スポンサー&lt;/h2&gt;
@@ -324,7 +324,7 @@
 ありがとうございました！&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_digitalhearts.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/12/20181222_digitalhearts.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;なお、IT系の勉強会、Meetupに対して、会場のご提供が可能なケースもるかもしれませんので、そのときはご相談ください。&lt;/p&gt;
@@ -338,7 +338,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developers.webmusic.io/&quot;&gt;Web Music Developers JP&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://connpass.com/event/112300/&quot;&gt;Web Music Developers Meetup #3 - Connpass&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Web Music" /><category term="Web Music Developers JP" /><category term="Web Audio API" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>次なるステージに踏み出します！</title><link href="https://ryoyakawai.com/blog/2018/10/29/iamgoingtonextstep.html" rel="alternate" type="text/html" title="次なるステージに踏み出します！" /><published>2018-10-29T00:00:00+09:00</published><updated>2018-10-29T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/10/29/iamgoingtonextstep</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/10/29/iamgoingtonextstep.html">&lt;div&gt; &lt;/div&gt;
+&lt;/ul&gt;</content><category term="Web Music" /><category term="Web Music Developers JP" /><category term="Web Audio API" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>次なるステージに踏み出します！</title><link href="..//2018/10/29/iamgoingtonextstep.html" rel="alternate" type="text/html" title="次なるステージに踏み出します！" /><published>2018-10-29T00:00:00+09:00</published><updated>2018-10-29T00:00:00+09:00</updated><id>..//2018/10/29/iamgoingtonextstep</id><content type="html" xml:base="..//2018/10/29/iamgoingtonextstep.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年10月31日をヤマハ株式会社への所属の最終日とし、2018年11月1日から所属を改め、次なるステージに踏み出します。&lt;/p&gt;
 
@@ -461,12 +461,12 @@ ChromiumのコミッタとしてWeb MIDI APIを実装してくださっている
 &lt;h2 id=&quot;お知らせ&quot;&gt;お知らせ&lt;/h2&gt;
 &lt;p&gt;勤務地は新宿（ちょっと西側だけど）になります。今までと変わらずお声がけいただけるとうれしいです！&lt;/p&gt;
 
-&lt;p&gt;Web Music Developers JPの管理人も続けますので、今後ともよろしくです！&lt;/p&gt;</content><category term="その他" /><summary></summary></entry><entry><title>スパムにぎらず</title><link href="https://ryoyakawai.com/blog/2018/09/23/spamnigirazu.html" rel="alternate" type="text/html" title="スパムにぎらず" /><published>2018-09-23T00:00:00+09:00</published><updated>2018-09-23T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/09/23/spamnigirazu</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/09/23/spamnigirazu.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;Web Music Developers JPの管理人も続けますので、今後ともよろしくです！&lt;/p&gt;</content><category term="その他" /><summary></summary></entry><entry><title>スパムにぎらず</title><link href="..//2018/09/23/spamnigirazu.html" rel="alternate" type="text/html" title="スパムにぎらず" /><published>2018-09-23T00:00:00+09:00</published><updated>2018-09-23T00:00:00+09:00</updated><id>..//2018/09/23/spamnigirazu</id><content type="html" xml:base="..//2018/09/23/spamnigirazu.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;どうしてもスパムを消費してくて＆現実逃避に「スパムにぎらず」を作ってみたときの感想です。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/09/20180923-spam-00.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
+&lt;img src=&quot;..//images/2018/09/20180923-spam-00.jpg&quot; width=&quot;80%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;おにぎらず&quot;&gt;おにぎらず&lt;/h2&gt;
@@ -488,7 +488,7 @@ ChromiumのコミッタとしてWeb MIDI APIを実装してくださっている
 
 &lt;h2 id=&quot;まとめ&quot;&gt;まとめ&lt;/h2&gt;
 &lt;p&gt;「おにぎらず」は「海苔巻き」を調理すると考えて調理したほうが満足度は高い！&lt;br /&gt;
-命名ってとても難しいけど、かなり大事なんですよね。&lt;/p&gt;</content><category term="料理" /><summary></summary></entry><entry><title>管理職？</title><link href="https://ryoyakawai.com/blog/2018/09/20/kanrishoku.html" rel="alternate" type="text/html" title="管理職？" /><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/09/20/kanrishoku</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/09/20/kanrishoku.html">&lt;div&gt; &lt;/div&gt;
+命名ってとても難しいけど、かなり大事なんですよね。&lt;/p&gt;</content><category term="料理" /><summary></summary></entry><entry><title>管理職？</title><link href="..//2018/09/20/kanrishoku.html" rel="alternate" type="text/html" title="管理職？" /><published>2018-09-20T00:00:00+09:00</published><updated>2018-09-20T00:00:00+09:00</updated><id>..//2018/09/20/kanrishoku</id><content type="html" xml:base="..//2018/09/20/kanrishoku.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;前回に続いてちょっとした調べ物です。&lt;br /&gt;
 結局「管理職って何？」という疑問の調べ物。&lt;/p&gt;
