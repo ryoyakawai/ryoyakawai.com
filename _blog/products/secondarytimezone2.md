@@ -28,11 +28,6 @@ modified: 2019-03-23
 The **Secondary Timezone 2** is the Clock Face for Firbit [Versa](https://www.fitbit.com/en/versa), [Versa Lite](https://www.fitbit.com/en/versa) and [Ionic](https://www.fitbit.com/en/ionic).  
 This Clock Face is designed for those who would like to know two timezones at once.  
 
-<div class="post-image-center">
-<img src="{{ site.url }}/images/products/secondarytimezone2/download_clockface.png" width="20%" style="border:1px solid #eee;">
-</div>
-
-
 ## What's new
 
 - **2019.03.28** Add feature to switch between Analog and Digitala mode on watch. (v1.0.43)
@@ -48,10 +43,15 @@ And the features listed below are also available on this.
 - Color of the time of the main timezone in digital mode is selectable  
 - Color of the second-hand in analog mode is selectable  
 
+## Download
+click the banner to link to clockface page on fitbit app!
+<div class="post-image-center">
+<a href="https://gam.fitbit.com/gallery/clock/7fddd4e5-fe97-40ae-9c06-f9dbbbc3498f"><img src="{{ site.url }}/images/products/secondarytimezone2/download_clockface_200.png"></a>
+</div>
+
 ## Where should I get the Clock Face?
 To install, please visit this [URL(Secondary Timezone 2)](https://gam.fitbit.com/gallery/clock/7fddd4e5-fe97-40ae-9c06-f9dbbbc3498f).  
 (Fitbit app is required to see the page. )
-
 
 ## Q&A
 All of the Q&A listed below is the as of December 2018.
