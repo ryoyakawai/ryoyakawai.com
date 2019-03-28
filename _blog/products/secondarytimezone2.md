@@ -30,7 +30,7 @@ This Clock Face is designed for those who would like to know two timezones at on
 
 ## What's new
 
-- **2019.03.2x** Add feature to switch between Analog and Digitala mode on watch. (v1.0.43)
+- **2019.03.28** Add feature to switch between Analog and Digitala mode on watch. (v1.0.43)
 - **2019.02.07** Add feature to select opacity of secondary time (v1.0.42)
 - **2019.01.26** [Digital Mode] change opacity of separator located between hour and minutes in each seconds from light to dark (v1.0.39)
 
