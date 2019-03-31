@@ -19,15 +19,15 @@ image:
 
 ### 鶏ムネ肉とインゲンの中華炒め
 <div class="post-image-center">
-<script src='https://widgets.cookpad.com/recipes/5461774.js?k=f1117d29' type='text/javascript'></script>
+<script src='https://widgets.cookpad.com/recipes/5461774.js?k=f1117d29&fit_width=1' type='text/javascript'></script>
 </div>
 
 ### 鶏ムネ肉のブラックペッパー中華炒め
 <div class="post-image-center">
-<script src='https://widgets.cookpad.com/recipes/5461810.js?k=d819bc4f' type='text/javascript'></script>
+<script src='https://widgets.cookpad.com/recipes/5461810.js?k=d819bc4f&fit_width=1' type='text/javascript'></script>
 </div>
 
 ### 鶏モモ肉のオイスターソースの中華炒め
 <div class="post-image-center">
-<script src='https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10' type='text/javascript'></script>
+<script src='https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10&fit_width=1' type='text/javascript'></script>
 </div>
