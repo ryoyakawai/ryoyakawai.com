@@ -4,7 +4,7 @@ title: x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました
 description: ""
 date: 2019-03-21 00:00:00 +0900
 modified: 2019-03-21
-tags: [WebMusic, WebMIDI]
+tags: [Web Music, Web MIDI API]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz

@@ -3,7 +3,7 @@ layout: post
 title: WebRTC経由でシンセを鳴らしてみた
 description: ""
 modified: 2013-12-06
-tags: [Web Audio API, Web MIDI API, WebRTC, Web Music]
+tags: [Web Audio API, Web MIDI API, Web RTC, Web Music]
 ---
 <div> </div>
 

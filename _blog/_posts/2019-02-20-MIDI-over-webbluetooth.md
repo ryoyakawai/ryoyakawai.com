@@ -4,7 +4,7 @@ title: Web Bluetooth経由でBluetooth MIDIデバイスを使う
 description: ""
 date: 2019-02-20 00:00:00 +0900
 modified: 2019-02-20
-tags: [WebMusic, WebBluetooth, MIDI]
+tags: [Web Music, Web Bluetooth, MIDI]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz
