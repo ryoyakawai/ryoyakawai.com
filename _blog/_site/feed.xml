@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-05-15T22:28:35+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Sonic Boom! (Google I/O’19)</title><link href="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-05-15T22:39:47+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Sonic Boom! (Google I/O’19)</title><link href="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
 2019年5月7〜9日まで、毎年Google社が米国カリフォルニア州で開催している開発者会議「Google I/O」に参加してきました。&lt;br /&gt;
 &lt;br /&gt;
 その中でも&lt;strong&gt;「これは！！」&lt;/strong&gt;と感じたセッションを紹介していこうと思います。
@@ -33,7 +33,7 @@ C++で書かれたオーディオエンジンを走らせる部分を技術用�
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;背景など&quot;&gt;背景など&lt;/h2&gt;
-&lt;p&gt;AndroidとChromeの話を同時にするのは少し奇妙だが以下のような同じ構造だっったり、背景があるとのことです。&lt;/p&gt;
+&lt;p&gt;AndroidとChromeの話を同時にするのは少し奇妙だが以下のような同じ構造だったり、背景があるとのことです。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;システム：Callbackを基本としたオーディオを再生する仕組みを持っている&lt;/li&gt;

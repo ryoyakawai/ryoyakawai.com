@@ -42,7 +42,7 @@ C++で書かれたオーディオエンジンを走らせる部分を技術用�
 - [Don Turner](https://events.google.com/io/schedule/events/speakers/364a11ff-ba21-423c-9730-5aa9347c2c29)：Developer Advocate(Android) at Google
 
 ## 背景など
-AndroidとChromeの話を同時にするのは少し奇妙だが以下のような同じ構造だっったり、背景があるとのことです。
+AndroidとChromeの話を同時にするのは少し奇妙だが以下のような同じ構造だったり、背景があるとのことです。
 
 - システム：Callbackを基本としたオーディオを再生する仕組みを持っている
 - 遅延：Audio Latency（往復の）が約20ミリ秒（Pixelデバイス）
