@@ -1,7 +1,590 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-06-29T20:45:19+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>アメリカン中華の代表格？のバーボンチキンを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html" rel="alternate" type="text/html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた" /><published>2019-06-29T20:00:00+09:00</published><updated>2019-06-29T20:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="../feed.xml" rel="self" type="application/atom+xml" /><link href="../" rel="alternate" type="text/html" /><updated>2019-07-06T21:10:49+09:00</updated><id>../</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="../2020/07/03/ci-android-01.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2020-07-03T00:00:00+09:00</published><updated>2020-07-03T00:00:00+09:00</updated><id>../2020/07/03/ci-android-01</id><content type="html" xml:base="../2020/07/03/ci-android-01.html">&lt;h3 id=&quot;準備&quot;&gt;準備&lt;/h3&gt;
+&lt;p&gt;以下に書かれている行は必ず存在しているようにしてください。（「….」は「省略」を表しています）
+なお、2019年7月にMajorなVersionを記述しています。ご利用の際は実行している環境に合わせていただいて問題ないと思います。&lt;/p&gt;
+
+&lt;h4 id=&quot;ファイル編集&quot;&gt;ファイル編集&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/build.gradle&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/build.gradle&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;buildscript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;kotlin_version&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;1.3.21&#39;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;allprojects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;matching&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;testLogging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;failed&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;passed&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;skipped&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/build.gradle&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/build.gradle&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testOptions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;animationsDisabled&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;unitTests&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;returnDefaultValues&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;includeAndroidResources&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;implementation&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;androidTestUtil&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;com.android.support.test:orchestrator:1.0.2&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;com.nhaarman:mockito-kotlin-kt1.1:1.5.0&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;com.squareup.retrofit2:retrofit-mock:2.3.0&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;com.squareup.okhttp3:mockwebserver:3.10.0&#39;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/main/AndroidManifest.xml&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/main/AndroidManifest.xml&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;インターネットへのアクセスが必要な場合に設定する項目ですが、念の為インターネットにアクセスする場合は確認しましょう。&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;manifest&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:android=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;package=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;com.ryoyakawai.uitestsample&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    ....
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;uses-permission&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.permission.INTERNET&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;uses-permission&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;android:name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;android.permission.ACCESS_NETWORK_STATE&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    ....
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;新規追加&quot;&gt;新規追加&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mock-maker-inline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;unit-testの概要&quot;&gt;Unit Testの概要&lt;/h3&gt;
+&lt;p&gt;コードは&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/ryoyakawai/uitestsample&quot;&gt;このディレクトリ&lt;/a&gt;に配置しています。&lt;/p&gt;
+
+&lt;p&gt;Unit Testはこのファイルに書かれています。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/ryoyakawai/uitestsample/MainActivityUnitTest.kt&quot;&gt;MainActivityUnitTest.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;共通で使うであろう機能をMethod化して集めたClassがこちら。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/ryoyakawai/uitestsample/unittestuitls/UnitTestUitls.kt&quot;&gt;unittestuitls/UnitTestUitls.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;テストとしては、先程説明したModelに無駄に実装されているREST APIへ接続するロジックを使います（無駄じゃなかった？）。
+REST APIからデータを取得し、取得したデータを元に正しくViewに反映される動作をするかの確認を行うのが目的です。&lt;br /&gt;
+本来のサンプルアプリの接続先は、REST APIは&lt;a href=&quot;https://jsonplaceholder.typicode.com/&quot;&gt;JSONPlaceholder&lt;/a&gt;を利用します。接続するURLは&lt;a href=&quot;https://jsonplaceholder.typicode.com/comments?postId=1&quot;&gt;/comments?postId=1&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;postId&lt;/code&gt;が同一であれば常に同じ値を入れたJSONを返してくれます。常に同じJSONを返してくれるとはいえテストですので、相手のサーバの状態に関係なく確実に同じJSONを取得できることを保証しなければなりません。そこで、このUnitTestでは&lt;a href=&quot;https://site.mockito.org/&quot;&gt;Mockito&lt;/a&gt;を使って、JSONPlaceholderのAPIをMock（モック）することで確実に同一のJSONを受け取れるようにしています。&lt;/p&gt;
+
+&lt;h3 id=&quot;テストケース&quot;&gt;テストケース&lt;/h3&gt;
+
+&lt;p&gt;テストの対象にするMethodは&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/main/java/com/ryoyakawai/uitestsample/MainActivityPresenter.kt&quot;&gt;MainActivityPresenter.kt&lt;/a&gt;の&lt;code class=&quot;highlighter-rouge&quot;&gt;getJsonSampleResponse()&lt;/code&gt;です。&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getJsonSampleResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;disposable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Disposable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPostsById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subscribeOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Schedulers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;observeOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AndroidSchedulers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mainThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ResCommentsPostId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SinglePostResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;mView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ResCommentsPostId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;javaClass&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;javaClass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;declaredFields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forEach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isAccessible&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TAG&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;:&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;field&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handleSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResCommentsPostId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// (A)
+&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;handleError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// (B)
+&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;mDisposable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disposable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以下の3つがテストケースです。&lt;br /&gt;
+いずれも、&lt;code class=&quot;highlighter-rouge&quot;&gt;[https://jsonplaceholder.typicode.com/comments?postId=1](https://jsonplaceholder.typicode.com/comments?postId=1)&lt;/code&gt;にアクセスをしてResponseのチェックを行います。&lt;/p&gt;
+
+&lt;h4 id=&quot;-sampleunitdatafetchsuccesstest&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;✓&lt;/span&gt; &lt;span style=&quot;text-decoration:underline&quot;&gt;sampleUnitDataFetchSuccessTest()&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;JSONをResponseで受け取ることができた、異常系のケースです。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;getJsonSampleResponse()&lt;/code&gt;を実行した場合(A)が実行され、受け取ったJSONがMockした内容と同じであるかを確認しています。&lt;/p&gt;
+
+&lt;h4 id=&quot;-sampleunit400badrequesttest&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;✓&lt;/span&gt; &lt;span style=&quot;text-decoration:underline&quot;&gt;sampleUnit400BadRequestTest()&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;サーバから400系のResponseを受け取った、異常系のケースです。&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;getJsonSampleResponse()&lt;/code&gt;を実行し(B)が実行され、エラーメッセージが但し以下の確認をしています。（実装自体は現実的ではないです）&lt;/p&gt;
+
+&lt;h4 id=&quot;-sampleunit500servererrorltest&quot;&gt;&lt;span style=&quot;color:red&quot;&gt;✓&lt;/span&gt; &lt;span style=&quot;text-decoration:underline&quot;&gt;sampleUnit500ServerErrorlTest()&lt;/span&gt;&lt;/h4&gt;
+&lt;p&gt;サーバからのレスポンスが500系だった場合の異常ケース以外は、&lt;code class=&quot;highlighter-rouge&quot;&gt;sampleUnit400BadRequestTest()&lt;/code&gt;と同じです。&lt;/p&gt;
+
+&lt;h3 id=&quot;localで動作確認&quot;&gt;Localで動作確認&lt;/h3&gt;
+&lt;p&gt;動作させてみましょう。Terminalでコードのトップに移動して以下のコマンドを実行すると、こんな出力が出てくるはずです。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
+
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;Task :app:testDebugUnitTest
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit500ServerErrorTest PASSED
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnitDataFetchSuccessTest PASSED
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit400BadRequestTest PASSED
+
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;Task :app:testReleaseUnitTest
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit500ServerErrorTest PASSED
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnitDataFetchSuccessTest PASSED
+com.ryoyakawai.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit400BadRequestTest PASSED
+
+BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;8s
+40 actionable tasks: 10 executed, 30 up-to-date
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;このように &lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たらUnitTestの準備は完了です。&lt;br /&gt;
+また、ここでWarning等のメッセージが出てきたらでいる限り修正することをオススメします。&lt;/p&gt;</content><category term="Android" /><category term="Espresso" /><category term="CircleCI" /><category term="Firebase Test Lab" /><category term="DeployGate" /><summary>準備
+以下に書かれている行は必ず存在しているようにしてください。（「….」は「省略」を表しています）
+なお、2019年7月にMajorなVersionを記述しています。ご利用の際は実行している環境に合わせていただいて問題ないと思います。</summary></entry><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="../2019/07/03/ci-android-00.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>../2019/07/03/ci-android-00</id><content type="html" xml:base="../2019/07/03/ci-android-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
+2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。&lt;/p&gt;
+
+&lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
+&lt;p&gt;AndroidアプリのGitHubへのPushから、CircleCIでビルド、単体テスト、UIテスト（UI Animator &amp;amp; Espresso on Firebase Test Lab）、
+そしてDeployGateへアプリをデプロイする、までの一連の流れの雛形のようなものだと考えてください。&lt;br /&gt;
+また記事の内容は以下のように分割して書いていく予定です。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;テストケース、詳細ははともあれ、CircleCIでCIを回してみる&lt;/li&gt;
+  &lt;li&gt;Unit Testについての解説（仮）&lt;/li&gt;
+  &lt;li&gt;UI Testについて解説（仮）&lt;/li&gt;
+  &lt;li&gt;Firebase Test Labを準備する（仮）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。&lt;/p&gt;
+
+&lt;h2 id=&quot;ビルドの流れとインフラ&quot;&gt;ビルドの流れとインフラ&lt;/h2&gt;
+&lt;p&gt;以下の図の流れでビルドからデプロイまで行います。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;開発者がGitHubにコードをCommitしPushする&lt;/li&gt;
+  &lt;li&gt;CircleCIでビルドのプロセスが開始され、Unitテストが実行される&lt;/li&gt;
+  &lt;li&gt;UIテスト実行の為、CicleCIがFirebaseに向けてアプリ、テストケースを配信しUIテストを実行する&lt;/li&gt;
+  &lt;li&gt;Firebase Test LabでUIテストが実行が完了したらレポートをCircleCIに配信する&lt;/li&gt;
+  &lt;li&gt;DeployGateに向けてアプリを配信する&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;利用するインフラ&quot;&gt;利用するインフラ&lt;/h3&gt;
+&lt;p&gt;上記のプロセスを実行する為に、以下のインフラを利用します。おなじみの名前ばかりかもしれませんが・・・&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;font-weight:bold;margin:0;&quot;&gt;&lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Gitで操作するリポジトリを提供するクラウドサービス&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;font-weight:bold;margin:0;&quot;&gt;&lt;a href=&quot;https://circleci.com/&quot;&gt;CircleCI&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;CIを行ってくれるクラウドサービス&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;font-weight:bold;margin:0;&quot;&gt;&lt;a href=&quot;https://console.firebase.google.com/&quot;&gt;Firebase Test Lab&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Google社が提供するmBaaSが提供するサービスの1つで、UIテスト（Espresso、UI Automator 2.0、XCTest）をクラウドで行うサービス&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p style=&quot;font-weight:bold;margin:0;&quot;&gt;&lt;a href=&quot;https://deploygate.com/&quot;&gt;Deploy Gate&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;ストア（Google Play, App Store）を通さないアプリ配布を実現するサービス（ベータテスト等に利用できる）&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;今回利用するandroidのサンプルアプリ&quot;&gt;今回利用するAndroidのサンプルアプリ&lt;/h3&gt;
+
+&lt;h4 id=&quot;-サンプルアプリのコード&quot;&gt;＞ サンプルアプリのコード&lt;/h4&gt;
+&lt;p&gt;Unit Test、UI Testを行う為に強引に実装している部分があります。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;UI Test Sample App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;-機能の説明&quot;&gt;＞ 機能の説明&lt;/h4&gt;
+&lt;p&gt;サンプルアプリの機能は以下の通りです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;画面右下の赤色のFabをタップするとデバイスへのファイル書き込みの許可を求められる。&lt;/li&gt;
+  &lt;li&gt;デバイスへのファイル書き込みの許可の状態に関係なく、画面中央の文字列「Hello World!!」が「1」に変化する&lt;/li&gt;
+  &lt;li&gt;更に、画面右下の赤色のFabをタップすると、タップ毎に1つづつインクリメントされた数字が表示される&lt;/li&gt;
+  &lt;li&gt;画面右上の3点リーダをタップすると「Reset Counter」のボタンが出現し、タップするとカウンタが「0」に変化する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こんな↓動作をするアプリです。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/06/20190629-bourbonchicken.jpg&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-uitestsampleapp_00.png&quot; style=&quot;border-radius:8px&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;サンプルアプリの実装のアーキテクチャ&quot;&gt;サンプルアプリの実装のアーキテクチャ&lt;/h2&gt;
+&lt;p&gt;サンプルアプリのアーキテクチャはMVP(Model-View-Presenter)で構成されていて、Activityは1つです。&lt;br /&gt;
+また今回のサンプルアプリの仕様（上記）ですと、Model（DB、API等のデータソース）が必要のないアプリになってしまいますが、
+Unit Testの為、外部のREST APIへ接続を行い、データを取得しConsole出力をするロジックが無駄に実装しています。&lt;br /&gt;
+アーキテクチャは図にすると以下のような構成です。図内では、Classが1つのブロックになっていて、ブロックの上部に白文字はInterfaceです。
+例えば、MainActivityPresenterはMainActivityPresenterContractのInterfaceで構成されたClass、
+よって、MainActivityInteractorはInterfaceを規定していないClassであることを表しています。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;それでは、できるだけサクッとCircleCIでCIを回してみましょう。&lt;/p&gt;
+
+&lt;h2 id=&quot;事前準備リポジトリを作成する&quot;&gt;事前準備：リポジトリを作成する&lt;/h2&gt;
+&lt;p&gt;実際に動作させる場合は、上記のURLのコードをFork等をして自前で専用のリポジトリGitHubにご用意ください。&lt;/p&gt;
+
+&lt;h2 id=&quot;unit-testについて&quot;&gt;Unit Testについて&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://junit.org/junit4/&quot;&gt;JUnit&lt;/a&gt;を使ってUnit Testを実行します。AndroidでのUnit Testの定番です。
+モックは&lt;a href=&quot;https://site.mockito.org/&quot;&gt;Mockito&lt;/a&gt;を使います。
+サンプルアプリのUnit TestはPresenterとやり取りを横取りする形で行います。
+上の図の&lt;strong&gt;「Point for Unit Testing」&lt;/strong&gt;と書かれた矢印のポイントがそこです。&lt;/p&gt;
+
+&lt;h3 id=&quot;unit-testの概要&quot;&gt;Unit Testの概要&lt;/h3&gt;
+&lt;p&gt;コードは&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/example/uitestsample&quot;&gt;このディレクトリ&lt;/a&gt;に配置しています。&lt;/p&gt;
+
+&lt;p&gt;Unit Testのスクリプトはこのファイルです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/MainActivityUnitTest.kt&quot;&gt;MainActivityUnitTest.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;共通で使うであろう機能をMethod化して集めたClassがこちら。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/unittestuitls/UnitTestUitls.kt&quot;&gt;unittestuitls/UnitTestUitls.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;テストとしては、先程説明したModelにアプリの動作に対しては無駄に実装したREST APIへ接続するロジックを使います。
+REST APIからデータを取得し、取得したデータを元に正しくViewに反映される動作をするかの確認を行うのが目的です。&lt;br /&gt;
+サンプルアプリの接続先REST APIは&lt;a href=&quot;https://jsonplaceholder.typicode.com/&quot;&gt;JSONPlaceholder&lt;/a&gt;です。接続するURLは&lt;a href=&quot;https://jsonplaceholder.typicode.com/comments?postId=1&quot;&gt;/comments?postId=1&lt;/a&gt;で、&lt;code class=&quot;highlighter-rouge&quot;&gt;postId&lt;/code&gt;が同一であれば常に同じ値のJSONを返してくれます。常に同じJSONを返してくれるとはいえ、Unit Testではより確実性を高めたい、つまり、相手のサーバの状態に関係なく確実に同じJSONを取得できることを保証したいです。ですので、このUnit Testでは&lt;a href=&quot;https://site.mockito.org/&quot;&gt;Mockito&lt;/a&gt;を使ってJSONPlaceholderのAPIをMock（モック）することで確実に同一のJSONを受け取れるようにしています。&lt;br /&gt;
+&lt;br /&gt;
+テストのケースは2つです。その内容は以下の通りです。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTTPレスポンスコード200でJSONを正しく受け取った場合の値の確認とViewに対する動作の確認&lt;/li&gt;
+  &lt;li&gt;HTTPレスポンスコード500を受け取った場合のViewに対する動作確認&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なお、Unit Testの書き方（お作法）、テストケース詳細は別エントリの「Unit Testについての解説（仮）」で説明する予定です。&lt;/p&gt;
+
+&lt;h3 id=&quot;unit-testをローカル環境で動作させてみる&quot;&gt;Unit Testをローカル環境で動作させてみる&lt;/h3&gt;
+&lt;p&gt;手元で動作させてみましょう。Terminalでコードのトップに移動して以下のコマンドを実行すると、こんな出力が出てくるはずです。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
+
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;Task :app:testDebugUnitTest
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit500ServerErrorTest PASSED
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnitDataFetchSuccessTest PASSED
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit400BadRequestTest PASSED
+
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;Task :app:testReleaseUnitTest
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit500ServerErrorTest PASSED
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnitDataFetchSuccessTest PASSED
+com.example.uitestsample.MainActivityUnitTest &amp;gt; sampleUnit400BadRequestTest PASSED
+
+BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;8s
+40 actionable tasks: 10 executed, 30 up-to-date
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら&lt;strong&gt;Unit TestはテストケースをすべてSuccessで終了した&lt;/strong&gt;という意味になります。また、ここでWarning等のメッセージが出た場合、できる限り修正してメッセージが表示されないようにすることをオススメします。&lt;br /&gt;
+これでUnit Testの準備は完了です。&lt;/p&gt;
+
+&lt;h2 id=&quot;ui-testについて&quot;&gt;UI Testについて&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/espresso&quot;&gt;Espresso&lt;/a&gt;、&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator&quot;&gt;UI Automator&lt;/a&gt;を使っています。それぞれの特徴は以下の通りです。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;espresso&quot;&gt;Espresso&lt;/h4&gt;
+&lt;p&gt;「to write concise, beautiful, and reliable Android UI tests」と公式サイトには説明されています。特定のアプリのUIに対してのスクリプトで動作をさせることを可能にするテストフレームワークです。単一のアプリの操作を自動化する場合に使うとよいでしょう。Google社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。&lt;/p&gt;
+
+&lt;h4 id=&quot;ui-automator&quot;&gt;UI Automator&lt;/h4&gt;
+&lt;p&gt;「suitable for cross-app functional UI testing across system and installed apps.」と公式サイトに説明されている通りで、Espressoと比べると、よりAndroidのOSに近い側に位置しているテストフレームワークで、複数アプリを行き来するよう動作をスクリプトで定義することの可能です。Espressoとは違い、複数のアプリの操作を自動化する場合に使うとよいでしょう。こちらもEspressoと同じくGoogle社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;ui-testの概要&quot;&gt;UI Testの概要&lt;/h3&gt;
+&lt;p&gt;コードは&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/androidTest/java/com/example/uitestsample&quot;&gt;このディレクトリ&lt;/a&gt;に配置しています。&lt;/p&gt;
+
+&lt;p&gt;UI Testのスクリプトはこのファイルです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;MainActivityInstrumentedTest.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;共通で使うであろう機能をMethod化して集めたClassがこちら。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/uitestutils/UiTestUtils.kt&quot;&gt;uitestutils/UiTestUtils.kt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;テストのケースは3つです。その内容は以下の通りです。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;パッケージ名を確認する&lt;/li&gt;
+  &lt;li&gt;アプリ起動時の画面の文字列の確認をする&lt;/li&gt;
+  &lt;li&gt;アプリ起動後、各ボタンが正しく機能し、画面表示が仕様通り更新されるかを確認する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「UI Testについての解説（仮）」で説明する予定です。&lt;/p&gt;
+
+&lt;h3 id=&quot;ui-testをローカル環境で動作させてみる&quot;&gt;UI Testをローカル環境で動作させてみる&lt;/h3&gt;
+&lt;p&gt;手元で動作させてみましょう。Terminalのコマンドラインからコードのトップディレクトリに移動して以下のコマンドを実行すると、こんな↓が出力が出てくるはずです。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew connectedAndroidTest; // ← ./gradlew cAT でもOK
+
+&lt;span class=&quot;gp&quot;&gt;&amp;gt; &lt;/span&gt;Task :app:connectedDebugAndroidTest
+01:52:09 V/ddms: execute: running am get-config
+01:52:09 V/ddms: execute &lt;span class=&quot;s1&quot;&gt;&#39;am get-config&#39;&lt;/span&gt; on &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt; : EOF hit. Read: -1
+01:52:09 V/ddms: execute: returning
+01:52:09 D/app-debug.apk: Uploading app-debug.apk onto device &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt;
+01:52:09 D/Device: Uploading file onto device &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt;
+....
+01:52:13 V/ddms: execute: running pm install -r -t &lt;span class=&quot;s2&quot;&gt;&quot;/data/local/tmp/test-services-1.0.2.apk&quot;&lt;/span&gt;
+01:52:13 V/ddms: execute &lt;span class=&quot;s1&quot;&gt;&#39;pm install -r -t &quot;/data/local/tmp/test-services-1.0.2.apk&quot;&#39;&lt;/span&gt; on &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt; : EOF hit. Read: -1
+01:52:13 V/ddms: execute: returning
+01:52:13 V/ddms: execute: running rm &lt;span class=&quot;s2&quot;&gt;&quot;/data/local/tmp/test-services-1.0.2.apk&quot;&lt;/span&gt;
+01:52:13 V/ddms: execute &lt;span class=&quot;s1&quot;&gt;&#39;rm &quot;/data/local/tmp/test-services-1.0.2.apk&quot;&#39;&lt;/span&gt; on &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt; : EOF hit. Read: -1
+01:52:13 V/ddms: execute: returning
+01:52:13 D/app-debug-androidTest.apk: Uploading app-debug-androidTest.apk onto device &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt;
+01:52:13 D/Device: Uploading file onto device &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt;
+....
+androidx.test.internal.runner.junit3.DelegatingFilterableTestSuite &amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;API_27_Pixel_2&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;AVD&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; - 8.1.0] SKIPPED
+01:52:20 V/InstrumentationResultParser: INSTRUMENTATION_STATUS_CODE: -3
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: &lt;span class=&quot;nv&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;androidx.test.internal.runner.junit3.DelegatingTestSuite
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: &lt;span class=&quot;nv&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;AndroidJUnitRunner
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: &lt;span class=&quot;nv&quot;&gt;numtests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;8
+....
+01:53:07 V/InstrumentationResultParser: Time: 48.21
+01:53:07 V/InstrumentationResultParser:
+01:53:07 V/InstrumentationResultParser: OK &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3 tests&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+....
+01:53:07 V/ddms: execute: returning
+01:53:07 V/ddms: execute: running pm uninstall com.example.uitestsample.test
+01:53:07 V/ddms: execute &lt;span class=&quot;s1&quot;&gt;&#39;pm uninstall com.example.uitestsample.test&#39;&lt;/span&gt; on &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt; : EOF hit. Read: -1
+01:53:07 V/ddms: execute: returning
+01:53:07 V/ddms: execute: running pm uninstall com.example.uitestsample
+01:53:07 V/ddms: execute &lt;span class=&quot;s1&quot;&gt;&#39;pm uninstall com.example.uitestsample&#39;&lt;/span&gt; on &lt;span class=&quot;s1&quot;&gt;&#39;emulator-5554&#39;&lt;/span&gt; : EOF hit. Read: -1
+01:53:07 V/ddms: execute: returning
+
+BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1m 1s
+51 actionable tasks: 10 executed, 41 up-to-date
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Unit Testのときと同じく、&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら&lt;strong&gt;UI TestはテストケースをすべてSuccessで終了した&lt;/strong&gt;という意味になります。また、ここもUnit Testのときと同様にWarning等のメッセージが出てきたら、でいる限り修正することをオススメします。&lt;/p&gt;
+
+&lt;h2 id=&quot;firebase-test-labでテストを行う&quot;&gt;Firebase Test Labでテストを行う&lt;/h2&gt;
+
+&lt;h3 id=&quot;firebase-test-labとは&quot;&gt;Firebase Test Labとは&lt;/h3&gt;
+
+&lt;p&gt;Firebase Test LabはFirebaseがの1つのサービスとして提供されているクラウドでUI Testを行うプラットフォームです。Android(Espresso, UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。操作は以下の2つの方法が提供されています。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://console.firebase.google.com/&quot;&gt;ブラウザから操作を行う&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Google Cloud SDKのCLIを利用してコマンドラインから&lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com?project=uitest-sample-android&amp;amp;folder=&amp;amp;organizationId=&quot;&gt;Cloud Testing API&lt;/a&gt;で動作させる方法&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;どちらもの方法を使っても結果はブラウザ上で動作している&lt;a href=&quot;console.firebase.google.com&quot;&gt;FirebaseのConsole&lt;/a&gt;（下図↓）から閲覧が可能になります。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-console-firebasetestlab_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;ここではGoogle Cloud SDKのCLIからCloud Testing APIを使う方法で実行します。
+Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする必須です。必ず以下のリンクから利用するプロジェクトで有効にしてください。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com&quot;&gt;Cloud Testing API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/toolresults.googleapis.com&quot;&gt;Cloud Tool Results API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（Firebase Test Labの設定については「Firebase Test Labを準備する（仮）」で詳しく行う予定です。）&lt;/p&gt;
+
+&lt;h3 id=&quot;firebase-test-labをローカル環境で動作させてみる&quot;&gt;Firebase Test Labをローカル環境で動作させてみる&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://firebase.google.com/docs/test-lab&quot;&gt;FirebaseでのProjectの設定&lt;/a&gt;、GCPのアカウントの準備、&lt;a href=&quot;https://cloud.google.com/sdk/downloads&quot;&gt;Google Cloud SDKのCLIは準備&lt;/a&gt;は済んでいると仮定します。&lt;br /&gt;
+また既にローカルでUIテストの動作確認も済んでいますので、早速UIテストをFirebase Test Labで動かしてみます。&lt;br /&gt;
+（「Firebase Test Labを準備する（仮）」で詳しく説明する予定です。）&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Cloud Testing APIを有効にしたアカウントでログインし、CLIの向き先Projectを切替える
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud auth;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud config &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;project &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;PROJECT ID];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;続いて、Cloud Testing APIでUIテストを実行する為に以下をコンソールで実行します。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 環境変数にして実行しまいます
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y%m%d_%H%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;BK_OBJ_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[保存するバケットのディレクトリ名]/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[今回のテストを保存するディレクトリ]&quot;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[PROJECT ID]&quot;&lt;/span&gt;
+
+// コマンドを改行するときは末尾のスペースを忘れずに入れてください。
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud firebase &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;android run &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --type instrumentation &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --app ./app/build/outputs/apk/debug/app-debug.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --test ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --test-targets &lt;span class=&quot;s2&quot;&gt;&quot;class com.example.uitestsample.MainActivityInstrumentedTest&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --results-dir &lt;span class=&quot;nv&quot;&gt;$BK_OBJ_NAME&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --results-bucket cloud-test-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --directories-to-pull /sdcard/uitest/ &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --device &lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Pixel2,version&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;26,locale&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;en_US,orientation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;portrait &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --use-orchestrator &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --timeout 120s
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;実行開始が成功するとFirebaseのConsoleにこんな形↓で1行追加されます。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-firebase-begin-test_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;テストが終了しするとこのような出力がコンソールにされます。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;./app/build/outputs/apk/debug/app-debug.apk] to Firebase Test Lab...
+Uploading &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk] to Firebase Test Lab...
+Raw results will be stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your GCS bucket at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.developers.google.com/storage/browser/[PROJECT ID]/cloud-test-uitest-sample-android/20190705-xxxxxx02/]
+
+Test &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;matrix-3dp8juo0wx533] has been created &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the Google Cloud.
+Firebase Test Lab will execute your instrumentation &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;on 1 device&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+Creating individual &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;executions...done.
+
+Test results will be streamed to &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.firebase.google.com/project/[PROJECT ID]/testlab/histories/bh.xxxxxxxxx/matrices/918190477175429xxxx].
+16:25:19 Test is Pending
+16:25:40 Starting attempt 1.
+16:25:40 Test is Running
+16:26:42 Started logcat recording.
+16:26:42 Preparing device.
+16:27:15 Logging &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;to Google account on device.
+16:27:15 Installing apps.
+16:27:28 Retrieving Pre-Test Package Stats information from the device.
+16:27:28 Retrieving Performance Environment information from the device.
+16:27:28 Started crash detection.
+16:27:28 Started crash monitoring.
+16:27:28 Started performance monitoring.
+16:27:42 Started video recording.
+16:27:42 Starting instrumentation test.
+16:28:21 Completed instrumentation test.
+16:28:34 Stopped performance monitoring.
+16:28:41 Stopped crash monitoring.
+16:28:47 Stopped logcat recording.
+16:28:47 Retrieving Post-test Package Stats information from the device.
+16:28:47 Logging out of Google account on device.
+16:28:53 Done. Test &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 51 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;secs&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+16:28:53 Starting results processing. Attempt: 1
+16:29:00 Completed results processing. Time taken &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 7 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;secs&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+16:29:00 Test is Finished
+
+Instrumentation testing complete.
+
+More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.firebase.google.com/project/[PROJECT ID]/testlab/histories/bh.xxxxxxxxx/matrices/918190477175429xxxx].
+┌─────────┬──────────────────────────┬─────────────────────┐
+│ OUTCOME │     TEST_AXIS_VALUE      │     TEST_DETAILS    │
+├─────────┼──────────────────────────┼─────────────────────┤
+│ Passed  │ Pixel2-26-en_US-portrait │ 3 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;cases passed │
+└─────────┴──────────────────────────┴─────────────────────┘
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;出力されている&lt;strong&gt;GCS bucket&lt;/strong&gt;、&lt;strong&gt;More details are availabl at&lt;/strong&gt;として表示されているURLにアクセスするとテスト結果が書き出されているはずです。閲覧はブラウザから可能です。&lt;/p&gt;
+
+&lt;h2 id=&quot;deploygateを準備する&quot;&gt;DeployGateを準備する&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.deploygate.com/docs/quickstart#section--&quot;&gt;ここ&lt;/a&gt;を参考に、&lt;strong&gt;サインアップ&lt;/strong&gt;, &lt;strong&gt;アプリをアップロード&lt;/strong&gt;まで済ませましょう。&lt;/p&gt;
+
+&lt;h2 id=&quot;circleciの設定をする&quot;&gt;CircleCIの設定をする&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/.circleci/config.yml&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.circleci/config.yml&lt;/code&gt;&lt;/a&gt;が設定ファイルになります。&lt;br /&gt;
+動作させるには環境変数として&lt;code class=&quot;highlighter-rouge&quot;&gt;DEPLOYGATE_API_KEY&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;の設定が必須です。
+それぞれの値の取得方法は以下になります。&lt;/p&gt;
+
+&lt;h3 id=&quot;deploygate_api_key&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DEPLOYGATE_API_KEY&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;DeployGateのサイトにログインをして&lt;a href=&quot;https://deploygate.com/settings&quot;&gt;https://deploygate.com/settings&lt;/a&gt;の最下段に表示されています。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-deploygate_key_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;google_project_idgcloud_service_key&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;はJSON形式のファイルの内容をbase64にした値です。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;下↓の左図のように(1)でPROJECT_IDを選択し（ここで選択した文字列が&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;となります）、(2)のように [IAM &amp;amp; admin] &amp;gt; [Service account] を選択してアカウントを作成します&lt;/li&gt;
+  &lt;li&gt;次に[IAM &amp;amp; admin]を表示し、下↓の右図のように先程作成したアカウントの右側の鉛筆マークをクリックして、&lt;strong&gt;Firebase Test Lab Admin&lt;/strong&gt;を追加します&lt;/li&gt;
+  &lt;li&gt;再度[IAM &amp;amp; admin] &amp;gt; [Service account]を表示して、作成したアカウントの右側にある3点リーダをクリックしてJSONフォーマットのキーを作成しダウンロードします&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-serviceaccount_00.png&quot; width=&quot;40%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee; margin-right: 10px&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-serviceaccount_01.png&quot; width=&quot;55%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;そしてダウンロードしたJSONフォーマットのキーをbase64形式に書き出します。この文字列をCircleCIに環境変数&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;として登録してください。&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;base64 -i &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;PATH TO JSON FILE];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;cicleciに環境変数として登録&quot;&gt;CicleCIに環境変数として登録&lt;/h2&gt;
+&lt;p&gt;取得した3つの値を&lt;code class=&quot;highlighter-rouge&quot;&gt;DEPLOYGATE_API_KEY&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;を以下の図のように登録します。&lt;br /&gt;
+対象のプロジェクトを選択し[Settings]を表示して、左ペインのメニューから[BUILD SETTINGS] &amp;gt; [Environment Variables]に保存します。完了すると以下の図のようになります。
+画面上は指定した値の最後の4文字のみ表示された状態となります。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci-stting_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;リポジトリにpushしてcircleci上でbuildを動かす&quot;&gt;リポジトリにPushしてCircleCI上でBuildを動かす&lt;/h2&gt;
+
+&lt;p&gt;設定は完了しましたので、準備したリポジトリのMasterブランチにコードをPushします。&lt;br /&gt;
+PushするとCircleCI上でBuildのプロセスが動き始めます。今後はMasterにPush、またはMergeするとBuildプロセスが走るようになります。&lt;/p&gt;
+
+&lt;h3 id=&quot;実行レポート&quot;&gt;実行レポート&lt;/h3&gt;
+&lt;p&gt;CircleCIのサイトから確認することが可能です。成功すると以下のようになるでしょう。&lt;br /&gt;
+また、Unit Testの結果は &lt;strong&gt;Artifacts&lt;/strong&gt; のタブから確認することが可能です。（下図）&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci-result_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;UI Testの結果は下図のようにFirebaseのConsoleから確認可能です。また、下図の赤丸内の&lt;strong&gt;Test Result&lt;/strong&gt;をクリックするとその他のデータが閲覧可能となっています。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-firebase-access-to-gcp_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
+&lt;p&gt;AndroidアプリをCircleCI上でCIする流れを説明してきました。この流れでCIを回していきます。長くなってしまいましたが、いかがでしたでしょうか？&lt;br /&gt;
+この流れを作るのに多くのサイトにお世話になりました。この記事をご覧になっている方々がサクっとCI環境を作成することができることで、
+世界を変えるであろう素晴らしいアプリの開発に時間を注ぐことに少しでもお力になれたら嬉しいです。&lt;br /&gt;
+なお、今回のUI Testはネットワークアクセスに依存する部分が少なかったのですが、そうでない場合は結果が不安定になりがちですので、通信中なのか、通信は完了しているのかについての何らかの目印をつける、だったりその他の工夫が必要になります。そういったところも何らかの形で共有していきたいと思っています。&lt;/p&gt;
+
+&lt;p&gt;それでは、引き続き詳細な解説についてもがんばって書いていきますのでよろしくお願いします。&lt;/p&gt;</content><category term="Android" /><category term="Espresso" /><category term="CircleCI" /><category term="Firebase Test Lab" /><category term="DeployGate" /><summary>これは何？
+AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
+2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。</summary></entry><entry><title>アメリカン中華の代表格？のバーボンチキンを作ってみた</title><link href="../2019/06/29/bourbon-chicken.html" rel="alternate" type="text/html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた" /><published>2019-06-29T20:00:00+09:00</published><updated>2019-06-29T20:00:00+09:00</updated><id>../2019/06/29/bourbon-chicken</id><content type="html" xml:base="../2019/06/29/bourbon-chicken.html">&lt;div&gt; &lt;/div&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+  &lt;img src=&quot;../images/2019/06/20190629-bourbonchicken.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;アメリカン中華の代表格かな？って思ってるバーボンチキン。微妙に焦がすのがポイントな料理。たまに無性に食べたくなるので作ってみました。&lt;br /&gt;
@@ -11,7 +594,7 @@
 &lt;h3 id=&quot;バーボンチキンアメリカン中華&quot;&gt;バーボンチキン（アメリカン中華？）&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5719021.js?k=5ba150f3&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Sonic Boom! (Google I/O’19)</title><link href="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Sonic Boom! (Google I/O’19)</title><link href="../2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>../2019/05/15/sonicboom-googleio</id><content type="html" xml:base="../2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
 2019年5月7〜9日まで、毎年Google社が米国カリフォルニア州で開催している開発者会議「Google I/O」に参加してきました。&lt;br /&gt;
 &lt;br /&gt;
 その中でも&lt;strong&gt;「これは！！」&lt;/strong&gt;と感じたセッションを紹介していこうと思います。
@@ -117,7 +700,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;h2 id=&quot;出来上がったところでセッション&quot;&gt;出来上がったところでセッション&lt;/h2&gt;
 &lt;p&gt;同じオーディオエンジンで作製したAndroidとWebのアプリでのセッション。(32:05 - )&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/05/20190515_io19_02.png&quot; /&gt;
+&lt;img src=&quot;../images/2019/05/20190515_io19_02.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;事例の紹介&quot;&gt;事例の紹介&lt;/h2&gt;
@@ -170,14 +753,14 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 「Step by StepでAndroid、Webでのコーディング方法を追うことができる」という意味で、開発を行うのには非常に参考になると思っています。
 （デジタルハーツ所属としての参加なのに、アプリケーションテストの内容でなくてごめんなさい😅）
 
-セッションの動画は↓です。</summary></entry><entry><title>もやしと豆苗のガパオ風炒め</title><link href="https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame.html" rel="alternate" type="text/html" title="もやしと豆苗のガパオ風炒め" /><published>2019-03-31T00:00:00+09:00</published><updated>2019-03-31T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame.html">&lt;div&gt; &lt;/div&gt;
+セッションの動画は↓です。</summary></entry><entry><title>もやしと豆苗のガパオ風炒め</title><link href="../2019/03/31/gapaohuu-itame.html" rel="alternate" type="text/html" title="もやしと豆苗のガパオ風炒め" /><published>2019-03-31T00:00:00+09:00</published><updated>2019-03-31T00:00:00+09:00</updated><id>../2019/03/31/gapaohuu-itame</id><content type="html" xml:base="../2019/03/31/gapaohuu-itame.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;ガパオごはんを作ったときに「この味で野菜炒めにしても美味しいんじゃないかな？」と思い立って作ったらやっぱり美味しかったので、Cookpadにメモりました。
 ちょっとエスニックな野菜炒め、という感じかな。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://cookpad.com/recipe/5581338&quot;&gt;「もやしと豆苗のガパオ風炒め」のレシピ&lt;/a&gt;はこちらです。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/03/20190331-gapao.jpg&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;../images/2019/03/20190331-gapao.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
@@ -192,11 +775,11 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 米国で蕎麦を炒めた料理とかあったけどだいたい微妙な味だけど「この野菜炒めならイケるんじゃないか？」と思って混ぜたのがこちら↓。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/03/20190331-soba.jpg&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;../images/2019/03/20190331-soba.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;味は、、、おすすめ出来ませんww&lt;br /&gt;
-食べてて、「蕎麦を炒める」だなんてなんて米国的発想をしてるんだ、、、と自分にビックリでした😅&lt;/p&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
+食べてて、「蕎麦を炒める」だなんてなんて米国的発想をしてるんだ、、、と自分にビックリでした😅&lt;/p&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="../2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>../2019/03/21/update-xwebmidi</id><content type="html" xml:base="../2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。&lt;br /&gt;
 理由は簡単でHTML ImportがChromeから削除されてしまうからです。&lt;/p&gt;
@@ -245,7 +828,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="../2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>../2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="../2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
 久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
@@ -255,7 +838,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;../images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 
@@ -264,7 +847,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
 ウェブって本当にいいですねっ👍&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="../2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>../2019/02/01/farewellparty</id><content type="html" xml:base="../2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
 &lt;p&gt;「こんにちは」&lt;br /&gt;
 という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 &lt;br /&gt;
 スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw&lt;/p&gt;
@@ -282,13 +865,13 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;p&gt;と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;../images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;そして、今回は1参加者のつもりだったのが、僕まで壮行されれる側にしていただけました。本当にありがとうございました。嬉しかったです。更にこんな素敵などんぶりまで記念品としていただいちゃいました！あの当時なら確実に「白米用」でしたが、これからは「スープ」または「ヨーグルト」用として使わせていただきますっ！ありがとうございます。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;../images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;さて、未来に向けて引き続き一歩一歩着実に前進していくよっ！&lt;/p&gt;</content><category term="壮行会" /><category term="FarewellParty" /><summary>「こんにちは」
@@ -305,7 +888,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 
 「突き詰めていくと、最後は好き嫌いやで。」
 
-と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
+と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="../2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>../2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="../2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;たまに食べたくなるパンダエクスプレスメニュー。作ってみたら、けっこう美味しくできたのでCookpadに公開しちゃいました。&lt;br /&gt;
 鶏のムネ肉ってパサっとしてしまうので避けがちだけど、そこまでパサつかずで良いかも。&lt;br /&gt;
@@ -324,7 +907,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;h3 id=&quot;鶏モモ肉のオイスターソースの中華炒め&quot;&gt;鶏モモ肉のオイスターソースの中華炒め&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10&amp;amp;fit_width=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="https://ryoyakawai.com/blog/2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/31/endof2018</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="../2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>../2018/12/31/endof2018</id><content type="html" xml:base="../2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年も最終日。環境も、自分も動いた、動かした1年。お疲れ様でした！！&lt;br /&gt;
 転職、というのが一番大きかったけど、ブログを移行したり、FitbitのClock Faceを公開したり、ウェブサイトを最初から作ったり、Cookpadでレシピを公開し始めたり、大きいことから小さなことまでやってたんだな〜、と振り返り中。悩みは多い1年だったけど、よい1年だったかな。体重も維持できてるし。&lt;br /&gt;
@@ -341,199 +924,4 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
   &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><category term="年末" /><summary></summary></entry><entry><title>Fitbit OSのClockfaceにAnalyticsを入れてみた</title><link href="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html" rel="alternate" type="text/html" title="Fitbit OSのClockfaceにAnalyticsを入れてみた" /><published>2018-12-22T23:00:00+09:00</published><updated>2018-12-22T23:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;2018年4月末くらいに買った&lt;a href=&quot;https://blog.ryoyakawai.com/2018/05/27/fitbit-clockface.html&quot;&gt;Fitbit Versa向けにClockfaceを作って半年&lt;/a&gt;経ちました。
-インド、英国、オーストラリア、米国のユーザから「サマータイム入ってね〜！」とか、「タイムゾーン追加して！」とかいろいろと要望いただき、
-1つ1つ対処していて、そろそろUX的なツッコミも入るようになりました。なんですが、Fitbitはエコシステムとしてまだインストール数とかの情報の開示を
-してもらえないので、どれくらいの方に使ってもらえているのか把握できず、なんとかしたいな〜、と思っていました。&lt;br /&gt;
-そこで、単純にAnalyticsを入れてしまいました。&lt;/p&gt;
-
-&lt;h2 id=&quot;導入&quot;&gt;導入&lt;/h2&gt;
-&lt;p&gt;1からコード書く必要あるのかも？と思いきや、検索したらズバリなのがありました。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/dillpixel/fitbit-google-analytics&quot;&gt;dillpixel/fitbit-google-analytics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Fitbit OS上のアプリ向けっぽいのでClockfaceで動くのか？という不安はありましたが、特にハードルなく導入完了してしいました。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;AnalyticsでTracking IDを取得&lt;/li&gt;
-  &lt;li&gt;AppとCompanionでimport&lt;/li&gt;
-  &lt;li&gt;トラックしたいところで動作させる&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;非常に簡単でした。&lt;/p&gt;
-
-&lt;p&gt;これで、どれだけ使われているのか分かる、かな？&lt;br /&gt;
-まだレビューですが、リリースできるようになるのを楽しみにしてようと思います。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fitbit-google-analytics/app.js&lt;/code&gt;の&lt;code class=&quot;highlighter-rouge&quot;&gt;debug&lt;/code&gt;をExposeして欲しかったな〜。&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;analytics&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;analytics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;こっちも&lt;code class=&quot;highlighter-rouge&quot;&gt;fitbit-google-analytics/companion.js&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;debug&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><category term="Fitbit" /><category term="FitbitOS" /><summary></summary></entry><entry><title>「Web Music Developers Meetup ＃3」を開催しました！</title><link href="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html" rel="alternate" type="text/html" title="「Web Music Developers Meetup ＃3」を開催しました！" /><published>2018-12-22T00:00:00+09:00</published><updated>2018-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;2018年12月21日に「Web Music Developers Meetup 3」を開催しました。&lt;br /&gt;
-20名ほどの参加者の中から、10分のLTが6つ行われ、LT後には質問、ノウハウ等が活発に飛び交う、
-楽しく、そして有意義なMeetupになったように思います。
-ご参加くださった皆様、そしてLTの準備、発表をしてくださった皆様、お疲れ様でした！！&lt;/p&gt;
-
-&lt;h2 id=&quot;ltの内容の紹介&quot;&gt;LTの内容の紹介&lt;/h2&gt;
-
-&lt;h3 id=&quot;lt-1--toyoshim-さん&quot;&gt;LT-1 : &lt;a href=&quot;https://twitter.com/toyoshim&quot;&gt;@toyoshim&lt;/a&gt; さん&lt;/h3&gt;
-&lt;p&gt;Web Audio/MIDIの標準化について＆今後のChromeとWeb Music系のAPIに関して、のお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;W3Cの年次会議であるTPACにて話さた内容に関しては、Web Audio V2では現在のAPIよりも低レイヤのAPIをサポーする方向で進むこと、Web MIDI APIに関してはMozillaがFirefoxに実装を行って2019年1月にはリリースする目標感をもっている、という表明があったとのこと。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;W3Cに&lt;a href=&quot;https://www.w3.org/community/audio-comgp/&quot;&gt;Audio Community Group&lt;/a&gt;ができました。Audio WGよりももう少しカジュアルなグループなので気になる方はご参加ください。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Chromeは外部デバイス接続に対してのPermission（「GPS使っていいですか？」みたいダイアログ）は適切な場面で出せるようにする、という方向で進んでいる&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Web MIDI API on Chromeに関しては現状はWeb MIDI APIでSystemExclusiveのメッセージを扱う場合にのみ限定してPermissionの許可が必要であるのが、今後はWeb MIDI APIを利用するときにはメッセージに関わらず必ずユーザに許可を求めるように変更されるだろう。その影響もあり（もちろん世の中的な流れもあるが）、Web MIDI APIが使えるプロトコルはHTTPSのみとなる。Chrome内部的には「SystemExclusiveを使う」というフラグは持ち続けることになるとは思う（今後の話なので未確定）。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_toyoshim.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;lt-2--gcchaan&quot;&gt;LT-2 : &lt;a href=&quot;https://twitter.com/gcchaan&quot;&gt;@gcchaan&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Web MIDI APIさわってみた、というタイトルでWeb Socketと使ってリモートでMIDI機器を制御してみたお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;システムを作ってみて、Web Socketでワリとスピードが出てるから演奏にも使えそうなことが判明した&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ついでに、画面に楽譜に表示された和音を鍵盤から時間内に抑えるゲーム、も作ってみた&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_gcchan.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://amei-music.github.io/CreatorsHub/about.html&quot;&gt;Creators’ Hub&lt;/a&gt;のJSONの形式を使えば、他のアプリとも会話がしやすくなるかも？というアドバイスが会場からありました。&lt;/p&gt;
-
-&lt;h3 id=&quot;lt-3--dorayaki0&quot;&gt;LT-3 : &lt;a href=&quot;https://twitter.com/dorayaki0&quot;&gt;@dorayaki0&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;abc記法（&lt;a href=&quot;https://abcjs.net/&quot;&gt;abc.js&lt;/a&gt;を使って）を使って楽譜をリアルタイムに記入していくアプリケーションのお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://scrapbox.io/business&quot;&gt;Scrapbox&lt;/a&gt;上でChrome Extentionと動く&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://scrapbox.io/satakebox/hyperscorebox&quot;&gt;hyperscoreboxの説明ページ&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_dorayaki0.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;楽譜をリアルタイムに鳴らしたいけど実現が難しい・・・という@dorayaki0さんの悩みに対し、会場から「ExtentionならBackground Pageを作ってそこにEvent投げたらいけそう」という解決策が出されていました。&lt;/p&gt;
-
-&lt;h3 id=&quot;lt-4--sasacci&quot;&gt;LT-4 : &lt;a href=&quot;https://twitter.com/sasacci&quot;&gt;@sasacci&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;「BLE MIDI on Web Bluetooth」と「VJで家の設計図をグリグリ回した」という2本立てのお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Web BluetoothでBLE MIDIのChracteristicに&lt;code class=&quot;highlighter-rouge&quot;&gt;7772E5DB-3868-4112-A1A9-F2669D&lt;/code&gt;、Serviceに&lt;code class=&quot;highlighter-rouge&quot;&gt;03B80E5A-EDE8-4B33-A751-6CE34EC4C700&lt;/code&gt;を指定したらウェブブラウザとBLE MIDI機器とを簡単に接続できる（Macだけかも）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Web BluetoothはBLE MIDIとして接続されるだけなので、受け取ったメッセージはParseする必要がある&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;VJ仲間の方のご自宅が3DデータであったのでThree.jsで扱って、VJ素材としてグリグリ回した話&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_sasacci.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Roland社の&lt;a href=&quot;https://www.roland.com/jp/products/aerophone_go/&quot;&gt;Aerophone GO&lt;/a&gt;を持ち込んでのBLE MIDI on Web Bluetoothのお話で、写真は16進数のMIDIメッセージをネタに会場とやり取りをしているところ。&lt;/p&gt;
-
-&lt;h3 id=&quot;lt-5--tadfmac&quot;&gt;LT-5 : &lt;a href=&quot;https://twitter.com/tadfmac&quot;&gt;@tadfmac&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;簡単にIoT機器作りたいじゃん、というお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;簡単にIoT機器を作るにはMIDIで有線接続がいいぞ！&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MIDI機器を作るには&lt;a href=&quot;https://github.com/kuwatay/mocolufa&quot;&gt;mocolufa&lt;/a&gt;がいいぞ！&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;UI作るならブラウザがいいぞ！ブラウザはChromeでしょ。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_tadfmac.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;途中からディスプレイが映らなくなるというトラブルがありました。&lt;/p&gt;
-
-&lt;h3 id=&quot;lt-6--xsoundjs&quot;&gt;LT-6 : &lt;a href=&quot;https://twitter.com/xsoundjs&quot;&gt;@xsoundjs&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;MediaElementAudioSourceNodeと映像フォーマットのお話。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;普段は自己紹介しないけど今回は関連するのでしちゃいます！↓&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/video-dev/hls.js/&quot;&gt;hls.js&lt;/a&gt;のComitterしてます！&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MediaElementAudioSourceNodeで音を横取りして加工できる。&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;横取りすると映像とズレが生じることがある。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MediaElementAudioSourceNodeを使うと、その瞬間にVideo Element側の音はMuteされる。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MediaElementAudioSourceNodeは現状ではChrome限定っぽい？&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_xsoundjs.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;スポンサー&quot;&gt;スポンサー&lt;/h2&gt;
-&lt;p&gt;今回のMeetupは私の現所属である&lt;a href=&quot;https://www.digitalhearts.com/&quot;&gt;&lt;strong&gt;株式会社デジタルハーツ&lt;/strong&gt;&lt;/a&gt;にスポンサーをしていただききました。飲み物、ピザを提供いただきリラックスした形のMeetupすることができました。サポートしてくださった皆様に心から感謝を申し上げます。&lt;br /&gt;
-ありがとうございました！&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2018/12/20181222_digitalhearts.jpg&quot; width=&quot;70%&quot; style=&quot;border:1px solid #eee;&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;なお、IT系の勉強会、Meetupに対して、会場のご提供が可能なケースもるかもしれませんので、そのときはご相談ください。&lt;/p&gt;
-
-&lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
-&lt;p&gt;不定期にこんな形のMeetupを開催していく予定です。&lt;br /&gt;
-これからの Web について真剣に議論する&lt;a href=&quot;https://nextwebconf.connpass.com/event/103056/&quot;&gt;「次世代 Web カンファレンス」&lt;/a&gt;のWebMusic(#nwc_music)のセッションがあります。そちらもお楽しみに！&lt;/p&gt;
-
-&lt;h2 id=&quot;リンク&quot;&gt;リンク&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developers.webmusic.io/&quot;&gt;Web Music Developers JP&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://connpass.com/event/112300/&quot;&gt;Web Music Developers Meetup #3 - Connpass&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Web Music" /><category term="Web Music Developers JP" /><category term="Web Audio API" /><category term="Web MIDI API" /><summary></summary></entry></feed>
+&lt;/div&gt;</content><category term="年末" /><summary></summary></entry></feed>
