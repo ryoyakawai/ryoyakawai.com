@@ -160,109 +160,6 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-08-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/08/20/webmidiapi-wrapper-01.html">August 20, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/08/20/webmidiapi-wrapper-01.html" rel="bookmark" title="Web MIDI API Wrapper 公開したよ^^ (1)" itemprop="url">Web MIDI API Wrapper 公開したよ^^ (1)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>2013年7月1日にChrome CanaryにMIDI InputがやってきたWeb MIDI API。そろそろOutputも来るはずですが、今のところ<a href="http://jazz-soft.net/" target="_blank">Jazz-Plugin</a>をインストールして<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blank">Web MIDI API Shim</a>を使って動かします^^
-でも「MIDIって難しいんでしょ？」という声が聞こえて聞こえてきそうなので、聞こえてくる前にWrapperなるものを作ってみました。</p>
-
-<div class="post-image-center">
-<a href="https://github.com/ryoyakawai/WebMIDIAPIWrapper" target="_blank">Web MIDI API Wrapper</a>
-</div>
-
-<p>Wrapperの話に入る前に「MIDIってなんぞ？」ってところを少し書きます。一言で言うと
-「メーカの枠を超え、電子楽器と電子楽器を接続する為のプロトコル」なんです。
-歴史は30年前のNAMM Show(National Association of Music Merchants Show)という楽器の見本市でお披露目され
-(今年はちょうど30周年に加え<a href="http://www.midi.org/aboutus/news/grammy.php" target="_blank">テクニカルグラミー賞を受賞</a>)、その後電子楽器の接続のみならず照明機器のコントロール、通信カラオケ、携帯電話の着信音の制作など幅広く利用、応用されています。有名なのは、HollywoodにあるUniversal StudiosのWaterworldのアトラクションで、ライトと演出の同期、キュー出しにMIDIが使われています。そのアトラクションがこれ▼です。(12分00秒辺りが同期とか必要そう)</p>
-<div>
-  <youtube-play contentid="GmkZYt2-GYY" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2013/08/20130820-waterworld.png" start="0" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
-</div>
-
-<p>Wrapperの説明に入ります。
-今のところ、とりあえずMIDIを意識せずともアプリケーションを簡単に構築できるように、基本的な以下のメッセージに対応にしています。</p>
-
-<ul>
-  <li>NoteOn：音を鳴らす</li>
-  <li>NoteOff：音を止める</li>
-  <li>PitchBend：ピッチを上下させる</li>
-  <li>Sustain：ダンパーペダルの操作</li>
-  <li>Modulation：揺らぎ</li>
-  <li>AllSoundOff：残響、Sustainを含め即時に全ての音を止める</li>
-  <li>ResetAllController：PitchBend、After-Touchなどのコントローラを初期値に戻す</li>
-  <li>AllNoteOff：発音している音を全て止める</li>
-</ul>
-
-<p>使い方はこんな感じです。 まずは WebMIDIAPI.js と WebMIDIAPIWrapper.js にリンクします。(今回は都合上、前準備だけになってしまいました。。。)</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"[PathToJS]/WebMIDIAPI.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"[PathToJS]/WebMIDIAPIWrapper.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-</div>
-
-<p>次にConstructorを作ります。</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">wmaw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebMIDIAPIWrapper</span><span class="p">(</span> <span class="kc">false</span> <span class="p">);</span>
-</code></pre>
-</div>
-
-<p>続いて MIDI Input 、 MIDI Output が指定されたときの EventHandler を指定します。</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">wmaw</span><span class="p">.</span><span class="nx">setMidiInputSelect</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="cm">/* MIDI Input の選択リストを表示する EventHandler */</span>
-  <span class="cm">/* 選択リストから MIDI Input が選択された時の EventHandler もここに書く*/</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">wmaw</span><span class="p">.</span><span class="nx">setMidiOutputSelect</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="cm">/* MIDI Output の選択リストを表示する EventHandler */</span>
-  <span class="cm">/* 選択リストから MIDI Output が選択された時の EventHandler もここに書く*/</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p>最後に Web MIDI API を Fire する。</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">wmaw</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
-</code></pre>
-</div>
-
-<p>これで MIDI Input、Output デバイスのリストが表示され、デバイスを選択できる状態になります。デバイスを選択した状態でMIDIメッセージを送れば音がなったりします。例えばこんな感じ▼</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
-</code></pre>
-</div>
-
-<p>これでA4の音が500msecの間、60の強さ(最大127)で鳴ります。</p>
-
-<p>ここから！というところですが、この先を書くと長くなりそうなので今回はここまでにして、次回はMIDIメッセージの送信について書こうと思います！！</p>
-
-<p>お楽しみに^^</p>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2013-06-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/06/20/speech-jammer-google.html">June 20, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -573,6 +470,51 @@ Reading time ~1 minute
   <li><a href="https://github.com/WebAudio/web-midi-api/issues/2" target="_blank">#2 merge getInput, getOutput -&gt; getPort() or getPortById()</a></li>
   <li><a href="https://github.com/WebAudio/web-midi-api/issues/3" target="_blank">#3 Define asecurity moderl for rewuesting access to the MIDIAccess interface</a></li>
 </ul>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-01-25T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/01/25/vietnamese-delicious.html">January 25, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/01/25/vietnamese-delicious.html" rel="bookmark" title="ベトナム料理うまかったー@Anaheim" itemprop="url">ベトナム料理うまかったー@Anaheim</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p>AnaheimでやってるNAMM(楽器のトレードショー)を訪問中です。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2013/01/PANO_20130124_171930.jpg" width="45%" />
+  <img src="https://ryoyakawai.com/blog/images/2013/01/PANO_20130124_173522.jpg" width="36%" />
+</div>
+
+<div class="post-image-center">
+</div>
+<p>1日中歩き回ってセミナーみたいのを聞いて楽しく疲れる事ができました！！(時差ボケの為(?)セミナー中寝てしまいましたが。。。)午前中はメインミッションにいい場所を探し回りました。<br />
+<br />
+さて昨晩は以前短期間お世話になった現地法人に勤めるベトナム系アメリカ人の友人に現地ベトナム系の人しか行かないだろう的なノリ、そしてレストランの中はやっぱりベトナム系なお客さんばっかりだったベトナムレストランに連れて行ってもらいました。すっごく美味しかった！！(写真 左：生春巻き、右：ブンチャ(Bun Cha))<br />
+場所を聞いておかないとアカンな。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130124_200630.jpg" width="40%" />
+  <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130124_201850.jpg" width="40%" />
+</div>
+
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

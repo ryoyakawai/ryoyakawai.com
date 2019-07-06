@@ -160,69 +160,6 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-02-25T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2015/02/25/webmidiapi-chrome-43-enable-hotplug.html">February 25, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2015/02/25/webmidiapi-chrome-43-enable-hotplug.html" rel="bookmark" title="Web MIDI API：MacのChrome43でHotPlugが可能になります" itemprop="url">Web MIDI API：MacのChrome43でHotPlugが可能になります</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p><a href="/2015/02/webmidiapi-chrome-43-enable-hotplug-en.html" target="_blank">English Version</a></p>
-
-<p>Chrome43（今日配信されたCanaryで試せます）でWeb MIDI APIに新たな機能が追加になりました！（まだMacだけ）<br />
-その機能はChromeを起動中にMIDI機器を抜いたり、挿したりした場合にEventが飛ぶという機能です。今まで、Chrome起動中にMIDI機器を挿しても認識してくれませんでしたので、とても便利になりますよね^^<br />
-仕様的には <a href="http://webaudio.github.io/web-midi-api/#idl-def-MIDIAccess" target="_blank">MIDIAccess Interfaceのonstatechange</a> と、<a href="http://webaudio.github.io/web-midi-api/#idl-def-MIDIPort" target="_blank">MIDIPort Interfaceのonstatechange</a> です。<br />
-MIDIAccessの方のコードを書いてみるとこんな感じ。３行目から５行目のところ。</p>
-
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">navigator</span><span class="p">.</span><span class="nx">requestMIDIAccess</span><span class="p">({</span><span class="s2">"sysex"</span><span class="p">:</span><span class="kc">true</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
-<span class="kd">function</span> <span class="nx">successCallback</span><span class="p">(</span><span class="nx">access</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">access</span><span class="p">.</span><span class="nx">onstatechange</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
-          <span class="c1">// event.port に 接続/切断 されたMIDI機器が入っています。</span>
-      <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">function</span> <span class="nx">errorCallback</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"[ERROR] "</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<div class="post-image-center">
-  <img class="image-bordered" src="https://ryoyakawai.com/blog/images/2015/02/20150225-midi-device-property.png" width="70%" />
-</div>
-
-<p>こんな感じのがconsoleに表示されます。 port には接続/切断されたMIDI機器の情報が入ってきます。port.state に 状態が入ってきてその意味はこんな感じになっています。</p>
-
-<ul>
-  <li>disconnected：接続されていた機器が切断された状態</li>
-  <li>connected：接続されたけど、データのやりとりはできません状態</li>
-  <li>opened：接続され、データのやりとりができます状態</li>
-</ul>
-
-<p>MIDIPort の方の同じように、onstatechangeにEventhandlerを書いてやると接続/切断で反応してくれます。<br /></p>
-<s>MIDIPort の onstatechange は requestMIDIAccess()を実行する前から接続されていた機器にしか Eventhandler をつけられませんので注意してください。 </s>
-<p>MIDIPortのEventhandlerについてですが、MIDIAccessのinputs/outputsのIteratorは接続/切断がある毎に更新されていますので、正確には requestMIDIAccess() 実行後でもEventhandlerをつけることは可能でした。間違った説明をしてしまいすみませんでした。（更新：2015/2/25 23:30）<br />
-<br />
-ということで、また1つ便利になりました^^</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2015-02-25T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2015/02/25/webmidiapi-chrome-43-enable-hotplug-en.html">February 25, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -485,6 +422,77 @@ MIDI音源の音色は手元のスマホから変更が可能だったりユー�
 <div class="post-image-center">
   <img src="https://ryoyakawai.com/blog/images/2014/09/20140916-hackathon-03.jpg" width="80%" />
 </div>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-03-12T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2014/03/12/chromebook-webmidiapi.html">March 12, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2014/03/12/chromebook-webmidiapi.html" rel="bookmark" title="Chromebook で Web MIDI API を使ってみる" itemprop="url">Chromebook で Web MIDI API を使ってみる</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<ul>
+  <li>Q. Chromebook で Web MIDI API は動く？</li>
+  <li>A. Canary BuildのChromeOSにすると動作します！！</li>
+</ul>
+
+<p>ということでやってみました。<br />
+(※ Chrome への Web MIDI API の実装について2013年末の状況は<a href="http://blog.toyoshima-house.net/2013/12/chromeweb-midi-api.html" target="_blank">とよしま語録</a>の通りです。)<br />
+<br /></p>
+
+<p>まず、 Chromebook を Stable から Canary Build へ移行する必要がありますので、Developer Modeにします。手順は以下です。<br /></p>
+
+<ol>
+  <li>Recovery Modeで起動<br /> [Esc]+[Refresh]+[Power] を同時押しで起動。</li>
+  <li>Developer Mode を有効にする<br /> 起動したら、[Ctrl]+[D] を押下して、次の画面で [Enter] を押下してDeveloper Modeへ。<br /> Developer Mode への初期化に10分程度かかりました）</li>
+  <li>Chromebookのセットアップ<br /> 再起動すると見慣れない画面がでてきますので、[Ctrl]+[D] で起動先に進んでください。先に進むと、Chromebookの初期設定画面が出てくるので、通常通りセットアップを行います。</li>
+  <li>Canary Build に移行する<br /> ブラウザを起動して [Ctrl]+[Alt]+[T] で “crosh” (Chrome OS Developer shell) を開く。<br />crosh に “shell” と入力し、その後 “sudo su” します。<br />
+続けて以下の2行を入力すると、Canary への移行が始まります。（完了までには10分程度かかります）<br /></li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>update_engine_client --channel<span class="o">=</span>canary-channel;
+<span class="o">(</span><span class="nv">$update_engine_client</span> --channel<span class="o">=</span>stable-channel; <span class="o">(</span>to get it back<span class="o">))</span>
+update_engine_client -update
+</code></pre>
+</div>
+<p>以上で Canary Build への移行作業完了。<br />
+<br />
+次に、Web MIDI API を使うときの（今のところの）お約束のフラグを変更します。<br />
+ブラウザの URL を入力するテキストボックスに <code class="highlighter-rouge">chrome://flags/#enable-web-midi</code> を入力して “enable” にして再起動です。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/03/20140312-chroomebook-01.png" width="70%" />
+</div>
+
+<p>これで Chromebook で Web MIDI API を使う準備が整いました。あとは、USB-MIDI機器を接続して Web MIDI を使ったアプリケーションにアクセスすれば機器を認識してくれます。<br />
+ここでは <a hrefr="http://www.switch-science.com/catalog/1490/" target="_blank">eVY1 Shield</a> と <a href="http://yamaha-webmusic.github.io/nsx1-apps/text-input/" target="_blanl">専用ウェブアプリ</a> で動作させてみました。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/03/20140312-chroomebook-02.jpg" width="70%" />
+</div>
+
+<p>Mac、Windows で動作させたときと変わりなく動作しました！！<br />
+<br />
+このChromebookですが、2014年3月13日現在、日本では個人輸入等をしないと手に入りませんが、<a href="http://getnews.jp/archives/529237" target="_blank">2014年4月</a>に来るかも！な記事も出ています。値段は3万円前後ですので、DAW ウェブアプリケーションとか出現したとしたら、本当に手軽にDTMが始められそうですね^^<br />
+<br />
+ちなみに、今回利用した Chromebook は <a href="http://www.google.com/intl/ja/chrome/devices/hp-chromebook-11/" target="_blank">HP Chromebook 11</a> です。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
