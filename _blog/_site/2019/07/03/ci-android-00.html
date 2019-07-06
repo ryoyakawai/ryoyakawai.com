@@ -1,0 +1,709 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>AndroidアプリをCircleCIでCIする。 &#8211; Delicious Days</title>
+<meta name="description" content="">
+<meta name="keywords" content="Android, Espresso, CircleCI, Firebase Test Lab, DeployGate">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ryoyakawai">
+<meta name="twitter:title" content="AndroidアプリをCircleCIでCIする。">
+<meta name="twitter:text:title" content="AndroidアプリをCircleCIでCIする。">
+<meta name="twitter:creator" content="@ryoyakawai">
+<meta name="twitter:image" content="../images/background_sf_pano_300x300.jpg">
+<meta name="twitter:description" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="summary">
+<meta property="og:image" content="../images/background_sf_pano_300x300.jpg">
+<meta property="og:title" content="AndroidアプリをCircleCIでCIする。">
+<meta property="og:description" content="">
+<meta property="og:url" content="../2019/07/03/ci-android-00.html">
+<meta property="og:site_name" content="AndroidアプリをCircleCIでCIする。">
+
+
+
+
+
+<link rel="canonical" href="../2019/07/03/ci-android-00.html">
+<link href="../feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="../assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="../assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Polymer -->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="../assets/components/youtube-play.html">
+<link rel="import" href="../assets/components/language-selector.html">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="../images/profile_photo.jpg">
+<link rel="icon" type="image/jpeg" href="../images/profile_photo.jpg">
+
+
+
+<!-- AdSense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9891854265132215",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="../assets/css/header-title.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/post.css">
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="../">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="../images/avatar.jpg" alt="Ryoya Kawai photo" class="author-photo">
+					<h4>Ryoya Kawai</h4>
+					<p></p>
+				</li>
+				<li><a href="../about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:blog@ryoyakawai.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/ryoyakawai"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://facebook.com/ryoyakawai"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				<li>
+					<a href="https://google.com/+ryoyakawai"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/ryoya-kawai-11342b57"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/ryoyakawai"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="../posts/">All Posts</a></li>
+				<li><a href="../tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap entry-header">
+        
+          <h1 class="entry-title entry-title-post header-title-text"><a href="../2019/07/03/ci-android-00.html" rel="bookmark" title="AndroidアプリをCircleCIでCIする。">AndroidアプリをCircleCIでCIする。</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2019-07-03T00:00:00+09:00">July 03, 2019</time></span></h2>
+<!--
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~4 minutes
+
+        </p>--><!-- /.entry-reading-time -->
+        <!---->
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="//apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+<script id="pocket-btn-js" src="//widgets.getpocket.com/v1/j/btn.js?v=1"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12&appId=611626902509108&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="social-share">
+  <style>
+    .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
+    .fb-like span {vertical-align: inherit !important}
+  </style>
+  <a href="http://b.hatena.ne.jp/entry/../2019/07/03/ci-android-00.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
+  <div class="fb-like" data-href="../2019/07/03/ci-android-00.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+</div>
+
+
+      <h2 id="これは何">これは何？</h2>
+<p>AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
+2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。</p>
+
+<h2 id="概要">概要</h2>
+<p>AndroidアプリのGitHubへのPushから、CircleCIでビルド、単体テスト、UIテスト（UI Animator &amp; Espresso on Firebase Test Lab）、
+そしてDeployGateへアプリをデプロイする、までの一連の流れの雛形のようなものだと考えてください。<br />
+また記事の内容は以下のように分割して書いていく予定です。</p>
+<ul>
+  <li>テストケース、詳細ははともあれ、CircleCIでCIを回してみる</li>
+  <li>Unit Testについての解説（仮）</li>
+  <li>UI Testについて解説（仮）</li>
+  <li>Firebase Test Labを準備する（仮）</li>
+</ul>
+
+<p>この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。</p>
+
+<h2 id="ビルドの流れとインフラ">ビルドの流れとインフラ</h2>
+<p>以下の図の流れでビルドからデプロイまで行います。</p>
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-circleci_firebase_00.png" width="80%" />
+</div>
+
+<ol>
+  <li>開発者がGitHubにコードをCommitしPushする</li>
+  <li>CircleCIでビルドのプロセスが開始され、Unitテストが実行される</li>
+  <li>UIテスト実行の為、CicleCIがFirebaseに向けてアプリ、テストケースを配信しUIテストを実行する</li>
+  <li>Firebase Test LabでUIテストが実行が完了したらレポートをCircleCIに配信する</li>
+  <li>DeployGateに向けてアプリを配信する</li>
+</ol>
+
+<h3 id="利用するインフラ">利用するインフラ</h3>
+<p>上記のプロセスを実行する為に、以下のインフラを利用します。おなじみの名前ばかりかもしれませんが・・・</p>
+<ul>
+  <li>
+    <p style="font-weight:bold;margin:0;"><a href="https://github.com">GitHub</a></p>
+    <p>Gitで操作するリポジトリを提供するクラウドサービス</p>
+  </li>
+  <li>
+    <p style="font-weight:bold;margin:0;"><a href="https://circleci.com/">CircleCI</a></p>
+    <p>CIを行ってくれるクラウドサービス</p>
+  </li>
+  <li>
+    <p style="font-weight:bold;margin:0;"><a href="https://console.firebase.google.com/">Firebase Test Lab</a></p>
+    <p>Google社が提供するmBaaSが提供するサービスの1つで、UIテスト（Espresso、UI Automator 2.0、XCTest）をクラウドで行うサービス</p>
+  </li>
+  <li>
+    <p style="font-weight:bold;margin:0;"><a href="https://deploygate.com/">Deploy Gate</a></p>
+    <p>ストア（Google Play, App Store）を通さないアプリ配布を実現するサービス（ベータテスト等に利用できる）</p>
+  </li>
+</ul>
+
+<h3 id="今回利用するandroidのサンプルアプリ">今回利用するAndroidのサンプルアプリ</h3>
+
+<h4 id="-サンプルアプリのコード">＞ サンプルアプリのコード</h4>
+<p>Unit Test、UI Testを行う為に強引に実装している部分があります。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android">UI Test Sample App</a></li>
+</ul>
+
+<h4 id="-機能の説明">＞ 機能の説明</h4>
+<p>サンプルアプリの機能は以下の通りです。</p>
+
+<ul>
+  <li>画面右下の赤色のFabをタップするとデバイスへのファイル書き込みの許可を求められる。</li>
+  <li>デバイスへのファイル書き込みの許可の状態に関係なく、画面中央の文字列「Hello World!!」が「1」に変化する</li>
+  <li>更に、画面右下の赤色のFabをタップすると、タップ毎に1つづつインクリメントされた数字が表示される</li>
+  <li>画面右上の3点リーダをタップすると「Reset Counter」のボタンが出現し、タップするとカウンタが「0」に変化する</li>
+</ul>
+
+<p>こんな↓動作をするアプリです。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-uitestsampleapp_00.png" style="border-radius:8px" />
+</div>
+
+<h2 id="サンプルアプリの実装のアーキテクチャ">サンプルアプリの実装のアーキテクチャ</h2>
+<p>サンプルアプリのアーキテクチャはMVP(Model-View-Presenter)で構成されていて、Activityは1つです。<br />
+また今回のサンプルアプリの仕様（上記）ですと、Model（DB、API等のデータソース）が必要のないアプリになってしまいますが、
+Unit Testの為、外部のREST APIへ接続を行い、データを取得しConsole出力をするロジックが無駄に実装しています。<br />
+アーキテクチャは図にすると以下のような構成です。図内では、Classが1つのブロックになっていて、ブロックの上部に白文字はInterfaceです。
+例えば、MainActivityPresenterはMainActivityPresenterContractのInterfaceで構成されたClass、
+よって、MainActivityInteractorはInterfaceを規定していないClassであることを表しています。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-mvp-diagram-00.png" width="90%" />
+</div>
+
+<p>それでは、できるだけサクッとCircleCIでCIを回してみましょう。</p>
+
+<h2 id="事前準備リポジトリを作成する">事前準備：リポジトリを作成する</h2>
+<p>実際に動作させる場合は、上記のURLのコードをFork等をして自前で専用のリポジトリGitHubにご用意ください。</p>
+
+<h2 id="unit-testについて">Unit Testについて</h2>
+<p><a href="https://junit.org/junit4/">JUnit</a>を使ってUnit Testを実行します。AndroidでのUnit Testの定番です。
+モックは<a href="https://site.mockito.org/">Mockito</a>を使います。
+サンプルアプリのUnit TestはPresenterとやり取りを横取りする形で行います。
+上の図の<strong>「Point for Unit Testing」</strong>と書かれた矢印のポイントがそこです。</p>
+
+<h3 id="unit-testの概要">Unit Testの概要</h3>
+<p>コードは<a href="https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/example/uitestsample">このディレクトリ</a>に配置しています。</p>
+
+<p>Unit Testのスクリプトはこのファイルです。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/MainActivityUnitTest.kt">MainActivityUnitTest.kt</a></li>
+</ul>
+
+<p>共通で使うであろう機能をMethod化して集めたClassがこちら。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/unittestuitls/UnitTestUitls.kt">unittestuitls/UnitTestUitls.kt</a></li>
+</ul>
+
+<p>テストとしては、先程説明したModelにアプリの動作に対しては無駄に実装したREST APIへ接続するロジックを使います。
+REST APIからデータを取得し、取得したデータを元に正しくViewに反映される動作をするかの確認を行うのが目的です。<br />
+サンプルアプリの接続先REST APIは<a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>です。接続するURLは<a href="https://jsonplaceholder.typicode.com/comments?postId=1">/comments?postId=1</a>で、<code class="highlighter-rouge">postId</code>が同一であれば常に同じ値のJSONを返してくれます。常に同じJSONを返してくれるとはいえ、Unit Testではより確実性を高めたい、つまり、相手のサーバの状態に関係なく確実に同じJSONを取得できることを保証したいです。ですので、このUnit Testでは<a href="https://site.mockito.org/">Mockito</a>を使ってJSONPlaceholderのAPIをMock（モック）することで確実に同一のJSONを受け取れるようにしています。<br />
+<br />
+テストのケースは2つです。その内容は以下の通りです。</p>
+<ul>
+  <li>HTTPレスポンスコード200でJSONを正しく受け取った場合の値の確認とViewに対する動作の確認</li>
+  <li>HTTPレスポンスコード500を受け取った場合のViewに対する動作確認</li>
+</ul>
+
+<p>なお、Unit Testの書き方（お作法）、テストケース詳細は別エントリの「Unit Testについての解説（仮）」で説明する予定です。</p>
+
+<h3 id="unit-testをローカル環境で動作させてみる">Unit Testをローカル環境で動作させてみる</h3>
+<p>手元で動作させてみましょう。Terminalでコードのトップに移動して以下のコマンドを実行すると、こんな出力が出てくるはずです。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./gradlew <span class="nb">test</span>;
+
+<span class="gp">&gt; </span>Task :app:testDebugUnitTest
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnit500ServerErrorTest PASSED
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnitDataFetchSuccessTest PASSED
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnit400BadRequestTest PASSED
+
+<span class="gp">&gt; </span>Task :app:testReleaseUnitTest
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnit500ServerErrorTest PASSED
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnitDataFetchSuccessTest PASSED
+com.example.uitestsample.MainActivityUnitTest &gt; sampleUnit400BadRequestTest PASSED
+
+BUILD SUCCESSFUL <span class="k">in </span>8s
+40 actionable tasks: 10 executed, 30 up-to-date
+</code></pre>
+</div>
+
+<p><strong>「BUILD SUCCESSFUL in XXs」</strong> が出たら<strong>Unit TestはテストケースをすべてSuccessで終了した</strong>という意味になります。また、ここでWarning等のメッセージが出た場合、できる限り修正してメッセージが表示されないようにすることをオススメします。<br />
+これでUnit Testの準備は完了です。</p>
+
+<h2 id="ui-testについて">UI Testについて</h2>
+<p><a href="https://developer.android.com/training/testing/espresso">Espresso</a>、<a href="https://developer.android.com/training/testing/ui-automator">UI Automator</a>を使っています。それぞれの特徴は以下の通りです。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-uitesttool_00.png" width="50%" />
+</div>
+
+<h4 id="espresso">Espresso</h4>
+<p>「to write concise, beautiful, and reliable Android UI tests」と公式サイトには説明されています。特定のアプリのUIに対してのスクリプトで動作をさせることを可能にするテストフレームワークです。単一のアプリの操作を自動化する場合に使うとよいでしょう。Google社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。</p>
+
+<h4 id="ui-automator">UI Automator</h4>
+<p>「suitable for cross-app functional UI testing across system and installed apps.」と公式サイトに説明されている通りで、Espressoと比べると、よりAndroidのOSに近い側に位置しているテストフレームワークで、複数アプリを行き来するよう動作をスクリプトで定義することの可能です。Espressoとは違い、複数のアプリの操作を自動化する場合に使うとよいでしょう。こちらもEspressoと同じくGoogle社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。</p>
+
+<h3 id="ui-testの概要">UI Testの概要</h3>
+<p>コードは<a href="https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/androidTest/java/com/example/uitestsample">このディレクトリ</a>に配置しています。</p>
+
+<p>UI Testのスクリプトはこのファイルです。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">MainActivityInstrumentedTest.kt</a></li>
+</ul>
+
+<p>共通で使うであろう機能をMethod化して集めたClassがこちら。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/uitestutils/UiTestUtils.kt">uitestutils/UiTestUtils.kt</a></li>
+</ul>
+
+<p>テストのケースは3つです。その内容は以下の通りです。</p>
+<ul>
+  <li>パッケージ名を確認する</li>
+  <li>アプリ起動時の画面の文字列の確認をする</li>
+  <li>アプリ起動後、各ボタンが正しく機能し、画面表示が仕様通り更新されるかを確認する</li>
+</ul>
+
+<p>なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「UI Testについての解説（仮）」で説明する予定です。</p>
+
+<h3 id="ui-testをローカル環境で動作させてみる">UI Testをローカル環境で動作させてみる</h3>
+<p>手元で動作させてみましょう。Terminalのコマンドラインからコードのトップディレクトリに移動して以下のコマンドを実行すると、こんな↓が出力が出てくるはずです。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./gradlew connectedAndroidTest; // ← ./gradlew cAT でもOK
+
+<span class="gp">&gt; </span>Task :app:connectedDebugAndroidTest
+01:52:09 V/ddms: execute: running am get-config
+01:52:09 V/ddms: execute <span class="s1">'am get-config'</span> on <span class="s1">'emulator-5554'</span> : EOF hit. Read: -1
+01:52:09 V/ddms: execute: returning
+01:52:09 D/app-debug.apk: Uploading app-debug.apk onto device <span class="s1">'emulator-5554'</span>
+01:52:09 D/Device: Uploading file onto device <span class="s1">'emulator-5554'</span>
+....
+01:52:13 V/ddms: execute: running pm install -r -t <span class="s2">"/data/local/tmp/test-services-1.0.2.apk"</span>
+01:52:13 V/ddms: execute <span class="s1">'pm install -r -t "/data/local/tmp/test-services-1.0.2.apk"'</span> on <span class="s1">'emulator-5554'</span> : EOF hit. Read: -1
+01:52:13 V/ddms: execute: returning
+01:52:13 V/ddms: execute: running rm <span class="s2">"/data/local/tmp/test-services-1.0.2.apk"</span>
+01:52:13 V/ddms: execute <span class="s1">'rm "/data/local/tmp/test-services-1.0.2.apk"'</span> on <span class="s1">'emulator-5554'</span> : EOF hit. Read: -1
+01:52:13 V/ddms: execute: returning
+01:52:13 D/app-debug-androidTest.apk: Uploading app-debug-androidTest.apk onto device <span class="s1">'emulator-5554'</span>
+01:52:13 D/Device: Uploading file onto device <span class="s1">'emulator-5554'</span>
+....
+androidx.test.internal.runner.junit3.DelegatingFilterableTestSuite &gt; <span class="o">[</span>API_27_Pixel_2<span class="o">(</span>AVD<span class="o">)</span> - 8.1.0] SKIPPED
+01:52:20 V/InstrumentationResultParser: INSTRUMENTATION_STATUS_CODE: -3
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: <span class="nv">class</span><span class="o">=</span>androidx.test.internal.runner.junit3.DelegatingTestSuite
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: <span class="nv">current</span><span class="o">=</span>3
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: <span class="nv">id</span><span class="o">=</span>AndroidJUnitRunner
+01:52:21 V/InstrumentationResultParser: INSTRUMENTATION_STATUS: <span class="nv">numtests</span><span class="o">=</span>8
+....
+01:53:07 V/InstrumentationResultParser: Time: 48.21
+01:53:07 V/InstrumentationResultParser:
+01:53:07 V/InstrumentationResultParser: OK <span class="o">(</span>3 tests<span class="o">)</span>
+....
+01:53:07 V/ddms: execute: returning
+01:53:07 V/ddms: execute: running pm uninstall com.example.uitestsample.test
+01:53:07 V/ddms: execute <span class="s1">'pm uninstall com.example.uitestsample.test'</span> on <span class="s1">'emulator-5554'</span> : EOF hit. Read: -1
+01:53:07 V/ddms: execute: returning
+01:53:07 V/ddms: execute: running pm uninstall com.example.uitestsample
+01:53:07 V/ddms: execute <span class="s1">'pm uninstall com.example.uitestsample'</span> on <span class="s1">'emulator-5554'</span> : EOF hit. Read: -1
+01:53:07 V/ddms: execute: returning
+
+BUILD SUCCESSFUL <span class="k">in </span>1m 1s
+51 actionable tasks: 10 executed, 41 up-to-date
+</code></pre>
+</div>
+
+<p>Unit Testのときと同じく、<strong>「BUILD SUCCESSFUL in XXs」</strong> が出たら<strong>UI TestはテストケースをすべてSuccessで終了した</strong>という意味になります。また、ここもUnit Testのときと同様にWarning等のメッセージが出てきたら、でいる限り修正することをオススメします。</p>
+
+<h2 id="firebase-test-labでテストを行う">Firebase Test Labでテストを行う</h2>
+
+<h3 id="firebase-test-labとは">Firebase Test Labとは</h3>
+
+<p>Firebase Test LabはFirebaseがの1つのサービスとして提供されているクラウドでUI Testを行うプラットフォームです。Android(Espresso, UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。操作は以下の2つの方法が提供されています。</p>
+
+<ul>
+  <li><a href="https://console.firebase.google.com/">ブラウザから操作を行う</a></li>
+  <li>Google Cloud SDKのCLIを利用してコマンドラインから<a href="https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com?project=uitest-sample-android&amp;folder=&amp;organizationId=">Cloud Testing API</a>で動作させる方法</li>
+</ul>
+
+<p>どちらもの方法を使っても結果はブラウザ上で動作している<a href="console.firebase.google.com">FirebaseのConsole</a>（下図↓）から閲覧が可能になります。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-console-firebasetestlab_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<p>ここではGoogle Cloud SDKのCLIからCloud Testing APIを使う方法で実行します。
+Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする必須です。必ず以下のリンクから利用するプロジェクトで有効にしてください。</p>
+
+<ul>
+  <li><a href="https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com">Cloud Testing API</a></li>
+  <li><a href="https://console.cloud.google.com/marketplace/details/google/toolresults.googleapis.com">Cloud Tool Results API</a></li>
+</ul>
+
+<p>（Firebase Test Labの設定については「Firebase Test Labを準備する（仮）」で詳しく行う予定です。）</p>
+
+<h3 id="firebase-test-labをローカル環境で動作させてみる">Firebase Test Labをローカル環境で動作させてみる</h3>
+<p><a href="https://firebase.google.com/docs/test-lab">FirebaseでのProjectの設定</a>、GCPのアカウントの準備、<a href="https://cloud.google.com/sdk/downloads">Google Cloud SDKのCLIは準備</a>は済んでいると仮定します。<br />
+また既にローカルでUIテストの動作確認も済んでいますので、早速UIテストをFirebase Test Labで動かしてみます。<br />
+（「Firebase Test Labを準備する（仮）」で詳しく説明する予定です。）</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>// Cloud Testing APIを有効にしたアカウントでログインし、CLIの向き先Projectを切替える
+<span class="gp">$ </span>gcloud auth;
+<span class="gp">$ </span>gcloud config <span class="nb">set </span>project <span class="o">[</span>PROJECT ID];
+</code></pre>
+</div>
+
+<p>続いて、Cloud Testing APIでUIテストを実行する為に以下をコンソールで実行します。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>// 環境変数にして実行しまいます
+<span class="gp">$ </span><span class="nv">TIME</span><span class="o">=</span><span class="k">$(</span>date <span class="s2">"+%Y%m%d_%H%M"</span><span class="k">)</span>
+<span class="gp">$ </span><span class="nv">BK_OBJ_NAME</span><span class="o">=</span><span class="s2">"[保存するバケットのディレクトリ名]/</span><span class="k">${</span><span class="nv">TIME</span><span class="k">}</span><span class="s2">[今回のテストを保存するディレクトリ]"</span>
+<span class="gp">$ </span><span class="nv">GOOGLE_PROJECT_ID</span><span class="o">=</span><span class="s2">"[PROJECT ID]"</span>
+
+// コマンドを改行するときは末尾のスペースを忘れずに入れてください。
+<span class="gp">$ </span>gcloud firebase <span class="nb">test </span>android run <span class="se">\</span>
+ --type instrumentation <span class="se">\</span>
+ --app ./app/build/outputs/apk/debug/app-debug.apk <span class="se">\</span>
+ --test ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk <span class="se">\</span>
+ --test-targets <span class="s2">"class com.example.uitestsample.MainActivityInstrumentedTest"</span> <span class="se">\</span>
+ --results-dir <span class="nv">$BK_OBJ_NAME</span> <span class="se">\</span>
+ --results-bucket cloud-test-<span class="k">${</span><span class="nv">GOOGLE_PROJECT_ID</span><span class="k">}</span> <span class="se">\</span>
+ --directories-to-pull /sdcard/uitest/ <span class="se">\</span>
+ --device <span class="nv">model</span><span class="o">=</span>Pixel2,version<span class="o">=</span>26,locale<span class="o">=</span>en_US,orientation<span class="o">=</span>portrait <span class="se">\</span>
+ --use-orchestrator <span class="se">\</span>
+ --timeout 120s
+</code></pre>
+</div>
+
+<p>実行開始が成功するとFirebaseのConsoleにこんな形↓で1行追加されます。</p>
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-firebase-begin-test_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<p>テストが終了しするとこのような出力がコンソールにされます。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>Have questions, feedback, or issues? Get support by visiting:
+  https://firebase.google.com/support/
+
+Uploading <span class="o">[</span>./app/build/outputs/apk/debug/app-debug.apk] to Firebase Test Lab...
+Uploading <span class="o">[</span>./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk] to Firebase Test Lab...
+Raw results will be stored <span class="k">in </span>your GCS bucket at <span class="o">[</span>https://console.developers.google.com/storage/browser/[PROJECT ID]/cloud-test-uitest-sample-android/20190705-xxxxxx02/]
+
+Test <span class="o">[</span>matrix-3dp8juo0wx533] has been created <span class="k">in </span>the Google Cloud.
+Firebase Test Lab will execute your instrumentation <span class="nb">test </span>on 1 device<span class="o">(</span>s<span class="o">)</span>.
+Creating individual <span class="nb">test </span>executions...done.
+
+Test results will be streamed to <span class="o">[</span>https://console.firebase.google.com/project/[PROJECT ID]/testlab/histories/bh.xxxxxxxxx/matrices/918190477175429xxxx].
+16:25:19 Test is Pending
+16:25:40 Starting attempt 1.
+16:25:40 Test is Running
+16:26:42 Started logcat recording.
+16:26:42 Preparing device.
+16:27:15 Logging <span class="k">in </span>to Google account on device.
+16:27:15 Installing apps.
+16:27:28 Retrieving Pre-Test Package Stats information from the device.
+16:27:28 Retrieving Performance Environment information from the device.
+16:27:28 Started crash detection.
+16:27:28 Started crash monitoring.
+16:27:28 Started performance monitoring.
+16:27:42 Started video recording.
+16:27:42 Starting instrumentation test.
+16:28:21 Completed instrumentation test.
+16:28:34 Stopped performance monitoring.
+16:28:41 Stopped crash monitoring.
+16:28:47 Stopped logcat recording.
+16:28:47 Retrieving Post-test Package Stats information from the device.
+16:28:47 Logging out of Google account on device.
+16:28:53 Done. Test <span class="nb">time</span> <span class="o">=</span> 51 <span class="o">(</span>secs<span class="o">)</span>
+16:28:53 Starting results processing. Attempt: 1
+16:29:00 Completed results processing. Time taken <span class="o">=</span> 7 <span class="o">(</span>secs<span class="o">)</span>
+16:29:00 Test is Finished
+
+Instrumentation testing complete.
+
+More details are available at <span class="o">[</span>https://console.firebase.google.com/project/[PROJECT ID]/testlab/histories/bh.xxxxxxxxx/matrices/918190477175429xxxx].
+┌─────────┬──────────────────────────┬─────────────────────┐
+│ OUTCOME │     TEST_AXIS_VALUE      │     TEST_DETAILS    │
+├─────────┼──────────────────────────┼─────────────────────┤
+│ Passed  │ Pixel2-26-en_US-portrait │ 3 <span class="nb">test </span>cases passed │
+└─────────┴──────────────────────────┴─────────────────────┘
+</code></pre>
+</div>
+
+<p>出力されている<strong>GCS bucket</strong>、<strong>More details are availabl at</strong>として表示されているURLにアクセスするとテスト結果が書き出されているはずです。閲覧はブラウザから可能です。</p>
+
+<h2 id="deploygateを準備する">DeployGateを準備する</h2>
+<p><a href="https://docs.deploygate.com/docs/quickstart#section--">ここ</a>を参考に、<strong>サインアップ</strong>, <strong>アプリをアップロード</strong>まで済ませましょう。</p>
+
+<h2 id="circleciの設定をする">CircleCIの設定をする</h2>
+<p><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/.circleci/config.yml"><code class="highlighter-rouge">.circleci/config.yml</code></a>が設定ファイルになります。<br />
+動作させるには環境変数として<code class="highlighter-rouge">DEPLOYGATE_API_KEY</code>、<code class="highlighter-rouge">GCLOUD_SERVICE_KEY</code>、<code class="highlighter-rouge">GOOGLE_PROJECT_ID</code>の設定が必須です。
+それぞれの値の取得方法は以下になります。</p>
+
+<h3 id="deploygate_api_key"><code class="highlighter-rouge">DEPLOYGATE_API_KEY</code></h3>
+<p>DeployGateのサイトにログインをして<a href="https://deploygate.com/settings">https://deploygate.com/settings</a>の最下段に表示されています。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-deploygate_key_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<h3 id="google_project_idgcloud_service_key"><code class="highlighter-rouge">GOOGLE_PROJECT_ID</code>、<code class="highlighter-rouge">GCLOUD_SERVICE_KEY</code></h3>
+
+<p><code class="highlighter-rouge">GOOGLE_PROJECT_ID</code>はJSON形式のファイルの内容をbase64にした値です。</p>
+
+<ol>
+  <li>下↓の左図のように(1)でPROJECT_IDを選択し（ここで選択した文字列が<code class="highlighter-rouge">GOOGLE_PROJECT_ID</code>となります）、(2)のように [IAM &amp; admin] &gt; [Service account] を選択してアカウントを作成します</li>
+  <li>次に[IAM &amp; admin]を表示し、下↓の右図のように先程作成したアカウントの右側の鉛筆マークをクリックして、<strong>Firebase Test Lab Admin</strong>を追加します</li>
+  <li>再度[IAM &amp; admin] &gt; [Service account]を表示して、作成したアカウントの右側にある3点リーダをクリックしてJSONフォーマットのキーを作成しダウンロードします</li>
+</ol>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-serviceaccount_00.png" width="40%" style="border-radius:4px;border:1px solid #eeeeee; margin-right: 10px" />
+<img src="../images/2019/07/20190703-serviceaccount_01.png" width="55%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<p>そしてダウンロードしたJSONフォーマットのキーをbase64形式に書き出します。この文字列をCircleCIに環境変数<code class="highlighter-rouge">GCLOUD_SERVICE_KEY</code>として登録してください。</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>base64 -i <span class="o">[</span>PATH TO JSON FILE];
+</code></pre>
+</div>
+
+<h2 id="cicleciに環境変数として登録">CicleCIに環境変数として登録</h2>
+<p>取得した3つの値を<code class="highlighter-rouge">DEPLOYGATE_API_KEY</code>、<code class="highlighter-rouge">GOOGLE_PROJECT_ID</code>、<code class="highlighter-rouge">GCLOUD_SERVICE_KEY</code>を以下の図のように登録します。<br />
+対象のプロジェクトを選択し[Settings]を表示して、左ペインのメニューから[BUILD SETTINGS] &gt; [Environment Variables]に保存します。完了すると以下の図のようになります。
+画面上は指定した値の最後の4文字のみ表示された状態となります。</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-circleci-stting_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<h2 id="リポジトリにpushしてcircleci上でbuildを動かす">リポジトリにPushしてCircleCI上でBuildを動かす</h2>
+
+<p>設定は完了しましたので、準備したリポジトリのMasterブランチにコードをPushします。<br />
+PushするとCircleCI上でBuildのプロセスが動き始めます。今後はMasterにPush、またはMergeするとBuildプロセスが走るようになります。</p>
+
+<h3 id="実行レポート">実行レポート</h3>
+<p>CircleCIのサイトから確認することが可能です。成功すると以下のようになるでしょう。<br />
+また、Unit Testの結果は <strong>Artifacts</strong> のタブから確認することが可能です。（下図）</p>
+
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-circleci-result_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<p>UI Testの結果は下図のようにFirebaseのConsoleから確認可能です。また、下図の赤丸内の<strong>Test Result</strong>をクリックするとその他のデータが閲覧可能となっています。</p>
+<div class="post-image-center">
+<img src="../images/2019/07/20190703-firebase-access-to-gcp_00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<h2 id="おわりに">おわりに</h2>
+<p>AndroidアプリをCircleCI上でCIする流れを説明してきました。この流れでCIを回していきます。長くなってしまいましたが、いかがでしたでしょうか？<br />
+この流れを作るのに多くのサイトにお世話になりました。この記事をご覧になっている方々がサクっとCI環境を作成することができることで、
+世界を変えるであろう素晴らしいアプリの開発に時間を注ぐことに少しでもお力になれたら嬉しいです。<br />
+なお、今回のUI Testはネットワークアクセスに依存する部分が少なかったのですが、そうでない場合は結果が不安定になりがちですので、通信中なのか、通信は完了しているのかについての何らかの目印をつける、だったりその他の工夫が必要になります。そういったところも何らかの形で共有していきたいと思っています。</p>
+
+<p>それでは、引き続き詳細な解説についてもがんばって書いていきますのでよろしくお願いします。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="../tags/#Android" title="Pages tagged Android" class="tag"><span class="term">Android</span></a><a href="../tags/#Espresso" title="Pages tagged Espresso" class="tag"><span class="term">Espresso</span></a><a href="../tags/#CircleCI" title="Pages tagged CircleCI" class="tag"><span class="term">CircleCI</span></a><a href="../tags/#Firebase Test Lab" title="Pages tagged Firebase Test Lab" class="tag"><span class="term">Firebase Test Lab</span></a><a href="../tags/#DeployGate" title="Pages tagged DeployGate" class="tag"><span class="term">DeployGate</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2019-07-03">July 03, 2019</time></span></span>
+        <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
+      </footer>
+    </div><!-- /.entry-content -->
+
+    <div class="read-more">
+  
+  <div class="read-more-header">
+    <a href="../2019/06/29/bourbon-chicken.html" class="read-more-btn">Read More</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content">
+    <h3 class="read-more-next"><a href="../2020/07/03/ci-android-01.html" title="AndroidアプリをCircleCIでCIする。">AndroidアプリをCircleCIでCIする。</a></h3>
+    <span class="read-more-next">Published on July 03, 2020</span>
+    <p> <a href="../2020/07/03/ci-android-01.html">Continue reading</a></p>
+  </div><!-- /.read-more-content -->
+  <!-- Adsense -->
+  <div class="read-more-content" style="border-top: solid 2px rgba(238,238,238,0.8); padding-top: 1.625rem;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Read More in Blog Detail page 2 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-9891854265132215"
+         data-ad-slot="1713214108"></ins>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <!-- Adsense -->
+  
+  <div class="read-more-list">
+    
+    <div class="list-item">
+      <h4><a href="../2019/06/29/bourbon-chicken.html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた">アメリカン中華の代表格？のバーボンチキンを作ってみた</a></h4>
+      <span>Published on June 29, 2019</span>
+    </div><!-- /.list-item -->
+    
+    <div class="list-item">
+      <h4><a href="../2019/05/15/sonicboom-googleio.html" title="Sonic Boom! (Google I/O'19)">Sonic Boom! (Google I/O'19)</a></h4>
+      <span>Published on May 15, 2019</span>
+    </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+
+</div><!-- /.read-more -->
+ 
+    
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Ryoya Kawai.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="../assets/js/scripts.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116678332-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116678332-1');
+</script>
+
+
+
+<!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '美味しい毎日のブログ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+-->
+
+
+	        
+
+<script type="text/javascript" src="../assets/js/header-title-post.js"></script>
+
+</body>
+</html>
