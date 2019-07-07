@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-07T11:47:52+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/03/ci-android-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-07T12:00:22+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/03/ci-android-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
 2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。&lt;/p&gt;
 
@@ -364,7 +364,7 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;p&gt;&lt;a href=&quot;https://docs.deploygate.com/docs/quickstart#section--&quot;&gt;ここ&lt;/a&gt;を参考に、&lt;strong&gt;サインアップ&lt;/strong&gt;、&lt;strong&gt;アプリをアップロード&lt;/strong&gt; まで済ませましょう。&lt;/p&gt;
 
 &lt;h3 id=&quot;deploygateにローカル環境から配信してみる&quot;&gt;DeployGateにローカル環境から配信してみる&lt;/h3&gt;
-&lt;h4 id=&quot;deplotgateのapi-keyを取得&quot;&gt;&lt;a href=&quot;deploygateapikey&quot;&gt;DeplotGateのAPI keyを取得&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;deplotgateのapi-keyを取得&quot;&gt;&lt;a name=&quot;deploygateapikey&quot;&gt;DeplotGateのAPI keyを取得&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;DeployGateのサイトにログインをして&lt;a href=&quot;https://deploygate.com/settings&quot;&gt;https://deploygate.com/settings&lt;/a&gt;の最下段に表示されています。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
