@@ -12,10 +12,10 @@ comments: false
     {% if forloop.first %}
     <article>
       <h2 id="{{ this_year }}-ref">{{ this_year }}</h2>
-      <ul>
+      <ul style="list-style-type: none; padding: 2px 15px 0px">
     {% endif %}
 
-        <li class="entry-title"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+        <li class="entry-title"><b style="padding-right:5px">| {{ post.date | date: "%m/%d"}}  &#124; </b> <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
 
     {% if forloop.last %}
       </ul>
@@ -26,7 +26,7 @@ comments: false
         </article>
         <article>
           <h2 id="{{ next_year }}-ref" class="year-heading">{{next_year}}</h2>
-          <ul>
+          <ul style="list-style-type: none; padding: 2px 15px 0px">
         {% endif %}
     {% endif %}
 {% endfor %}
