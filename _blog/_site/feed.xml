@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-06T21:34:46+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/03/ci-android-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="../feed.xml" rel="self" type="application/atom+xml" /><link href="../" rel="alternate" type="text/html" /><updated>2019-07-07T10:38:03+09:00</updated><id>../</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをCircleCIでCIする。</title><link href="../2019/07/03/ci-android-00.html" rel="alternate" type="text/html" title="AndroidアプリをCircleCIでCIする。" /><published>2019-07-03T00:00:00+09:00</published><updated>2019-07-03T00:00:00+09:00</updated><id>../2019/07/03/ci-android-00</id><content type="html" xml:base="../2019/07/03/ci-android-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
 2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。&lt;/p&gt;
+
+&lt;h4 id=&quot;更新履歴&quot;&gt;更新履歴&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2019/7/7 DeployGateのローカル環境からの配信を追記&lt;/li&gt;
+  &lt;li&gt;2019/7/6 公開&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;p&gt;AndroidアプリのGitHubへのPushから、CircleCIでビルド、単体テスト、UIテスト（UI Animator &amp;amp; Espresso on Firebase Test Lab）、
@@ -13,12 +20,14 @@
   &lt;li&gt;Firebase Test Labを準備する（仮）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。&lt;/p&gt;
+&lt;p&gt;この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。&lt;br /&gt;
+動作に必須な設定等の説明をして、ローカル環境（手元のPC）からコマンドを使って手動で動作させ正常に動作するかすかの確認を行い、
+その後に一連のビルドのプロセスをCircleCIで動かす、というの流れで説明します。&lt;/p&gt;
 
 &lt;h2 id=&quot;ビルドの流れとインフラ&quot;&gt;ビルドの流れとインフラ&lt;/h2&gt;
 &lt;p&gt;以下の図の流れでビルドからデプロイまで行います。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;ol&gt;
@@ -46,7 +55,7 @@
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p style=&quot;font-weight:bold;margin:0;&quot;&gt;&lt;a href=&quot;https://deploygate.com/&quot;&gt;Deploy Gate&lt;/a&gt;&lt;/p&gt;
-    &lt;p&gt;ストア（Google Play, App Store）を通さないアプリ配布を実現するサービス（ベータテスト等に利用できる）&lt;/p&gt;
+    &lt;p&gt;ストア（Google Play、App Store）を通さないアプリ配布を実現するサービス（ベータテスト等に利用できる）&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -72,7 +81,7 @@
 &lt;p&gt;こんな↓動作をするアプリです。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-uitestsampleapp_00.png&quot; style=&quot;border-radius:8px&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-uitestsampleapp_00.png&quot; style=&quot;border-radius:8px&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;サンプルアプリの実装のアーキテクチャ&quot;&gt;サンプルアプリの実装のアーキテクチャ&lt;/h2&gt;
@@ -84,7 +93,7 @@ Unit Testの為、外部のREST APIへ接続を行い、データを取得しCon
 よって、MainActivityInteractorはInterfaceを規定していないClassであることを表しています。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;それでは、できるだけサクッとCircleCIでCIを回してみましょう。&lt;/p&gt;
@@ -96,7 +105,7 @@ Unit Testの為、外部のREST APIへ接続を行い、データを取得しCon
 &lt;p&gt;&lt;a href=&quot;https://junit.org/junit4/&quot;&gt;JUnit&lt;/a&gt;を使ってUnit Testを実行します。AndroidでのUnit Testの定番です。
 モックは&lt;a href=&quot;https://site.mockito.org/&quot;&gt;Mockito&lt;/a&gt;を使います。
 サンプルアプリのUnit TestはPresenterとやり取りを横取りする形で行います。
-上の図の&lt;strong&gt;「Point for Unit Testing」&lt;/strong&gt;と書かれた矢印のポイントがそこです。&lt;/p&gt;
+上の図の &lt;strong&gt;「Point for Unit Testing」&lt;/strong&gt; と書かれた矢印のポイントがそこです。&lt;/p&gt;
 
 &lt;h3 id=&quot;unit-testの概要&quot;&gt;Unit Testの概要&lt;/h3&gt;
 &lt;p&gt;コードは&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/example/uitestsample&quot;&gt;このディレクトリ&lt;/a&gt;に配置しています。&lt;/p&gt;
@@ -145,14 +154,14 @@ BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;8s
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら&lt;strong&gt;Unit TestはテストケースをすべてSuccessで終了した&lt;/strong&gt;という意味になります。また、ここでWarning等のメッセージが出た場合、できる限り修正してメッセージが表示されないようにすることをオススメします。&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら &lt;strong&gt;Unit TestはテストケースをすべてSuccessで終了した&lt;/strong&gt; という意味になります。また、ここでWarning等のメッセージが出た場合、できる限り修正してメッセージが表示されないようにすることをオススメします。&lt;br /&gt;
 これでUnit Testの準備は完了です。&lt;/p&gt;
 
 &lt;h2 id=&quot;ui-testについて&quot;&gt;UI Testについて&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/espresso&quot;&gt;Espresso&lt;/a&gt;、&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator&quot;&gt;UI Automator&lt;/a&gt;を使っています。それぞれの特徴は以下の通りです。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;espresso&quot;&gt;Espresso&lt;/h4&gt;
@@ -230,13 +239,13 @@ BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1m 1s
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Unit Testのときと同じく、&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら&lt;strong&gt;UI TestはテストケースをすべてSuccessで終了した&lt;/strong&gt;という意味になります。また、ここもUnit Testのときと同様にWarning等のメッセージが出てきたら、でいる限り修正することをオススメします。&lt;/p&gt;
+&lt;p&gt;Unit Testのときと同じく、&lt;strong&gt;「BUILD SUCCESSFUL in XXs」&lt;/strong&gt; が出たら &lt;strong&gt;UI TestはテストケースをすべてSuccessで終了した&lt;/strong&gt; という意味になります。また、ここもUnit Testのときと同様にWarning等のメッセージが出てきたら、でいる限り修正することをオススメします。&lt;/p&gt;
 
 &lt;h2 id=&quot;firebase-test-labでテストを行う&quot;&gt;Firebase Test Labでテストを行う&lt;/h2&gt;
 
 &lt;h3 id=&quot;firebase-test-labとは&quot;&gt;Firebase Test Labとは&lt;/h3&gt;
 
-&lt;p&gt;Firebase Test LabはFirebaseがの1つのサービスとして提供されているクラウドでUI Testを行うプラットフォームです。Android(Espresso, UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。操作は以下の2つの方法が提供されています。&lt;/p&gt;
+&lt;p&gt;Firebase Test LabはFirebaseがの1つのサービスとして提供されているクラウドでUI Testを行うプラットフォームです。Android(Espresso、UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。操作は以下の2つの方法が提供されています。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://console.firebase.google.com/&quot;&gt;ブラウザから操作を行う&lt;/a&gt;&lt;/li&gt;
@@ -246,7 +255,7 @@ BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;1m 1s
 &lt;p&gt;どちらもの方法を使っても結果はブラウザ上で動作している&lt;a href=&quot;console.firebase.google.com&quot;&gt;FirebaseのConsole&lt;/a&gt;（下図↓）から閲覧が可能になります。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-console-firebasetestlab_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-console-firebasetestlab_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;ここではGoogle Cloud SDKのCLIからCloud Testing APIを使う方法で実行します。
@@ -270,12 +279,14 @@ Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;続いて、Cloud Testing APIでUIテストを実行する為に以下をコンソールで実行します。&lt;/p&gt;
+&lt;p&gt;続いて、Cloud Testing APIでUIテストを実行する為に以下をコンソールで実行します。&lt;br /&gt;
+環境変数で変数を指定して実行していますが、ここではテキストを入力してもOKです。
+CircleCIでは環境変数で指定することが望ましいのでそれに習っています。
+この記事内の他の項目でも環境変数を使う理由は同一です。&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 環境変数にして実行しまいます
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y%m%d_%H%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;BK_OBJ_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[保存するバケットのディレクトリ名]/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[今回のテストを保存するディレクトリ]&quot;&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[PROJECT ID]&quot;&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y%m%d_%H%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;BK_OBJ_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[保存するバケットのディレクトリ名]/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[今回のテストを保存するディレクトリ]&quot;&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[PROJECT ID]&quot;&lt;/span&gt;;
 
 // コマンドを改行するときは末尾のスペースを忘れずに入れてください。
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud firebase &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;android run &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
@@ -288,13 +299,13 @@ Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする
  --directories-to-pull /sdcard/uitest/ &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
  --device &lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Pixel2,version&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;26,locale&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;en_US,orientation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;portrait &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
  --use-orchestrator &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- --timeout 120s
+ --timeout 120s;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;実行開始が成功するとFirebaseのConsoleにこんな形↓で1行追加されます。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-firebase-begin-test_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-firebase-begin-test_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;テストが終了しするとこのような出力がコンソールにされます。&lt;/p&gt;
@@ -347,10 +358,50 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;出力されている&lt;strong&gt;GCS bucket&lt;/strong&gt;、&lt;strong&gt;More details are availabl at&lt;/strong&gt;として表示されているURLにアクセスするとテスト結果が書き出されているはずです。閲覧はブラウザから可能です。&lt;/p&gt;
+&lt;p&gt;出力されている &lt;strong&gt;GCS bucket&lt;/strong&gt;、&lt;strong&gt;More details are availabl at&lt;/strong&gt; として表示されているURLにアクセスするとテスト結果が書き出されているはずです。閲覧はブラウザから可能です。&lt;/p&gt;
 
 &lt;h2 id=&quot;deploygateを準備する&quot;&gt;DeployGateを準備する&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.deploygate.com/docs/quickstart#section--&quot;&gt;ここ&lt;/a&gt;を参考に、&lt;strong&gt;サインアップ&lt;/strong&gt;, &lt;strong&gt;アプリをアップロード&lt;/strong&gt;まで済ませましょう。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.deploygate.com/docs/quickstart#section--&quot;&gt;ここ&lt;/a&gt;を参考に、&lt;strong&gt;サインアップ&lt;/strong&gt;、&lt;strong&gt;アプリをアップロード&lt;/strong&gt; まで済ませましょう。&lt;/p&gt;
+
+&lt;h3 id=&quot;deploygateにローカル環境から配信してみる&quot;&gt;DeployGateにローカル環境から配信してみる&lt;/h3&gt;
+&lt;h4 id=&quot;deplotgateのapi-keyを取得&quot;&gt;&lt;a href=&quot;deploygate_apikey&quot;&gt;DeplotGateのAPI keyを取得&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;DeployGateのサイトにログインをして&lt;a href=&quot;https://deploygate.com/settings&quot;&gt;https://deploygate.com/settings&lt;/a&gt;の最下段に表示されています。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-deploygate_key_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;これを環境変数として設定します。
+ついでにユーザID（DeployGateのユーザーID）とAPKへのPathも環境変数に設定してしまいましょう。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEPLOYGATE_API_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[取得したAPI key]&quot;&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;[DeployGateのユーザID]&quot;&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;APK_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;app/build/outputs/apk/debug/app-debug.apk;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;deploygateに配信する&quot;&gt;&lt;a name=&quot;deploytodeploygate&quot;&gt;DeployGateに配信する&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;以下のコマンドで配信します。メッセージをリッチにするために環境変数を少々追加しています。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y/%m/%d %H:%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;COMMIT_HASH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;git log --format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;%H&quot;&lt;/span&gt; -n 1 | cut -c 1-8&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;curl -F &lt;span class=&quot;s2&quot;&gt;&quot;file=@&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;APK_PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -F &lt;span class=&quot;s2&quot;&gt;&quot;token=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;DEPLOYGATE_API_KEY&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; -F &lt;span class=&quot;s2&quot;&gt;&quot;message=Build by CircleCI &amp;lt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;COMMIT_HASH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;gt; (&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TIME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&quot;&lt;/span&gt; https://deploygate.com/api/users/&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;USERNAME&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/apps
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;このような出力されるはずです。&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;error&quot;:false&lt;/code&gt;と表示されていたら配信成功です。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;error&quot;&lt;/span&gt;:false,&lt;span class=&quot;s2&quot;&gt;&quot;results&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;UITest Sample App&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;package_name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;com.example.uitestsample&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;labels&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;os_name&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Android&quot;&lt;/span&gt;,..../secure.gravatar.com/avatar/410d1a2cc20ac9675664df7de253156b?s&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;218&lt;span class=&quot;se&quot;&gt;\u&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;0026d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mm&lt;span class=&quot;s2&quot;&gt;&quot;}}}
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;DeployGateのウェブ管理コンソール（URLは&lt;code class=&quot;highlighter-rouge&quot;&gt;https://deploygate.com/users/[DeployGateのユーザID]/apps/[アプリのPackage名]&lt;/code&gt;）では、以下のように赤四角のリストにアイテムが追加されているはずです。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;../images/2019/07/20190703-deploygateadminconsole_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;
+ビルドのプロセスをローカル環境から手動で回すことの確認まで行いましたので、CircleCI上で動かしてみます。&lt;/p&gt;
 
 &lt;h2 id=&quot;circleciの設定をする&quot;&gt;CircleCIの設定をする&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/.circleci/config.yml&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.circleci/config.yml&lt;/code&gt;&lt;/a&gt;が設定ファイルになります。&lt;br /&gt;
@@ -358,11 +409,8 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 それぞれの値の取得方法は以下になります。&lt;/p&gt;
 
 &lt;h3 id=&quot;deploygate_api_key&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DEPLOYGATE_API_KEY&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;DeployGateのサイトにログインをして&lt;a href=&quot;https://deploygate.com/settings&quot;&gt;https://deploygate.com/settings&lt;/a&gt;の最下段に表示されています。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-deploygate_key_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
-&lt;/div&gt;
+&lt;p&gt;DeployGateのサイトにログインをして&lt;a href=&quot;https://deploygate.com/settings&quot;&gt;https://deploygate.com/settings&lt;/a&gt;の最下段に表示されています。
+（上記 &lt;strong&gt;&lt;a href=&quot;#deploygate_apikey&quot;&gt;「DeplotGateのAPI keyを取得」&lt;/a&gt;&lt;/strong&gt; の項目で説明しているAPI keyと同じです）&lt;/p&gt;
 
 &lt;h3 id=&quot;google_project_idgcloud_service_key&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;&lt;/h3&gt;
 
@@ -370,13 +418,13 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 
 &lt;ol&gt;
   &lt;li&gt;下↓の左図のように(1)でPROJECT_IDを選択し（ここで選択した文字列が&lt;code class=&quot;highlighter-rouge&quot;&gt;GOOGLE_PROJECT_ID&lt;/code&gt;となります）、(2)のように [IAM &amp;amp; admin] &amp;gt; [Service account] を選択してアカウントを作成します&lt;/li&gt;
-  &lt;li&gt;次に[IAM &amp;amp; admin]を表示し、下↓の右図のように先程作成したアカウントの右側の鉛筆マークをクリックして、&lt;strong&gt;Firebase Test Lab Admin&lt;/strong&gt;を追加します&lt;/li&gt;
+  &lt;li&gt;次に[IAM &amp;amp; admin]を表示し、下↓の右図のように先程作成したアカウントの右側の鉛筆マークをクリックして、&lt;strong&gt;Firebase Test Lab Admin&lt;/strong&gt; を追加します&lt;/li&gt;
   &lt;li&gt;再度[IAM &amp;amp; admin] &amp;gt; [Service account]を表示して、作成したアカウントの右側にある3点リーダをクリックしてJSONフォーマットのキーを作成しダウンロードします&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-serviceaccount_00.png&quot; width=&quot;40%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee; margin-right: 10px&quot; /&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-serviceaccount_01.png&quot; width=&quot;55%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-serviceaccount_00.png&quot; width=&quot;40%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee; margin-right: 10px&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-serviceaccount_01.png&quot; width=&quot;55%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;そしてダウンロードしたJSONフォーマットのキーをbase64形式に書き出します。この文字列をCircleCIに環境変数&lt;code class=&quot;highlighter-rouge&quot;&gt;GCLOUD_SERVICE_KEY&lt;/code&gt;として登録してください。&lt;/p&gt;
@@ -391,7 +439,7 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 画面上は指定した値の最後の4文字のみ表示された状態となります。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci-stting_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci-stting_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;リポジトリにpushしてcircleci上でbuildを動かす&quot;&gt;リポジトリにPushしてCircleCI上でBuildを動かす&lt;/h2&gt;
@@ -399,18 +447,22 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;p&gt;設定は完了しましたので、準備したリポジトリのMasterブランチにコードをPushします。&lt;br /&gt;
 PushするとCircleCI上でBuildのプロセスが動き始めます。今後はMasterにPush、またはMergeするとBuildプロセスが走るようになります。&lt;/p&gt;
 
-&lt;h3 id=&quot;実行レポート&quot;&gt;実行レポート&lt;/h3&gt;
-&lt;p&gt;CircleCIのサイトから確認することが可能です。成功すると以下のようになるでしょう。&lt;br /&gt;
+&lt;h3 id=&quot;実行結果のレポートを閲覧する&quot;&gt;実行結果のレポートを閲覧する&lt;/h3&gt;
+&lt;p&gt;ビルドの結果はCircleCIのサイトから確認することが可能です。成功すると以下のようになるでしょう。&lt;br /&gt;
 また、Unit Testの結果は &lt;strong&gt;Artifacts&lt;/strong&gt; のタブから確認することが可能です。（下図）&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci-result_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-circleci-result_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
-&lt;p&gt;UI Testの結果は下図のようにFirebaseのConsoleから確認可能です。また、下図の赤丸内の&lt;strong&gt;Test Result&lt;/strong&gt;をクリックするとその他のデータが閲覧可能となっています。&lt;/p&gt;
+&lt;p&gt;UI Testのも確認は可能です。Successの場合はそれでよいのですが、Failしている場合の詳細結果は下図のようにFirebaseのConsoleから確認してください。また、下図の赤丸内の &lt;strong&gt;Test Result&lt;/strong&gt; をクリックするとその他のデータが閲覧可能となっています。&lt;/p&gt;
+
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-firebase-access-to-gcp_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;../images/2019/07/20190703-firebase-access-to-gcp_00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
+
+&lt;h3 id=&quot;deploygateへの配信を確認&quot;&gt;DeployGateへの配信を確認&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;#deploytodeploygate&quot;&gt;「DeployGateに配信する」&lt;/a&gt;&lt;/strong&gt; の項目での結果のようにリストにアイテムが追加されているはずです。&lt;/p&gt;
 
 &lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
 &lt;p&gt;AndroidアプリをCircleCI上でCIする流れを説明してきました。この流れでCIを回していきます。長くなってしまいましたが、いかがでしたでしょうか？&lt;br /&gt;
@@ -420,10 +472,10 @@ PushするとCircleCI上でBuildのプロセスが動き始めます。今後は
 
 &lt;p&gt;それでは、引き続き詳細な解説についてもがんばって書いていきますのでよろしくお願いします。&lt;/p&gt;</content><category term="Android" /><category term="Espresso" /><category term="CircleCI" /><category term="Firebase Test Lab" /><category term="DeployGate" /><summary>これは何？
 AndroidアプリのCI（継続的インテグレーション）環境を作って運用をしたときの経験を書き出したものです。
-2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。</summary></entry><entry><title>アメリカン中華の代表格？のバーボンチキンを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html" rel="alternate" type="text/html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた" /><published>2019-06-29T20:00:00+09:00</published><updated>2019-06-29T20:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html">&lt;div&gt; &lt;/div&gt;
+2019年7月時点でのものになりますので、時間経過によっては動作しない可能性もありますので予めご了承ください。</summary></entry><entry><title>アメリカン中華の代表格？のバーボンチキンを作ってみた</title><link href="../2019/06/29/bourbon-chicken.html" rel="alternate" type="text/html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた" /><published>2019-06-29T20:00:00+09:00</published><updated>2019-06-29T20:00:00+09:00</updated><id>../2019/06/29/bourbon-chicken</id><content type="html" xml:base="../2019/06/29/bourbon-chicken.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/06/20190629-bourbonchicken.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;../images/2019/06/20190629-bourbonchicken.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;アメリカン中華の代表格かな？って思ってるバーボンチキン。微妙に焦がすのがポイントな料理。たまに無性に食べたくなるので作ってみました。&lt;br /&gt;
@@ -433,7 +485,7 @@ AndroidアプリのCI（継続的インテグレーション）環境を作っ�
 &lt;h3 id=&quot;バーボンチキンアメリカン中華&quot;&gt;バーボンチキン（アメリカン中華？）&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5719021.js?k=5ba150f3&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Sonic Boom! (Google I/O’19)</title><link href="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Sonic Boom! (Google I/O’19)</title><link href="../2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>../2019/05/15/sonicboom-googleio</id><content type="html" xml:base="../2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
 2019年5月7〜9日まで、毎年Google社が米国カリフォルニア州で開催している開発者会議「Google I/O」に参加してきました。&lt;br /&gt;
 &lt;br /&gt;
 その中でも&lt;strong&gt;「これは！！」&lt;/strong&gt;と感じたセッションを紹介していこうと思います。
@@ -539,7 +591,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;h2 id=&quot;出来上がったところでセッション&quot;&gt;出来上がったところでセッション&lt;/h2&gt;
 &lt;p&gt;同じオーディオエンジンで作製したAndroidとWebのアプリでのセッション。(32:05 - )&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/05/20190515_io19_02.png&quot; /&gt;
+&lt;img src=&quot;../images/2019/05/20190515_io19_02.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;事例の紹介&quot;&gt;事例の紹介&lt;/h2&gt;
@@ -592,14 +644,14 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 「Step by StepでAndroid、Webでのコーディング方法を追うことができる」という意味で、開発を行うのには非常に参考になると思っています。
 （デジタルハーツ所属としての参加なのに、アプリケーションテストの内容でなくてごめんなさい😅）
 
-セッションの動画は↓です。</summary></entry><entry><title>もやしと豆苗のガパオ風炒め</title><link href="https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame.html" rel="alternate" type="text/html" title="もやしと豆苗のガパオ風炒め" /><published>2019-03-31T00:00:00+09:00</published><updated>2019-03-31T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/31/gapaohuu-itame.html">&lt;div&gt; &lt;/div&gt;
+セッションの動画は↓です。</summary></entry><entry><title>もやしと豆苗のガパオ風炒め</title><link href="../2019/03/31/gapaohuu-itame.html" rel="alternate" type="text/html" title="もやしと豆苗のガパオ風炒め" /><published>2019-03-31T00:00:00+09:00</published><updated>2019-03-31T00:00:00+09:00</updated><id>../2019/03/31/gapaohuu-itame</id><content type="html" xml:base="../2019/03/31/gapaohuu-itame.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;ガパオごはんを作ったときに「この味で野菜炒めにしても美味しいんじゃないかな？」と思い立って作ったらやっぱり美味しかったので、Cookpadにメモりました。
 ちょっとエスニックな野菜炒め、という感じかな。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://cookpad.com/recipe/5581338&quot;&gt;「もやしと豆苗のガパオ風炒め」のレシピ&lt;/a&gt;はこちらです。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/03/20190331-gapao.jpg&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;../images/2019/03/20190331-gapao.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
@@ -614,11 +666,11 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 米国で蕎麦を炒めた料理とかあったけどだいたい微妙な味だけど「この野菜炒めならイケるんじゃないか？」と思って混ぜたのがこちら↓。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/03/20190331-soba.jpg&quot; width=&quot;60%&quot; /&gt;
+&lt;img src=&quot;../images/2019/03/20190331-soba.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;味は、、、おすすめ出来ませんww&lt;br /&gt;
-食べてて、「蕎麦を炒める」だなんてなんて米国的発想をしてるんだ、、、と自分にビックリでした😅&lt;/p&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
+食べてて、「蕎麦を炒める」だなんてなんて米国的発想をしてるんだ、、、と自分にビックリでした😅&lt;/p&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</title><link href="../2019/03/21/update-xwebmidi.html" rel="alternate" type="text/html" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" /><published>2019-03-21T00:00:00+09:00</published><updated>2019-03-21T00:00:00+09:00</updated><id>../2019/03/21/update-xwebmidi</id><content type="html" xml:base="../2019/03/21/update-xwebmidi.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。&lt;br /&gt;
 理由は簡単でHTML ImportがChromeから削除されてしまうからです。&lt;/p&gt;
@@ -667,7 +719,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="../2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>../2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="../2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
 久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
@@ -677,7 +729,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
+&lt;img src=&quot;../images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 
@@ -686,7 +738,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
 ウェブって本当にいいですねっ👍&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="../2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>../2019/02/01/farewellparty</id><content type="html" xml:base="../2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
 &lt;p&gt;「こんにちは」&lt;br /&gt;
 という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 &lt;br /&gt;
 スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw&lt;/p&gt;
@@ -704,13 +756,13 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;p&gt;と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;../images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;そして、今回は1参加者のつもりだったのが、僕まで壮行されれる側にしていただけました。本当にありがとうございました。嬉しかったです。更にこんな素敵などんぶりまで記念品としていただいちゃいました！あの当時なら確実に「白米用」でしたが、これからは「スープ」または「ヨーグルト」用として使わせていただきますっ！ありがとうございます。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
+  &lt;img src=&quot;../images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;さて、未来に向けて引き続き一歩一歩着実に前進していくよっ！&lt;/p&gt;</content><category term="壮行会" /><category term="FarewellParty" /><summary>「こんにちは」
@@ -727,7 +779,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 
 「突き詰めていくと、最後は好き嫌いやで。」
 
-と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
+と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="../2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>../2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="../2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;たまに食べたくなるパンダエクスプレスメニュー。作ってみたら、けっこう美味しくできたのでCookpadに公開しちゃいました。&lt;br /&gt;
 鶏のムネ肉ってパサっとしてしまうので避けがちだけど、そこまでパサつかずで良いかも。&lt;br /&gt;
@@ -746,7 +798,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;h3 id=&quot;鶏モモ肉のオイスターソースの中華炒め&quot;&gt;鶏モモ肉のオイスターソースの中華炒め&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10&amp;amp;fit_width=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="https://ryoyakawai.com/blog/2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/31/endof2018</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>2018年最終日</title><link href="../2018/12/31/endof2018.html" rel="alternate" type="text/html" title="2018年最終日" /><published>2018-12-31T16:30:00+09:00</published><updated>2018-12-31T16:30:00+09:00</updated><id>../2018/12/31/endof2018</id><content type="html" xml:base="../2018/12/31/endof2018.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年も最終日。環境も、自分も動いた、動かした1年。お疲れ様でした！！&lt;br /&gt;
 転職、というのが一番大きかったけど、ブログを移行したり、FitbitのClock Faceを公開したり、ウェブサイトを最初から作ったり、Cookpadでレシピを公開し始めたり、大きいことから小さなことまでやってたんだな〜、と振り返り中。悩みは多い1年だったけど、よい1年だったかな。体重も維持できてるし。&lt;br /&gt;
@@ -763,7 +815,7 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
   &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><category term="年末" /><summary></summary></entry><entry><title>Fitbit OSのClockfaceにAnalyticsを入れてみた</title><link href="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html" rel="alternate" type="text/html" title="Fitbit OSのClockfaceにAnalyticsを入れてみた" /><published>2018-12-22T23:00:00+09:00</published><updated>2018-12-22T23:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics</id><content type="html" xml:base="https://ryoyakawai.com/blog/2018/12/22/fitbitos3_analytics.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="年末" /><summary></summary></entry><entry><title>Fitbit OSのClockfaceにAnalyticsを入れてみた</title><link href="../2018/12/22/fitbitos3_analytics.html" rel="alternate" type="text/html" title="Fitbit OSのClockfaceにAnalyticsを入れてみた" /><published>2018-12-22T23:00:00+09:00</published><updated>2018-12-22T23:00:00+09:00</updated><id>../2018/12/22/fitbitos3_analytics</id><content type="html" xml:base="../2018/12/22/fitbitos3_analytics.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;2018年4月末くらいに買った&lt;a href=&quot;https://blog.ryoyakawai.com/2018/05/27/fitbit-clockface.html&quot;&gt;Fitbit Versa向けにClockfaceを作って半年&lt;/a&gt;経ちました。
 インド、英国、オーストラリア、米国のユーザから「サマータイム入ってね〜！」とか、「タイムゾーン追加して！」とかいろいろと要望いただき、
