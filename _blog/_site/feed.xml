@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-12T17:42:40+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリでのUnit Testについての解説</title><link href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" rel="alternate" type="text/html" title="AndroidアプリでのUnit Testについての解説" /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;./2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUnit Testを説明した記事です。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-12T17:46:37+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリでのUnit Testについての解説</title><link href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" rel="alternate" type="text/html" title="AndroidアプリでのUnit Testについての解説" /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUnit Testを説明した記事です。
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;のUnit Testについて解説していきます。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&quot;ciの流れでunit-testが実行されている箇所&quot;&gt;CIの流れでUnit Testが実行されている箇所&lt;/h3&gt;
-&lt;p&gt;「&lt;a href=&quot;./2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(2) Build&lt;/strong&gt; で実行されています。&lt;/p&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(2) Build&lt;/strong&gt; で実行されています。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/div&gt;
@@ -17,7 +17,7 @@
 &lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/unit-testing/local-unit-tests&quot;&gt;公式ドキュメントはこれ&lt;/a&gt;です。&lt;/p&gt;
 
 &lt;h3 id=&quot;ポイント条件など&quot;&gt;ポイント、条件など&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;./2019/07/03/ci-android-00.html#aboutunittest&quot;&gt;Unit Testについて（AndroidアプリをCircleCIでCIする。）&lt;/a&gt;にも書いていますがポイントは以下です。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html#aboutunittest&quot;&gt;Unit Testについて（AndroidアプリをCircleCIでCIする。）&lt;/a&gt;にも書いていますがポイントは以下です。&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;MVP（Model-View-Presenter）のアーキテクチャに対してのUnit Testを実行する&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://junit.org/junit4/&quot;&gt;JUnit&lt;/a&gt;を使ってUnit Testを実行する&lt;/li&gt;

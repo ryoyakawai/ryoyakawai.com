@@ -12,13 +12,13 @@ image:
 ---
 
 ## これは何？
-「[AndroidアプリをCircleCIでCIする。](./2019/07/03/ci-android-00.html)」のUnit Testを説明した記事です。
+「[AndroidアプリをCircleCIでCIする。]({{ site.url }}/2019/07/03/ci-android-00.html)」のUnit Testを説明した記事です。
 [サンプルアプリ](https://github.com/ryoyakawai/uitest_sample_android)のUnit Testについて解説していきます。
 
 
 ## 概要
 ### CIの流れでUnit Testが実行されている箇所
-「[AndroidアプリをCircleCIでCIする。](./2019/07/03/ci-android-00.html)」のCIの流れでは **(2) Build** で実行されています。
+「[AndroidアプリをCircleCIでCIする。]({{ site.url }}/2019/07/03/ci-android-00.html)」のCIの流れでは **(2) Build** で実行されています。
 <div class="post-image-center">
 <img src="{{ site.url }}/images/2019/07/20190703-circleci_firebase_00.png" width="80%" />
 </div>
@@ -29,7 +29,7 @@ image:
 [公式ドキュメントはこれ](https://developer.android.com/training/testing/unit-testing/local-unit-tests)です。
 
 ### ポイント、条件など
-[Unit Testについて（AndroidアプリをCircleCIでCIする。）](./2019/07/03/ci-android-00.html#aboutunittest)にも書いていますがポイントは以下です。
+[Unit Testについて（AndroidアプリをCircleCIでCIする。）]({{ site.url }}/2019/07/03/ci-android-00.html#aboutunittest)にも書いていますがポイントは以下です。
 - MVP（Model-View-Presenter）のアーキテクチャに対してのUnit Testを実行する
 - [JUnit](https://junit.org/junit4/)を使ってUnit Testを実行する
 - [Mockito](https://site.mockito.org/)でViewをモックする
