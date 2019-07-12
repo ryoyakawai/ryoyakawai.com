@@ -4,7 +4,7 @@ title: AndroidアプリでのUnit Testについての解説
 description: ""
 date: 2019-07-10 00:00:00 +0900
 modified: 2019-07-12
-tags: [Android, CircleCI, Firebase Test Lab]
+tags: [Android, Unit Test]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz
