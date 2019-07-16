@@ -24,7 +24,7 @@ image:
 </div>
 ここで使うコードは以下の通りです。
 - [サンプルアプリのリポジトリ](https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/example/uitestsample)
-- [UI Testのスクリプト](https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt) : MainActivityInstrumentedTest.kt
+- UI Testのスクリプト：[MainActivityInstrumentedTest.kt](https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt)
 
 ### ポイント、条件など
 CIで使うCircleCIは2.0からAndroidのエミュレータを動かすことができなくなったことから、
