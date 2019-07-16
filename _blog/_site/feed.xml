@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-16T17:27:45+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Firebase Test LabでUI Testを実行する</title><link href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-16T17:34:32+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Firebase Test LabでUI Testを実行する</title><link href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI TestをCircleCIから実行する方法について説明した記事です。
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;のUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。&lt;/p&gt;
 
@@ -403,7 +403,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 &lt;h4 id=&quot;更新履歴&quot;&gt;更新履歴&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;2019/7/16 関連記事「&lt;a href=&quot;./2019/07/10/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」を公開&lt;/li&gt;
+  &lt;li&gt;2019/7/16 関連記事「&lt;a href=&quot;./2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」を公開&lt;/li&gt;
   &lt;li&gt;2019/7/12 関連記事「&lt;a href=&quot;./2019/07/10/ci-android-unittest-00.html&quot;&gt;AndroidアプリでのUnit Testについての解説&lt;/a&gt;」を公開&lt;/li&gt;
   &lt;li&gt;2019/7/7 DeployGateのローカル環境からの配信を追記&lt;/li&gt;
   &lt;li&gt;2019/7/6 公開&lt;/li&gt;
@@ -417,7 +417,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
   &lt;li&gt;テストケース、詳細ははともあれ、CircleCIでCIを回してみる&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;./2019/07/10/ci-android-unittest-00.html&quot;&gt;AndroidアプリでのUnit Testについての解説&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;UI Testについて解説（仮）&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./2019/07/10/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;./2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。&lt;br /&gt;
@@ -668,12 +668,12 @@ Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする
   &lt;li&gt;&lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/toolresults.googleapis.com&quot;&gt;Cloud Tool Results API&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;（Firebase Test Labの設定については「&lt;a href=&quot;./2019/07/10/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」で詳しく説明しています。）&lt;/p&gt;
+&lt;p&gt;（Firebase Test Labの設定については「&lt;a href=&quot;./2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」で詳しく説明しています。）&lt;/p&gt;
 
 &lt;h3 id=&quot;firebase-test-labをローカル環境で動作させてみる&quot;&gt;Firebase Test Labをローカル環境で動作させてみる&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://firebase.google.com/docs/test-lab&quot;&gt;FirebaseでのProjectの設定&lt;/a&gt;、GCPのアカウントの準備、&lt;a href=&quot;https://cloud.google.com/sdk/downloads&quot;&gt;Google Cloud SDKのCLIは準備&lt;/a&gt;は済んでいると仮定します。&lt;br /&gt;
 また既にローカルでUIテストの動作確認も済んでいますので、早速UIテストをFirebase Test Labで動かしてみます。&lt;br /&gt;
-（&lt;a href=&quot;./2019/07/10/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」でも詳しく説明しています。）&lt;/p&gt;
+（&lt;a href=&quot;./2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」でも詳しく説明しています。）&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Cloud Testing APIを有効にしたアカウントでログインし、CLIの向き先Projectを切替える
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud auth;
