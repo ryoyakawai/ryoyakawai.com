@@ -160,6 +160,57 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-12-25T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html">December 25, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html" rel="bookmark" title="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた" itemprop="url">WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+<p><a href="https://adventar.org/calendars/22" taget="_blank">Web Music Developers JPのアドベントカレンダー</a>の12月25日の記事です！</p>
+
+<p>前回、前々回とWeb MIDI APIのレビューと<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blanl">エミュレーションライブラリ(WebMIDIAPIShim:Polyfill)</a>を使ったMIDI INのサンプルを紹介してきました。MIDI INを紹介したのでMIDI OUTで何か作ろうと頭をひねったのですが「やっぱりMIDIファイルプレーヤーがいいかな〜？」という結論になりました。ちょっと思い返したら、12月2日のアドベントカレンダーで <a href="https://twitter.com/toyoshim" target="_blank">@toyoshim</a> さんが「<a hrer="http://toyoshim.blogspot.jp/2012/12/webmidilink.html" target="_blank">WebMidiLinkで遊んでみた</a>」と題してSMFプレーヤーを公開されていることに気がつき、横着応用をして対応することにしましたf(^-^;) 数行の改変ですので、改変に関しては文字で説明させていただき、動作に関しては動画でお送りすることにしました。曲はYs2のオープニングでMIDIデータは<a href="http://poteto.sakura.ne.jp/music_ys2.html" target="_blank">OnLine Game Friend’s</a>からダウンロードして使用しています。</p>
+
+<div>
+  <youtube-play contentid="5TKIaDrxMsI" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2012/12/20121225-webmidi.png" start="0" autoplay="1" rel="0" controls="0" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>原理はWebMIDLinkでは別ウィンドウに開いているWebシンセを鳴らす為にpostMessage() (HTML5 Web Messaging)を使い独自メッセージ(ほぼMIDIメッセージです)を送っていますが、このデモではそれをWeb MIDI APIのgetOutput()で取得したMIDIデバイスにsend()メソッドを使って送信しています。</p>
+
+<p>またデモではエミュレーションライブラリとプラグイン(<a href="http://jazz-soft.net/" target="_blank">Jazz-Soft.netのJazz-Plugin</a>)を使っていますが、数行のJavaScriptだけでMIDI機器を手軽に操ることのできる時代がそこまで来ていると思うとワクワクしちゃっていますf(^-^;)
+ちなみに今年2012年はMIDIの仕様が正式に世の中に出て30周年の節目(あと数日ですが、、、)。その節目の年にWeb MIDI APIという形で、もっと世の中に浸透するといいですね。</p>
+
+<p>Web MIDI API 2nd WDについて3回に分けての紹介してきました。せっかくなので、すっごく簡単なまとめとしてスライドにもしましたので、もしよろしかったらどうぞ！！
+（追記：Web MIDI APIの仕様は日に日に更新されています。2013年1月8日の段階で既にこの説明の説明からは変更されていますのでご注意ください。）</p>
+
+<div class="post-image-center">
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/yfJ0SGZBEj4KkH" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe> 
+</div>
+<div style="margin-bottom:5px" class="post-image-center"> <strong> <a href="//www.slideshare.net/ryoyakawai/web-midiapi-2ndwd" title="Web MIDI API 2nd WD" target="_blank">Web MIDI API 2nd WD</a> </strong> from <strong><a href="https://www.slideshare.net/ryoyakawai" target="_blank">Ryoya Kawai</a></strong> </div>
+
+<p>というネタでWeb Music Developers JPの2012年のアドベントカレンダーを〆させて頂きます！！</p>
+
+<hr />
+
+<p>Web Music Developers JPのアドベントカレンダーは2012年10月初旬の発足以来、実質的に最初のイベントでした。顔を合わせていないにも関わらず、たくさんの方にご賛同いただき、そして何よりもお忙しい師走の時期にお時間を裂いていただき、楽しい＆興味深い＆ハイレベルな内容のネタをご提供いただき本当にありがとうございました。心から御礼申し上げます。皆様の記事のお陰で僕自身は間違いなく毎日アドベントした毎日でしたが、僕と同じように多くの方がアドベントした毎日をお送り頂けたと信じております。今後もWeb Music Developers JPのコミュニティ活動は継続し発展をして行きたいと考えておりますので、今後ともどうぞよろしくおねがいいたします。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-12-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/20/webmidiapi-samplecode.html">December 20, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -603,45 +654,6 @@ Reading time ~1 minute
 <p>まとまりのないダラダラとした説明になっていますが「Google+コミュニティいいね！」とも言いたいですが、実は「Google+いいよ〜」ともいいたいのですf(^-^;)ということで、まだ使った事ない方は使ってみると心地の良いSocialな日々が送れる思いますよ〜</p>
 
 <p>ちなみに、蛇足ですが僕はここにいます。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-12-09T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/09/coco-curry-chips.html">December 09, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/09/coco-curry-chips.html" rel="bookmark" title="CoCo壱番屋 カツカレーチップス@おやつカンパニー" itemprop="url">CoCo壱番屋 カツカレーチップス@おやつカンパニー</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>「<a href="http://www.082.oyatsu.co.jp/product/detailwindow.php?genre=babystar&amp;imageno=04314" target="_blank">CoCo壱番屋 カツカレーチップス</a>」（限定商品）です。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2012/12/20121209-coco-curry-chips-01.jpg" width="40%" />
-</div>
-
-<p>名前の通り、CoCo壱番屋のカツカレーの味がするチップスです。味の再現性が結構高いです。個人的に<a href="http://www.ichibanya.co.jp/index.html" target="_blank">CoCo壱番屋</a>のカレーって独特の味で、カレーというより「ココイチ」というジャンルを作ってもいいんじゃないか、って思ってる（もちろん悪い意味ではないですよ！）のですが、その味が再現されてておいしいチップスでした。もちろん単なるカレーの味ではなくて「カツカレー」の味の再現です。ちょっと感動しました。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2012/12/20121209-coco-curry-chips-02.jpg" width="40%" />
-</div>
-
-<p>ビールのお供に最適かな〜って思いました！限定商品らしいので、これを見かけたビール好きの方は一度お試しあれ〜！！</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
