@@ -16,7 +16,7 @@ image:
 [サンプルアプリ](https://github.com/ryoyakawai/uitest_sample_android)のUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。
 
 ## 概要
-### CIの流れでUI Testが実行されている箇所
+### Ciの流れでUI Testが実行されている箇所
 「[AndroidアプリをCircleCIでCIする。]({{ site.url }}/2019/07/03/ci-android-00.html)」のCIの流れでは **(3) UI Test** でUI Testを実行、
 **(4) Report** でレポートアップロードしています。
 <div class="post-image-center">
@@ -37,7 +37,7 @@ Firebase Test Labを使うことにしました。
 ### Firebase Test Labとは
 Firebase Test LabはFirebaseがのサービスの1つとして提供しているクラウドでUI Testを行うプラットフォームです。Android(Espresso、UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。  
   
-（詳しくは「AndroidアプリをCircleCIでCIする。」の[Firebase Test Labとは](./2019/07/03/ci-android-00.html#aboutfirebasetestlab)を御覧ください。）
+（詳しくは「AndroidアプリをCircleCIでCIする。」の[Firebase Test Labとは]({{ site.url }}/2019/07/03/ci-android-00.html#aboutfirebasetestlab)を御覧ください。）
 
 [公式ドキュメントはこちら](https://firebase.google.com/docs/test-lab)です。
   

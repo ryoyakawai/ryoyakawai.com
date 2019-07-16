@@ -181,7 +181,7 @@ Reading time ~2 minutes
 <a href="https://github.com/ryoyakawai/uitest_sample_android">サンプルアプリ</a>のUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。</p>
 
 <h2 id="概要">概要</h2>
-<h3 id="ciの流れでui-testが実行されている箇所">CIの流れでUI Testが実行されている箇所</h3>
+<h3 id="ciの流れでui-testが実行されている箇所">Ciの流れでUI Testが実行されている箇所</h3>
 <p>「<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">AndroidアプリをCircleCIでCIする。</a>」のCIの流れでは <strong>(3) UI Test</strong> でUI Testを実行、
 <strong>(4) Report</strong> でレポートアップロードしています。</p>
 <div class="post-image-center">
@@ -204,7 +204,7 @@ Firebase Test Labを使うことにしました。</p>
 <h3 id="firebase-test-labとは">Firebase Test Labとは</h3>
 <p>Firebase Test LabはFirebaseがのサービスの1つとして提供しているクラウドでUI Testを行うプラットフォームです。Android(Espresso、UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。</p>
 
-<p>（詳しくは「AndroidアプリをCircleCIでCIする。」の<a href="./2019/07/03/ci-android-00.html#aboutfirebasetestlab">Firebase Test Labとは</a>を御覧ください。）</p>
+<p>（詳しくは「AndroidアプリをCircleCIでCIする。」の<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html#aboutfirebasetestlab">Firebase Test Labとは</a>を御覧ください。）</p>
 
 <p><a href="https://firebase.google.com/docs/test-lab">公式ドキュメントはこちら</a>です。</p>
 
@@ -628,8 +628,8 @@ Reading time ~4 minutes
 <h4 id="更新履歴">更新履歴</h4>
 
 <ul>
-  <li>2019/7/16 関連記事「<a href="./2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」を公開</li>
-  <li>2019/7/12 関連記事「<a href="./2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>」を公開</li>
+  <li>2019/7/16 関連記事「<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」を公開</li>
+  <li>2019/7/12 関連記事「<a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>」を公開</li>
   <li>2019/7/7 DeployGateのローカル環境からの配信を追記</li>
   <li>2019/7/6 公開</li>
 </ul>
@@ -640,9 +640,9 @@ Reading time ~4 minutes
 また記事の内容は以下のように分割して書いていく予定です。</p>
 <ul>
   <li>テストケース、詳細ははともあれ、CircleCIでCIを回してみる</li>
-  <li><a href="./2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a></li>
+  <li><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a></li>
   <li>UI Testについて解説（仮）</li>
-  <li><a href="./2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a></li>
+  <li><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a></li>
 </ul>
 
 <p>この記事は「テストケース、詳細ははともあれ、CircleCIでCIを回してみる」についてとなります。<br />
@@ -727,7 +727,7 @@ Unit Testの為、外部のREST APIへ接続を行い、データを取得しCon
 <p>実際に動作させる場合は、上記のURLのコードをFork等をして自前で専用のリポジトリGitHubにご用意ください。</p>
 
 <h2 id="unit-testについて"><a name="aboutunittest">Unit Testについて</a></h2>
-<p>（関連記事「<a href="./2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>」）</p>
+<p>（関連記事「<a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>」）</p>
 
 <p><a href="https://junit.org/junit4/">JUnit</a>を使ってUnit Testを実行します。AndroidでのUnit Testの定番です。
 モックは<a href="https://site.mockito.org/">Mockito</a>を使います。
@@ -759,12 +759,12 @@ REST APIからデータを取得し、取得したデータを元に正しくVie
   <li>HTTPレスポンスコード500を受け取った場合のViewに対する動作確認</li>
 </ul>
 
-<p>なお、Unit Testの書き方（お作法）、テストケース詳細は別エントリの<a href="./2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>で説明しています。</p>
+<p>なお、Unit Testの書き方（お作法）、テストケース詳細は別エントリの<a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>で説明しています。</p>
 
 <h3 id="unit-testをローカル環境で動作させてみる">Unit Testをローカル環境で動作させてみる</h3>
 <p>手元で動作させてみましょう。Terminalでコードのトップに移動して以下のコマンドを実行すると、こんな出力が出てくるはずです。</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./gradlew :app:testDebugUnitTest;
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>https://ryoyakawai.com/blog/gradlew :app:testDebugUnitTest;
 
 <span class="gp">&gt; </span>Task :app:testDebugUnitTest
 com.example.uitestsample.MainActivityUnitTest &gt; sampleUnit500ServerErrorTest PASSED
@@ -893,12 +893,12 @@ Google Cloud SDKのCLIから使う場合は以下の2つのAPIを有効にする
   <li><a href="https://console.cloud.google.com/marketplace/details/google/toolresults.googleapis.com">Cloud Tool Results API</a></li>
 </ul>
 
-<p>（Firebase Test Labの設定については「<a href="./2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」で詳しく説明しています。）</p>
+<p>（Firebase Test Labの設定については「<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」で詳しく説明しています。）</p>
 
 <h3 id="firebase-test-labをローカル環境で動作させてみる">Firebase Test Labをローカル環境で動作させてみる</h3>
 <p><a href="https://firebase.google.com/docs/test-lab">FirebaseでのProjectの設定</a>、GCPのアカウントの準備、<a href="https://cloud.google.com/sdk/downloads">Google Cloud SDKのCLIは準備</a>は済んでいると仮定します。<br />
 また既にローカルでUIテストの動作確認も済んでいますので、早速UIテストをFirebase Test Labで動かしてみます。<br />
-（<a href="./2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」でも詳しく説明しています。）</p>
+（<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」でも詳しく説明しています。）</p>
 
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>// Cloud Testing APIを有効にしたアカウントでログインし、CLIの向き先Projectを切替える
 <span class="gp">$ </span>gcloud auth;
