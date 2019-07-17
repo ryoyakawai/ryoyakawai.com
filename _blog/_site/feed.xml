@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-16T18:35:38+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Firebase Test LabでUI Testを実行する</title><link href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-17T19:17:17+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Espresso, UI AutomatorでAndroidのUI Testを書く</title><link href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="alternate" type="text/html" title="Espresso, UI AutomatorでAndroidのUI Testを書く" /><published>2019-07-18T00:00:00+09:00</published><updated>2019-07-18T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI Testの書き方について説明した記事です。
+具体的には&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;の&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;UI Testであるこれ&lt;/a&gt;の説明です。&lt;/p&gt;
+
+&lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&quot;androidでui-testを書く&quot;&gt;AndroidでUI Testを書く&lt;/h3&gt;
+&lt;p&gt;Androidが公式にサポートしているUI Testのツールは &lt;a href=&quot;https://developer.android.com/training/testing/espresso&quot;&gt;Espresso&lt;/a&gt;、
+&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator&quot;&gt;UI Automator&lt;/a&gt; の2種類あります。
+それぞれ以下の特徴がありますので「どちらを使うか？」については「どちらも併用して使う」のがいいように感じています。&lt;/p&gt;
+
+&lt;h4 id=&quot;espresso&quot;&gt;Espresso&lt;/h4&gt;
+&lt;p&gt;「to write concise, beautiful, and reliable Android UI tests」と公式サイトには説明されています。特定のアプリのUIに対してのスクリプトで動作をさせることを可能にするテストフレームワークです。単一のアプリの操作を自動化する場合に使うとよいでしょう。Google社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。&lt;br /&gt;
+サンプルアプリではアプリの操作のすべてをEspressoで書いています。&lt;/p&gt;
+
+&lt;h4 id=&quot;ui-automator&quot;&gt;UI Automator&lt;/h4&gt;
+&lt;p&gt;「suitable for cross-app functional UI testing across system and installed apps.」と公式サイトに説明されている通りで、Espressoと比べると、よりAndroidのOSに近い側に位置しているテストフレームワークで、複数アプリを行き来するよう動作をスクリプトで定義することの可能です。Espressoとは違い、複数のアプリの操作を自動化する場合に使うとよいでしょう。こちらもEspressoと同じくGoogle社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。&lt;br /&gt;
+サンプルアプリではスクリーンショットの撮影、Permissionリクエストのウィンドウの操作の2つをUI Automatorで書いています。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;espressoui-automatorでtestを書く準備をする&quot;&gt;Espresso、UI AutomatorでTestを書く準備をする&lt;/h3&gt;
+&lt;p&gt;以下の2つのファイルに追加して準備完了です。&lt;/p&gt;
+
+&lt;h4 id=&quot;-buildgradle-に以下を追加&quot;&gt;＞ &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt; に以下を追加&lt;/h4&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;allprojects&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matching&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testLogging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;failed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;passed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;skipped&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;-appbuildgradle-に以下を追加&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;＞ app/build.gradle&lt;/code&gt; に以下を追加&lt;/h4&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// for connected Android test
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;androidTestUtil&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orchestrator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;テストを書く&quot;&gt;テストを書く&lt;/h3&gt;
+&lt;p&gt;テストは&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/androidTest/[Package名]&lt;/code&gt;以下に書いていきます。&lt;br /&gt;
+今回のパッケージ名は &lt;code class=&quot;highlighter-rouge&quot;&gt;com.example.uitestsample&lt;/code&gt; 
+ですので &lt;a href=&quot;app/src/androidTest/java/com/example/uitestsample/&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/androidTest/java/com/example/uitestsample/&lt;/code&gt;&lt;/a&gt;
+以下にコードを書いていきます。&lt;br /&gt;
+ファイル作成の粒度はActivity毎、Fragment毎、機能毎等、自由にまとめてしまって問題ありません。
+サンプルアプリではActivity毎でまとめて&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;MainActivityInstrumentedTest.kt&lt;/a&gt;に書いています。&lt;/p&gt;
+
+&lt;h4 id=&quot;前準備&quot;&gt;前準備&lt;/h4&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AndroidJUnit4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;@SdkSuppress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minSdkVersion&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;@LargeTest&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityInstrumentedTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;_packageName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.example.uitestsample&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UiTestUtils&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UiTestUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ^^^ ツールをインスタンス化 ^^^
+&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@Rule&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@JvmField&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mActivityTestRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ActivityTestRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MainActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ActivityTestRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MainActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;@Rule&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@JvmField&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;cGrantPermissionRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GrantPermissionRule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;GrantPermissionRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Manifest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WRITE_EXTERNAL_STORAGE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ^^^ スクリーンショット保存の為にSTORAGEへのアクセスを強制的に許可 ^^^
+&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@Rule&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@JvmField&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;screenshotRule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ScreenshotTakingRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// ^^^ Test失敗時をスクリーンショットを撮影するように指定 ^^^
+&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;@Before&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mActivityTestRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;@After&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;teardown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;「Test失敗時をスクリーンショット」の動作は &lt;code class=&quot;highlighter-rouge&quot;&gt;uitestutils/UiTestUtils.kt&lt;/code&gt; の最後に定義されています。&lt;/p&gt;
+
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ScreenshotTakingRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UiTestUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestWatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mUTs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;failed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;failed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;screenShot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;FAIL-$description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log_d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;gt;&amp;gt;&amp;gt; !!! TEST FAILED !!! &amp;lt;&amp;lt;&amp;lt; ScreenShot Taken method=[$description] filename=[$path]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;テストケース&quot;&gt;テストケース&lt;/h4&gt;
+&lt;p&gt;サンプルアプリではテストケースは以下の3つです。
+「ケースとして足りない！」とかツッコミはありかもしれませんが、UI Testを動かすことを目的としていますのでご容赦ください。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;useAppContext()&lt;/code&gt;：テストしているアプリのパッケージ名を確認&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;checkTextHelloWorld()&lt;/code&gt;：アプリ起動時、中心の「Hello World!」の表示を確認&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;checkButtonIncrementFloating()&lt;/code&gt;：画面右下のボタンをタップすると表示している数字がカウントアップしSnackbarが表示され、またメニューからResetするとゼロになることを確認&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;checkButtonIncrementFloating()&lt;/code&gt; のポイントをインラインで説明します。&lt;br /&gt;
+&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;Testのコード全体はこちら&lt;/a&gt;になりますので合わせて御覧ください。&lt;/p&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;@Test&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;checkButtonIncrementFloating&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// false にすることでTestが成功した場合でもスクリーンショットを残せます。
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// デフォルトでは、Testが成功するとスクリーンショットは全削除となります。
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepareScreenShot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;willTap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 右下の赤色のFabを指定
+&lt;/span&gt;    &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;incrementButton&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;withId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;increment_fab_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// カウンターを増加させて表示が想定通りであるか確認する
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;willTap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// スクリーンショットを撮影
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;screenShot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;BEFORE &amp;gt;&amp;gt;&amp;gt; カウンター：インクリメント IDX=[$i]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 指定した赤色のFabをタップ
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;onView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;incrementButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Permissionリクエストが出てたら許可（このテスト中は出ないはず）
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;allowPermissionsIfNeeded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// スクリーンショットを撮影
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;screenShot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;AFTER &amp;gt;&amp;gt;&amp;gt; カウンター：インクリメント IDX=[$i]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 要素内の文字列を取得
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;actualCount&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;withId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main_content_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// ログを残す
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log_d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;[Counter SEQ] 🍏🍎 expected=[$i] actual=[$actualCount]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 文字列をAssert
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;[Counter SEQ] 🍏🍎&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actualCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Snackbarの文言チェック
+&lt;/span&gt;        &lt;span class=&quot;kd&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;snackBarTapped&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;withId&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snackbar_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Tapped $i times.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Snackbarがから消えるのを待つ
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;waitForSnackbarDisappear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;snackBarTapped&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Sleepする
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sleep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SHR&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// this.mUTs.prepareScreenShot() に false をセットしていなければ
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// スクリーンショットを削除する（）
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;removeSuccessScreenShots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;idが指定されていないエレメントの指定方法&quot;&gt;IDが指定されていないエレメントの指定方法&lt;/h3&gt;
+&lt;p&gt;エレメントに対してIDが振られている場合は大抵の場合そのIDを使うことで指定することが可能ですが、
+指定されていない場合は &lt;strong&gt;Layout Inspector&lt;/strong&gt; （&lt;a href=&quot;https://developer.android.com/studio/debug/layout-inspector&quot;&gt;公式ドキュメント&lt;/a&gt;）で階層構造を取得
+して解析をしてから、以下のように指定を行います。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190718-layoutinspector-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Fragmentの重なり方が操作によって変化する場合があり、表示は同じでも階層が違う場合が多々発生します。
+ですので、Layout Inspectorで階層構造を取得するときはUI Testでのシナリオ通りに一度画面を遷移させて、それから取得すると良いでしょう。&lt;/p&gt;
+
+&lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
+&lt;p&gt;iOS標準のUI Testツールである&lt;a href=&quot;https://developer.apple.com/documentation/xctest&quot;&gt;XCTest&lt;/a&gt;に比べると
+癖が少し強いです。とっつきにくいところもありますが、そこまで難しくはないので気になっている場合は挑戦してみてください。&lt;br /&gt;
+自分の作ったアプリが自動で動くのを見るのも楽しいと思います。&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/training/testing/espresso&quot;&gt;Espresso -  Android Developers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator&quot;&gt;UI Automator - Android Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="Android" /><category term="UI Test" /><category term="Espresso" /><category term="UI Automator" /><summary>これは何？
+「AndroidアプリをCircleCIでCIする。」のUI Testの書き方について説明した記事です。
+具体的にはサンプルアプリのUI Testであるこれの説明です。</summary></entry><entry><title>Firebase Test LabでUI Testを実行する</title><link href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI TestをCircleCIから実行する方法について説明した記事です。
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;のUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。&lt;/p&gt;
 
@@ -403,6 +608,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 &lt;h4 id=&quot;更新履歴&quot;&gt;更新履歴&lt;/h4&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;2019/7/18 関連記事「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html&quot;&gt;Espresso, UI AutomatorでAndroidのUI Testを書く&lt;/a&gt;」を公開&lt;/li&gt;
   &lt;li&gt;2019/7/16 関連記事「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」を公開&lt;/li&gt;
   &lt;li&gt;2019/7/12 関連記事「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html&quot;&gt;AndroidアプリでのUnit Testについての解説&lt;/a&gt;」を公開&lt;/li&gt;
   &lt;li&gt;2019/7/7 DeployGateのローカル環境からの配信を追記&lt;/li&gt;
@@ -416,7 +622,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 &lt;ul&gt;
   &lt;li&gt;テストケース、詳細ははともあれ、CircleCIでCIを回してみる&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html&quot;&gt;AndroidアプリでのUnit Testについての解説&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;UI Testについて解説（仮）&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html&quot;&gt;Espresso, UI AutomatorでAndroidのUI Testを書く&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -493,7 +699,7 @@ Unit Testの為、外部のREST APIへ接続を行い、データを取得しCon
 よって、MainActivityInteractorはInterfaceを規定していないClassであることを表しています。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/ims/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;それでは、できるだけサクッとCircleCIでCIを回してみましょう。&lt;/p&gt;
@@ -594,7 +800,7 @@ BUILD SUCCESSFUL &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;8s
   &lt;li&gt;アプリ起動後、各ボタンが正しく機能し、画面表示が仕様通り更新されるかを確認する&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「UI Testについての解説（仮）」で説明する予定です。&lt;/p&gt;
+&lt;p&gt;なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html&quot;&gt;Espresso, UI Automator„ÅßAndroid„ÅÆUI Test„ÇíÊõ∏„Åè&lt;/a&gt;」で説明していますので合わせて御覧ください。&lt;/p&gt;
 
 &lt;h3 id=&quot;ui-testをローカル環境で動作させてみる&quot;&gt;UI Testをローカル環境で動作させてみる&lt;/h3&gt;
 &lt;p&gt;手元で動作させてみましょう。Terminalのコマンドラインからコードのトップディレクトリに移動して以下のコマンドを実行すると、こんな↓が出力が出てくるはずです。&lt;/p&gt;
@@ -1181,23 +1387,4 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 
 「突き詰めていくと、最後は好き嫌いやで。」
 
-と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-01-20T00:00:00+09:00</published><updated>2019-01-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/01/20/pandaexpressrecipe.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;たまに食べたくなるパンダエクスプレスメニュー。作ってみたら、けっこう美味しくできたのでCookpadに公開しちゃいました。&lt;br /&gt;
-鶏のムネ肉ってパサっとしてしまうので避けがちだけど、そこまでパサつかずで良いかも。&lt;br /&gt;
-もしよかったら作ってみてください！&lt;/p&gt;
-
-&lt;h3 id=&quot;鶏ムネ肉とインゲンの中華炒め&quot;&gt;鶏ムネ肉とインゲンの中華炒め&lt;/h3&gt;
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;script src=&quot;https://widgets.cookpad.com/recipes/5461774.js?k=f1117d29&amp;amp;fit_width=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;鶏ムネ肉のブラックペッパー中華炒め&quot;&gt;鶏ムネ肉のブラックペッパー中華炒め&lt;/h3&gt;
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;script src=&quot;https://widgets.cookpad.com/recipes/5461810.js?k=d819bc4f&amp;amp;fit_width=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;鶏モモ肉のオイスターソースの中華炒め&quot;&gt;鶏モモ肉のオイスターソースの中華炒め&lt;/h3&gt;
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;script src=&quot;https://widgets.cookpad.com/recipes/5461081.js?k=87e2cd10&amp;amp;fit_width=1&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry></feed>
+と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry></feed>

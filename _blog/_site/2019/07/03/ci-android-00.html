@@ -186,6 +186,7 @@ Reading time ~4 minutes
 <h4 id="更新履歴">更新履歴</h4>
 
 <ul>
+  <li>2019/7/18 関連記事「<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html">Espresso, UI AutomatorでAndroidのUI Testを書く</a>」を公開</li>
   <li>2019/7/16 関連記事「<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a>」を公開</li>
   <li>2019/7/12 関連記事「<a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a>」を公開</li>
   <li>2019/7/7 DeployGateのローカル環境からの配信を追記</li>
@@ -199,7 +200,7 @@ Reading time ~4 minutes
 <ul>
   <li>テストケース、詳細ははともあれ、CircleCIでCIを回してみる</li>
   <li><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">AndroidアプリでのUnit Testについての解説</a></li>
-  <li>UI Testについて解説（仮）</li>
+  <li><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html">Espresso, UI AutomatorでAndroidのUI Testを書く</a></li>
   <li><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Firebase Test LabでUI Testを実行する</a></li>
 </ul>
 
@@ -276,7 +277,7 @@ Unit Testの為、外部のREST APIへ接続を行い、データを取得しCon
 よって、MainActivityInteractorはInterfaceを規定していないClassであることを表しています。</p>
 
 <div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2019/07/20190703-mvp-diagram-00.png" width="90%" />
+<img src="https://ryoyakawai.com/blog/ims/2019/07/20190703-mvp-diagram-00.png" width="90%" />
 </div>
 
 <p>それでは、できるだけサクッとCircleCIでCIを回してみましょう。</p>
@@ -377,7 +378,7 @@ BUILD SUCCESSFUL <span class="k">in </span>8s
   <li>アプリ起動後、各ボタンが正しく機能し、画面表示が仕様通り更新されるかを確認する</li>
 </ul>
 
-<p>なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「UI Testについての解説（仮）」で説明する予定です。</p>
+<p>なお、UI Test（Espresso、UI AUtomator）の書き方（お作法）、テストケース詳細は別エントリの「<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-espresso-00.html">Espresso, UI Automator„ÅßAndroid„ÅÆUI Test„ÇíÊõ∏„Åè</a>」で説明していますので合わせて御覧ください。</p>
 
 <h3 id="ui-testをローカル環境で動作させてみる">UI Testをローカル環境で動作させてみる</h3>
 <p>手元で動作させてみましょう。Terminalのコマンドラインからコードのトップディレクトリに移動して以下のコマンドを実行すると、こんな↓が出力が出てくるはずです。</p>
@@ -670,9 +671,9 @@ PushするとCircleCI上でBuildのプロセスが動き始めます。今後は
     <a href="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html" class="read-more-btn">Read More</a>
   </div><!-- /.read-more-header -->
   <div class="read-more-content">
-    <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" title="Firebase Test LabでUI Testを実行する">Firebase Test LabでUI Testを実行する</a></h3>
-    <span class="read-more-next">Published on July 16, 2019</span>
-    <p> <a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Continue reading</a></p>
+    <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" title="Espresso, UI AutomatorでAndroidのUI Testを書く">Espresso, UI AutomatorでAndroidのUI Testを書く</a></h3>
+    <span class="read-more-next">Published on July 18, 2019</span>
+    <p> <a href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">Continue reading</a></p>
   </div><!-- /.read-more-content -->
   <!-- Adsense -->
   <div class="read-more-content" style="border-top: solid 2px rgba(238,238,238,0.8); padding-top: 1.625rem;">
@@ -691,13 +692,13 @@ PushするとCircleCI上でBuildのプロセスが動き始めます。今後は
   <div class="read-more-list">
     
     <div class="list-item">
-      <h4><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" title="AndroidアプリでのUnit Testについての解説">AndroidアプリでのUnit Testについての解説</a></h4>
-      <span>Published on July 10, 2019</span>
+      <h4><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" title="Firebase Test LabでUI Testを実行する">Firebase Test LabでUI Testを実行する</a></h4>
+      <span>Published on July 16, 2019</span>
     </div><!-- /.list-item -->
     
     <div class="list-item">
-      <h4><a href="https://ryoyakawai.com/blog/2019/06/29/bourbon-chicken.html" title="アメリカン中華の代表格？のバーボンチキンを作ってみた">アメリカン中華の代表格？のバーボンチキンを作ってみた</a></h4>
-      <span>Published on June 29, 2019</span>
+      <h4><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" title="AndroidアプリでのUnit Testについての解説">AndroidアプリでのUnit Testについての解説</a></h4>
+      <span>Published on July 10, 2019</span>
     </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->

@@ -1,0 +1,492 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<meta charset="utf-8">
+<title>Espresso, UI AutomatorでAndroidのUI Testを書く &#8211; Delicious Days</title>
+<meta name="description" content="">
+<meta name="keywords" content="Android, UI Test, Espresso, UI Automator">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@ryoyakawai">
+<meta name="twitter:title" content="Espresso, UI AutomatorでAndroidのUI Testを書く">
+<meta name="twitter:text:title" content="Espresso, UI AutomatorでAndroidのUI Testを書く">
+<meta name="twitter:creator" content="@ryoyakawai">
+<meta name="twitter:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta name="twitter:description" content="">
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="summary">
+<meta property="og:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
+<meta property="og:title" content="Espresso, UI AutomatorでAndroidのUI Testを書く">
+<meta property="og:description" content="">
+<meta property="og:url" content="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">
+<meta property="og:site_name" content="Espresso, UI AutomatorでAndroidのUI Testを書く">
+
+
+
+
+
+<link rel="canonical" href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">
+<link href="https://ryoyakawai.com/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://ryoyakawai.com/blog/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="https://ryoyakawai.com/blog/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Polymer -->
+<script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel="import" href="https://ryoyakawai.com/blog/assets/components/youtube-play.html">
+<link rel="import" href="https://ryoyakawai.com/blog/assets/components/language-selector.html">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://ryoyakawai.com/blog/images/profile_photo.jpg">
+<link rel="icon" type="image/jpeg" href="https://ryoyakawai.com/blog/images/profile_photo.jpg">
+
+
+
+<!-- AdSense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9891854265132215",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="https://ryoyakawai.com/blog/assets/css/header-title.css">
+  <link rel="stylesheet" type="text/css" href="https://ryoyakawai.com/blog/assets/css/post.css">
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="https://ryoyakawai.com/blog/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="https://ryoyakawai.com/blog/images/avatar.jpg" alt="Ryoya Kawai photo" class="author-photo">
+					<h4>Ryoya Kawai</h4>
+					<p></p>
+				</li>
+				<li><a href="https://ryoyakawai.com/blog/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:blog@ryoyakawai.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/ryoyakawai"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://facebook.com/ryoyakawai"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				<li>
+					<a href="https://google.com/+ryoyakawai"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/ryoya-kawai-11342b57"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/ryoyakawai"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="https://ryoyakawai.com/blog/posts/">Order by Date</a></li>
+				<li><a href="https://ryoyakawai.com/blog/tags/">Group By Tag</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap entry-header">
+        
+          <h1 class="entry-title entry-title-post header-title-text"><a href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="bookmark" title="Espresso, UI AutomatorでAndroidのUI Testを書く">Espresso, UI AutomatorでAndroidのUI Testを書く</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2019-07-18T00:00:00+09:00">July 18, 2019</time></span></h2>
+<!--
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+
+        </p>--><!-- /.entry-reading-time -->
+        <!---->
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script src="//apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+<script id="pocket-btn-js" src="//widgets.getpocket.com/v1/j/btn.js?v=1"></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.12&appId=611626902509108&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="social-share">
+  <style>
+    .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
+    .fb-like span {vertical-align: inherit !important}
+  </style>
+  <a href="http://b.hatena.ne.jp/entry/https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
+  <div class="fb-like" data-href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+</div>
+
+
+      <h2 id="これは何">これは何？</h2>
+<p>「<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">AndroidアプリをCircleCIでCIする。</a>」のUI Testの書き方について説明した記事です。
+具体的には<a href="https://github.com/ryoyakawai/uitest_sample_android">サンプルアプリ</a>の<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">UI Testであるこれ</a>の説明です。</p>
+
+<h2 id="概要">概要</h2>
+<h3 id="androidでui-testを書く">AndroidでUI Testを書く</h3>
+<p>Androidが公式にサポートしているUI Testのツールは <a href="https://developer.android.com/training/testing/espresso">Espresso</a>、
+<a href="https://developer.android.com/training/testing/ui-automator">UI Automator</a> の2種類あります。
+それぞれ以下の特徴がありますので「どちらを使うか？」については「どちらも併用して使う」のがいいように感じています。</p>
+
+<h4 id="espresso">Espresso</h4>
+<p>「to write concise, beautiful, and reliable Android UI tests」と公式サイトには説明されています。特定のアプリのUIに対してのスクリプトで動作をさせることを可能にするテストフレームワークです。単一のアプリの操作を自動化する場合に使うとよいでしょう。Google社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。<br />
+サンプルアプリではアプリの操作のすべてをEspressoで書いています。</p>
+
+<h4 id="ui-automator">UI Automator</h4>
+<p>「suitable for cross-app functional UI testing across system and installed apps.」と公式サイトに説明されている通りで、Espressoと比べると、よりAndroidのOSに近い側に位置しているテストフレームワークで、複数アプリを行き来するよう動作をスクリプトで定義することの可能です。Espressoとは違い、複数のアプリの操作を自動化する場合に使うとよいでしょう。こちらもEspressoと同じくGoogle社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。<br />
+サンプルアプリではスクリーンショットの撮影、Permissionリクエストのウィンドウの操作の2つをUI Automatorで書いています。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2019/07/20190703-uitesttool_00.png" width="50%" />
+</div>
+
+<h3 id="espressoui-automatorでtestを書く準備をする">Espresso、UI AutomatorでTestを書く準備をする</h3>
+<p>以下の2つのファイルに追加して準備完了です。</p>
+
+<h4 id="-buildgradle-に以下を追加">＞ <code class="highlighter-rouge">build.gradle</code> に以下を追加</h4>
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">allprojects</span> <span class="p">{</span>
+<span class="o">....</span>
+  <span class="n">tasks</span><span class="p">.</span><span class="n">matching</span> <span class="p">{</span><span class="n">it</span> <span class="n">instanceof</span> <span class="n">Test</span><span class="p">}.</span><span class="n">all</span> <span class="p">{</span>
+    <span class="n">testLogging</span><span class="p">.</span><span class="n">events</span> <span class="p">=</span> <span class="p">[</span><span class="s">"failed"</span><span class="p">,</span> <span class="s">"passed"</span><span class="p">,</span> <span class="s">"skipped"</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="o">....</span>
+<span class="p">}</span>
+<span class="o">....</span>
+</code></pre>
+</div>
+
+<h4 id="-appbuildgradle-に以下を追加"><code class="highlighter-rouge">＞ app/build.gradle</code> に以下を追加</h4>
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">dependencies</span> <span class="p">{</span>
+<span class="o">....</span>
+  <span class="c1">// for connected Android test
+</span>  <span class="n">androidTestUtil</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">orchestrator</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">runner</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">espresso</span><span class="p">:</span><span class="n">espresso</span><span class="p">-</span><span class="n">core</span><span class="p">:</span><span class="m">3.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">espresso</span><span class="p">:</span><span class="n">espresso</span><span class="p">-</span><span class="n">intents</span><span class="p">:</span><span class="m">3.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">uiautomator</span><span class="p">:</span><span class="n">uiautomator</span><span class="p">-</span><span class="n">v18</span><span class="p">:</span><span class="m">2.1</span><span class="p">.</span><span class="m">3</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">rules</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
+  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">junit</span><span class="p">:</span><span class="n">junit</span><span class="p">:</span><span class="m">4.12</span><span class="err">'</span>
+<span class="o">....</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="テストを書く">テストを書く</h3>
+<p>テストは<code class="highlighter-rouge">app/src/androidTest/[Package名]</code>以下に書いていきます。<br />
+今回のパッケージ名は <code class="highlighter-rouge">com.example.uitestsample</code> 
+ですので <a href="app/src/androidTest/java/com/example/uitestsample/"><code class="highlighter-rouge">app/src/androidTest/java/com/example/uitestsample/</code></a>
+以下にコードを書いていきます。<br />
+ファイル作成の粒度はActivity毎、Fragment毎、機能毎等、自由にまとめてしまって問題ありません。
+サンプルアプリではActivity毎でまとめて<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">MainActivityInstrumentedTest.kt</a>に書いています。</p>
+
+<h4 id="前準備">前準備</h4>
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="n">@RunWith</span><span class="p">(</span><span class="n">AndroidJUnit4</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
+<span class="n">@SdkSuppress</span><span class="p">(</span><span class="n">minSdkVersion</span> <span class="p">=</span> <span class="m">26</span><span class="p">)</span>
+<span class="n">@LargeTest</span>
+<span class="kd">class</span> <span class="nc">MainActivityInstrumentedTest</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">_packageName</span> <span class="p">=</span> <span class="s">"com.example.uitestsample"</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">mUTs</span><span class="p">:</span> <span class="n">UiTestUtils</span> <span class="p">=</span> <span class="n">UiTestUtils</span><span class="p">()</span>
+    <span class="c1">// ^^^ ツールをインスタンス化 ^^^
+</span>
+    <span class="n">@Rule</span>
+    <span class="n">@JvmField</span>
+    <span class="kd">val</span> <span class="py">mActivityTestRule</span><span class="p">:</span> <span class="n">ActivityTestRule</span><span class="p">&lt;</span><span class="n">MainActivity</span><span class="p">&gt;</span> <span class="p">=</span>
+        <span class="n">ActivityTestRule</span><span class="p">(</span><span class="n">MainActivity</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
+
+    <span class="n">@Rule</span>
+    <span class="n">@JvmField</span>
+    <span class="kd">val</span> <span class="py">cGrantPermissionRule</span><span class="p">:</span> <span class="n">GrantPermissionRule</span> <span class="p">=</span>
+        <span class="n">GrantPermissionRule</span><span class="p">.</span><span class="n">grant</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="n">Manifest</span><span class="p">.</span><span class="n">permission</span><span class="p">.</span><span class="n">WRITE_EXTERNAL_STORAGE</span><span class="p">)</span>
+    <span class="c1">// ^^^ スクリーンショット保存の為にSTORAGEへのアクセスを強制的に許可 ^^^
+</span>
+    <span class="n">@Rule</span>
+    <span class="n">@JvmField</span>
+    <span class="kd">val</span> <span class="py">screenshotRule</span> <span class="p">=</span> <span class="n">ScreenshotTakingRule</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">)</span>
+    <span class="c1">// ^^^ Test失敗時をスクリーンショットを撮影するように指定 ^^^
+</span>
+    <span class="n">@Before</span>
+    <span class="k">fun</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">setActivity</span><span class="p">(</span><span class="n">mActivityTestRule</span><span class="p">.</span><span class="n">activity</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">@After</span>
+    <span class="k">fun</span> <span class="nf">teardown</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="o">....</span>
+
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>「Test失敗時をスクリーンショット」の動作は <code class="highlighter-rouge">uitestutils/UiTestUtils.kt</code> の最後に定義されています。</p>
+
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="o">....</span>
+<span class="kd">class</span> <span class="nc">ScreenshotTakingRule</span><span class="p">(</span><span class="n">mUTs</span><span class="p">:</span> <span class="n">UiTestUtils</span><span class="p">)</span> <span class="p">:</span> <span class="n">TestWatcher</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">mUTs</span> <span class="p">=</span> <span class="n">mUTs</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">failed</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Throwable</span><span class="p">?,</span> <span class="n">description</span><span class="p">:</span> <span class="n">org</span><span class="p">.</span><span class="n">junit</span><span class="p">.</span><span class="n">runner</span><span class="p">.</span><span class="n">Description</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="n">failed</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
+        <span class="kd">val</span> <span class="py">path</span> <span class="p">=</span> <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">"FAIL-$description"</span><span class="p">)</span>
+        <span class="n">mUTs</span><span class="p">.</span><span class="n">log_d</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; !!! TEST FAILED !!! &lt;&lt;&lt; ScreenShot Taken method=[$description] filename=[$path]"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+<h4 id="テストケース">テストケース</h4>
+<p>サンプルアプリではテストケースは以下の3つです。
+「ケースとして足りない！」とかツッコミはありかもしれませんが、UI Testを動かすことを目的としていますのでご容赦ください。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">useAppContext()</code>：テストしているアプリのパッケージ名を確認</li>
+  <li><code class="highlighter-rouge">checkTextHelloWorld()</code>：アプリ起動時、中心の「Hello World!」の表示を確認</li>
+  <li><code class="highlighter-rouge">checkButtonIncrementFloating()</code>：画面右下のボタンをタップすると表示している数字がカウントアップしSnackbarが表示され、またメニューからResetするとゼロになることを確認</li>
+</ul>
+
+<p><code class="highlighter-rouge">checkButtonIncrementFloating()</code> のポイントをインラインで説明します。<br />
+<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">Testのコード全体はこちら</a>になりますので合わせて御覧ください。</p>
+<div class="language-kotlin highlighter-rouge"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">@Test</span>
+<span class="k">fun</span> <span class="nf">checkButtonIncrementFloating</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// false にすることでTestが成功した場合でもスクリーンショットを残せます。
+</span>    <span class="c1">// デフォルトでは、Testが成功するとスクリーンショットは全削除となります。
+</span>    <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">prepareScreenShot</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+
+<span class="o">....</span>
+
+    <span class="kd">val</span> <span class="py">willTap</span> <span class="p">=</span> <span class="m">5</span>
+    <span class="c1">// 右下の赤色のFabを指定
+</span>    <span class="kd">val</span> <span class="py">incrementButton</span> <span class="p">=</span>  <span class="n">withId</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">increment_fab_text</span><span class="p">)</span>
+
+    <span class="c1">// カウンターを増加させて表示が想定通りであるか確認する
+</span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">1</span><span class="o">..</span><span class="n">willTap</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// スクリーンショットを撮影
+</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"BEFORE &gt;&gt;&gt; カウンター：インクリメント IDX=[$i]"</span><span class="p">)</span>
+        <span class="c1">// 指定した赤色のFabをタップ
+</span>        <span class="n">onView</span><span class="p">(</span><span class="n">incrementButton</span><span class="p">).</span><span class="n">perform</span><span class="p">(</span><span class="n">click</span><span class="p">())</span>
+
+        <span class="c1">// Permissionリクエストが出てたら許可（このテスト中は出ないはず）
+</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">allowPermissionsIfNeeded</span><span class="p">()</span>
+
+        <span class="c1">// スクリーンショットを撮影
+</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"AFTER &gt;&gt;&gt; カウンター：インクリメント IDX=[$i]"</span><span class="p">)</span>
+        <span class="c1">// 要素内の文字列を取得
+</span>        <span class="n">actualCount</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">getText</span><span class="p">(</span><span class="n">withId</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">main_content_text</span><span class="p">))</span>
+        <span class="c1">// ログを残す
+</span>        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">log_d</span><span class="p">(</span><span class="s">"[Counter SEQ] 🍏🍎 expected=[$i] actual=[$actualCount]"</span><span class="p">)</span>
+        <span class="c1">// 文字列をAssert
+</span>        <span class="n">assertEquals</span><span class="p">(</span><span class="s">"[Counter SEQ] 🍏🍎"</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">toString</span><span class="p">(),</span> <span class="n">actualCount</span><span class="p">)</span>
+
+        <span class="c1">// Snackbarの文言チェック
+</span>        <span class="kd">val</span> <span class="py">snackBarTapped</span> <span class="p">=</span> <span class="n">allOf</span><span class="p">(</span><span class="n">withId</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">design</span><span class="p">.</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">snackbar_text</span><span class="p">),</span> <span class="n">withText</span><span class="p">(</span><span class="s">"Tapped $i times."</span><span class="p">))</span>
+        <span class="c1">// Snackbarがから消えるのを待つ
+</span>        <span class="n">waitForSnackbarDisappear</span><span class="p">(</span><span class="n">snackBarTapped</span><span class="p">)</span>
+        <span class="c1">// Sleepする
+</span>        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="s">"SHR"</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="o">....</span>
+
+    <span class="c1">// this.mUTs.prepareScreenShot() に false をセットしていなければ
+</span>    <span class="c1">// スクリーンショットを削除する（）
+</span>    <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">removeSuccessScreenShots</span><span class="p">()</span>
+
+<span class="o">....</span>
+
+<span class="p">}</span>
+<span class="o">....</span>
+</code></pre>
+</div>
+
+<h3 id="idが指定されていないエレメントの指定方法">IDが指定されていないエレメントの指定方法</h3>
+<p>エレメントに対してIDが振られている場合は大抵の場合そのIDを使うことで指定することが可能ですが、
+指定されていない場合は <strong>Layout Inspector</strong> （<a href="https://developer.android.com/studio/debug/layout-inspector">公式ドキュメント</a>）で階層構造を取得
+して解析をしてから、以下のように指定を行います。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2019/07/20190718-layoutinspector-00.png" width="90%" />
+</div>
+
+<p>Fragmentの重なり方が操作によって変化する場合があり、表示は同じでも階層が違う場合が多々発生します。
+ですので、Layout Inspectorで階層構造を取得するときはUI Testでのシナリオ通りに一度画面を遷移させて、それから取得すると良いでしょう。</p>
+
+<h2 id="おわりに">おわりに</h2>
+<p>iOS標準のUI Testツールである<a href="https://developer.apple.com/documentation/xctest">XCTest</a>に比べると
+癖が少し強いです。とっつきにくいところもありますが、そこまで難しくはないので気になっている場合は挑戦してみてください。<br />
+自分の作ったアプリが自動で動くのを見るのも楽しいと思います。</p>
+
+<h2 id="reference">Reference</h2>
+<ul>
+  <li><a href="https://developer.android.com/training/testing/espresso">Espresso -  Android Developers</a></li>
+  <li><a href="https://developer.android.com/training/testing/ui-automator">UI Automator - Android Developers</a></li>
+</ul>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="https://ryoyakawai.com/blog/tags/#Android" title="Pages tagged Android" class="tag"><span class="term">Android</span></a><a href="https://ryoyakawai.com/blog/tags/#UI Test" title="Pages tagged UI Test" class="tag"><span class="term">UI Test</span></a><a href="https://ryoyakawai.com/blog/tags/#Espresso" title="Pages tagged Espresso" class="tag"><span class="term">Espresso</span></a><a href="https://ryoyakawai.com/blog/tags/#UI Automator" title="Pages tagged UI Automator" class="tag"><span class="term">UI Automator</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2019-07-18">July 18, 2019</time></span></span>
+        <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
+      </footer>
+    </div><!-- /.entry-content -->
+
+    <div class="read-more">
+  
+  <div class="read-more-header">
+    <a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" class="read-more-btn">Read More</a>
+  </div><!-- /.read-more-header -->
+  <div class="read-more-content">
+    <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" title="Firebase Test LabでUI Testを実行する">Firebase Test LabでUI Testを実行する</a></h3>
+    <span class="read-more-next">Published on July 16, 2019</span>
+    <p> <a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">Continue reading</a></p>
+  </div><!-- /.read-more-content -->
+  <!-- Adsense -->
+  <div class="read-more-content" style="border-top: solid 2px rgba(238,238,238,0.8); padding-top: 1.625rem;">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Read More in Blog Detail page 2 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-9891854265132215"
+         data-ad-slot="1713214108"></ins>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <!-- Adsense -->
+  
+  <div class="read-more-list">
+    
+    <div class="list-item">
+      <h4><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" title="AndroidアプリでのUnit Testについての解説">AndroidアプリでのUnit Testについての解説</a></h4>
+      <span>Published on July 10, 2019</span>
+    </div><!-- /.list-item -->
+    
+    <div class="list-item">
+      <h4><a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" title="AndroidアプリをCircleCIでCIする。">AndroidアプリをCircleCIでCIする。</a></h4>
+      <span>Published on July 03, 2019</span>
+    </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+
+</div><!-- /.read-more -->
+ 
+    
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2019 Ryoya Kawai.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://ryoyakawai.com/blog/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://ryoyakawai.com/blog/assets/js/scripts.min.js"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116678332-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116678332-1');
+</script>
+
+
+
+<!--
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = '美味しい毎日のブログ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+-->
+
+
+	        
+
+<script type="text/javascript" src="https://ryoyakawai.com/blog/assets/js/header-title-post.js"></script>
+
+</body>
+</html>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html</loc>
+<lastmod>2019-07-18T00:00:00+09:00</lastmod>
+</url>
+<url>
 <loc>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html</loc>
 <lastmod>2019-07-16T00:00:00+09:00</lastmod>
 </url>
