@@ -1,4 +1,208 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-22T12:52:59+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Espresso, UI AutomatorでAndroidのUI Testを書く</title><link href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="alternate" type="text/html" title="Espresso, UI AutomatorでAndroidのUI Testを書く" /><published>2019-07-18T00:00:00+09:00</published><updated>2019-07-18T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-25T16:12:36+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをBitriseでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
+Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
+
+&lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
+&lt;h3 id=&quot;bitrise&quot;&gt;Bitrise&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://go.bitrise.io/bitrise-japan&quot;&gt;Bitrise&lt;/a&gt;はCircleCIと同じ種類のクラウド型のCIサービスです。
+ロンドンと&lt;a href=&quot;https://goo.gl/maps/Yi3Q5G6hDY6qgyAK8&quot;&gt;ブダペスト（ハンガリー）&lt;/a&gt;にオフィスを持っています。シリコンバレーじゃないのが新鮮でした。&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;できること&quot;&gt;できること&lt;/h4&gt;
+&lt;p&gt;BitriseはiOS、Android、Swift、React Nativeをビルド、テスト、デプロイすることが可能です。本記事では、Androidのビルド、テストをみていきます。&lt;/p&gt;
+
+&lt;h4 id=&quot;価格&quot;&gt;価格&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.bitrise.io/pricing/teams&quot;&gt;詳しいテーブルはこちら&lt;/a&gt;です。小さな組織向けとエンタープライズ向けが用意されてます。
+小さな組織向けの1部はこんな感です。（2019年7月現在）&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hobby（無料）：複数同時ビルドは不可、ビルド時間は10分、月に200回ビルドまで、使えるのは標準マシーン、追加可能なメンバーは2名&lt;/li&gt;
+  &lt;li&gt;Developer（$36/mo）：複数同時ビルドは不可、ビルド時間は45分、ビルド回数は無制限、使えるのは標準マシーン、メンバーの無制限追加可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;さっそく使ってみる&quot;&gt;さっそく使ってみる&lt;/h2&gt;
+&lt;p&gt;GitHubとBitriseのアカウントが必須ですのでご用意してください。&lt;br /&gt;
+この記事では&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/&quot;&gt;このリポジトリのコード&lt;/a&gt;をサンプルとして使いますので、
+ForkもしくはCloneしてリポジトリに追加しておいてください。&lt;br /&gt;
+それでは追加していきます。&lt;/p&gt;
+
+&lt;h3 id=&quot;アプリを追加する&quot;&gt;アプリを追加する&lt;/h3&gt;
+&lt;p&gt;下右図のように、ターゲットになるリポジトリを指定してアプリを追加します。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee; margin-right: 5px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_01.png&quot; width=&quot;48%&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;workflowの設定画面を表示する&quot;&gt;Workflowの設定画面を表示する&lt;/h3&gt;
+&lt;p&gt;アプリの追加が完了すると同時にビルドを走らせてくれます。&lt;br /&gt;
+が、取り急ぎWorkflowの設定画面を開いてしまいます。プロジェクト名をクリック（下図(1)）して
+次にWorkflowのタブをクリック（下図(2)）して表示します。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_workflow00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;タスクを追加する&quot;&gt;タスクを追加する&lt;/h3&gt;
+&lt;p&gt;アプリを追加した状態ではUIテストは追加されませんので、UIテストされるように設定する必要があります。
+追加するタスクは以下の2つです。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gradle Runner&lt;/li&gt;
+  &lt;li&gt;[BETA] Virtual Device Testing for Android&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;赤四角の中の2つを追加する。&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190725_bitrise_addtask00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;-gradle-runnerの追加&quot;&gt;＞ Gradle Runnerの追加&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Android Unit Test&lt;/strong&gt; のアイコンの直下にある「＋」ボタン（下図（1））をクリックして、「Gradle Runner」で検索すると絞込まれて表示されますので
+クリックして追加します。（下図(2)）&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Gradle task to run&lt;/strong&gt; ： &lt;code class=&quot;highlighter-rouge&quot;&gt;assembleDebug assembleDebugAndroidTest&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;gradlew file path&lt;/strong&gt; ： &lt;code class=&quot;highlighter-rouge&quot;&gt;./gradlew&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;-beta-virtual-device-testing-for-androidの追加&quot;&gt;＞ [BETA] Virtual Device Testing for Androidの追加&lt;/h4&gt;
+&lt;p&gt;先程追加した&lt;strong&gt;Gradle Runner&lt;/strong&gt; の次に追加しますので、直下にある「＋」ボタン（下図（1））をクリックして、「[BETA] Virtual」で検索します。すると絞込まれて表示されますので
+クリックして追加します。（下図(2)）&lt;/p&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Test devices&lt;/strong&gt; ： &lt;code class=&quot;highlighter-rouge&quot;&gt;Pixel2,28,en,portrait&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Test type&lt;/strong&gt; ： &lt;code class=&quot;highlighter-rouge&quot;&gt;instrumentation&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;なお、&lt;strong&gt;Test devices&lt;/strong&gt; はサンプルアプリに &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion 26&lt;/code&gt; と指定しているので26以上に設定しています。&lt;br /&gt;
+また、先程変更した &lt;strong&gt;Gradle Runner&lt;/strong&gt; の &lt;strong&gt;Gradle task to run&lt;/strong&gt; の &lt;code class=&quot;highlighter-rouge&quot;&gt;assembleDebug assembleDebugAndroidTest&lt;/code&gt; がデフォルトの &lt;code class=&quot;highlighter-rouge&quot;&gt;assemble&lt;/code&gt; のままになっていると
+テスト用のAPK(&lt;code class=&quot;highlighter-rouge&quot;&gt;app-debug-androidTest.apk&lt;/code&gt;)が作成されず、&lt;strong&gt;API path&lt;/strong&gt; で使う環境変数の &lt;strong&gt;$BITRISE_APK_PATH&lt;/strong&gt; に &lt;code class=&quot;highlighter-rouge&quot;&gt;app-release-unsigned.apk&lt;/code&gt;等に指定あれてしまい
+&lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; が動作できずエラーになりますので、確実に変更するようにしてください。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、この &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」
+でも紹介しているのと同じくGCPコマンドから &lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com&quot;&gt;Cloud Testing API(Firebase Test Lab)&lt;/a&gt; をラップして使っているようです。&lt;/p&gt;
+
+&lt;h3 id=&quot;実行する&quot;&gt;実行する&lt;/h3&gt;
+&lt;p&gt;以上でUI Testまで実行できるようになったはずなので画面内にある &lt;strong&gt;[Start/Schedule a Build]&lt;/strong&gt; ボタンをクリックしてビルドを実行します。&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_start_button00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
+&lt;p&gt;ガガっとリポジトリを読んで、設定作ってくれるところは楽チンでよかったですが、
+&lt;strong&gt;Gradle Runner&lt;/strong&gt; の &lt;strong&gt;Gradle task to run&lt;/strong&gt;  環境変数 &lt;strong&gt;$BITRISE_APK_PATH&lt;/strong&gt; の設定で
+ハマりました。Firebase Test Labからのエラーメッセージ見られると良いかもな〜、と感じています。&lt;/p&gt;
+
+&lt;h4 id=&quot;今回のbitriseyml&quot;&gt;今回の&lt;code class=&quot;highlighter-rouge&quot;&gt;bitrise.yml&lt;/code&gt;&lt;/h4&gt;
+&lt;p&gt;今回できあがった &lt;code class=&quot;highlighter-rouge&quot;&gt;bitrise.yml&lt;/code&gt; もココに貼っておきます。参考になれば幸いです。&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;format_version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8&#39;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;default_step_lib_source&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://github.com/bitrise-io/bitrise-steplib.git&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;project_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;trigger_map&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;push_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pull_request_source_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;workflows&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;activate-ssh-key@4.0.3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git-clone@4.0.14&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-pull@2.0.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;script@1.1.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;install-missing-android-tools@2.3.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;change-android-versioncode-and-versionname@1.1.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;build_gradle_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/$MODULE/build.gradle&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-lint@0.9.6&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-unit-test@0.11.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-build@0.10.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sign-apk@1.3.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy-to-bitrise-io@1.6.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-push@2.2.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;activate-ssh-key@4.0.3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git-clone@4.0.14&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-pull@2.0.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;script@1.1.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;install-missing-android-tools@2.3.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-lint@0.9.6&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-unit-test@0.11.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradle-runner@1.9.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;./gradlew&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradle_task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;assembleDebug assembleDebugAndroidTest&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;virtual-device-testing-for-android@1.0.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;test_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;instrumentation&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;test_devices&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Pixel2,28,en,portrait&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy-to-bitrise-io@1.6.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-push@2.2.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;envs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;PROJECT_LOCATION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;MODULE&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;VARIANT&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><category term="Android" /><category term="Espresso" /><category term="Bitrise" /><category term="Firebase Test Lab" /><summary>これは何？
+「AndroidアプリをCircleCIでCIする。」のCircleCIをBitriseに変更した時のメモです。
+Bitriseの設定のみを書いていこうと思いますので、詳細は「AndroidアプリをCircleCIでCIする。」を御覧ください。</summary></entry><entry><title>Espresso, UI AutomatorでAndroidのUI Testを書く</title><link href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="alternate" type="text/html" title="Espresso, UI AutomatorでAndroidのUI Testを書く" /><published>2019-07-18T00:00:00+09:00</published><updated>2019-07-18T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI Testの書き方について説明した記事です。
 具体的には&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;の&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;UI Testであるこれ&lt;/a&gt;の説明です。&lt;/p&gt;
 
@@ -1346,45 +1550,4 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
 ウェブって本当にいいですねっ👍&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry><entry><title>旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！</title><link href="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html" rel="alternate" type="text/html" title="旧所属のお世話になったボス「G-tenさん」の定年のご退職壮行会に呼んでいただいた！" /><published>2019-02-01T00:00:00+09:00</published><updated>2019-02-01T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/01/farewellparty</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/01/farewellparty.html">&lt;div&gt; &lt;/div&gt;
-&lt;p&gt;「こんにちは」&lt;br /&gt;
-という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 &lt;br /&gt;
-スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw&lt;/p&gt;
-
-&lt;p&gt;そして、そのメッセージを雑にまとめると「明日来ない？」みたいなありがたいお誘い。旧所属の人が20名規模で集まり、上司の上司（当時の部門長）のご定年の壮行会、ということで2つ返事で「参加します！」と即刻返事をして混ぜてもらいました。印象的な期間の1つである部門だったので会場に入った途端にタイムスリップした感がかなりあって、さらには会場のプロジェクタからは選んだかのように「Back to the future -Part1-」が再生されてて、もうなんというかホントに当時のことが頭の中を駆け巡り、控え目に言って楽しかった。そして、あの選択でなくてこういう選択してたらもっと伸びてたかも、とか頭をよぎったり、普段は感じられない貴重で、かつ、不思議な時間が過ぎました。その時間は本当に一瞬で終わってしまいましたけどね。&lt;br /&gt;
-さて、今回の壮行会の主役のボスは本当に印象的なボスの1人で&lt;/p&gt;
-&lt;div class=&quot;post-image-center&quot; style=&quot;font-weight:bold&quot;&gt;
-「成功体験は減価償却せなあかんで。」
-&lt;/div&gt;
-&lt;p&gt;と、今でも常に心に留めている言葉を教えてくださった関西弁のボスです。今後の変わらぬご活躍を祈念するのと同時に、部下として乗り越える一翼を担えたことを嬉しく思います！ありがとうございました！！&lt;br /&gt;
-そして、今回のG-tenさん（ボス）の一言&lt;/p&gt;
-&lt;div class=&quot;post-image-center&quot; style=&quot;font-weight:bold&quot;&gt;
-「突き詰めていくと、最後は好き嫌いやで。」
-&lt;/div&gt;
-&lt;p&gt;と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-groupphoto.jpg&quot; width=&quot;60%&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;そして、今回は1参加者のつもりだったのが、僕まで壮行されれる側にしていただけました。本当にありがとうございました。嬉しかったです。更にこんな素敵などんぶりまで記念品としていただいちゃいました！あの当時なら確実に「白米用」でしたが、これからは「スープ」または「ヨーグルト」用として使わせていただきますっ！ありがとうございます。&lt;/p&gt;
-
-&lt;div class=&quot;post-image-center&quot;&gt;
-  &lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190201-donburi.jpg&quot; width=&quot;60%&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;さて、未来に向けて引き続き一歩一歩着実に前進していくよっ！&lt;/p&gt;</content><category term="壮行会" /><category term="FarewellParty" /><summary>「こんにちは」
-という元所属の上司からの1日前のFacebookのメッセンジャから始まった。 
-スクリプトがうまく動かなくて「う〜ん、、、」と頭を抱えながらお昼ご飯を食べているときに気がついたメッセージで、スクリプトから意識を離してもらえたのでその点も本当によかったです。さすが元上司、みたいなw
-
-そして、そのメッセージを雑にまとめると「明日来ない？」みたいなありがたいお誘い。旧所属の人が20名規模で集まり、上司の上司（当時の部門長）のご定年の壮行会、ということで2つ返事で「参加します！」と即刻返事をして混ぜてもらいました。印象的な期間の1つである部門だったので会場に入った途端にタイムスリップした感がかなりあって、さらには会場のプロジェクタからは選んだかのように「Back to the future -Part1-」が再生されてて、もうなんというかホントに当時のことが頭の中を駆け巡り、控え目に言って楽しかった。そして、あの選択でなくてこういう選択してたらもっと伸びてたかも、とか頭をよぎったり、普段は感じられない貴重で、かつ、不思議な時間が過ぎました。その時間は本当に一瞬で終わってしまいましたけどね。
-さて、今回の壮行会の主役のボスは本当に印象的なボスの1人で
-
-「成功体験は減価償却せなあかんで。」
-
-と、今でも常に心に留めている言葉を教えてくださった関西弁のボスです。今後の変わらぬご活躍を祈念するのと同時に、部下として乗り越える一翼を担えたことを嬉しく思います！ありがとうございました！！
-そして、今回のG-tenさん（ボス）の一言
-
-「突き詰めていくと、最後は好き嫌いやで。」
-
-と、また深いお言葉。何となくしかまだ理解はできていないんだけど「そうなんだよね」、「それでいいんだよね」みたいに感じました。この言葉もこれから心から理解できるように精進していこうと思います。</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry></feed>
