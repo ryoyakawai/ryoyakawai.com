@@ -13,9 +13,10 @@ image:
 
 <div> </div>
 
-やっと追加のみんな大好きパンダエクスプレスの「Chow Mein、やきそば、チョーメン」！！  
+やっと追加のみんな大好きパンダエクスプレスの「[Chow Mein、やきそば、チョーメン](https://cookpad.com/recipe/5771364)」！！  
 自分で言うのもアレですが、パンダのそれよりも少し上品な味になってるかも😅  
-BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家も「焼きそば」は「ソース」だったのが、幅が広がりました！
+BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家も「焼きそば」は「ソース」だったのが、幅が広がりました！  
+（本家パンダエクスプレスの[Chow Meinはこちら](https://www.pandaexpress.com/menu/sides/chow-mein)）
 
 <div class="post-image-center">
 <img src="{{ site.url }}/images/2019/08/20190804-chowmein_00.jpg" width="90%" style="border-radius:4px;"/>
