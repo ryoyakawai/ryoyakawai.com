@@ -1,6 +1,6 @@
 ---
 layout: post
-title: パンダエクスプレスメニューのコピーを作ってみた
+title: パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！
 description: ""
 date: 2019-08-04 00:00:00 +0900
 modified: 2019-01-20
