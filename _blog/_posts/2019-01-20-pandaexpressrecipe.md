@@ -4,7 +4,7 @@ title: パンダエクスプレスメニューのコピーを作ってみた
 description: ""
 date: 2019-01-20 00:00:00 +0900
 modified: 2019-01-20
-tags: [Cookpad, 料理]
+tags: [Cookpad, 料理, パンダエクスプレス]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz

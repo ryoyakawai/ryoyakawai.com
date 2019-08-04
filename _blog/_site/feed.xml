@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-07-25T16:12:36+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>AndroidアプリをBitriseでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-08-04T20:42:40+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>パンダエクスプレスメニューのコピーを作ってみた</title><link href="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html" rel="alternate" type="text/html" title="パンダエクスプレスメニューのコピーを作ってみた" /><published>2019-08-04T00:00:00+09:00</published><updated>2019-08-04T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html">&lt;div&gt; &lt;/div&gt;
+
+&lt;p&gt;やっと追加のみんな大好きパンダエクスプレスの「Chow Mein、やきそば、チョーメン」！！&lt;br /&gt;
+自分で言うのもアレですが、パンダのそれよりも少し上品な味になってるかも😅&lt;br /&gt;
+BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家も「焼きそば」は「ソース」だったのが、幅が広がりました！&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/08/20190804-chowmein_00.jpg&quot; width=&quot;90%&quot; style=&quot;border-radius:4px;&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;焼きそば-chowmein-チョーメン&quot;&gt;焼きそば-ChowMein-チョーメン&lt;/h3&gt;
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;script src=&quot;https://widgets.cookpad.com/recipes/5771364.js?k=fcd0a8a9&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><category term="パンダエクスプレス" /><summary></summary></entry><entry><title>AndroidアプリをBitriseでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
 Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
 
@@ -1531,23 +1544,4 @@ BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry><entry><title>Web Bluetooth経由でBluetooth MIDIデバイスを使う</title><link href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" rel="alternate" type="text/html" title="Web Bluetooth経由でBluetooth MIDIデバイスを使う" /><published>2019-02-20T00:00:00+09:00</published><updated>2019-02-20T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html">&lt;div&gt; &lt;/div&gt;
-
-&lt;p&gt;2019年2月19日に&lt;a href=&quot;https://html5j-robot.connpass.com/event/117812/&quot;&gt;「JSで制御するBluetoothと基板の勉強会（html5jロボット部 第11回 勉強会）」&lt;/a&gt;というイベントでBluetooth MIDI機器をWeb Bluetooth経由で利用に関してLTさせていただきました！
-久々でとても緊張でしたがデモも無事に動いてホッとしました。制限時間5分のところを1分超過してしまいすみませんでした＞＜&lt;br /&gt;
-ありがとうございました！＆スタッフの皆様お疲れ様でした！&lt;/p&gt;
-
-&lt;p&gt;今回の&lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;アプリはこちら&lt;/a&gt;です。&lt;a href=&quot;https://github.com/ryoyakawai/midimessageviewer&quot;&gt;コードはここ&lt;/a&gt;。&lt;br /&gt;
-以前作成したアプリをWeb BluetoothでもMIDIに対応してみました。&lt;/p&gt;
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;a href=&quot;https://ryoyakawai.com/apps/midimsgv/&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/02/20190219_webbluetooth.png&quot; width=&quot;100%&quot; /&gt;
-&lt;/a&gt;
-&lt;/div&gt;
-
-&lt;p&gt;技術的な詳細は&lt;a href=&quot;https://qiita.com/ryoyakawai/items/200b3b05d8bd0096f68d&quot;&gt;Qiitaに記事としてこちら&lt;/a&gt;にまとめたので、気になる方はそちらを御覧ください！気がついたら結局ライブラリにしていたので公開することにしました。ご自由にお使い下さい。&lt;/p&gt;
-
-&lt;p&gt;日進月歩でブラウザでできることが増えて来て本当にうれしいです。&lt;br /&gt;
-ウェブって本当にいいですねっ👍&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/sascacci&quot;&gt;@sascacci&lt;/a&gt;さんありがと〜！&lt;/p&gt;</content><category term="Web Music" /><category term="Web Bluetooth" /><category term="MIDI" /><summary></summary></entry></feed>
+&lt;p&gt;ということで、快適なWeb Musicな生活を！！！&lt;/p&gt;</content><category term="Web Music" /><category term="Web MIDI API" /><summary></summary></entry></feed>

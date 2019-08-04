@@ -160,6 +160,183 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2018-12-22T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html">December 22, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/12/22/webmusicmeetup_3.html" rel="bookmark" title="「Web Music Developers Meetup ＃3」を開催しました！" itemprop="url">「Web Music Developers Meetup ＃3」を開催しました！</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p>2018年12月21日に「Web Music Developers Meetup 3」を開催しました。<br />
+20名ほどの参加者の中から、10分のLTが6つ行われ、LT後には質問、ノウハウ等が活発に飛び交う、
+楽しく、そして有意義なMeetupになったように思います。
+ご参加くださった皆様、そしてLTの準備、発表をしてくださった皆様、お疲れ様でした！！</p>
+
+<h2 id="ltの内容の紹介">LTの内容の紹介</h2>
+
+<h3 id="lt-1--toyoshim-さん">LT-1 : <a href="https://twitter.com/toyoshim">@toyoshim</a> さん</h3>
+<p>Web Audio/MIDIの標準化について＆今後のChromeとWeb Music系のAPIに関して、のお話。</p>
+
+<ul>
+  <li>
+    <p>W3Cの年次会議であるTPACにて話さた内容に関しては、Web Audio V2では現在のAPIよりも低レイヤのAPIをサポーする方向で進むこと、Web MIDI APIに関してはMozillaがFirefoxに実装を行って2019年1月にはリリースする目標感をもっている、という表明があったとのこと。</p>
+  </li>
+  <li>
+    <p>W3Cに<a href="https://www.w3.org/community/audio-comgp/">Audio Community Group</a>ができました。Audio WGよりももう少しカジュアルなグループなので気になる方はご参加ください。</p>
+  </li>
+  <li>
+    <p>Chromeは外部デバイス接続に対してのPermission（「GPS使っていいですか？」みたいダイアログ）は適切な場面で出せるようにする、という方向で進んでいる</p>
+  </li>
+  <li>
+    <p>Web MIDI API on Chromeに関しては現状はWeb MIDI APIでSystemExclusiveのメッセージを扱う場合にのみ限定してPermissionの許可が必要であるのが、今後はWeb MIDI APIを利用するときにはメッセージに関わらず必ずユーザに許可を求めるように変更されるだろう。その影響もあり（もちろん世の中的な流れもあるが）、Web MIDI APIが使えるプロトコルはHTTPSのみとなる。Chrome内部的には「SystemExclusiveを使う」というフラグは持ち続けることになるとは思う（今後の話なので未確定）。</p>
+  </li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_toyoshim.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<h3 id="lt-2--gcchaan">LT-2 : <a href="https://twitter.com/gcchaan">@gcchaan</a></h3>
+<p>Web MIDI APIさわってみた、というタイトルでWeb Socketと使ってリモートでMIDI機器を制御してみたお話。</p>
+
+<ul>
+  <li>
+    <p>システムを作ってみて、Web Socketでワリとスピードが出てるから演奏にも使えそうなことが判明した</p>
+  </li>
+  <li>
+    <p>ついでに、画面に楽譜に表示された和音を鍵盤から時間内に抑えるゲーム、も作ってみた</p>
+  </li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_gcchan.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<p><a href="https://amei-music.github.io/CreatorsHub/about.html">Creators’ Hub</a>のJSONの形式を使えば、他のアプリとも会話がしやすくなるかも？というアドバイスが会場からありました。</p>
+
+<h3 id="lt-3--dorayaki0">LT-3 : <a href="https://twitter.com/dorayaki0">@dorayaki0</a></h3>
+<p>abc記法（<a href="https://abcjs.net/">abc.js</a>を使って）を使って楽譜をリアルタイムに記入していくアプリケーションのお話。</p>
+
+<ul>
+  <li>
+    <p><a href="https://scrapbox.io/business">Scrapbox</a>上でChrome Extentionと動く</p>
+  </li>
+  <li>
+    <p><a href="https://scrapbox.io/satakebox/hyperscorebox">hyperscoreboxの説明ページ</a></p>
+  </li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_dorayaki0.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<p>楽譜をリアルタイムに鳴らしたいけど実現が難しい・・・という@dorayaki0さんの悩みに対し、会場から「ExtentionならBackground Pageを作ってそこにEvent投げたらいけそう」という解決策が出されていました。</p>
+
+<h3 id="lt-4--sasacci">LT-4 : <a href="https://twitter.com/sasacci">@sasacci</a></h3>
+<p>「BLE MIDI on Web Bluetooth」と「VJで家の設計図をグリグリ回した」という2本立てのお話。</p>
+
+<ul>
+  <li>
+    <p>Web BluetoothでBLE MIDIのChracteristicに<code class="highlighter-rouge">7772E5DB-3868-4112-A1A9-F2669D</code>、Serviceに<code class="highlighter-rouge">03B80E5A-EDE8-4B33-A751-6CE34EC4C700</code>を指定したらウェブブラウザとBLE MIDI機器とを簡単に接続できる（Macだけかも）</p>
+  </li>
+  <li>
+    <p>Web BluetoothはBLE MIDIとして接続されるだけなので、受け取ったメッセージはParseする必要がある</p>
+  </li>
+  <li>
+    <p>VJ仲間の方のご自宅が3DデータであったのでThree.jsで扱って、VJ素材としてグリグリ回した話</p>
+  </li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_sasacci.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<p>Roland社の<a href="https://www.roland.com/jp/products/aerophone_go/">Aerophone GO</a>を持ち込んでのBLE MIDI on Web Bluetoothのお話で、写真は16進数のMIDIメッセージをネタに会場とやり取りをしているところ。</p>
+
+<h3 id="lt-5--tadfmac">LT-5 : <a href="https://twitter.com/tadfmac">@tadfmac</a></h3>
+<p>簡単にIoT機器作りたいじゃん、というお話。</p>
+
+<ul>
+  <li>
+    <p>簡単にIoT機器を作るにはMIDIで有線接続がいいぞ！</p>
+  </li>
+  <li>
+    <p>MIDI機器を作るには<a href="https://github.com/kuwatay/mocolufa">mocolufa</a>がいいぞ！</p>
+  </li>
+  <li>
+    <p>UI作るならブラウザがいいぞ！ブラウザはChromeでしょ。</p>
+  </li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_tadfmac.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<p>途中からディスプレイが映らなくなるというトラブルがありました。</p>
+
+<h3 id="lt-6--xsoundjs">LT-6 : <a href="https://twitter.com/xsoundjs">@xsoundjs</a></h3>
+<p>MediaElementAudioSourceNodeと映像フォーマットのお話。</p>
+
+<ul>
+  <li>
+    <p>普段は自己紹介しないけど今回は関連するのでしちゃいます！↓</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/video-dev/hls.js/">hls.js</a>のComitterしてます！</p>
+  </li>
+  <li>MediaElementAudioSourceNodeで音を横取りして加工できる。</li>
+  <li>
+    <p>横取りすると映像とズレが生じることがある。</p>
+  </li>
+  <li>
+    <p>MediaElementAudioSourceNodeを使うと、その瞬間にVideo Element側の音はMuteされる。</p>
+  </li>
+  <li>MediaElementAudioSourceNodeは現状ではChrome限定っぽい？</li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_xsoundjs.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<h2 id="スポンサー">スポンサー</h2>
+<p>今回のMeetupは私の現所属である<a href="https://www.digitalhearts.com/"><strong>株式会社デジタルハーツ</strong></a>にスポンサーをしていただききました。飲み物、ピザを提供いただきリラックスした形のMeetupすることができました。サポートしてくださった皆様に心から感謝を申し上げます。<br />
+ありがとうございました！</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/12/20181222_digitalhearts.jpg" width="70%" style="border:1px solid #eee;" />
+</div>
+
+<p>なお、IT系の勉強会、Meetupに対して、会場のご提供が可能なケースもるかもしれませんので、そのときはご相談ください。</p>
+
+<h2 id="おわりに">おわりに</h2>
+<p>不定期にこんな形のMeetupを開催していく予定です。<br />
+これからの Web について真剣に議論する<a href="https://nextwebconf.connpass.com/event/103056/">「次世代 Web カンファレンス」</a>のWebMusic(#nwc_music)のセッションがあります。そちらもお楽しみに！</p>
+
+<h2 id="リンク">リンク</h2>
+
+<ul>
+  <li><a href="https://developers.webmusic.io/">Web Music Developers JP</a></li>
+  <li><a href="https://connpass.com/event/112300/">Web Music Developers Meetup #3 - Connpass</a></li>
+</ul>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2018-10-29T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/10/29/iamgoingtonextstep.html">October 29, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -507,83 +684,6 @@ Reading time ~1 minute
   <li><a href="https://www.icfpe.jp/corporation_law/administrative.html">会社の機関は、法人として意思を決定し、実行するために設置される存在</a></li>
   <li><a href="https://keiei.freee.co.jp/2013/08/20/sonkin/">損金って何？損金に算入されるとかされないってよくいうけど？</a></li>
 </ul>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2018-09-16T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/09/16/manzanar.html">September 16, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/09/16/manzanar.html" rel="bookmark" title="Manzanar National Historic Site に行ってきた" itemprop="url">Manzanar National Historic Site に行ってきた</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p><a href="https://www.nps.gov/manz/index.htm">Manzanar National Historic Site</a>とは第二次世界大戦中に当時米国在住の日系人が収容されていた施設の1つ。</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_00.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-
-<p>2017年末のことだったか、この地のことを聞いて理由はよく分からないけど、とても行きたい気持ちになっていた自分がいました。
-ただし、サンフランシスコ・ベイエリアからは非常に遠いんです。Yosemiteの山を超えた向こう側。1人だと日帰りでがんばれなくもない距離なので、1泊で行くのはちょっともったいない距離。迷ったものの日帰りで行っちゃいました。走行距離は835.5mile(1344.6km)。日本だと、東京から広島県尾道市の往復くらいの距離。</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_01.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-
-<p>感じたことの一端をブログに残そうと思いてます。</p>
-
-<h2 id="manzanarで感じたこと">Manzanarで感じたこと</h2>
-<p>つい先日「サンフランシスコ・ベイエリアと日本の歴史」に関して、サンフランシスコ領事館の加藤さんが分かりやすく詳しく書いたスライドを公開してくれています。すばらしい資料なので、興味のあるかたは一読してみてください。</p>
-
-<div class="post-image-center">
-<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fakihiro.kato.520%2Fposts%2F1839874526101334&amp;width=500" width="500" height="605" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-</div>
-<p><br /></p>
-
-<p>この中にも説明されていますが、第二次世界大戦中の日系人強制収容所は米国に10箇所あり、Manzanarはそのうちの1つで、主にロサンゼルス周辺に在住だった方々が収容されていたそうです。<br />
-さて、今までの自分なら「大戦中に敵視されるのは自然」という理解で通り過ぎていたと思いますが、現地での生活を経験したからか通り過ぎることはできませんでした。「日系二世は？」「日系人だけど米国国籍の人はどうなったんだろう？」という疑問が浮かんだからです。米国で生まれれば米国国籍を保持できる訳ですから。<br />
-でもその答えは「収容されていた」です。特に日系二世で収容されていたご本人の気持ちを考えると、複雑だっただろうな・・・と感じました。<br />
-<br />
-こんなことは二度と起こさないようにしないと、と感じました。
-<br /></p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_02.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-<p>現地にあった国旗。第二次大戦中はアラスカとハワイは州ではなかったので星の数は48。
-<br /></p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_03.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-<p>納得しかなかった1枚：「わずかな一時の安全を得るためにかけがえのない自由を棄てる人々は、自由も安全も与えられる資格がない」<br /></p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_04.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-<p><a href="https://goo.gl/maps/FL2NwEmwEpz">ここ</a>からの風景。グラデーションが見事過ぎる。</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2018/09/20180916-manzanar_05.jpg" width="80%" style="border:1px solid #eee;" />
-</div>
-<p>実は12amを超えていて日帰り失敗の証拠＆Livemoreから39.0mile/g(16.58km/l)の燃費。いろいろがんばった。</p>
 
 
   </div><!-- /.entry-content -->
