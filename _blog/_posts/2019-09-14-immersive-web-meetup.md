@@ -27,7 +27,7 @@ image:
 コミュニティに向けてお話をしていていただきたい！と想いを込めて企画しました。2015年にTPACが札幌であったときにも[Web Music Developer Meetup@札幌](https://dev.classmethod.jp/event/web-music-developer-meetup-sapporo-report/)と題して札幌で開催しています。懐かしいです。  
 
 ## 展示も行いました！
-映像のXRと音楽のAudi、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感ことを目標にして展示枠も設け、当日は以下の5つが展示していただきました。
+映像のXRと音楽のAudio、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感していただくことを意識して展示枠も設けました。そして当日は以下の5つが展示していただきました。
 
 - AR切り絵 - AR Clock Tower, 着せ替え天気予報 by <a href="https://www.twitter.com/kageori_w" target="_blank">@kageori_w</a>
 - webARであそぶ！デジタルファッション by <a href="https://www.twitter.com/saharu54" target="_blank">@saharu54</a>
@@ -36,7 +36,8 @@ image:
 - 音に反応して動くMIDIコンバータ by <a href="https://www.twitter.com/sascacci" target="_blank">@sascacci</a>
 - Web360Square by <a href="https://www.twitter.com/AtonKish" target="_blank">@AtonKish</a>
 
-Meetupでの展示というのは、個人的には初の試みでしたがやはり対象のAPIが「見て、聞いて」という感じるが主体なこともありかなりの人だかりで盛り上がってて大成功でした！なのですが、非常に残念ながら写真撮影を失念、、、、という大失態。写真でのご紹介ができなくて非常に残念です・・・ごめんなさい。
+Meetupでの展示というのは、個人的には初の試みでしたがやはり対象のAPIが「見て、聞いて」という感じるが主体なこともあり、展示場所周辺は人だかりで盛り上がっていました！  
+なのですが、非常に残念ながら写真撮影を失念、、、、という大失態。写真でのご紹介ができなくて非常に残念です・・・ごめんなさい。
 
 ## Talk Session
 お話をしてくださったのは、[Hongchan Choi](https://twitter.com/hochsays)、[Chris Wilson](https://twitter.com/cwilso)、それから[羽賀 流登](https://twitter.com/Mxcn3)さんの3名です。
@@ -84,12 +85,12 @@ WebXRやるならPlayCanvasががとても良い、というお話。実例、�
 </div>
 
 # おわりに
-Web Audio、WebXRの両面からのTalk Session、また展示を行うことで、WebのImmersiveに関して更なる可能性を自分自身が感じ「ウェブはいい」というのを改めて認識したMeetupになりました。
-WebXRとWebAudio(Music)が一緒にMeetupを行い、展示枠も設けるという初の試みばかりでどうなるのかという心配はありましたが、結果的には「見て、聞いて、感じてもらう」という目標を実現できたと感じていて、ホッとしております。  
-こういった別のコミュニティとのジョイントでMeetupを行い、未来を見る、というのはホントによいですね！！また機会がありましたら検討したいと思っています。
+Web Audio、WebXRの両面からのTalk Session、また展示を行うことで「Immersiveな世界はウェブでも実現できる」ことに対して更なる可能性を最も感じていたのは自分自身だったのかもしれません。参加いただいたみなさんも、そうであると嬉しいです。そして自分自身は「ウェブはいい」というのを改めて認識することになりました。  
+Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い、展示枠も設けるという初の試みばかりでどうなるのかという心配はありましたが、結果的には「見て、聞いて、感じてもらう」ことが実現できたと感じていてホッとしております。  
+こういったクロス・コミュニティでMeetupを行い、未来を感じる、というのはホントによいですね！！また機会がありましたら検討したいと思っています。
   
   
-なお、今回会場をご提供いただきましたメルカリさん、そして軽食のスポンサーをしていただきましたGoogleさんには心から感謝申し上げます。ありがとうございました。
+最後になりましたが、今回会場をご提供いただきましたメルカリさん、そして軽食のスポンサーをしていただきましたGoogleさんには心から感謝申し上げます。ありがとうございました。
 
 
 <div class="post-image-center" style="display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0">
