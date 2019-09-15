@@ -27,7 +27,7 @@ image:
 コミュニティに向けてお話をしていていただきたい！と想いを込めて企画しました。2015年にTPACが札幌であったときにも[Web Music Developer Meetup@札幌](https://dev.classmethod.jp/event/web-music-developer-meetup-sapporo-report/)と題して札幌で開催しています。懐かしいです。  
 
 ## 展示も行いました！
-映像のXRと音楽のAudio、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感していただくことを意識して展示枠も設けました。そして当日は以下の5つが展示していただきました。
+映像のXRと音楽のAudio、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感していただくことを意識して展示枠も設けました。そして当日は以下の5つの展示をしていただきました。
 
 - AR切り絵 - AR Clock Tower, 着せ替え天気予報 by <a href="https://www.twitter.com/kageori_w" target="_blank">@kageori_w</a>
 - webARであそぶ！デジタルファッション by <a href="https://www.twitter.com/saharu54" target="_blank">@saharu54</a>

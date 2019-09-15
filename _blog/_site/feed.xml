@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-09-15T13:58:03+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Immersive Web Meetupを開催したよ！</title><link href="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-09-15T14:07:24+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>Immersive Web Meetupを開催したよ！</title><link href="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年9月13日（金）にメルカリさんで「Immersive Web Meetup」を開催しました。&lt;br /&gt;
 9月16日から1週間の日程でTPAC（W3C年次会議）が福岡であり、せっかくの機会なのでTPACに参加されるついでに東京に立ち寄るW3C関係者の方々をお招きして
 コミュニティに向けてお話をしていていただきたい！と想いを込めて企画しました。2015年にTPACが札幌であったときにも&lt;a href=&quot;https://dev.classmethod.jp/event/web-music-developer-meetup-sapporo-report/&quot;&gt;Web Music Developer Meetup@札幌&lt;/a&gt;と題して札幌で開催しています。懐かしいです。&lt;/p&gt;
 
 &lt;h2 id=&quot;展示も行いました&quot;&gt;展示も行いました！&lt;/h2&gt;
-&lt;p&gt;映像のXRと音楽のAudi、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感ことを目標にして展示枠も設け、当日は以下の5つが展示していただきました。&lt;/p&gt;
+&lt;p&gt;映像のXRと音楽のAudio、MIDIという区分で切らず、2つを混ぜ合わせたMeetupにすることで「Immersiveな世界はウェブでも実現できる」をより実感していただくことを意識して展示枠も設けました。そして当日は以下の5つの展示をしていただきました。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;AR切り絵 - AR Clock Tower, 着せ替え天気予報 by &lt;a href=&quot;https://www.twitter.com/kageori_w&quot; target=&quot;_blank&quot;&gt;@kageori_w&lt;/a&gt;&lt;/li&gt;
@@ -16,7 +16,8 @@
   &lt;li&gt;Web360Square by &lt;a href=&quot;https://www.twitter.com/AtonKish&quot; target=&quot;_blank&quot;&gt;@AtonKish&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Meetupでの展示というのは、個人的には初の試みでしたがやはり対象のAPIが「見て、聞いて」という感じるが主体なこともありかなりの人だかりで盛り上がってて大成功でした！なのですが、非常に残念ながら写真撮影を失念、、、、という大失態。写真でのご紹介ができなくて非常に残念です・・・ごめんなさい。&lt;/p&gt;
+&lt;p&gt;Meetupでの展示というのは、個人的には初の試みでしたがやはり対象のAPIが「見て、聞いて」という感じるが主体なこともあり、展示場所周辺は人だかりで盛り上がっていました！&lt;br /&gt;
+なのですが、非常に残念ながら写真撮影を失念、、、、という大失態。写真でのご紹介ができなくて非常に残念です・・・ごめんなさい。&lt;/p&gt;
 
 &lt;h2 id=&quot;talk-session&quot;&gt;Talk Session&lt;/h2&gt;
 &lt;p&gt;お話をしてくださったのは、&lt;a href=&quot;https://twitter.com/hochsays&quot;&gt;Hongchan Choi&lt;/a&gt;、&lt;a href=&quot;https://twitter.com/cwilso&quot;&gt;Chris Wilson&lt;/a&gt;、それから&lt;a href=&quot;https://twitter.com/Mxcn3&quot;&gt;羽賀 流登&lt;/a&gt;さんの3名です。&lt;/p&gt;
@@ -63,11 +64,11 @@ WebXRやるならPlayCanvasががとても良い、というお話。実例、�
 &lt;/div&gt;
 
 &lt;h1 id=&quot;おわりに&quot;&gt;おわりに&lt;/h1&gt;
-&lt;p&gt;Web Audio、WebXRの両面からのTalk Session、また展示を行うことで、WebのImmersiveに関して更なる可能性を自分自身が感じ「ウェブはいい」というのを改めて認識したMeetupになりました。
-WebXRとWebAudio(Music)が一緒にMeetupを行い、展示枠も設けるという初の試みばかりでどうなるのかという心配はありましたが、結果的には「見て、聞いて、感じてもらう」という目標を実現できたと感じていて、ホッとしております。&lt;br /&gt;
-こういった別のコミュニティとのジョイントでMeetupを行い、未来を見る、というのはホントによいですね！！また機会がありましたら検討したいと思っています。&lt;/p&gt;
+&lt;p&gt;Web Audio、WebXRの両面からのTalk Session、また展示を行うことで「Immersiveな世界はウェブでも実現できる」ことに対して更なる可能性を最も感じていたのは自分自身だったのかもしれません。参加いただいたみなさんも、そうであると嬉しいです。そして自分自身は「ウェブはいい」というのを改めて認識することになりました。&lt;br /&gt;
+Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い、展示枠も設けるという初の試みばかりでどうなるのかという心配はありましたが、結果的には「見て、聞いて、感じてもらう」ことが実現できたと感じていてホッとしております。&lt;br /&gt;
+こういったクロス・コミュニティでMeetupを行い、未来を感じる、というのはホントによいですね！！また機会がありましたら検討したいと思っています。&lt;/p&gt;
 
-&lt;p&gt;なお、今回会場をご提供いただきましたメルカリさん、そして軽食のスポンサーをしていただきましたGoogleさんには心から感謝申し上げます。ありがとうございました。&lt;/p&gt;
+&lt;p&gt;最後になりましたが、今回会場をご提供いただきましたメルカリさん、そして軽食のスポンサーをしていただきましたGoogleさんには心から感謝申し上げます。ありがとうございました。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0&quot;&gt;
   &lt;div style=&quot;display:flex;flex-direction:column;align-items:flex-start;width:45%;text-align:center&quot;&gt;
