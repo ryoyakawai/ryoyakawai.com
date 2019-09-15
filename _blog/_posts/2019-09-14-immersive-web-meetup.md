@@ -32,7 +32,7 @@ image:
 - AR切り絵 - AR Clock Tower, 着せ替え天気予報 by <a href="https://www.twitter.com/kageori_w" target="_blank">@kageori_w</a>
 - webARであそぶ！デジタルファッション by <a href="https://www.twitter.com/saharu54" target="_blank">@saharu54</a>
 - Web360Square by <a href="https://www.twitter.com/AtonKish" target="_blank">@AtonKish</a>
-- Sound Engine for Web Based Novel Game by <a href="https://www.twitter.com/g200kg" target="_blank">@g200kg</a>
+- Sound Engine for Web Based Novel Game by <a href="https://www.twitter.com/aike1000" target="_blank">@aike1000</a>
 - 音に反応して動くMIDIコンバータ by <a href="https://www.twitter.com/sascacci" target="_blank">@sascacci</a>
 - Web360Square by <a href="https://www.twitter.com/AtonKish" target="_blank">@AtonKish</a>
 
