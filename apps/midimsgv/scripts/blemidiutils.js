@@ -48,7 +48,7 @@ export class BLEMIDIUtils {
     console.log("[Called] connected_ble_callback");
   }
   setConnectedBleCallback(callback) {
-    this.connectedBleCallback = callback;
+    this.startBleCallback = callback;
   }
   endBle() {
     if (this.connectedDevice === null
@@ -87,7 +87,7 @@ export class BLEMIDIUtils {
     event.detail = this.parseMIDIMessage(out.slice(2));
     this.onMidiEventHandleCallback.bind(this)(event);
   }
-  setMidiEventHandleCallback(callback) {
+  setnMidiEventHandleCallback(callback) {
     this.onMidiEventHandleCallback = callback;
   }
   onMidiEventHandleCallback(event) {

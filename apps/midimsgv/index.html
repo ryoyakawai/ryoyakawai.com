@@ -5,14 +5,14 @@
     <title>MIDI Message Viewer | Web Bluetooth and Web MIDI</title>
     <link href="./images/favion_off.png" rel="icon" type="image/png" />
     <meta name="theme-color" content="#424242">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./md/material.green-light_green.min.css">
     <link rel="stylesheet" href="./md/icon_family_material_icons.css">
     <script src="./md/material.min.js"></script>
     <link href="./md/family_roboto_mono.css" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/x-webmidi/xwebmidi.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="./xwebmidi.css">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
@@ -28,6 +28,9 @@
     <meta property="og:site_name" content="MIDI Message Viewer">
   </head>
   <body>
+    <script type="module" href="./node_modules/x-webmidi/xwebmidi.js"></script>
+
+    <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
 
     <div class="content-parent">
       <div class="content material-shadow">
@@ -35,8 +38,17 @@
 
         <div class="select-area-parent">
           <div class="system-button-area">
-            <div><span>INPUT: <select id="input-port" class="xwebmidi-select-midi"><option value="false">Not Selected</option></select> <span id="midiinput-event-01"></span></span></div>
-            <div><span>OUTPUT: <select id="output-port" class="xwebmidi-select-midi"><option value="false">Not Selected</option></select><span id="midioutput-event-01"></span></span></div>
+            <div>
+              <span>INPUT: <select id="input-port" class="xwebmidi-select-midi">
+                <option value="false">Not Selected</option>
+              </select>
+              </span>
+            </div>
+            <div>
+              <span>OUTPUT: <select id="output-port" class="xwebmidi-select-midi">
+                <option value="false">Not Selected</option>
+              </select>
+            </div>
           </div>
           <div class="separator"><div class="v-line">.</div></div>
           <div class="ble-button-area">
@@ -71,7 +83,6 @@
 
       </div>
     </div>
-
 
     <script type="module" src="./scripts/main.js"></script>
 

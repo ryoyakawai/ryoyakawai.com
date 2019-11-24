@@ -1,33 +1,24 @@
 "use strict";
 
-import { xWebMIDI } from "./xwebmidi.js";
+import { xWebMIDI } from "../node_modules/x-webmidi/xwebmidi.js";
 import { BLEMIDIUtils } from "./blemidiutils.js";
 import { MIDIMessageUtils } from "./midimessageutils.js";
 import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from "./screenhandler.js";
 
+const dispClearDuration = 3000; // (ms)
+clearToDefault();
+let dispState = "remove"; // [leave/remove]
+let timerId = 0;
+
 (async () => {
-  const midi_out_ch = 0x01;
-  const dispClearDuration = 3000; // (ms)
-  clearToDefault();
-  let dispState = "remove"; // [leave/remove]
-  let timerId = 0;
-
-  const xwm = new xWebMIDI();
-  await xwm.requestMIDIAccess(true);
-  xwm.initInput('input-port', 'xwebmidi-port-active');
-  xwm.initOutput('output-port', 'xwebmidi-port-active');
-
   // for Web Bluetooth
-  let bleMIDIUtls = new BLEMIDIUtils();
-  let midiMsgUtls = new MIDIMessageUtils();
+  const bleMIDIUtls = new BLEMIDIUtils();
+  const midiMsgUtls = new MIDIMessageUtils();
   bleMIDIUtls.setMIDIParser(midiMsgUtls.parseMIDIMessage.bind(midiMsgUtls));
   let state = bleMIDIUtls.getDeviceConnected();
-  bleMIDIUtls.setMidiEventHandleCallback( event => {
-    event.detail.data[0] += midi_out_ch;
+  bleMIDIUtls.setnMidiEventHandleCallback( event => {
     dispParsedMIDI(event);
     dispParsedMIDIExp(event);
-    // send msg to output
-    xwm.sendRawMessage(event.detail.data);
     window.clearTimeout(timerId);
     if(dispState == "remove") {
       timerId = window.setTimeout(() => {
@@ -71,11 +62,18 @@ import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from 
   };
 
 
-  // for Web MIDI
+  // for Web MIDI and x-webmidi
+  const xwm = new xWebMIDI()
+  await xwm.requestMIDIAccess(true)
+  xwm.initInput('input-port')
+  xwm.initOutput('output-port')
+
   window.addEventListener('midiin-event:input-port', event => {
     // send msg to output
-    event.detail.data[0] += midi_out_ch;
-    xwm.sendRawMessage(event.detail.data);
+    let output = document.getElementById("output-port");
+    if(output.checkOutputIdx != "false") {
+      xwm.sendRawMessage(event.detail.data);
+    }
 
     // handle input msg
     let out = [], disp = true;
@@ -119,5 +117,7 @@ import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from 
       }
     }
   });
-})();
+
+
+})()
 
