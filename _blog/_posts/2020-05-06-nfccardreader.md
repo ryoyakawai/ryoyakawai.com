@@ -21,7 +21,7 @@ image:
 
 <div class="post-image-center">
 <a href="//ryoyakawai.com/apps/nfccardreader/" target="_blank">
-<img src="{{ site.url }}/images/2020/05/20200506-20200506-nfccardreader-00.png" width="48%" style="border-radius:4px; margin-right:2px"/>
+<img src="{{ site.url }}/images/2020/05/20200506-nfccardreader-00.png" width="48%" style="border-radius:4px; margin-right:2px"/>
 </a>
 </div>
 
