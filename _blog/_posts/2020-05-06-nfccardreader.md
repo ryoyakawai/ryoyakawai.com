@@ -26,7 +26,7 @@ image:
 </div>
 
 仕様に関してはSonyさんが多くを公開してくださっていますし、その他はググる、GitHubのスマホアプリのコードを読んだりすることで何とかなりました。  
-利用した資料等は以下です。  
+利用した資料等は以下です。ありがとうございます！！また参考にさせていただきます🙂  
 - [技術情報 - Sony Japan - FeliCa ](https://www.sony.co.jp/Products/felica/business/tech-support/)
 - [codebutler/farebot: Read data from public transit cards using your NFC Android phone!](https://github.com/codebutler/farebot)
 - [[PASMO] FeliCa から情報を吸い出してみる - FeliCaの仕様編 - Qiita](https://qiita.com/YasuakiNakazawa/items/3109df682af2a7032f8d)
