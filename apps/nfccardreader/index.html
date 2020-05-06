@@ -5,13 +5,14 @@
     <title>NFC Card Reader</title>
     <link href="./images/favicon.png" rel="icon" type="image/png" />
     <meta name="theme-color" content="#424242">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"-->
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./md/material.green-light_green.min.css">
     <link rel="stylesheet" href="./md/icon_family_material_icons.css">
     <script src="./md/material.min.js"></script>
     <link href="./md/family_roboto_mono.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/lds-ripple.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-pink.min.css" />
 
@@ -31,6 +32,13 @@
     <meta property="og:image" content="https://ryoyakawai.com/apps/nfccardreader/images/nfccardreader_200x200.png">
   </head>
   <body>
+    <div id="loading" class="loading">
+      <div>
+        <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+      <br><br>
+      <div>交通系カードリーダを読み込んでいます...</div>
+    </div>
     <div class="content-parent">
       <div class="content material-shadow">
         <div id="title-header" class="disp-basic-00 disp-header-00 mdl-color--primary-dark">
