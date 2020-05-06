@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2019-12-22T17:35:29+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/12/22/roasted-pork</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2020-05-06T17:44:44+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</title><link href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" rel="alternate" type="text/html" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" /><published>2020-05-06T00:00:00+09:00</published><updated>2020-05-06T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/05/06/nfccardreader</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html">&lt;div&gt; &lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://w3c.github.io/web-nfc/&quot;&gt;Web NFC&lt;/a&gt;を調べてて、実はWebUSBで&lt;a href=&quot;https://bit.ly/35wE8nl&quot;&gt;Sony PaSoRi（パソリ） RC-S380&lt;/a&gt;を読む為の&lt;a href=&quot;https://www.sony.co.jp/Products/felica/business/products/ICS-DCWC1.html&quot;&gt;ドライバ&lt;/a&gt;があることを知り、せっかく見つけたし、スマホ版のリーダはあるけど、ブラウザから読み取れるのは出会ったことがないので作り始めました。&lt;br /&gt;
+以下がアプリへのリンクですが、動作には「Sony PaSoRi（パソリ） RC-S380」が必須です。このリーダは公的認証にも使えるものなので、もしかすると最近は持ってる人は少なくないかも？とか思ってます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ryoyakawai.com/apps/nfccardreader/&quot;&gt;交通系カードリーダ （ブラウザ版）&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;post-image-center&quot;&gt;
+&lt;a href=&quot;//ryoyakawai.com/apps/nfccardreader/&quot; target=&quot;_blank&quot;&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2020/05/20200506-20200506-nfccardreader-00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;仕様に関してはSonyさんが多くを公開してくださっていますし、その他はググる、GitHubのスマホアプリのコードを読んだりすることで何とかなりました。&lt;br /&gt;
+利用した資料等は以下です。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sony.co.jp/Products/felica/business/tech-support/&quot;&gt;技術情報 - Sony Japan - FeliCa &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/codebutler/farebot&quot;&gt;codebutler/farebot: Read data from public transit cards using your NFC Android phone!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://qiita.com/YasuakiNakazawa/items/3109df682af2a7032f8d&quot;&gt;[PASMO] FeliCa から情報を吸い出してみる - FeliCaの仕様編 - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。&lt;/p&gt;</content><category term="Web Usb" /><category term="Web" /><summary></summary></entry><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/12/22/roasted-pork</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://cookpad.com/recipe/5959089&quot;&gt;「自家製チャーシュー ちょっと甘め」&lt;/a&gt;&lt;/p&gt;
 
@@ -1427,163 +1448,4 @@ AndroidアプリのCI（継続的インテグレーション）環境を作っ�
 &lt;h3 id=&quot;バーボンチキンアメリカン中華&quot;&gt;バーボンチキン（アメリカン中華？）&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5719021.js?k=5ba150f3&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Sonic Boom! (Google I/O’19)</title><link href="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html" rel="alternate" type="text/html" title="Sonic Boom! (Google I/O&#39;19)" /><published>2019-05-15T00:00:00+09:00</published><updated>2019-05-15T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/05/15/sonicboom-googleio.html">&lt;p&gt;&lt;br /&gt;
-2019年5月7〜9日まで、毎年Google社が米国カリフォルニア州で開催している開発者会議「Google I/O」に参加してきました。&lt;br /&gt;
-&lt;br /&gt;
-その中でも&lt;strong&gt;「これは！！」&lt;/strong&gt;と感じたセッションを紹介していこうと思います。
-&lt;br /&gt;&lt;br /&gt;
-第一弾は&lt;strong&gt;「&lt;a href=&quot;https://events.google.com/io/schedule/events/ad90afc2-bf1f-4318-abc0-d7e8df67bf07&quot;&gt;Sonic Boom! Audio Programming on Android and Chrome&lt;/a&gt;」&lt;/strong&gt;です。&lt;br /&gt;
-「Step by StepでAndroid、Webでのコーディング方法を追うことができる」という意味で、開発を行うのには非常に参考になると思っています。&lt;br /&gt;
-（&lt;a href=&quot;https://www.digitalhearts.com/&quot;&gt;デジタルハーツ&lt;/a&gt;所属としての参加なのに、アプリケーションテストの内容でなくてごめんなさい😅）
-&lt;br /&gt;&lt;br /&gt;
-セッションの動画は↓です。&lt;/p&gt;
-&lt;div class=&quot;post-image-center&quot; style=&quot;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);&quot;&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/-GaD0RCp-Q0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;セッションの概要&quot;&gt;セッションの概要&lt;/h2&gt;
-&lt;p&gt;端的に説明すると、UIパーツはそれぞれのプラットフォーム（AndroidとWeb）で開発するものの、オーディオエンジンはC++で書かれたコードを共有して同じアプリを
-ライブコーディングで作ってしまう、という内容です。&lt;br /&gt;
-C++で書かれたオーディオエンジンを走らせる部分を技術用語で表現すると、&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Android：&lt;a href=&quot;https://ja.wikipedia.org/wiki/Native_development_Kit&quot;&gt;NDK（Native Development Kit）&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Web（Chrome）：&lt;a href=&quot;https://ja.wikipedia.org/wiki/WebAssembly&quot;&gt;WebAssembly(WASM)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;で実行することになります。&lt;/p&gt;
-
-&lt;p&gt;それでは、内容を説明してきます。（動画のタイムラインと前後する部分があります）&lt;/p&gt;
-
-&lt;h2 id=&quot;プレゼンター&quot;&gt;プレゼンター&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://events.google.com/io/schedule/events/speakers/6f16d338-6253-4322-a12c-bef1ffb12d0e&quot;&gt;Magnus Berger&lt;/a&gt;：CTO at Propellerhead Software&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://events.google.com/io/schedule/events/speakers/ec237b6e-e701-464f-933e-a3a11324231d&quot;&gt;Hongchan Choi&lt;/a&gt;：Software Engineer(Chrome) at Google&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://events.google.com/io/schedule/events/speakers/364a11ff-ba21-423c-9730-5aa9347c2c29&quot;&gt;Don Turner&lt;/a&gt;：Developer Advocate(Android) at Google&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;背景など&quot;&gt;背景など&lt;/h2&gt;
-&lt;p&gt;AndroidとChromeの話を同時にするのは少し奇妙だが以下のような同じ構造だったり、背景があるとのことです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;システム：Callbackを基本としたオーディオを再生する仕組みを持っている&lt;/li&gt;
-  &lt;li&gt;遅延：Audio Latency（往復の）が約20ミリ秒（Pixelデバイス）&lt;/li&gt;
-  &lt;li&gt;MIDIサポート：AndroidはMidiManagerAPI、またAndroid QからはハイパフォーマンスなAMidiが搭載され、Chromeでは2015年からWeb MIDI APIでサポートされている&lt;/li&gt;
-  &lt;li&gt;Activeユーザー：AndroidもChromeもそれぞれ20億人以上&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;そしてこれらの利点を活かしている1つの良い例が&lt;a href=&quot;https://www.bandlab.com/&quot;&gt;BandLab&lt;/a&gt;というマルチプラットフォームで提供されている音楽制作アプリっとのことで
-紹介されています。（2:49）&lt;br /&gt;
-BandLabはSocial Music Platformで、クロスプラットフォーム（スマホ、Web向け）に提供しており、録音、編集の作業を物理的な場所、プラットフォームを問わず
-どこでも行うことが可能。そして作成したデータはクラウドに保存される仕組みです。現在&lt;strong&gt;700万のユーザ&lt;/strong&gt;が登録しており、&lt;strong&gt;200万の曲が毎月&lt;/strong&gt;がこのプラットフォームに
-保存されているそうです。&lt;br /&gt;
-BandLabが目指す世界は、&lt;strong&gt;どこにいても物理的場所、デバイス、時間等の境界を考えることなく音楽を作ることのできる環境を提供し、
-音楽制作を更に民主化すること&lt;/strong&gt;、とのこと。&lt;/p&gt;
-
-&lt;h2 id=&quot;ライブコーディング&quot;&gt;ライブコーディング&lt;/h2&gt;
-&lt;p&gt;実装する対象の条件はは以下の通りです。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;オーディオエンジンはC++のコード&lt;a href=&quot;https://github.com/google/oboe&quot;&gt;Oboe&lt;/a&gt;を利用&lt;/li&gt;
-  &lt;li&gt;MIDIで操作できるように実装&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;また、プラットフォームはAndroidとWeb（Chrome）です。&lt;/p&gt;
-
-&lt;p&gt;実装完了しているコードではありませんが、コードが&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom&quot;&gt;GitHub&lt;/a&gt;に公開されていますので、
-細かく説明するよりもコードを片手に動画を見たほうがわかりやすいと思うので時間を記録していきます。&lt;/p&gt;
-
-&lt;h3 id=&quot;-android側のコーディング&quot;&gt;＊ Android側のコーディング&lt;/h3&gt;
-&lt;p&gt;オーディオエンジンを実装 (7:05 - )&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Android/app/src/main/cpp/AudioEngine.h&quot;&gt;[Android/app/src/main/cpp/AudioEngine.h]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Android/app/src/main/cpp/AudioEngine.cpp&quot;&gt;[Android/app/src/main/cpp/AudioEngine.cpp]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;MIDIデバイスと接続 (27:27 - )&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Android/app/src/main/cpp/AudioEngine.cpp&quot;&gt;[Android/app/src/main/cpp/AudioEngine.cpp]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Android/app/src/main/java/com/example/io19/sonicboom/MainActivity.java&quot;&gt;[Android/app/src/main/java/com/example/io19/sonicboom/MainActivity.java]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;-ブラウザ側の説明とコーディング&quot;&gt;＊ ブラウザ側の説明とコーディング&lt;/h3&gt;
-&lt;p&gt;ここでブラウザとC++で何が起こるのか？についての説明が入ります。(12:15 - )&lt;br /&gt;
-先程Android側で実装した&lt;code class=&quot;highlighter-rouge&quot;&gt;Synthesizer.h&lt;/code&gt;を使うけど、これをLLVMベースのコンパイラであるEmscriptenにコンパイルしWeb Assemblyの&lt;code class=&quot;highlighter-rouge&quot;&gt;synthesizer.wasm.js&lt;/code&gt;を生成する。
-この&lt;code class=&quot;highlighter-rouge&quot;&gt;synthesizer.wasm.js&lt;/code&gt;は&lt;code class=&quot;highlighter-rouge&quot;&gt;Synthesizer.h&lt;/code&gt;で公開メソッドとして持っていた&lt;code class=&quot;highlighter-rouge&quot;&gt;synth.noteOn()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;synth.noteOff()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;synth.render()&lt;/code&gt;を同じく
-公開メソッドとしてして持つことになるが、残念ながらここだけは自動では生成してくれないので&lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Chrome/wasm/synth_bind.cc&quot;&gt;EmscriptenでAPIをバインドするC++のコード&lt;/a&gt;を1つ追加することになります。&lt;br /&gt;
-&lt;br /&gt;
-続いてブラウザ側で鳴らす方法、それはJavaSciptからWeb Audio APIでAudioレンダリングを可能にするAudio Workletを使います。
-なお、このAudio Workletはブラウザのメインスレッド上で動作はしないが、メインスレッドと同調して動作するスレッドです。&lt;br /&gt;
-具体的には以下の流れで動作をさせることになります。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;synthesizer.wasm.js&lt;/code&gt;をAudio Worklet ProcessorでWrap&lt;/li&gt;
-  &lt;li&gt;Audioスレッドで動作している↑とメインスレッドとはPortと呼ばれる仕組みでデータのやり取りを行いブラウザで発声&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ここからがコーディング。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Wrapしてコンパイル (15:04 - ) &lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Chrome/wasm/synth_bind.cc&quot;&gt;[Synthesizer.hをバインドするC++]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Audio Workletの実装 (17:20 - ) &lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Chrome/SynthProcessor.js&quot;&gt;[SynthProcessor.js]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;メインファイルの実装 (20:39 - ) &lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Chrome/index.js&quot;&gt;[index.js]&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;MIDIデバイスと接続する (23:31 - ) &lt;a href=&quot;https://github.com/googlesamples/io19-sonic-boom/blob/master/Chrome/index.js&quot;&gt;[index.js]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;出来上がったところでセッション&quot;&gt;出来上がったところでセッション&lt;/h2&gt;
-&lt;p&gt;同じオーディオエンジンで作製したAndroidとWebのアプリでのセッション。(32:05 - )&lt;/p&gt;
-&lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/05/20190515_io19_02.png&quot; /&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;事例の紹介&quot;&gt;事例の紹介&lt;/h2&gt;
-&lt;p&gt;物理的場所を問わず、どこからでも、誰でも、また共有前提として利用できるプラットフォームであるWeb、
-そしてそのプラットフォーム上の音楽制作ツール、とてつもなく大きなコミュニティを持つAndroidが音楽という国境のないツールに対して
-音楽制作、またハイエンド・オーディオの分野でどれだけのポテンシャルを持っているか、の裏付けの説明が主でした。&lt;/p&gt;
-
-&lt;h3 id=&quot;propellerhead&quot;&gt;・Propellerhead&lt;/h3&gt;
-&lt;p&gt;25年間、音楽向けのアプリを作っている会社でReasonがもっとも知られているソフトウェア。WindowsとmacOS向けのソフトウェアがあり、このソフトウェアシンセサイザをWeb Assenblyを使ってブラウザ上で動作するように移植した。
-ブラウザで動くことによって、より多くの人が音を使って自らを表現する機会が増えるといいな、というのが希望がPropellerheadにはあるとのこと。&lt;/p&gt;
-
-&lt;h3 id=&quot;izotopr&quot;&gt;・IZOTOPR&lt;/h3&gt;
-&lt;p&gt;信号処理のプラグインを開発する会社であるが、Spire Studioという&lt;strong&gt;モバイルの録音デバイス&lt;/strong&gt;を発売した。
-このデバイス向けのAndroidアプリも公開したところ40％売上が上がった。この事実からもAndroidユーザがハイエンドのオーディオハードウェアを手にすることを
-求めていることが分かると思う。&lt;/p&gt;
-
-&lt;h3 id=&quot;music-world-media&quot;&gt;・Music World Media&lt;/h3&gt;
-&lt;p&gt;数年前にパリで生まれたとても小さい（tiny）Startupで、いろいろなアプリを作っている。
-その結果として過去12ヶ月間で235カ国の4500万のAndroidユーザに新規でリーチすることができた。
-このことからもAndroidには音楽業界においても多くのユーザにリーチできるポテンシャルを持っていることが証明できていると思う。&lt;/p&gt;
-
-&lt;h3 id=&quot;ableton&quot;&gt;・Ableton&lt;/h3&gt;
-&lt;p&gt;Web上での音楽制作ツールは増えてきている。そしてAbletonは&lt;a href=&quot;learningmusic.ableton.com&quot;&gt;音楽制作の教育ツール&lt;/a&gt;を公開している。
-ここから市販の制作ツールであるAbleton Liveも学ぶことができる。&lt;/p&gt;
-
-&lt;h2 id=&quot;終わりに&quot;&gt;終わりに&lt;/h2&gt;
-&lt;p&gt;まとめです。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;AndroidもWeb（Chrome）の両方がリアルタイムオーディオレンダリング、そしてMIDIサポートが可能&lt;/li&gt;
-  &lt;li&gt;AndroidとChromeで同じソースコードを使うことが可能&lt;/li&gt;
-  &lt;li&gt;商業的にも、Android、そしてWebから多くのユーザにリーチすることが可能&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;音楽には国境はない。どこにいようとも、文化背景・経済状態がどうであろうとも境界はなく、だからこそ人々が境界なく対話することが可能&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;皆さんのプログラミングスキルでどんな音楽を作ることだってサポートすることが可能&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;ということから、聞くだけでなく、それを使ってコミュニケーションをすることをしてきましょう！と締めています。&lt;/p&gt;
-
-&lt;h2 id=&quot;個人的な感想&quot;&gt;個人的な感想&lt;/h2&gt;
-&lt;p&gt;C++のコードからWeb Assemblyに移植するのにはヒトテマ必要であることはライブコーディングからは分かりました。
-そして「Web Audioでは音楽アプリはレイテンシーが・・・」と指摘されている部分にWeb Assemblyは一石を投じるのも遠い未来ではないように感じる、
-同時にWeb Assemblyを使うことは、そこまで難しいことでもないことを感じることができたセッションであった、
-という意味では非常に意味のあるセッションだったと感じています。&lt;br /&gt;
-&lt;br /&gt;
-さてセッションの主役のWeb Assenbly、Web Audio/MIDIの仕様を決めるW3C、その年次会議である&lt;a href=&quot;https://www.w3.org/2019/09/TPAC/&quot;&gt;TPACの2019年開催は日本の福岡&lt;/a&gt;です。
-その前後にいろいろなイベントが日本で開催されるかもで、今からワクワクしちゃいますね！&lt;/p&gt;</content><category term="Web Audio API" /><category term="Web MIDI API" /><category term="Web Music" /><category term="Android" /><category term="Google I/O 2019" /><summary>2019年5月7〜9日まで、毎年Google社が米国カリフォルニア州で開催している開発者会議「Google I/O」に参加してきました。
-
-その中でも「これは！！」と感じたセッションを紹介していこうと思います。
-
-第一弾は「Sonic Boom! Audio Programming on Android and Chrome」です。
-「Step by StepでAndroid、Webでのコーディング方法を追うことができる」という意味で、開発を行うのには非常に参考になると思っています。
-（デジタルハーツ所属としての参加なのに、アプリケーションテストの内容でなくてごめんなさい😅）
-
-セッションの動画は↓です。</summary></entry></feed>
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry></feed>
