@@ -102,6 +102,11 @@ Make any link standout more when applying the `.btn` class.
 
 ## command for compiling and checking site
 
+### Python
+```shell
+$ python -m SimpleHTTPServer
+```
+
 ### macOS X
 ```shell
 $ bundle exec jekyll serve --watch --future;
