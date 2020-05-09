@@ -57,7 +57,6 @@ div.loading {
   .content-parent > .material-shadow {
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #f9f9f9;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   }
 
@@ -85,7 +84,7 @@ div.loading {
   justify-content: center;
   align-items: center;
   width: 440px;
-  /*background-color: #f9f9f9;*/
+  background-color: #fff;
   border-radius: 3px;
 }
 div#show-idm {
@@ -152,7 +151,7 @@ div.read-button-area-00 {
 .header-sticky {
   position: fixed;
   top: 0;
-  box-shadow: 0 3px 6px rgba(25,118,210,0.16), 0 3px 6px rgba(25,118,210,0.23);
+  box-shadow: 0 3px 6px rgba(139,195,74,0.16), 0 3px 6px rgba(139,195,74,0.23);
 }
 
 .disp-basic-00.disp-history-00 {
