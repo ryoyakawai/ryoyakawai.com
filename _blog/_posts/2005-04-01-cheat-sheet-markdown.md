@@ -104,6 +104,10 @@ Make any link standout more when applying the `.btn` class.
 
 ### Python
 ```shell
+# >= Python 3
+$ python -m http.server
+
+# <= Python 2
 $ python -m SimpleHTTPServer
 ```
 
