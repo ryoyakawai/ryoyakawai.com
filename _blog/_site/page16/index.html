@@ -526,7 +526,11 @@ Reading time ~1 minute
 <h2 id="command-for-compiling-and-checking-site">command for compiling and checking site</h2>
 
 <h3 id="python">Python</h3>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python -m SimpleHTTPServer
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># &gt;= Python 3</span>
+<span class="gp">$ </span>python -m http.server
+
+<span class="c"># &lt;= Python 2</span>
+<span class="gp">$ </span>python -m SimpleHTTPServer
 </code></pre>
 </div>
 
