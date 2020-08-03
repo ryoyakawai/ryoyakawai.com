@@ -4,7 +4,7 @@ title: TOEIC受験の為に英語を勉強してみて。
 description: ""
 date: 2020-08-02 00:00:00 +0900
 modified: 2020-08-02
-tags: [English]
+tags: [English, TOEIC]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz
