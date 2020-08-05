@@ -160,6 +160,97 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2018-06-04T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/06/04/fitbit-clockface-published.html">June 04, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/06/04/fitbit-clockface-published.html" rel="bookmark" title="Fitbit Clock Face 公開記念エントリー🎉" itemprop="url">Fitbit Clock Face 公開記念エントリー🎉</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p><a href="https://ryoyakawai.com/blog2018/05/27/fitbit-clockface.html">前回のエントリー</a>から8日目にしてやっと公開。
+以下↓が今回公開した2つのClock Face。（写真はVersaのだけどIonicにも対応しています）デジタルだけでいいや、と思ってたけどアナログも欲しくなって結局作ってしまった。そして、今使ってるのはアナログです。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180604-clockface_timezone.png" width="70%" />
+</div>
+
+<p>FitbitのアプリのClock Faceからは<strong>Secondary Timezone</strong>で検索すると速いです。</p>
+
+<p>Fitbitのアプリがインストールされてるスマホからしか起動しないけどリンクはこちら。</p>
+
+<ul>
+  <li><a href="https://gam.fitbit.com/gallery/clock/f33a1d6d-1657-4bd0-90fd-3b123c2246cb">Secondary Timezone</a></li>
+  <li><a href="https://gam.fitbit.com/gallery/clock/d7d94500-a143-4794-a96b-2f408a3067c3">Secondary Timezone for Analog</a></li>
+</ul>
+
+<h2 id="公開までに時間がかかった理由">公開までに時間がかかった理由</h2>
+<p>不備があった為に時間がかかってしまいました。その度に「<a href="https://dev.fitbit.com/legal/app-gallery-guidelines/">ガイドラインはここにある</a>から読んでね」という通知が登録したメールアドレスにやって来ました。ちなみに不備が複数あってもまとめては教えてくれませんでした。</p>
+
+<p>またレビューはReviewに出した日を入れて2〜3日かかると考えてください。</p>
+
+<p>今回指摘された不備の内容を以下に書き出します。</p>
+
+<h3 id="display-nameが不一致だった">Display Nameが不一致だった</h3>
+<p>画像の中の赤の四角の中の文字列が一致している必要があります。</p>
+
+<ul>
+  <li><a href="https://gam.fitbit.com/">Gallary App Manger</a>のプロジェクト名（画像左）</li>
+  <li><a href="https://studio.fitbit.com/">Fitbit Studio</a>で作ったアプリ内の<code class="highlighter-rouge">package.json</code>のDisplay Name（画像右）</li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180604-studio-gam.png" width="100%" style="border:1px solid #eee;" />
+</div>
+
+<h3 id="build-targetsでチェックを入れた種類のスクリーンショットの準備不足">Build Targetsでチェックを入れた種類のスクリーンショットの準備不足</h3>
+
+<p>以下の2つの項目を揃えましょう。</p>
+
+<ul>
+  <li><a href="https://gam.fitbit.com/">Gallary App Manger</a>のScreenshots（画像左）</li>
+  <li><a href="https://studio.fitbit.com/">Fitbit Studio</a>で作ったアプリ内の<code class="highlighter-rouge">package.json</code>のBuild Targets（画像右）</li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180604-buildtargets.png" width="80%" style="border:1px solid #eee;" />
+</div>
+
+<p>スクリーンショットは実機、またはSimulatorを接続してから、下の画像の(2)から撮ることが可能です。</p>
+
+<p>もちろん実機がなくてもスクリーンショットはSimulatorを接続することで撮ることが可能です。SimulatorはFitbit Studioからダウンロードしてください。下画像の(1)。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/06/20180604-simulator-screenshot.png" width="80%" style="border:1px solid #eee;" />
+</div>
+
+<h1 id="おわりに">おわりに</h1>
+<p>開発から、レビュー、公開までの一通りを体験して満足しています（笑）やっぱりJavaScriptでの開発って手軽でよいですね。</p>
+
+<p>ちなみに現在公開されているSecondary Timezone for Analog v1.0.0、Secondary Timezone v1.0.3にはバグがあるのでご注意ください。土曜日から日曜日になる部分の計算をミスっています。現在（2018年6月4日23:00）修正版をレビューには出していますので、今週中には公開できるようになるはずです。</p>
+
+<h1 id="おまけ">おまけ</h1>
+<p><strong>開発しているシステムクロックを現在より前に設定する場合は注意してください</strong></p>
+
+<p>特に今回はTimezoneの時計の開発だったので時間をずらしてバグの発生しやすそうな境界条件を試したりしたのですが、コンパイル後にサーバ側から降ってくるソースは開発しているローカルコンピュータのシステム時間の直前のコードになります。「あれっ？更新してるはずなのに、更新されない！」って場合はローカルコンピュータのシステムクロックも疑う対象にしましょう。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2018-05-27T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html">May 27, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -556,108 +647,6 @@ Reading time ~1 minute
   <li><a href="https://cookpad.com/recipe/2259142">簡単ローストビーフ＊こく旨玉ねぎソース@Cookpad</a>：イケてるソース</li>
 </ul>
 
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2018-04-12T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/12/language-selector.html">April 12, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/04/12/language-selector.html" rel="bookmark" title="手軽にマルチ言語ページを！" itemprop="url">手軽にマルチ言語ページを！</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <h2 id="手軽にマルチ言語ページを簡単に作りたかったけど">手軽にマルチ言語ページを簡単に作りたかったけど・・・</h2>
-<p>前回のページロードの遅さにつづいて第二弾。</p>
-
-<p>頻繁にではないけど、たまに多言語でBlogを書くことがありますが、恐らく読む側からするとかなりストレスがあったかな・・・と思っていました。
-日本語圏外の方は、英語ページを探さないといけない、けどそもそも探すページって日本語だよね・・・みたいな感じです。</p>
-
-<p>そして、結論を言うと「作ったけど、現在のBlogに導入するのは失うものが多そうだから導入しないだろう・・・」という結果になってしまいましたがエントリだけは書いちゃいます。せっかく作ったのでw
-「Markdownが使えるのに、このエレメントを使うとHTMLを書くことになる」ので気軽さが失われるのです。</p>
-
-<h2 id="language-selector-エレメント">language-selector エレメント</h2>
-
-<p>こんな感じで埋め込めます。</p>
-
-<div style="border:1px solid rgba(240,240,240,0.8); padding:2%; border-radius:3px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); margin:10px 20px 15px;">
-
-<p><language-selector deflang="ja" langs="en:ja" switcher=""></language-selector></p>
-<language-selector>
-<span class="translation" lang="ja">
-こんな感じでマルチ言語対応ページがHTMLタグだけで実現可能です。<br />
-JavaScriptを書く必要はないんです :-) <br />
-Web ComponentsとPolymer、ホントにありがとう！！
-</span>
-<span class="translation" lang="en">
-This element enables to make multi language page something like this by HTML tag.<br />
-No JavaScript code is required :-)<br />
-Thank you very much for Polymer as well as Web Components.
-</span>
-</language-selector>
-
-</div>
-
-<p>コードはこんな感じです。</p>
-
-<p>言語セレクタ（「English」「日本語」と表示されてる部分）はこう書いて設置します。</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;language-selector</span> <span class="na">deflang=</span><span class="s">"ja"</span> <span class="na">langs=</span><span class="s">"en:ja"</span> <span class="na">switcher</span><span class="nt">&gt;&lt;/language-selector&gt;</span>
-</code></pre>
-</div>
-
-<p>Attribute は以下です。</p>
-
-<ul>
-  <li><strong>deflang</strong> : デフォルト（ページロード時）に表示される言語を指定</li>
-  <li><strong>langs</strong> : 用意している言語を<a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1(2文字のアルファベット)</a>のフォーマットでコロン(:)区切りで指定します（現状の対応言語はen、ja。）</li>
-  <li><strong>switcher</strong> : これをつけると言語セレクタとなります。（つけないとコンテンツ本体と認識します）</li>
-</ul>
-
-<p>次にコンテンツ本体です。</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;language-selector&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"translation"</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
-    こんな感じでマルチ言語対応ページがHTMLタグだけで実現可能です。<span class="nt">&lt;br&gt;</span>
-    JavaScriptを書く必要はないんです :-) <span class="nt">&lt;br&gt;</span>
-    Web ComponentsとPolymer、ホントにありがとう！！
-  <span class="nt">&lt;/span&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"translation"</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
-    This element enables to make multi language page something like this by HTML tag.<span class="nt">&lt;br&gt;</span>
-    No JavaScript code is required :-)<span class="nt">&lt;br&gt;</span>
-    Thank you very much for Polymer as well as Web Components.
-  <span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/language-selector&gt;</span>
-
-</code></pre>
-</div>
-
-<p><code class="highlighter-rouge">language-selector</code> のタグの中に、適当なタグを入れ（ここでは<code class="highlighter-rouge">span</code>）、その中に書いた言語を<code class="highlighter-rouge">lang="xx"</code>で指定すれば、言語セレクタとリンクされます。
-言語セレクタの属性の <code class="highlighter-rouge">langs</code> で指定した言語のみ切替えの対象になります。</p>
-
-<p>注意：<code class="highlighter-rouge">language-selector</code>の直前に別のタグで囲むと認識してくれないバグがあります。</p>
-
-<h2 id="リポジトリ">リポジトリ</h2>
-<p><a href="//github.com/ryoyakawai/language-selector/" target="_blank">https://github.com/ryoyakawai/language-selector</a></p>
-
-<h2 id="live-demo">Live Demo</h2>
-<p><a href="https://ryoyakawai.github.io/language-selector/">Demo: language-selector</a></p>
-
-<h2 id="動作の確認状況">動作の確認状況</h2>
-<p>2018年4月12日現在、macOS High Sierra(10.13.3)上でChrome 65.0.3325.181、Firefox 59.0.2、Safari 11.0.3で動作の確認をしています。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

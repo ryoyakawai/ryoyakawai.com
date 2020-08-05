@@ -160,6 +160,84 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2020-08-05T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html">August 05, 2020</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" rel="bookmark" title="GitHub Codespacesを使ってみた。" itemprop="url">GitHub Codespacesを使ってみた。</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<h2 id="短いまとめ">短いまとめ</h2>
+<p>GitHub Codespacesを使ってみた時の感想です。</p>
+
+<h2 id="経緯">経緯</h2>
+<p>いつだったか忘れたけど「ブラウザ上のエディタで修正できりようになるよ〜。まずは招待制で始めるよん。」ってのを聞いてWaiting Listに入りました。
+8月5日に「You’re now in the Codespaces beta!」ってメールがGitHubさんから来たのですけど、私自身はメールの本文を読むまでは「なんだっけ？」というレベルの認識度でした。</p>
+
+<h2 id="youtubeで説明を聞いてみた">YouTubeで説明を聞いてみた</h2>
+
+<div class="post-image-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fQbH3meWNQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+
+<p>ビデオの中で自分で気になったところをまとめるとこんな感じでした。</p>
+
+<ul>
+  <li>コンテナ内で動く</li>
+  <li>GitHubのUIから起動できる</li>
+  <li>エディタは今はVS Code（Visual Studio Code）だけだけど今後使えるIDE増やしていく予定</li>
+  <li>Terminalも開ける</li>
+  <li>Terminalからlocalhostとして実行したサーバにもアクセスできる</li>
+</ul>
+
+<h2 id="何に使おうか">何に使おうか？</h2>
+<p>「このブログで使ってる<a href="https://jekyllrb.com/">Jekyll</a>のコンパイルもできないかな？」とか考えていじってみました。まずはOS何？ってところでコレしてみたら、</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>cat /etc/os-release
+<span class="nv">PRETTY_NAME</span><span class="o">=</span><span class="s2">"Debian GNU/Linux 9 (stretch)"</span>
+<span class="nv">NAME</span><span class="o">=</span><span class="s2">"Debian GNU/Linux"</span>
+<span class="nv">VERSION_ID</span><span class="o">=</span><span class="s2">"9"</span>
+<span class="nv">VERSION</span><span class="o">=</span><span class="s2">"9 (stretch)"</span>
+<span class="nv">VERSION_CODENAME</span><span class="o">=</span>stretch
+<span class="nv">ID</span><span class="o">=</span>debian
+<span class="nv">HOME_URL</span><span class="o">=</span><span class="s2">"https://www.debian.org/"</span>
+<span class="nv">SUPPORT_URL</span><span class="o">=</span><span class="s2">"https://www.debian.org/support"</span>
+<span class="nv">BUG_REPORT_URL</span><span class="o">=</span><span class="s2">"https://bugs.debian.org/"</span>
+</code></pre>
+</div>
+
+<p>ってことだったので、</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ apt-get update
+</code></pre>
+</div>
+
+<p>してみて、Rubyをインストール（<a href="https://qiita.com/ryoyakawai/items/63528990d1624a4a3bb0">インストール方法</a>）してみたら、無事に動きましたので、この記事は早速そこで書いてます。<br />
+なお、ネットワークが問題なのかもしれないのだけど、接続が切れて再接続を要求されることがまれに発生しております。</p>
+
+<h2 id="感想">感想</h2>
+<p>まだJekyllしか試してないけど、込み入った開発は厳しいかもだけど使い方に依っては便利に使えそう、という感想です。あと、VS CodeでPackageを公開することに対しては未来がありそう、という印象です。<br />
+何はともあれ今後に期待。というか「emacsだったりviはIDEですか？」って聞いてみたいw
+あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2020-08-02T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2020/08/02/studying-english.html">August 02, 2020</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -482,45 +560,6 @@ Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い
   <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The receptionists at yesterday&#39;s event were famous people <a href="https://twitter.com/sisidovski?ref_src=twsrc%5Etfw">@sisidovski</a> and <a href="https://twitter.com/kosamari?ref_src=twsrc%5Etfw">@kosamari</a> <a href="https://t.co/AzVL3d6nEL">pic.twitter.com/AzVL3d6nEL</a></p>&mdash; Eiji Kitamura / えーじ (@agektmr) <a href="https://twitter.com/agektmr/status/1172862027162800128?ref_src=twsrc%5Etfw">September 14, 2019</a></blockquote> <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <div>豪華受付の方々！ありがとうございました！</div>
   </div>
-</div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2019-08-04T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html">August 04, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html" rel="bookmark" title="パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！" itemprop="url">パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>やっと追加のみんな大好きパンダエクスプレスの「<a href="https://cookpad.com/recipe/5771364">Chow Mein、やきそば、チョーメン</a>」！！<br />
-自分で言うのもアレですが、パンダのそれよりも少し上品な味になってるかも😅<br />
-BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家も「焼きそば」は「ソース」だったのが、幅が広がりました！<br />
-（本家パンダエクスプレスの<a href="https://www.pandaexpress.com/menu/sides/chow-mein">Chow Meinはこちら</a>）</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2019/08/20190804-chowmein_00.jpg" width="90%" style="border-radius:4px;" />
-</div>
-
-<h3 id="焼きそば-chowmein-チョーメン">焼きそば-ChowMein-チョーメン</h3>
-<div class="post-image-center">
-<script src="https://widgets.cookpad.com/recipes/5771364.js?k=fcd0a8a9" type="text/javascript"></script>
 </div>
 
   </div><!-- /.entry-content -->
