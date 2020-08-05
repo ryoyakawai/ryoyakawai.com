@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2020-08-05T13:25:35+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>GitHub Codespacesを使ってみた。</title><link href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/05/github-codespaces</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2020-08-05T13:42:51+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>GitHub Codespacesを使ってみた。</title><link href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/05/github-codespaces</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;短いまとめ&quot;&gt;短いまとめ&lt;/h2&gt;
 &lt;p&gt;GitHub Codespacesを使ってみた時の感想です。&lt;/p&gt;
@@ -24,7 +24,9 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;何に使おうか&quot;&gt;何に使おうか？&lt;/h2&gt;
-&lt;p&gt;「このブログで使ってる&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;のコンパイルもできないかな？」とか考えていじってみました。まずはOS何？ってところでコレしてみたら、&lt;/p&gt;
+&lt;p&gt;「このブログで使ってる&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;のコンパイルもできないかな？」とか考えていじってみました。&lt;/p&gt;
+
+&lt;p&gt;まずはOS何？ってところからで、&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat /etc/os-release
 &lt;span class=&quot;nv&quot;&gt;PRETTY_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Debian GNU/Linux 9 (stretch)&quot;&lt;/span&gt;
@@ -48,8 +50,11 @@
 &lt;p&gt;してみて、Rubyをインストール（&lt;a href=&quot;https://qiita.com/ryoyakawai/items/63528990d1624a4a3bb0&quot;&gt;インストール方法&lt;/a&gt;）してみたら、無事に動きましたので、この記事は早速そこで書いてます。&lt;br /&gt;
 なお、ネットワークが問題なのかもしれないのだけど、接続が切れて再接続を要求されることがまれに発生しております。&lt;/p&gt;
 
+&lt;p&gt;特に設定してないですが日本語も入力できてます🙂&lt;/p&gt;
+
 &lt;h2 id=&quot;感想&quot;&gt;感想&lt;/h2&gt;
-&lt;p&gt;まだJekyllしか試してないけど、込み入った開発は厳しいかもだけど使い方に依っては便利に使えそう、という感想です。あと、VS CodeでPackageを公開することに対しては未来がありそう、という印象です。&lt;br /&gt;
+&lt;p&gt;まだJekyllを動かすくらいでしか試してないけど、使い方によっては便利に使えそう、という感想です。とはいえ、開発環境自体もクラウド側に吸収されると開発者としては楽になる一方で、学ぶ場が減っちゃわない？って心配も浮かびました。&lt;br /&gt;
+それからVS Codeで、ここ最近かなり使われてる感があるからVS CodeのExtensionを公開することに対しては未来がありそう、という印象も持ってます。&lt;br /&gt;
 何はともあれ今後に期待。というか「emacsだったりviはIDEですか？」って聞いてみたいw
 あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。&lt;/p&gt;</content><category term="GitHub" /><category term="Tool" /><summary></summary></entry><entry><title>TOEIC受験の為に英語を勉強してみて。</title><link href="https://ryoyakawai.com/blog/2020/08/02/studying-english.html" rel="alternate" type="text/html" title="TOEIC受験の為に英語を勉強してみて。" /><published>2020-08-02T00:00:00+09:00</published><updated>2020-08-02T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/02/studying-english</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/02/studying-english.html">&lt;div&gt; &lt;/div&gt;
 
