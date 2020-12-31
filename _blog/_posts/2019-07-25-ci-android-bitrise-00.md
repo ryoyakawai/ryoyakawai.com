@@ -139,7 +139,6 @@ workflows:
   deploy:
     steps:
     - activate-ssh-key@4.0.3:
-        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - git-clone@4.0.14: {}
     - cache-pull@2.0.1: {}
     - script@1.1.5:
@@ -166,13 +165,11 @@ workflows:
         - module: "$MODULE"
         - variant: "$VARIANT"
     - sign-apk@1.3.1:
-        run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
     - deploy-to-bitrise-io@1.6.0: {}
     - cache-push@2.2.0: {}
   primary:
     steps:
     - activate-ssh-key@4.0.3:
-        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - git-clone@4.0.14: {}
     - cache-pull@2.0.1: {}
     - script@1.1.5:
