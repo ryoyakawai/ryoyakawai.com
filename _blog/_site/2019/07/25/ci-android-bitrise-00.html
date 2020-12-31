@@ -295,89 +295,93 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 <h4 id="今回のbitriseyml">今回の<code class="highlighter-rouge">bitrise.yml</code></h4>
 <p>今回できあがった <code class="highlighter-rouge">bitrise.yml</code> もココに貼っておきます。参考になれば幸いです。</p>
 
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
-<span class="na">format_version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">8'</span>
-<span class="na">default_step_lib_source</span><span class="pi">:</span> <span class="s">https://github.com/bitrise-io/bitrise-steplib.git</span>
-<span class="na">project_type</span><span class="pi">:</span> <span class="s">android</span>
-<span class="na">trigger_map</span><span class="pi">:</span>
-<span class="pi">-</span> <span class="na">push_branch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
-  <span class="na">workflow</span><span class="pi">:</span> <span class="s">primary</span>
-<span class="pi">-</span> <span class="na">pull_request_source_branch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
-  <span class="na">workflow</span><span class="pi">:</span> <span class="s">primary</span>
-<span class="na">workflows</span><span class="pi">:</span>
-  <span class="na">deploy</span><span class="pi">:</span>
-    <span class="na">steps</span><span class="pi">:</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="nn">---</span>
+<span class="s">format_version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">8'</span>
+<span class="s">default_step_lib_source</span><span class="pi">:</span> <span class="s">https://github.com/bitrise-io/bitrise-steplib.git</span>
+<span class="s">project_type</span><span class="pi">:</span> <span class="s">android</span>
+<span class="s">trigger_map</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">push_branch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
+  <span class="s">workflow</span><span class="pi">:</span> <span class="s">primary</span>
+<span class="pi">-</span> <span class="s">pull_request_source_branch</span><span class="pi">:</span> <span class="s2">"</span><span class="s">*"</span>
+  <span class="s">workflow</span><span class="pi">:</span> <span class="s">primary</span>
+<span class="s">workflows</span><span class="pi">:</span>
+  <span class="s">deploy</span><span class="pi">:</span>
+    <span class="s">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">activate-ssh-key@4.0.3</span><span class="pi">:</span>
+        <span class="s">run_if</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
     <span class="pi">-</span> <span class="s">git-clone@4.0.14</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">cache-pull@2.0.1</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">script@1.1.5</span><span class="pi">:</span>
-        <span class="na">title</span><span class="pi">:</span> <span class="s">Do anything with Script step</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s">Do anything with Script step</span>
     <span class="pi">-</span> <span class="s">install-missing-android-tools@2.3.5</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/gradlew"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/gradlew"</span>
     <span class="pi">-</span> <span class="s">change-android-versioncode-and-versionname@1.1.1</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">build_gradle_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/$MODULE/build.gradle"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">build_gradle_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/$MODULE/build.gradle"</span>
     <span class="pi">-</span> <span class="s">android-lint@0.9.6</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
-        <span class="pi">-</span> <span class="na">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
-        <span class="pi">-</span> <span class="na">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
+        <span class="pi">-</span> <span class="s">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
+        <span class="pi">-</span> <span class="s">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
     <span class="pi">-</span> <span class="s">android-unit-test@0.11.1</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
-        <span class="pi">-</span> <span class="na">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
-        <span class="pi">-</span> <span class="na">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
+        <span class="pi">-</span> <span class="s">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
+        <span class="pi">-</span> <span class="s">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
     <span class="pi">-</span> <span class="s">android-build@0.10.0</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
-        <span class="pi">-</span> <span class="na">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
-        <span class="pi">-</span> <span class="na">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
+        <span class="pi">-</span> <span class="s">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
+        <span class="pi">-</span> <span class="s">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
     <span class="pi">-</span> <span class="s">sign-apk@1.3.1</span><span class="pi">:</span>
+        <span class="s">run_if</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
     <span class="pi">-</span> <span class="s">deploy-to-bitrise-io@1.6.0</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">cache-push@2.2.0</span><span class="pi">:</span> <span class="pi">{}</span>
-  <span class="na">primary</span><span class="pi">:</span>
-    <span class="na">steps</span><span class="pi">:</span>
+  <span class="s">primary</span><span class="pi">:</span>
+    <span class="s">steps</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">activate-ssh-key@4.0.3</span><span class="pi">:</span>
+        <span class="s">run_if</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
     <span class="pi">-</span> <span class="s">git-clone@4.0.14</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">cache-pull@2.0.1</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">script@1.1.5</span><span class="pi">:</span>
-        <span class="na">title</span><span class="pi">:</span> <span class="s">Do anything with Script step</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s">Do anything with Script step</span>
     <span class="pi">-</span> <span class="s">install-missing-android-tools@2.3.5</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/gradlew"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION/gradlew"</span>
     <span class="pi">-</span> <span class="s">android-lint@0.9.6</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
-        <span class="pi">-</span> <span class="na">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
-        <span class="pi">-</span> <span class="na">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
+        <span class="pi">-</span> <span class="s">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
+        <span class="pi">-</span> <span class="s">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
     <span class="pi">-</span> <span class="s">android-unit-test@0.11.1</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
-        <span class="pi">-</span> <span class="na">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
-        <span class="pi">-</span> <span class="na">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">project_location</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$PROJECT_LOCATION"</span>
+        <span class="pi">-</span> <span class="s">module</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$MODULE"</span>
+        <span class="pi">-</span> <span class="s">variant</span><span class="pi">:</span> <span class="s2">"</span><span class="s">$VARIANT"</span>
     <span class="pi">-</span> <span class="s">gradle-runner@1.9.0</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./gradlew"</span>
-        <span class="pi">-</span> <span class="na">gradle_task</span><span class="pi">:</span> <span class="s">assembleDebug assembleDebugAndroidTest</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">gradlew_path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">./gradlew"</span>
+        <span class="pi">-</span> <span class="s">gradle_task</span><span class="pi">:</span> <span class="s">assembleDebug assembleDebugAndroidTest</span>
     <span class="pi">-</span> <span class="s">virtual-device-testing-for-android@1.0.5</span><span class="pi">:</span>
-        <span class="na">inputs</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">test_type</span><span class="pi">:</span> <span class="s">instrumentation</span>
-        <span class="pi">-</span> <span class="na">test_devices</span><span class="pi">:</span> <span class="s">Pixel2,28,en,portrait</span>
+        <span class="s">inputs</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">test_type</span><span class="pi">:</span> <span class="s">instrumentation</span>
+        <span class="pi">-</span> <span class="s">test_devices</span><span class="pi">:</span> <span class="s">Pixel2,28,en,portrait</span>
     <span class="pi">-</span> <span class="s">deploy-to-bitrise-io@1.6.0</span><span class="pi">:</span> <span class="pi">{}</span>
     <span class="pi">-</span> <span class="s">cache-push@2.2.0</span><span class="pi">:</span> <span class="pi">{}</span>
-<span class="na">app</span><span class="pi">:</span>
-  <span class="na">envs</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">opts</span><span class="pi">:</span>
-      <span class="na">is_expand</span><span class="pi">:</span> <span class="no">false</span>
-    <span class="na">PROJECT_LOCATION</span><span class="pi">:</span> <span class="s2">"</span><span class="s">."</span>
-  <span class="pi">-</span> <span class="na">opts</span><span class="pi">:</span>
-      <span class="na">is_expand</span><span class="pi">:</span> <span class="no">false</span>
-    <span class="na">MODULE</span><span class="pi">:</span> <span class="s">app</span>
-  <span class="pi">-</span> <span class="na">opts</span><span class="pi">:</span>
-      <span class="na">is_expand</span><span class="pi">:</span> <span class="no">false</span>
-    <span class="na">VARIANT</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
-</code></pre></div></div>
+<span class="s">app</span><span class="pi">:</span>
+  <span class="s">envs</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">opts</span><span class="pi">:</span>
+      <span class="s">is_expand</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">PROJECT_LOCATION</span><span class="pi">:</span> <span class="s2">"</span><span class="s">."</span>
+  <span class="pi">-</span> <span class="s">opts</span><span class="pi">:</span>
+      <span class="s">is_expand</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">MODULE</span><span class="pi">:</span> <span class="s">app</span>
+  <span class="pi">-</span> <span class="s">opts</span><span class="pi">:</span>
+      <span class="s">is_expand</span><span class="pi">:</span> <span class="s">false</span>
+    <span class="s">VARIANT</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+</code></pre>
+</div>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="https://ryoyakawai.com/blog/tags/#Android" title="Pages tagged Android" class="tag"><span class="term">Android</span></a><a href="https://ryoyakawai.com/blog/tags/#Espresso" title="Pages tagged Espresso" class="tag"><span class="term">Espresso</span></a><a href="https://ryoyakawai.com/blog/tags/#Bitrise" title="Pages tagged Bitrise" class="tag"><span class="term">Bitrise</span></a><a href="https://ryoyakawai.com/blog/tags/#Firebase Test Lab" title="Pages tagged Firebase Test Lab" class="tag"><span class="term">Firebase Test Lab</span></a></span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-31T16:30:55+09:00</updated><id>http://localhost:4000/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>GitHub Codespacesを使ってみた。</title><link href="http://localhost:4000/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>http://localhost:4000/2020/08/05/github-codespaces</id><content type="html" xml:base="http://localhost:4000/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2020-08-05T13:42:51+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>GitHub Codespacesを使ってみた。</title><link href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/05/github-codespaces</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;短いまとめ&quot;&gt;短いまとめ&lt;/h2&gt;
 &lt;p&gt;GitHub Codespacesを使ってみた時の感想です。&lt;/p&gt;
@@ -28,7 +28,7 @@
 
 &lt;p&gt;まずはOS何？ってところからで、&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/os-release
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;cat /etc/os-release
 &lt;span class=&quot;nv&quot;&gt;PRETTY_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Debian GNU/Linux 9 (stretch)&quot;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Debian GNU/Linux&quot;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;VERSION_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9&quot;&lt;/span&gt;
@@ -38,12 +38,14 @@
 &lt;span class=&quot;nv&quot;&gt;HOME_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.debian.org/&quot;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;SUPPORT_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.debian.org/support&quot;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;BUG_REPORT_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://bugs.debian.org/&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;ってことだったので、&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;してみて、Rubyをインストール（&lt;a href=&quot;https://qiita.com/ryoyakawai/items/63528990d1624a4a3bb0&quot;&gt;インストール方法&lt;/a&gt;）してみたら、無事に動きましたので、この記事は早速そこで書いてます。&lt;br /&gt;
 なお、ネットワークが問題なのかもしれないのだけど、接続が切れて再接続を要求されることがまれに発生しております。&lt;/p&gt;
@@ -54,7 +56,7 @@
 &lt;p&gt;まだJekyllを動かすくらいでしか試してないけど、使い方によっては便利に使えそう、という感想です。とはいえ、開発環境自体もクラウド側に吸収されると開発者としては楽になる一方で、学ぶ場が減っちゃわない？って心配も浮かびました。&lt;br /&gt;
 それからVS Codeで、ここ最近かなり使われてる感があるからVS CodeのExtensionを公開することに対しては未来がありそう、という印象も持ってます。&lt;br /&gt;
 何はともあれ今後に期待。というか「emacsだったりviはIDEですか？」って聞いてみたいw
-あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。&lt;/p&gt;</content><category term="GitHub" /><category term="Tool" /><summary></summary></entry><entry><title>TOEIC受験の為に英語を勉強してみて。</title><link href="http://localhost:4000/2020/08/02/studying-english.html" rel="alternate" type="text/html" title="TOEIC受験の為に英語を勉強してみて。" /><published>2020-08-02T00:00:00+09:00</published><updated>2020-08-02T00:00:00+09:00</updated><id>http://localhost:4000/2020/08/02/studying-english</id><content type="html" xml:base="http://localhost:4000/2020/08/02/studying-english.html">&lt;div&gt; &lt;/div&gt;
+あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。&lt;/p&gt;</content><category term="GitHub" /><category term="Tool" /><summary></summary></entry><entry><title>TOEIC受験の為に英語を勉強してみて。</title><link href="https://ryoyakawai.com/blog/2020/08/02/studying-english.html" rel="alternate" type="text/html" title="TOEIC受験の為に英語を勉強してみて。" /><published>2020-08-02T00:00:00+09:00</published><updated>2020-08-02T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/02/studying-english</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/02/studying-english.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;短いまとめ&quot;&gt;短いまとめ&lt;/h2&gt;
 &lt;p&gt;TOEICで880点に達したときの「それまでの道のり」と「何にでも壁ってあるのだな〜」と感想を持ったときのお話です。&lt;/p&gt;
@@ -148,7 +150,7 @@
 
 &lt;h2 id=&quot;蛇足&quot;&gt;蛇足&lt;/h2&gt;
 &lt;p&gt;試験の1-2時間前に「Monster Energy」（エナジードリンク）を飲んでドーピングしました。これが集中力を高めるのに効果があったように思います。&lt;br /&gt;
-効果には個人差がありますし、また利尿作用が高いので用法、用量を守って正しくご使用ください😅&lt;/p&gt;</content><category term="English" /><category term="TOEIC" /><summary></summary></entry><entry><title>ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</title><link href="http://localhost:4000/2020/05/06/nfccardreader.html" rel="alternate" type="text/html" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" /><published>2020-05-06T00:00:00+09:00</published><updated>2020-05-06T00:00:00+09:00</updated><id>http://localhost:4000/2020/05/06/nfccardreader</id><content type="html" xml:base="http://localhost:4000/2020/05/06/nfccardreader.html">&lt;div&gt; &lt;/div&gt;
+効果には個人差がありますし、また利尿作用が高いので用法、用量を守って正しくご使用ください😅&lt;/p&gt;</content><category term="English" /><category term="TOEIC" /><summary></summary></entry><entry><title>ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</title><link href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" rel="alternate" type="text/html" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" /><published>2020-05-06T00:00:00+09:00</published><updated>2020-05-06T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/05/06/nfccardreader</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://w3c.github.io/web-nfc/&quot;&gt;Web NFC&lt;/a&gt;を調べてて、実はWebUSBで&lt;a href=&quot;https://bit.ly/35wE8nl&quot;&gt;Sony PaSoRi（パソリ） RC-S380&lt;/a&gt;を読む為の&lt;a href=&quot;https://www.sony.co.jp/Products/felica/business/products/ICS-DCWC1.html&quot;&gt;ドライバ&lt;/a&gt;があることを知り、せっかく見つけたし、スマホ版のリーダはあるけど、ブラウザから読み取れるのは出会ったことがないので作り始めました。&lt;br /&gt;
 以下がアプリへのリンクですが、動作には「Sony PaSoRi（パソリ） RC-S380」が必須です。このリーダは公的認証にも使えるものなので、もしかすると最近は持ってる人は少なくないかも？とか思ってます。&lt;/p&gt;
@@ -157,7 +159,7 @@
 
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;a href=&quot;//ryoyakawai.com/apps/nfccardreader/&quot; target=&quot;_blank&quot; style=&quot;align-items:center; justify-content:center; display:flex;&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2020/05/20200506-nfccardreader-00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2020/05/20200506-nfccardreader-00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 
@@ -169,7 +171,7 @@
   &lt;li&gt;&lt;a href=&quot;https://qiita.com/YasuakiNakazawa/items/3109df682af2a7032f8d&quot;&gt;[PASMO] FeliCa から情報を吸い出してみる - FeliCaの仕様編 - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。&lt;/p&gt;</content><category term="Web Usb" /><category term="Web" /><summary></summary></entry><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="http://localhost:4000/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>http://localhost:4000/2019/12/22/roasted-pork</id><content type="html" xml:base="http://localhost:4000/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。&lt;/p&gt;</content><category term="Web Usb" /><category term="Web" /><summary></summary></entry><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/12/22/roasted-pork</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://cookpad.com/recipe/5959089&quot;&gt;「自家製チャーシュー ちょっと甘め」&lt;/a&gt;&lt;/p&gt;
 
@@ -179,14 +181,14 @@
 お試しいただけると嬉しいです。つくれぽもおまちしております！&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/12/20191222-roasted-pork-00.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/12/20191222-roasted-pork-01.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-00.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-01.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;自家製チャーシュー-ちょっと甘め&quot;&gt;自家製チャーシュー ちょっと甘め&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5959089.js?k=38fc25f2&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Immersive Web Meetupを開催したよ！</title><link href="http://localhost:4000/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>http://localhost:4000/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="http://localhost:4000/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Immersive Web Meetupを開催したよ！</title><link href="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年9月13日（金）にメルカリさんで「Immersive Web Meetup」を開催しました。&lt;br /&gt;
 9月16日から1週間の日程でTPAC（W3C年次会議）が福岡であり、せっかくの機会なのでTPACに参加されるついでに東京に立ち寄るW3C関係者の方々をお招きして
@@ -214,7 +216,7 @@
 &lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1dlZ3ThCDsYqv6QEuDi07tkK0KC3D3IxfNY4uhHa2KPc/&quot;&gt;（スライドはこちら）&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_01.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_01.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 Web Audioが最初に実装された2010年から今までの経緯、そしてこれから議論が始まる &lt;b&gt;Audio Device Client&lt;/b&gt; の紹介と続きました。  
@@ -228,7 +230,7 @@ Web Audioが最初に実装された2010年から今までの経緯、そして�
 &lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1ukRQLp1H_gl7NMB5UZR8JMtH-qlcy37-lyNeXtGjyhE/&quot;&gt;（スライドはこちら）&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_02.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_02.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 WebXRのキーとなるピース、そしてウェブでのVR、ARの状況（実装方法も含む）、そしてW3CのでのVR、ARを扱うImmersive Web WGの状況、
@@ -242,7 +244,7 @@ WebXRを簡単に実装できるThree.jsやA Frame経由でも利用できるこ
 &lt;h3 id=&quot;playcanvasで始めるwebxr---羽賀-流登&quot;&gt;「PlayCanvasで始めるWebXR」 - 羽賀 流登&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_03.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_03.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 WebXRやるならPlayCanvasががとても良い、というお話。実例、またそのデモも含めた内容でした。  
@@ -260,22 +262,22 @@ Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い
 
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0&quot;&gt;
   &lt;div style=&quot;display:flex;flex-direction:column;align-items:flex-start;width:45%;text-align:center&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_chris_hongchan.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_chris_hongchan.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;左2人目から、Hongchan、Chris、えーじさん&lt;/div&gt;
   &lt;/div&gt;
   &lt;div style=&quot;width:45%;margin-left:10px&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_haga.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_haga.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;羽賀さん&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0&quot;&gt;
   &lt;div style=&quot;display:flex;flex-direction:column;align-items:flex-start;width:45%;text-align:center&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_ikkou_manpuku.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_ikkou_manpuku.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;&lt;a href=&quot;https://www.twitter.com/ikkou&quot; target=&quot;_blank&quot;&gt;WebXRの@ikkouさん&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div style=&quot;float:none;width:45%;margin-left:10px&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_musubi.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_musubi.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div style=&quot;margin:auto&quot;&gt;オススメの&lt;a href=&quot;http://www.manpukumusubi.com/&quot; target=&quot;_blank&quot;&gt;「まんぷくにぎり」のおむすび&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -285,7 +287,7 @@ Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い
   &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The receptionists at yesterday&amp;#39;s event were famous people &lt;a href=&quot;https://twitter.com/sisidovski?ref_src=twsrc%5Etfw&quot;&gt;@sisidovski&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/kosamari?ref_src=twsrc%5Etfw&quot;&gt;@kosamari&lt;/a&gt; &lt;a href=&quot;https://t.co/AzVL3d6nEL&quot;&gt;pic.twitter.com/AzVL3d6nEL&lt;/a&gt;&lt;/p&gt;&amp;mdash; Eiji Kitamura / えーじ (@agektmr) &lt;a href=&quot;https://twitter.com/agektmr/status/1172862027162800128?ref_src=twsrc%5Etfw&quot;&gt;September 14, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
   &lt;div&gt;豪華受付の方々！ありがとうございました！&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><category term="Web Music" /><category term="WebXR" /><category term="Meetup" /><summary></summary></entry><entry><title>パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！</title><link href="http://localhost:4000/2019/08/04/pandaex-chowmein.html" rel="alternate" type="text/html" title="パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！" /><published>2019-08-04T00:00:00+09:00</published><updated>2019-08-04T00:00:00+09:00</updated><id>http://localhost:4000/2019/08/04/pandaex-chowmein</id><content type="html" xml:base="http://localhost:4000/2019/08/04/pandaex-chowmein.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Web Music" /><category term="WebXR" /><category term="Meetup" /><summary></summary></entry><entry><title>パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html" rel="alternate" type="text/html" title="パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！" /><published>2019-08-04T00:00:00+09:00</published><updated>2019-08-04T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;やっと追加のみんな大好きパンダエクスプレスの「&lt;a href=&quot;https://cookpad.com/recipe/5771364&quot;&gt;Chow Mein、やきそば、チョーメン&lt;/a&gt;」！！&lt;br /&gt;
 自分で言うのもアレですが、パンダのそれよりも少し上品な味になってるかも😅&lt;br /&gt;
@@ -293,15 +295,15 @@ BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家�
 （本家パンダエクスプレスの&lt;a href=&quot;https://www.pandaexpress.com/menu/sides/chow-mein&quot;&gt;Chow Meinはこちら&lt;/a&gt;）&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/08/20190804-chowmein_00.jpg&quot; width=&quot;90%&quot; style=&quot;border-radius:4px;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/08/20190804-chowmein_00.jpg&quot; width=&quot;90%&quot; style=&quot;border-radius:4px;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;焼きそば-chowmein-チョーメン&quot;&gt;焼きそば-ChowMein-チョーメン&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5771364.js?k=fcd0a8a9&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><category term="パンダエクスプレス" /><summary></summary></entry><entry><title>AndroidアプリをBitriseでCIする。</title><link href="http://localhost:4000/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="http://localhost:4000/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
-Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><category term="パンダエクスプレス" /><summary></summary></entry><entry><title>AndroidアプリをBitriseでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
+Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&quot;bitrise&quot;&gt;Bitrise&lt;/h3&gt;
@@ -329,8 +331,8 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;h3 id=&quot;アプリを追加する&quot;&gt;アプリを追加する&lt;/h3&gt;
 &lt;p&gt;下右図のように、ターゲットになるリポジトリを指定してアプリを追加します。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee; margin-right: 5px&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_01.png&quot; width=&quot;48%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee; margin-right: 5px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_01.png&quot; width=&quot;48%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;workflowの設定画面を表示する&quot;&gt;Workflowの設定画面を表示する&lt;/h3&gt;
@@ -339,7 +341,7 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 次にWorkflowのタブをクリック（下図(2)）して表示します。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_workflow00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_workflow00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;タスクを追加する&quot;&gt;タスクを追加する&lt;/h3&gt;
@@ -353,14 +355,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 
 &lt;p&gt;赤四角の中の2つを追加する。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190725_bitrise_addtask00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190725_bitrise_addtask00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-gradle-runnerの追加&quot;&gt;＞ Gradle Runnerの追加&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Android Unit Test&lt;/strong&gt; のアイコンの直下にある「＋」ボタン（下図（1））をクリックして、「Gradle Runner」で検索すると絞込まれて表示されますので
 クリックして追加します。（下図(2)）&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_gradlerunner00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
@@ -371,14 +373,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_gradlerunner01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-beta-virtual-device-testing-for-androidの追加&quot;&gt;＞ [BETA] Virtual Device Testing for Androidの追加&lt;/h4&gt;
 &lt;p&gt;先程追加した&lt;strong&gt;Gradle Runner&lt;/strong&gt; の次に追加しますので、直下にある「＋」ボタン（下図（1））をクリックして、「[BETA] Virtual」で検索します。すると絞込まれて表示されますので
 クリックして追加します。（下図(2)）&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_virtualdevice00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
@@ -389,7 +391,7 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_virtualdevice01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;なお、&lt;strong&gt;Test devices&lt;/strong&gt; はサンプルアプリに &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion 26&lt;/code&gt; と指定しているので26以上に設定しています。&lt;br /&gt;
@@ -397,14 +399,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 テスト用のAPK(&lt;code class=&quot;highlighter-rouge&quot;&gt;app-debug-androidTest.apk&lt;/code&gt;)が作成されず、&lt;strong&gt;API path&lt;/strong&gt; で使う環境変数の &lt;strong&gt;$BITRISE_APK_PATH&lt;/strong&gt; に &lt;code class=&quot;highlighter-rouge&quot;&gt;app-release-unsigned.apk&lt;/code&gt;等に指定あれてしまい
 &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; が動作できずエラーになりますので、確実に変更するようにしてください。&lt;/p&gt;
 
-&lt;p&gt;ちなみに、この &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; は「&lt;a href=&quot;http://localhost:4000/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」
+&lt;p&gt;ちなみに、この &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」
 でも紹介しているのと同じくGCPコマンドから &lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com&quot;&gt;Cloud Testing API(Firebase Test Lab)&lt;/a&gt; をラップして使っているようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;実行する&quot;&gt;実行する&lt;/h3&gt;
 &lt;p&gt;以上でUI Testまで実行できるようになったはずなので画面内にある &lt;strong&gt;[Start/Schedule a Build]&lt;/strong&gt; ボタンをクリックしてビルドを実行します。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_start_button00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_start_button00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
@@ -415,92 +417,96 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;h4 id=&quot;今回のbitriseyml&quot;&gt;今回の&lt;code class=&quot;highlighter-rouge&quot;&gt;bitrise.yml&lt;/code&gt;&lt;/h4&gt;
 &lt;p&gt;今回できあがった &lt;code class=&quot;highlighter-rouge&quot;&gt;bitrise.yml&lt;/code&gt; もココに貼っておきます。参考になれば幸いです。&lt;/p&gt;
 
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;format_version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8'&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;default_step_lib_source&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://github.com/bitrise-io/bitrise-steplib.git&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;project_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;trigger_map&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;push_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
-&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pull_request_source_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;workflows&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;format_version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8&#39;&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;default_step_lib_source&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://github.com/bitrise-io/bitrise-steplib.git&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;project_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;trigger_map&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;push_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;pull_request_source_branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;*&quot;&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;workflows&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;activate-ssh-key@4.0.3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git-clone@4.0.14&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-pull@2.0.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;script@1.1.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;install-missing-android-tools@2.3.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;change-android-versioncode-and-versionname@1.1.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;build_gradle_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/$MODULE/build.gradle&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;build_gradle_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/$MODULE/build.gradle&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-lint@0.9.6&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-unit-test@0.11.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-build@0.10.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sign-apk@1.3.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy-to-bitrise-io@1.6.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-push@2.2.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;primary&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;primary&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;steps&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;activate-ssh-key@4.0.3&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;run_if&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git-clone@4.0.14&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-pull@2.0.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;script@1.1.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Do anything with Script step&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;install-missing-android-tools@2.3.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION/gradlew&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-lint@0.9.6&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;android-unit-test@0.11.1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;project_location&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$PROJECT_LOCATION&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$MODULE&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$VARIANT&quot;&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradle-runner@1.9.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;./gradlew&quot;&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;gradle_task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;assembleDebug assembleDebugAndroidTest&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradlew_path&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;./gradlew&quot;&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gradle_task&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;assembleDebug assembleDebugAndroidTest&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;virtual-device-testing-for-android@1.0.5&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;instrumentation&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;test_devices&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Pixel2,28,en,portrait&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;inputs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;test_type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;instrumentation&lt;/span&gt;
+        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;test_devices&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Pixel2,28,en,portrait&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;deploy-to-bitrise-io@1.6.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;cache-push@2.2.0&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;envs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;PROJECT_LOCATION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;MODULE&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app&lt;/span&gt;
-  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;VARIANT&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><category term="Android" /><category term="Espresso" /><category term="Bitrise" /><category term="Firebase Test Lab" /><summary>これは何？
+&lt;span class=&quot;s&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;envs&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;PROJECT_LOCATION&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;MODULE&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;opts&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;is_expand&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;VARIANT&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><category term="Android" /><category term="Espresso" /><category term="Bitrise" /><category term="Firebase Test Lab" /><summary>これは何？
 「AndroidアプリをCircleCIでCIする。」のCircleCIをBitriseに変更した時のメモです。
-Bitriseの設定のみを書いていこうと思いますので、詳細は「AndroidアプリをCircleCIでCIする。」を御覧ください。</summary></entry><entry><title>Espresso, UI AutomatorでAndroidのUI Testを書く</title><link href="http://localhost:4000/2019/07/18/ci-android-espresso-00.html" rel="alternate" type="text/html" title="Espresso, UI AutomatorでAndroidのUI Testを書く" /><published>2019-07-18T00:00:00+09:00</published><updated>2019-07-18T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/18/ci-android-espresso-00</id><content type="html" xml:base="http://localhost:4000/2019/07/18/ci-android-espresso-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI Testの書き方について説明した記事です。
+Bitriseの設定のみを書いていこうと思いますので、詳細は「AndroidアプリをCircleCIでCIする。」を御覧ください。</summary></entry><entry><title>Espresso, UI AutomatorでAndroidのUI Testを書く</title><link href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="alternate" type="text/html" title="Espresso, UI AutomatorでAndroidのUI Testを書く" /><published>2019-07-18T00:00:00+09:00</published><updated>2019-07-18T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI Testの書き方について説明した記事です。
 具体的には&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;の&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;UI Testであるこれ&lt;/a&gt;の説明です。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
@@ -518,14 +524,14 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 サンプルアプリではスクリーンショットの撮影、Permissionリクエストのウィンドウの操作の2つをUI Automatorで書いています。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-uitesttool_00.png&quot; width=&quot;50%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;espressoui-automatorでtestを書く準備をする&quot;&gt;Espresso、UI AutomatorでTestを書く準備をする&lt;/h3&gt;
 &lt;p&gt;以下の2つのファイルに追加して準備完了です。&lt;/p&gt;
 
 &lt;h4 id=&quot;-buildgradle-に以下を追加&quot;&gt;＞ &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt; に以下を追加&lt;/h4&gt;
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;allprojects&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matching&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -534,23 +540,25 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;-appbuildgradle-に以下を追加&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;＞ app/build.gradle&lt;/code&gt; に以下を追加&lt;/h4&gt;
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;// for connected Android test
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;androidTestUtil&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orchestrator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;androidTestUtil&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orchestrator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;espresso&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uiautomator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;android&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;support&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;androidTestImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;テストを書く&quot;&gt;テストを書く&lt;/h3&gt;
 &lt;p&gt;テストは&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/androidTest/[Package名]&lt;/code&gt;以下に書いていきます。&lt;br /&gt;
@@ -561,7 +569,7 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 サンプルアプリではActivity毎でまとめて&lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;MainActivityInstrumentedTest.kt&lt;/a&gt;に書いています。&lt;/p&gt;
 
 &lt;h4 id=&quot;前準備&quot;&gt;前準備&lt;/h4&gt;
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AndroidJUnit4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;@RunWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AndroidJUnit4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;@SdkSuppress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minSdkVersion&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;@LargeTest&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityInstrumentedTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -597,10 +605,11 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;「Test失敗時をスクリーンショット」の動作は &lt;code class=&quot;highlighter-rouge&quot;&gt;uitestutils/UiTestUtils.kt&lt;/code&gt; の最後に定義されています。&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ScreenshotTakingRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UiTestUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestWatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mUTs&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mUTs&lt;/span&gt;
 
@@ -611,7 +620,8 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;h4 id=&quot;テストケース&quot;&gt;テストケース&lt;/h4&gt;
 &lt;p&gt;サンプルアプリではテストケースは以下の3つです。
 「ケースとして足りない！」とかツッコミはありかもしれませんが、UI Testを動かすことを目的としていますのでご容赦ください。&lt;/p&gt;
@@ -624,7 +634,7 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;checkButtonIncrementFloating()&lt;/code&gt; のポイントをインラインで説明します。&lt;br /&gt;
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt&quot;&gt;Testのコード全体はこちら&lt;/a&gt;になりますので合わせて御覧ください。&lt;/p&gt;
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;@Test&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;checkButtonIncrementFloating&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// false にすることでTestが成功した場合でもスクリーンショットを残せます。
@@ -674,7 +684,8 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;idが指定されていないエレメントの指定方法&quot;&gt;IDが指定されていないエレメントの指定方法&lt;/h3&gt;
 &lt;p&gt;エレメントに対してIDが振られている場合は大抵の場合そのIDを使うことで指定することが可能ですが、
@@ -682,7 +693,7 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
 して解析をしてから、以下のように指定を行います。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190718-layoutinspector-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190718-layoutinspector-00.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Fragmentの重なり方が操作によって変化する場合があり、表示は同じでも階層が違う場合が多々発生します。
@@ -699,16 +710,16 @@ Bitriseの設定のみを書いていこうと思いますので、詳細は「A
   &lt;li&gt;&lt;a href=&quot;https://developer.android.com/training/testing/ui-automator&quot;&gt;UI Automator - Android Developers&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Android" /><category term="UI Test" /><category term="Espresso" /><category term="UI Automator" /><summary>これは何？
 「AndroidアプリをCircleCIでCIする。」のUI Testの書き方について説明した記事です。
-具体的にはサンプルアプリのUI Testであるこれの説明です。</summary></entry><entry><title>Firebase Test LabでUI Testを実行する</title><link href="http://localhost:4000/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="http://localhost:4000/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI TestをCircleCIから実行する方法について説明した記事です。
+具体的にはサンプルアプリのUI Testであるこれの説明です。</summary></entry><entry><title>Firebase Test LabでUI Testを実行する</title><link href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" rel="alternate" type="text/html" title="Firebase Test LabでUI Testを実行する" /><published>2019-07-16T00:00:00+09:00</published><updated>2019-07-16T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUI TestをCircleCIから実行する方法について説明した記事です。
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;のUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&quot;ciの流れでui-testが実行されている箇所&quot;&gt;Ciの流れでUI Testが実行されている箇所&lt;/h3&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(3) UI Test&lt;/strong&gt; でUI Testを実行、
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(3) UI Test&lt;/strong&gt; でUI Testを実行、
 &lt;strong&gt;(4) Report&lt;/strong&gt; でレポートアップロードしています。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;ここで使うコードは以下の通りです。&lt;/p&gt;
 &lt;ul&gt;
@@ -727,7 +738,7 @@ Firebase Test Labを使うことにしました。&lt;/p&gt;
 &lt;h3 id=&quot;firebase-test-labとは&quot;&gt;Firebase Test Labとは&lt;/h3&gt;
 &lt;p&gt;Firebase Test LabはFirebaseがのサービスの1つとして提供しているクラウドでUI Testを行うプラットフォームです。Android(Espresso、UI Automator)、iOS(XCTest)で書かれたテストの実行に対応しています。&lt;/p&gt;
 
-&lt;p&gt;（詳しくは「AndroidアプリをCircleCIでCIする。」の&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html#aboutfirebasetestlab&quot;&gt;Firebase Test Labとは&lt;/a&gt;を御覧ください。）&lt;/p&gt;
+&lt;p&gt;（詳しくは「AndroidアプリをCircleCIでCIする。」の&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html#aboutfirebasetestlab&quot;&gt;Firebase Test Labとは&lt;/a&gt;を御覧ください。）&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://firebase.google.com/docs/test-lab&quot;&gt;公式ドキュメントはこちら&lt;/a&gt;です。&lt;/p&gt;
 
@@ -757,8 +768,8 @@ Firebase Test Labでテストを実行する場合はそこに収まるように
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190717-gcp-activateapi-00.png&quot; width=&quot;47%&quot; style=&quot;margin-right:15px;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190717-firebase-linkproject-00.png&quot; width=&quot;47%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190717-gcp-activateapi-00.png&quot; width=&quot;47%&quot; style=&quot;margin-right:15px;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190717-firebase-linkproject-00.png&quot; width=&quot;47%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;続いて、gcloud コマンドは&lt;a href=&quot;https://cloud.google.com/sdk/downloads&quot;&gt;この公式ドキュメント&lt;/a&gt;の通りインストールを行ってください。&lt;br /&gt;
@@ -768,19 +779,19 @@ Firebase Test Labでテストを実行する場合はそこに収まるように
 
 &lt;p&gt;まずは、ターゲットのプロジェクトを指定を行います。&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# コマンドラインでGCPにログイン&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcloud auth&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# コマンドラインでGCPにログイン&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud auth;
 
 &lt;span class=&quot;c&quot;&gt;# 設定可能なプロジェクトをリストする&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcloud projects list&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud projects list;
 PROJECT_ID                 NAME                   PROJECT_NUMBER
 my-test-project-00-2xxxx5  My-Test-Project-00     6xxxx4xxxxx6
 
 &lt;span class=&quot;c&quot;&gt;# 「my-test-project-00-24690」をプロジェクトとして指定する&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcloud config &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;project my-test-project-00-2xxxx5&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud config &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;project my-test-project-00-2xxxx5;
 
 &lt;span class=&quot;c&quot;&gt;# 設定内容を確認する(account, projectが指定した内容であるか確認)&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcloud config list&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud config list;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;compute]
 region &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; us-central1
 zone &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; us-central1-c
@@ -790,35 +801,36 @@ disable_usage_reporting &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; True
 project &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; my-test-project-00-2xxxx5
 
 Your active configuration is: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;default]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;-ローカルで動作させてみる&quot;&gt;＞ ローカルで動作させてみる&lt;/h3&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# コードをCloneする&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/ryoyakawai/uitest_sample_android.git&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;uitest_sample_android/&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# コードをCloneする&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/ryoyakawai/uitest_sample_android.git;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;uitest_sample_android/;
 
 &lt;span class=&quot;c&quot;&gt;# Build&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# Emulatorが動作していない場合エラーとなりますが、以下の2つが生成されていればOKです。&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# - app/build/outputs/apk/debug/app-debug.apk&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# - app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./gradlew connectedAndroidTest&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew connectedAndroidTest;
 
 &lt;span class=&quot;c&quot;&gt;# 環境変数を指定する&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-test-project-00-2xxxx5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ BK_OBJ_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/uitest-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y%m%d_%H%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-test-project-00-2xxxx5&quot;&lt;/span&gt;;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;BK_OBJ_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/uitest-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;date &lt;span class=&quot;s2&quot;&gt;&quot;+%Y%m%d_%H%M&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;;
 
 &lt;span class=&quot;c&quot;&gt;# コマンドを改行するときは末尾のスペースを忘れずに入れてください。&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcloud firebase &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;android run &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt; instrumentation &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--app&lt;/span&gt; ./app/build/outputs/apk/debug/app-debug.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--test&lt;/span&gt; ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--test-targets&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;class com.example.uitestsample.MainActivityInstrumentedTest&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--results-dir&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$BK_OBJ_NAME&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--results-bucket&lt;/span&gt; cloud-test-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--directories-to-pull&lt;/span&gt; /sdcard/uitest/ &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--device&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Pixel2,version&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;26,locale&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;en_US,orientation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;portrait &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--use-orchestrator&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;--timeout&lt;/span&gt; 120s&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;gcloud firebase &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;android run &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --type instrumentation &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --app ./app/build/outputs/apk/debug/app-debug.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --test ./app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --test-targets &lt;span class=&quot;s2&quot;&gt;&quot;class com.example.uitestsample.MainActivityInstrumentedTest&quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --results-dir &lt;span class=&quot;nv&quot;&gt;$BK_OBJ_NAME&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --results-bucket cloud-test-&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GOOGLE_PROJECT_ID&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --directories-to-pull /sdcard/uitest/ &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --device &lt;span class=&quot;nv&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Pixel2,version&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;26,locale&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;en_US,orientation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;portrait &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --use-orchestrator &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ --timeout 120s;
 
 &lt;span class=&quot;c&quot;&gt;# 無事に開始されると以下が出力さる&lt;/span&gt;
 Have questions, feedback, or issues? Get support by visiting:
@@ -829,7 +841,7 @@ Uploading &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;./app/build/outputs/apk/
 Raw results will be stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your GCS bucket at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.developers.google.com/storage/browser/cloud-test-my-test-project-00-2xxxx5/my-test-project-00-2xxxx5/uitest-20190716_1603/]
 
 Test &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;matrix-1gpbgxrsx8fag] has been created &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the Google Cloud.
-Firebase Test Lab will execute your instrumentation &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;on 1 device&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+Firebase Test Lab will execute your instrumentation &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;on 1 device&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
 Creating individual &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;executions...done.
 
 Test results will be streamed to &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.firebase.google.com/project/my-test-project-00-2xxxx5/testlab/histories/bh.xxxxxxxxxxxx/matrices/8xxxxxxxxxxxx11].
@@ -867,14 +879,16 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 │ Passed  │ Pixel2-26-en_US-portrait │ 3 &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;cases passed │
 └─────────┴──────────────────────────┴─────────────────────┘
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;コマンドに出力されるFirebaseのURLにアクセスすると結果が見られます。以下の1行のように表示されているはずで、ブラウザからアクセスすると下図が表示されます。&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Test results will be streamed to &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.firebase.google.com/project/my-test-project-00-2xxxx5/testlab/histories/bh.xxxxxxxxxxxx/matrices/8xxxxxxxxxxxx11]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Test results will be streamed to &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;https://console.firebase.google.com/project/my-test-project-00-2xxxx5/testlab/histories/bh.xxxxxxxxxxxx/matrices/8xxxxxxxxxxxx11]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190717-firebase-result-00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190717-firebase-result-00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;静止画、動画を一覧で表示することができるので、テストで何がされていたかも後から確認することが可能です。
@@ -894,15 +908,15 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
   &lt;li&gt;&lt;a href=&quot;https://cloud.google.com/sdk/gcloud/reference/firebase/test/android/run&quot;&gt;gcloud firebase test android run(Cloud SDK:Google Cloud)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><category term="Android" /><category term="Firebase Test Lab" /><category term="UI Test" /><summary>これは何？
 「AndroidアプリをCircleCIでCIする。」のUI TestをCircleCIから実行する方法について説明した記事です。
-サンプルアプリのUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。</summary></entry><entry><title>AndroidアプリでのUnit Testについての解説</title><link href="http://localhost:4000/2019/07/10/ci-android-unittest-00.html" rel="alternate" type="text/html" title="AndroidアプリでのUnit Testについての解説" /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/10/ci-android-unittest-00</id><content type="html" xml:base="http://localhost:4000/2019/07/10/ci-android-unittest-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUnit Testを説明した記事です。
+サンプルアプリのUI Testを走らせるFirebase Test Lab（UI Testを実行するインフラ）について解説していきます。</summary></entry><entry><title>AndroidアプリでのUnit Testについての解説</title><link href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" rel="alternate" type="text/html" title="AndroidアプリでのUnit Testについての解説" /><published>2019-07-10T00:00:00+09:00</published><updated>2019-07-10T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のUnit Testを説明した記事です。
 &lt;a href=&quot;https://github.com/ryoyakawai/uitest_sample_android&quot;&gt;サンプルアプリ&lt;/a&gt;のUnit Testについて解説していきます。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&quot;ciの流れでunit-testが実行されている箇所&quot;&gt;CIの流れでUnit Testが実行されている箇所&lt;/h3&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(2) Build&lt;/strong&gt; で実行されています。&lt;/p&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCIの流れでは &lt;strong&gt;(2) Build&lt;/strong&gt; で実行されています。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-circleci_firebase_00.png&quot; width=&quot;80%&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;ここで使うコードは以下の通りです。&lt;/p&gt;
 &lt;ul&gt;
@@ -913,7 +927,7 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;p&gt;&lt;a href=&quot;https://developer.android.com/training/testing/unit-testing/local-unit-tests&quot;&gt;公式ドキュメントはこれ&lt;/a&gt;です。&lt;/p&gt;
 
 &lt;h3 id=&quot;ポイント条件など&quot;&gt;ポイント、条件など&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html#aboutunittest&quot;&gt;Unit Testについて（AndroidアプリをCircleCIでCIする。）&lt;/a&gt;にも書いていますがポイントは以下です。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html#aboutunittest&quot;&gt;Unit Testについて（AndroidアプリをCircleCIでCIする。）&lt;/a&gt;にも書いていますがポイントは以下です。&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;MVP（Model-View-Presenter）のアーキテクチャに対してのUnit Testを実行する&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://junit.org/junit4/&quot;&gt;JUnit&lt;/a&gt;を使ってUnit Testを実行する&lt;/li&gt;
@@ -923,7 +937,7 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190703-mvp-diagram-00.png&quot; width=&quot;90%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;アーキテクチャはMVPに限っている訳ではありませんが、Interfaceを定義しているとテストを書くのが楽になることから
@@ -947,39 +961,42 @@ More details are available at &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;http
 &lt;h4 id=&quot;-buildgradleに追記&quot;&gt;＞ &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt;に追記&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/build.gradle&lt;/code&gt; に以下を追記します。&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// Unit and UI Test
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;junit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;org.jetbrains.kotlin:kotlin-reflect:$kotlin_version&quot;&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.android.support:support-annotations:${android.defaultConfig.targetSdkVersion}&quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;robolectric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;robolectric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nhaarman&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockito&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;converter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moshi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;okhttp3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockwebserver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;robolectric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;robolectric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4.0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nhaarman&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockito&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kotlin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kt1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;converter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;moshi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;retrofit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mock&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;testImplementation&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;squareup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;okhttp3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockwebserver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3.10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt; に以下が書かれていることが前提です。&lt;/p&gt;
 
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;buildscript&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kotlin_version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kotlin_version&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;-orgmockitopluginsmockmaker-を作成&quot;&gt;＞ &lt;code class=&quot;highlighter-rouge&quot;&gt;org.mockito.plugins.MockMaker&lt;/code&gt; を作成&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;app/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker&lt;/code&gt; を新規で作成して、以下の1行を書き込みます。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mock-maker-inline
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mock-maker-inline
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;unit-testを書く&quot;&gt;Unit Testを書く&lt;/h3&gt;
 
@@ -1005,7 +1022,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 &lt;p&gt;2つのテストケースのうちの「HTTPレスポンスコード200でJSONを正しく受け取った場合の値の確認とViewに対する動作の確認」
 の説明を、以下にインラインで行います。。
 以下は、&lt;/p&gt;
-&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityUnitTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainActivityUnitTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;py&quot;&gt;mMockTestUtils&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UnitTestUtils&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;@Test&lt;/span&gt;
@@ -1052,7 +1069,8 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;....&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;実行してみる&quot;&gt;実行してみる&lt;/h3&gt;
 &lt;p&gt;実行方法には「コマンドラインから」、また「Android Studioから」の2つがあります。&lt;/p&gt;
@@ -1061,19 +1079,21 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 
 &lt;p&gt;Unit Testの全てを実行する&lt;/p&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;指定したClass、MethodのUnit Testを実行る&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Classを指定
-// &lt;span class=&quot;nt&quot;&gt;--tests&lt;/span&gt; のパラメータとして &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Package Name].[Class Name] を指定
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest &lt;span class=&quot;nt&quot;&gt;--tests&lt;/span&gt; com.example.uitestsample.MainActivityUnitTest&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Classを指定
+// --tests のパラメータとして &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Package Name].[Class Name] を指定
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest --tests com.example.uitestsample.MainActivityUnitTest;
 
 // ClassとMethodを指定
-// &lt;span class=&quot;nt&quot;&gt;--tests&lt;/span&gt; のパラメータとして &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Package Name].[Class Name].[Method Name] を指定
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest &lt;span class=&quot;nt&quot;&gt;--tests&lt;/span&gt; com.example.uitestsample.MainActivityUnitTest.sampleUnitDataFetchSuccessTest&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+// --tests のパラメータとして &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Package Name].[Class Name].[Method Name] を指定
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./gradlew testDebugUnitTest --tests com.example.uitestsample.MainActivityUnitTest.sampleUnitDataFetchSuccessTest;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;-android-studioから&quot;&gt;&amp;gt; Android Studioから&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@Test&lt;/code&gt;のアノテーションかを書くとTestとして認識されます。
@@ -1081,7 +1101,7 @@ HTTPのクライアント&lt;a href=&quot;https://square.github.io/okhttp/&quot;
 それをクリックすると実行することが可能です。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190710-unittest-androidstudio-00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190710-unittest-androidstudio-00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px;border:1px solid #eeeeee&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
