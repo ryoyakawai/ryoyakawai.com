@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <title>Ryoya Kawai - Portfolio</title>
     <meta name="author" content="Ryoya Kawai">
@@ -26,7 +27,7 @@
   <body>
     <div id="nav">
         <div id="nav-name" class="name">
-          <div id="title-photo" class="title-photo invisible"></div><span id="title-name" class="invisible">Ryoya Kawai <font size="0.5em">(PORTOFOLIO)</font></span>
+          <div id="title-photo" class="title-photo _invisible"></div><span id="title-name" class="_invisible">PORTOFOLIO <font class="subtitle">(Ryoya Kawai)</font></span>
         </div>
         <div id="icon">
           <div class="iconback"><a href="https://ryoyakawai.com/blog/"><i class="material-icons" style="font-size:33px;">date_range</i></a></div>
@@ -38,19 +39,18 @@
     <div id="nav-margin"></div>
 
     <div class="main">
-      <h2>PORTOFOLIO</h2>
       <!-- Portfolio Gallery Grid -->
-      <h3>:: PROFILE ::</h3>
+      <h3 class="top">:: PROFILE ::</h3>
       <div class="row content-shadow profile-row">
         <div class="column">
           <div class="profile photo">
-            <div class="photo"><img id="profile-photo" src="./images/profile_photo.jpg"></div>
+            <div class="photo"><img id="profile-photo" src="./images/profile_photo.jpg" class="content-shadow"></div>
           </div>
         </div>
         <div class="column">
           <div id="profile" class="profile">
             <h2 id="myname">Ryoya Kawai</h2>
-            <p style="text-align:center;margin: 0;">is a web developer who love to hack <span id="emoji">👍</span></p>
+            <p style="text-align:center;margin: 0;">is web developer loves to hack with curiosity <span id="emoji">👍</span></p>
             <p class="detail-title">email:</p>
             <p class="detail-a"><b>ryoya.kawai (at) gmail.com</b></p>
             <p></p>
@@ -114,6 +114,97 @@
       </div>
 
 
+      <h3>:: Community Activity ::</h3>
+      <div class="s-row content content-shadow">
+        <h2>Web Music Developers JP (Organizer) <a href="https://developers.webmusic.io/" target="blank"><i class="fa fa-external-link"></i></a></h2>
+        <p>Founded the community in Sept. 2013 with 5 other co-foundor. The community is grew around 200 members.<br>
+          Most known activity in this community is the Web Music Hachathon. Here is the report from each hackathon.</p>
+        <ul>
+          <li><a href="https://blog.agektmr.com/2013/10/web-music.html" target="_blank">#1 ウェブはどこまで楽器と融合できるか？ By Eiji Kitamura <i class="fa fa-external-link"></i></a></li>
+          <li><a href="https://ryoyakawai.com/blog/2014/01/20/webmusic-hachathon-en.html" target="_blank">#2 Web Music ハッカソン #2 やりました。<i class="fa fa-external-link"></i></a></li>
+          <li><a href="https://blog.agektmr.com/2014/09/event-report-web-music-hackathon-3.html" target="_blank">#3 Event Report: Web Music Hackathon #3 By Eiji Kitamura <i class="fa fa-external-link"></i></a></li>
+          <li><a href="https://ryoyakawai.com/blog/2015/07/27/webmusic-hackathon-kyoto-en.html" target="_blank">#4 Web Music Hackathon #4 @Kyoto with GDG Kyoto<i class="fa fa-external-link"></i></a></li>
+          <li><a href="https://ryoyakawai.com/blog/2016/08/04/webmusic-hackathon-en.html" target="_blank">#5 Web Music Hackathon #5 @Tokyo<i class="fa fa-external-link"></i></a></li>
+        </ul>
+
+        <p>
+          Hosted meetups with spec editors and others.
+          <ul>
+            <li><a href="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html" target="_blank">Immersive Web Meetupを開催したよ！ <i class="fa fa-external-link"></i></a></li>
+            <li><a href="https://html5experts.jp/ryoyakawai/17532/" target="_blank">Web Music Developer Meetup@札幌レポート <i class="fa fa-external-link"></i></a></li>
+          </ul>
+        </p>
+
+        <p>
+          Here is the step by step tutorial, a.k.a <b>Codelabs</b>, for music related API.<br>This Codelabs was recognized by Google's Open Source Office..
+          <ul>
+            <li class="space-in-between">
+              <a href="https://webmusicdevelopers.appspot.com//codelabs/webaudio/index.html" target="_blank">Web Audio API</a><br>
+              Almost all of API's demos and step by step tutorial are inside in English, 日本語 and 中文(中国大陆).
+            </li>
+            <li>
+              <a href="https://webmusicdevelopers.appspot.com/codelabs/arduino-mocolufa/index.html" target="_blank">Moco for LUFA (MIDI firmware for Arduino)</a><br>
+              Describing step by step how to make Arduino board into USB-MIDI device.
+            </li>
+          </ul>
+        </p>
+      </div>
+
+
+      <h3>:: PUBLICATION ::</h3>
+      <div class="s-row content content-shadow">
+        <p>
+          <h2 class="_header _tech-writing">HTML5 Experts.jp <a href="https://html5experts.jp/ryoyakawai" target="blank"><i class="fa fa-external-link" style="font-size:0.8em;"></i></a></h2>
+          As one of HTML5 experts, wrote about 10 articles at html5experts.jp especialy for music related API and Google I/O.
+        </p>
+        <p>
+          <h2 class="tech-writing">Play Music on Web Browser (Web Audio API, Web MIDI API) <a href="http://ci.nii.ac.jp/naid/40020752668" target="blank"><i class="fa fa-external-link"></i></a></h2>
+          The journal of the Institute of Image Information and Television Engineers. Explaining how to make, to handle and to play music by browser. (Sorry, the journal is to public.)
+        </p>
+      </div>
+
+      <h3>:: WEB APPS & MORE::</h3>
+      <div class="row">
+        <div class="column">
+          <div class="content content-shadow">
+            <h2>Web MIDI/USB Web App</h2>
+            <div class="webapp-capture">
+              <img src="./images/portfolio/webmidi_messageviewer.png" alt="Mountains" style="width:49%">
+              <img src="./images/portfolio/webusb_cardreader.png" alt="Lights" style="width:49%">
+            </div>
+            <ul class="list-nostyle">
+              <li><b>[Left]</b> Web MIDI Message Viewer : <i class="icon fa fa-github" style="font-size:0.9em;"></i> <a href="https://github.com/ryoyakawai/midimessageviewer" target="_blank">GitHub</a><a href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" target="_blank">[blog]</a></li>
+              <li><b>[Right]</b> 交通系カードリーダ : <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content content-shadow">
+            <h2>Technical articles in blog</h2>
+            <ul class="list-nostyle">
+              <li class="more-space"><b>Chrome Extension</b>
+                <ul class="more-space">
+                  <li class="more-space">Timezone Clocks for Chrome Extension<br> <a href="https://ryoyakawai.com/blog/2018/06/24/timezoneclock-extensions.html" target="_blank">[blog]</a> [<i class="icon fa fa-github" style="font-size:0.9em;"></i><a href="https://github.com/ryoyakawai/timezones-extension" target="_blank">GitHub</a>] <a href="https://chrome.google.com/webstore/detail/timezone-clocks/phckpicnefnbafbamoidbemcdlolfoel" target="_blank">[Chrome Store]</a></li>
+                  <li class="more-space">Wikipedia URL Shortener for Chrome Extension: <a href="https://ryoyakawai.com/blog/2018/06/17/wikipedia-shortener-chrome-extensions.html" target="_blank">[blog]</a> [<i class="icon fa fa-github" style="font-size:0.9em;"></i><a href="https://github.com/ryoyakawai/title_url_clipboarad-extension" target="_blank">GitHub]</a> [<a href="https://chrome.google.com/webstore/detail/title-url-clipboarad/ggofpgiflaminonicdeonlfcbopcmneo" target="_blank">Chrome Store</a>]</li>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="more-space"><b>Test Automation</b>
+                <ul>
+                  <li>AndroidアプリをBitriseでCIする。 <a href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" target="_blank">[blog]</a></li>
+                  <li>AndroidアプリをCircleCIでCIする。 <a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" target="_blank">[blog]</a></li>
+                  <li>Firebase Test LabでUI Testを実行する。<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" target="_blank">[blog]</a></li>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      
       <h3>:: PRODUCTS ::</h3>
       <div class="s-row content content-shadow">
         <div style="text-align:center">
@@ -150,79 +241,17 @@
       </div>
 
 
-      <h3>:: Technical Writing & PUBLICATION ::</h3>
-      <div class="s-row content content-shadow">
-        <ul>
-          <li>
-            <h3 class="header tech-writing">HTML5 Experts.jp <a href="https://html5experts.jp/ryoyakawai" target="blank"><i class="fa fa-external-link"></i></a></h3>
-            As one of HTML5 experts, wrote about 10 articles at html5experts.jp especialy for music related API and Google I/O.
-          </li>
-          <li>
-            <h3 class="tech-writing">Play Music on Web Browser (Web Audio API, Web MIDI API) <a href="http://ci.nii.ac.jp/naid/40020752668" target="blank"><i class="fa fa-external-link"></i></a></h3>
-            The journal of the Institute of Image Information and Television Engineers. Explaining how to make, to handle and to play music by browser. (Sorry, the journal is to public.)
-          </li>
-          <li>
-            <h3 class="tech-writing">Codelabs (Web x Audio x Hardware)</h3>
-            <ul>
-              <li class="space-in-between">
-                <a href="https://webmusicdevelopers.appspot.com//codelabs/webaudio/index.html" target="_blank">Web Audio API</a><br>
-                Almost all of API's demos and step by step tutorial are inside in English, 日本語 and 中文(中国大陆).
-              </li>
-              <li>
-                <a href="https://webmusicdevelopers.appspot.com/codelabs/arduino-mocolufa/index.html" target="_blank">Moco for LUFA (MIDI firmware for Arduino)</a><br>
-                Describing step by step how to make Arduino board into USB-MIDI device.
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <h3>:: WEB APPS & MORE::</h3>
-      <div class="row">
-        <div class="column">
-          <div class="content content-shadow">
-            <h2>Web MIDI/USB Web App</h2>
-            <div class="webapp-capture">
-              <img src="./images/portfolio/webmidi_messageviewer.png" alt="Mountains" style="width:49%">
-              <img src="./images/portfolio/webusb_cardreader.png" alt="Lights" style="width:49%">
-            </div>
-            <ul class="list-nostyle">
-              <li><b>[Left]</b> Web MIDI Message Viewer : <i class="icon fa fa-github" style="font-size:0.9em;"></i> <a href="https://github.com/ryoyakawai/midimessageviewer" target="_blank">GitHub</a><a href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" target="_blank">[blog]</a></li>
-              <li><b>[Right]</b> 交通系カードリーダ : <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[blog</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="column">
-          <div class="content content-shadow">
-            <h2>Others from Link to my blog post</h2>
-            <ul class="list-nostyle">
-              <li class="more-space"><b>Chrome Extension</b>
-                <ul class="more-space">
-                  <li class="more-space">Timezone Clocks for Chrome Extension<br> <a href="https://ryoyakawai.com/blog/2018/06/24/timezoneclock-extensions.html" target="_blank">[blog]</a> [<i class="icon fa fa-github" style="font-size:0.9em;"></i><a href="https://github.com/ryoyakawai/timezones-extension" target="_blank">GitHub</a>] <a href="https://chrome.google.com/webstore/detail/timezone-clocks/phckpicnefnbafbamoidbemcdlolfoel" target="_blank">[Chrome Store]</a></li>
-                  <li class="more-space">Wikipedia URL Shortener for Chrome Extension: <a href="https://ryoyakawai.com/blog/2018/06/17/wikipedia-shortener-chrome-extensions.html" target="_blank">[blog]</a> [<i class="icon fa fa-github" style="font-size:0.9em;"></i><a href="https://github.com/ryoyakawai/title_url_clipboarad-extension" target="_blank">GitHub]</a> [<a href="https://chrome.google.com/webstore/detail/title-url-clipboarad/ggofpgiflaminonicdeonlfcbopcmneo" target="_blank">Chrome Store</a>]</li>
-                  </li>
-                </ul>
-              </li>
-
-              <li class="more-space"><b>Test Automation</b>
-                <ul>
-                  <li>AndroidアプリをBitriseでCIする。 <a href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" target="_blank">[blog]</a></li>
-                  <li>AndroidアプリをCircleCIでCIする。 <a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html" target="_blank">[blog]</a></li>
-                  <li>Firebase Test LabでUI Testを実行する。<a href="https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html" target="_blank">[blog]</a></li>
-                  </li>
-                </ul>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <h3>:: Development ::</h3>
+      <h3>:: DEVELOPMENT ACCOUNT ::</h3>
       <div class="s-row content content-shadow">
         <h2><i class="icon fa fa-github" style="font-size:25px;"></i> GitHub</h2>
         <p><a href="https://github.com/ryoyakawai">github.com/ryoyakawai</a></p>
+
+        <br>
+        <h2>Qiita</h2>
+        <p><a href="https://qiita.com/ryoyakawai">qiita.com/ryoyakawai</a></p>
       </div>
+
+
 
     </div>
 
@@ -252,8 +281,20 @@
            emoji_elem.style.setProperty("opacity", "1")
          }, 250)
        }
+       const tweakWidth = () => {
+         const scale = screen.width/window.innerWidth < 1 ? screen.width/window.innerWidth : 1
+         const elems = Array.prototype.filter.call(document.getElementsByTagName("meta"), (elem) => elem.name == "viewport")
+         if (elems.length > 0) {
+           //elems[0].content = elems[0].content.replace("initial-scale=1", `initial-scale=${scale}`)
+         }
+         console.log(scale, elems[0])
+       }
        const navheight = 70; // see #nav-margin
        let titleDisp = false;
+       const title_list = {
+         title_name: 'Ryoya Kawai <font class="subtitle">(PORTOFOLIO)</font>',
+         name_title: 'PORTOFOLIO <font class="subtitle">(Ryoya Kawai)</font>',
+       }
        window.addEventListener('scroll', () => {
          let nameY = (document.querySelector('#profile-photo'))
            .getBoundingClientRect().y
@@ -261,11 +302,13 @@
          const t_name = document.querySelector('#title-name')
          if(nameY - navheight < -15 && titleDisp === false) {
            t_photo.classList.remove('invisible')
-           t_name.classList.remove('invisible')
+           //t_name.classList.remove('invisible')
+           t_name.innerHTML = title_list.title_name
            titleDisp = true
          } else if(nameY - navheight >= -15  && titleDisp === true) {
            t_photo.classList.add('invisible')
-           t_name.classList.add('invisible')
+           //t_name.classList.add('invisible')
+           t_name.innerHTML = title_list.name_title
            titleDisp = false
          }
        })
@@ -273,6 +316,7 @@
          resizeYoutube()
        })
        // main
+       tweakWidth()
        resizeYoutube()
        setInterval( () => {
          switchEmoji()

@@ -6,7 +6,7 @@ modified: 2015-07-27
 tags: [Web MIDI API, Web Music Hackathon, Web Music, Web Audio]
 ---
 <div> </div>
-<a href="/2015/07/webmusic-hackathon-kyoto.html">日本語</a><br>
+<a href="/blog/2015/07/27/webmusic-hackathon-kyoto.html">日本語</a><br>
 <br>
 
 On July 25th 2015, Web Music Hackathon #4 was ran with GDG(Google Developer Groups) Kyoto at Kyoto. <a href="http://amei.or.jp/" target="_blanl">AMEI(Association of Musical Electronics Industry)</a> provided digital musical instruments as usual for this hackathon.  We thank AMEI for supporting this hackathon all the time.
