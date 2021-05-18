@@ -22,22 +22,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./css/portfolio.css" />
+
     <script data-ad-client="ca-pub-7384664307567359" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
   <body>
     <div id="nav">
-        <div id="nav-name" class="name">
-          <div id="title-photo" class="title-photo _invisible"></div><span id="title-name" class="_invisible">PORTOFOLIO <font class="subtitle">(Ryoya Kawai)</font></span>
-        </div>
-        <div id="icon">
-          <div class="iconback"><a href="https://ryoyakawai.com/blog/"><i class="material-icons" style="font-size:33px;">date_range</i></a></div>
-          <div class="iconback iconback-end"><a href="https://github.com/ryoyakawai" target="_blank"><i class="icon fa fa-github" style="font-size:35px;"></i></a></div>
-          <!--<div class="iconback iconback-end"><a href="https://twitter.com/ryoyakawai" target="_blank"><i class="icon fa fa-twitter" style="font-size:35px;"></i></a></div>-->
-        </div>
+      <div id="nav-name" class="name">
+        <div id="title-photo" class="title-photo invisible"></div><span id="title-name" class="_invisible">PORTOFOLIO <font class="subtitle">(Ryoya Kawai)</font></span>
       </div>
+      <div id="icon">
+        <div class="iconback"><a href="https://ryoyakawai.com/blog/"><i class="material-icons" style="font-size:33px;">date_range</i></a></div>
+        <div class="iconback iconback-end"><a href="https://github.com/ryoyakawai" target="_blank"><i class="icon fa fa-github" style="font-size:35px;"></i></a></div>
+        <!--<div class="iconback iconback-end"><a href="https://twitter.com/ryoyakawai" target="_blank"><i class="icon fa fa-twitter" style="font-size:35px;"></i></a></div>-->
+      </div>
+    </div>
     </div>
     <div id="nav-margin"></div>
 
+    <div class="preparing-content">
+      <div class="loader"></div>
+      <div>Loading....</div>
+    </div>
     <div class="main">
       <!-- Portfolio Gallery Grid -->
       <h3 class="top">:: PROFILE ::</h3>
@@ -169,12 +174,12 @@
           <div class="content content-shadow">
             <h2>Web MIDI/USB Web App</h2>
             <div class="webapp-capture">
-              <img src="./images/portfolio/webmidi_messageviewer.png" alt="Mountains" style="width:49%">
-              <img src="./images/portfolio/webusb_cardreader.png" alt="Lights" style="width:49%">
+              <a href="https://ryoyakawai.com/apps/midimsgv/" target="_blank"><img src="./images/portfolio/webmidi_messageviewer.png" alt="Mountains" style="width:49%" class="clickable"></a>
+              <a href="https://ryoyakawai.com/apps/nfccardreader/" target="_blank"><img src="./images/portfolio/webusb_cardreader.png" alt="Lights" style="width:49%" class="clickable"></a>
             </div>
             <ul class="list-nostyle">
-              <li><b>[Left]</b> Web MIDI Message Viewer : <i class="icon fa fa-github" style="font-size:0.9em;"></i> <a href="https://github.com/ryoyakawai/midimessageviewer" target="_blank">GitHub</a><a href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" target="_blank">[blog]</a></li>
-              <li><b>[Right]</b> 交通系カードリーダ : <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[blog</a></li>
+              <li><b>[Left]</b> Web MIDI Message Viewer : <a href="https://ryoyakawai.com/apps/midimsgv/" target="_blank">[App]</a> [<i class="icon fa fa-github" style="font-size:0.9em;"></i> <a href="https://github.com/ryoyakawai/midimessageviewer" target="_blank">GitHub</a>] <a href="https://ryoyakawai.com/blog/2019/02/20/MIDI-over-webbluetooth.html" target="_blank">[blog]</a></li>
+              <li><b>[Right]</b> 交通系カードリーダ : <a href="https://ryoyakawai.com/apps/nfccardreader/" target="_blank">[App]</a> <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[blog]</a></li>
             </ul>
           </div>
         </div>
@@ -204,7 +209,7 @@
         </div>
       </div>
 
-      
+
       <h3>:: PRODUCTS ::</h3>
       <div class="s-row content content-shadow">
         <div style="text-align:center">
@@ -261,6 +266,13 @@
 
     <script>
      (() => {
+       const showMainContent = () => {
+         document.querySelector("div.preparing-content").remove()
+         document.querySelector("div.main").style.setProperty("opacity", "1")
+       }
+       const noScroll = () => {
+         window.scrollTo(0, 0)
+       }
        const resizeYoutube = () => {
          const card_width = document.querySelectorAll("div.s-row.content")[0].clientWidth
          const y_iframes = document.querySelectorAll("iframe.youtube-responsive-100")
@@ -285,9 +297,9 @@
          const scale = screen.width/window.innerWidth < 1 ? screen.width/window.innerWidth : 1
          const elems = Array.prototype.filter.call(document.getElementsByTagName("meta"), (elem) => elem.name == "viewport")
          if (elems.length > 0) {
-           //elems[0].content = elems[0].content.replace("initial-scale=1", `initial-scale=${scale}`)
+           elems[0].content = elems[0].content.replace("initial-scale=1", `initial-scale=${scale}`)
          }
-         console.log(scale, elems[0])
+         //console.log(scale, elems[0])
        }
        const navheight = 70; // see #nav-margin
        let titleDisp = false;
@@ -315,12 +327,17 @@
        window.addEventListener('resize', (event) => {
          resizeYoutube()
        })
+       window.addEventListener('scroll', noScroll)
        // main
-       tweakWidth()
        resizeYoutube()
        setInterval( () => {
          switchEmoji()
        }, 4000)
+       window.addEventListener('load', (event) => {
+         tweakWidth()
+         showMainContent()
+         window.removeEventListener('scroll', noScroll)
+       })
      })()
     </script>
 
