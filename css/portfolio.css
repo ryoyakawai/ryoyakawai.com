@@ -107,14 +107,23 @@ div.content.profile.photo {
   height: 100%
 }
 
-.youtube-wrapper {
-  margin: -15px -20px 45px -20px;
+.youtube-wrapper,
+.image-wrapper {
   border-radius: 2px 2px 0 0;
+  margin: -15px -20px 45px -20px;
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
   background-color: #dddddd;
 }
+.image-wrapper {
+  padding-bottom: 47%;
+}
+img.in-imgage-wrapper {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+}
+
 /* animation */
 .loading-animation {
   background: linear-gradient(271deg, #e4e3e3, #a6a6a6);
