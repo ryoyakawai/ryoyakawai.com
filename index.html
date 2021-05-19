@@ -282,6 +282,11 @@
 
     <script>
      (() => {
+       const fixLoadingSize = () => {
+         const elem = document.querySelector("div.preparing-content")
+         elem.style.setProperty("width", `${window.innerWidth}px`)
+         elem.style.setProperty("height", `${window.innerHeight}px`)
+       }
        const showMainContent = () => {
          document.querySelector("div.preparing-content").remove()
          document.querySelector("div.main").style.setProperty("opacity", "1")
@@ -330,12 +335,10 @@
          const t_name = document.querySelector('#title-name')
          if(nameY - navheight < -15 && titleDisp === false) {
            t_photo.classList.remove('invisible')
-           //t_name.classList.remove('invisible')
            t_name.innerHTML = title_list.title_name
            titleDisp = true
          } else if(nameY - navheight >= -15  && titleDisp === true) {
            t_photo.classList.add('invisible')
-           //t_name.classList.add('invisible')
            t_name.innerHTML = title_list.name_title
            titleDisp = false
          }
@@ -345,10 +348,11 @@
        })
        window.addEventListener('scroll', noScroll)
        // main
+       fixLoadingSize()
        resizeYoutube()
        setInterval( () => {
          switchEmoji()
-       }, 4000)
+       }, 3000)
        window.addEventListener('load', (event) => {
          tweakWidth()
          showMainContent()
