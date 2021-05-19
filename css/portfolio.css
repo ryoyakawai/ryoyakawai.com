@@ -126,6 +126,11 @@ img.in-imgage-wrapper {
   width: 100%;
   border-radius: 2px 2px 0 0;
 }
+p.date-place-00 {
+  color: #ffffff;
+  text-align:right;
+  margin: -28px 5px 0;
+}
 
 /* animation */
 .loading-animation {
