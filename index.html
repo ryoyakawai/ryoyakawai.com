@@ -320,7 +320,6 @@
          if (elems.length > 0) {
            elems[0].content = elems[0].content.replace("initial-scale=1", `initial-scale=${scale}`)
          }
-         //console.log(scale, elems[0])
        }
        const navheight = 70; // see #nav-margin
        let titleDisp = false;
@@ -334,10 +333,12 @@
          const t_photo = document.querySelector('#title-photo')
          const t_name = document.querySelector('#title-name')
          if(nameY - navheight < -15 && titleDisp === false) {
+           document.querySelector('#nav').classList.add('nav-floating')
            t_photo.classList.remove('invisible')
            t_name.innerHTML = title_list.title_name
            titleDisp = true
          } else if(nameY - navheight >= -15  && titleDisp === true) {
+           document.querySelector('#nav').classList.remove('nav-floating')
            t_photo.classList.add('invisible')
            t_name.innerHTML = title_list.name_title
            titleDisp = false
