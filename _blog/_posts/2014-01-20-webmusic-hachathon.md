@@ -6,7 +6,7 @@ modified: 2014-01-20
 tags: [Web MIDI API, Web Music Hackathon, Web Music, Web Audio]
 ---
 <div> </div>
-<a href="/2014/01/webmusic-hachathon-en.html" target="_blank">English Version</a><br>
+<a href="/blog/2014/01/20/webmusic-hachathon-en.html" target="_blank">English Version</a><br>
 <br>
 
 <a href="/2013/10/webmusic-hackathon.html" target="_blank">10月19日</a>に引き続き Web Music ハッカソン #2 を Google さんと <a href="https://groups.google.com/forum/#!forum/web-music-developers-jp" target="_blank">Web Music Developers JP</a>の共催、<a href="http://amei.or.jp/" trget="_blank">AMEI（音楽電子事業協会）</a> の後援で開催しました。

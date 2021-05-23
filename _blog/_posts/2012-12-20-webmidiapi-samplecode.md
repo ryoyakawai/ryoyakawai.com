@@ -15,7 +15,7 @@ image:
 **追記：Web MIDI APIの仕様は日に日に更新されています。2013年1月8日の段階で既にこの説明の説明からは変更されていますのでご注意ください。**
 
 
-前回は「<a href="http://localhost:4000/2012/12/webmidi-workingdraft-review.html" target="_blank">Second Web MIDI API Working Draftのレビュー</a>」を行いました。今回は<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI APIのWorkingDraft 第二版</a>の末尾にあるサンプルコードのレビューを行います。とてもシンプルで分かりやすいサンプルコードになっていてとても参考になると思います。
+前回は「<a href="https://ryoyakawai.com/blog/2012/12/webmidi-workingdraft-review.html" target="_blank">Second Web MIDI API Working Draftのレビュー</a>」を行いました。今回は<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI APIのWorkingDraft 第二版</a>の末尾にあるサンプルコードのレビューを行います。とてもシンプルで分かりやすいサンプルコードになっていてとても参考になると思います。
 
 ではさっそくレビューにはいります。
 

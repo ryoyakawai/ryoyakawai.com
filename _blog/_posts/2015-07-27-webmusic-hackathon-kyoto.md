@@ -6,7 +6,7 @@ modified: 2015-07-27
 tags: [Web MIDI API, Web Music Hackathon, Web Music, Web Audio]
 ---
 <div> </div>
-<a href="/2015/07/webmusic-hackathon-kyoto-en.html">English Version</a><br>
+<a href="/blog/2015/07/27/webmusic-hackathon-kyoto-en.html">English Version</a><br>
 <br>
 
 

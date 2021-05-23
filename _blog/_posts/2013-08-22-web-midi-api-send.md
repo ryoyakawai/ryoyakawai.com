@@ -14,7 +14,7 @@ MIDI OUT 機能の実装はまだでした。が、それがもうすぐ来そ�
 何がいいかと言うと、JavaScript でプログラムを書けばブラウザから MIDI 機器をブリブリ操作できるようになるところです。
 「MIDI 機器をコンピュータから操作する場合って <a href="http://japan.steinberg.net/" target="_blank">Cubase</a>、<a href="https://www.apple.com/jp/logic-pro/" target="_blank">Logic</a>、<a href="http://ja.wikipedia.org/wiki/Vision_(%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2)">Vision</a> とかの DAW からでしょ？」という固定概念がありそうですが、これからはWebブラウザから MIDI 機器を操作する時代がやってくるのです^^ 「でもそのJavaScriptとか操作って難しいんでしょ〜？」ってあたりは、
 先日公開した <a href="https://github.com/ryoyakawai/WebMIDIAPIWrapper" target="_blank">Web MIDI API Wrapper</a> を使うと簡単に解決できると思いますよ！
-（このブログで<a href="http://localhost:4000/2013/08/webmidiapi-wrapper.html" target="_blank">説明</a>もしています）
+（このブログで<a href="https://ryoyakawai.com/blog/2013/08/webmidiapi-wrapper.html" target="_blank">説明</a>もしています）
 
 
 さて、本題の「もうすぐ来るよ」なところです。Google Chrome にはいくつかバージョンがあり、
