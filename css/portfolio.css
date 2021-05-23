@@ -10,6 +10,15 @@ body {
   min-width: 500px;
 }
 
+h1.top {
+  margin: 10px 0 -5px 0!important;
+}
+h1.title {
+  font-size: 1.7em;
+  margin: 30px 0 -5px 0;
+  text-shadow: 1px 1px 2px rgb(134 134 134 / 60%);
+}
+
 h2 {
   margin: 5px 0px;
 }
@@ -18,8 +27,9 @@ h3 {
   font-size: 1.5em;
   margin: 30px 0 -5px 0;
 }
-h3.top {
-  margin: 10px 0 -5px 0!important;
+
+h3, h2, span#title-name {
+  text-shadow: 1px 1px 2px rgb(134 134 134 / 60%);
 }
 
 font.subtitle {
@@ -38,7 +48,8 @@ li.more-space  {
 }
 
 p.less-space-top,
-ul.less-space-top  {
+ul.less-space-top,
+ol.less-space-top  {
   margin-top: 5px;
 }
 p.less-space-bottom,
@@ -280,9 +291,6 @@ div#profile_link {
 #profile .detail-a {
   margin:5px 30px;
 }
-h3, h2#myname, span#title-name {
-  text-shadow: 1px 1px 2px rgb(134 134 134 / 60%);
-}
 .invisible {
   display: none;
 }
@@ -323,6 +331,8 @@ h3.tech-writing {
   margin-top: 20px;
 }
 h4.sub-title {
+  border-left: 4px solid #2ea7eb;
+  padding-left: 4px;
   margin-bottom: 5px;
 }
 
