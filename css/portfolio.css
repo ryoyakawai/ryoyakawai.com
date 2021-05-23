@@ -56,6 +56,9 @@ p.less-space-bottom,
 ul.less-space-bottom  {
   margin-bottom: 5px;
 }
+ul.more-space-bottom  {
+  margin-bottom: 13px;
+}
 
 ul.skill-nostyle li{
   margin-bottom: 5px;
