@@ -340,6 +340,9 @@ span#emoji {
 img.clickable {
   cursor: pointer;
 }
+img.v-align-bottom {
+  vertical-align:bottom;
+}
 
 div.preparing-content {
   position: absolute;
