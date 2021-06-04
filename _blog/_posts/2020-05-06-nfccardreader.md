@@ -4,7 +4,7 @@ title: ブラウザで動く「交通系カードリーダアプリ」を作っ�
 description: ""
 date: 2020-05-06 00:00:00 +0900
 modified: 2020-05-06
-tags: [Web USB, Web]
+tags: [Web USB, Web, Google I/O]
 image:
 #  feature: abstract-3.jpg
 #  credit: dargadgetz
