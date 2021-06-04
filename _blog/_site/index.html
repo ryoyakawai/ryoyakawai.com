@@ -160,6 +160,71 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2021-06-04T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html">June 04, 2021</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" rel="bookmark" title="Web USBを使ってSuicaを読み取りWebアプリに入力する。" itemprop="url">Web USBを使ってSuicaを読み取りWebアプリに入力する。</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<h2 id="これは何">これは何？</h2>
+<p>Web USBで接続したNFCカードリーダからSuicaの情報を読み取ってWebアプリに入力するデモです。<br />
+入力先のWebアプリは開発者向けのアカウントを用意してくださっている<a href="https://www.cybozu.com/" target="_blank">サイボウズ社</a>の<a href="https://kintone.cybozu.co.jp/" target="_blank">kintone</a>を利用しました。</p>
+
+<h2 id="経緯">経緯</h2>
+<p>1年ほど前にSuicaを読む<a href="https://ryoyakawai.com/apps/nfccardreader/" target="_blank">[Webアプリ]</a> <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[Blog]</a> を公開しています。今回はその続編で「現実的なユースケース」を入れてより身近に感じられるようにしてみた、という感じです。</p>
+
+<p>あっ、それからGoogle I/O 2021にも刺激されて「何かしたい」と感じたのも1つの経緯ですね（汗）この辺りを観て刺激されています。</p>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=0UiaD059eqM" target="_blank">What’s new for the web platform | Keynote</a></li>
+  <li><a href="https://www.youtube.com/watch?v=EK1AkxgQwro" target="_blank">Excalidraw and Fugu: Improving core user journeys | Session</a></li>
+</ul>
+
+<p>「NativeアプリでできることをWebでも可能にしたい！」という考えで動いている Project Fugu🐡（Web Capabilities Project） は個人的にとても良いなー、っていつも思っています。Web MIDIに思い入れが強いし、Web＆デバイスが好きだからこそかもしれませんけど、とにかくWebの未来を感じるしワクワクしますw<br />
+ちなみに、Project Fuguの現在の状況はこんな感じです → <a href="https://fugu-tracker.web.app/" target="_blank">Fugu API Tracker</a></p>
+
+<h2 id="デモ動画">デモ動画</h2>
+<p>デモの中では<a href="https://www.sony.co.jp/Products/felica/business/products/RC-S380.html" target="_blank">Sony社のRC-S380/sというカードリーダ</a>を使っていまして、入力は以下の3ステップ。</p>
+
+<ol>
+  <li>カードリーダを接続</li>
+  <li>読み込みたいカードをカードリーダに乗せる</li>
+  <li>kintoneアプリ内の読み込みボタンをタップ</li>
+  <li>入力したいテキストエリアにフォーカスして、入力したい項目をクリック</li>
+</ol>
+
+<p>扱いはとても簡単です。こんな機能が出張精算のアプリにに組み込まれたら便利だなー、と思います。<br />
+「現代は多くの人がモバイルSuicaだよねーっ！」という難点はありますw</p>
+<div class="post-image-center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P6vl_s74_kU?start=51" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+
+<p>動画内の右上のカメラの映像は<a href="https://twitter.com/massie_g" target="_blanl">@massie_g</a>の<a href="https://qiita.com/massie_g/items/b9863e4366cfed339528" target="_blank">「WebRTCに使うデバイスを選択するには（＋おまけ）」</a>に書いてあったWebアプリを使わせていただきました。PinPもできてすごく便利でした！ありがとうございました！</p>
+
+<h2 id="感想">感想</h2>
+<p>いろいろありコードが公開できないのが残念ですが、Webの未来が少しでも見てもらえたなら嬉しいです。<br />
+そして、Web USBじゃないけど、、、kintoneの柔軟性に驚きました。JavaScriptを使うことはできるけど、何か制約があってWeb USBとか使えないかも、、、と思ってましたがあっさり動作してビックリ。kintoneは業務用途のアプリケーションプラットフォームなので、バーコードを読むハンディースキャナとか、その他のデバイスをWeb USBだったり、Web Bluetoothなどを経由して使えるようになると、もっともっと業務効率化のネタが出てきてをおもしろいんじゃないかな？なんてWebとデバイス好きな自分は感じました。</p>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2020-12-31T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html">December 31, 2020</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -485,48 +550,6 @@ Reading time ~1 minute
 </ul>
 
 <p>CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2019-12-22T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">December 22, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html" rel="bookmark" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" itemprop="url">「自家製チャーシュー ちょっと甘め」のレシピを追加！</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p><a href="https://cookpad.com/recipe/5959089">「自家製チャーシュー ちょっと甘め」</a></p>
-
-<p>大勝軒の自家製チャーシューの作り方のメモ<a href="https://cookpad.com/recipe/5211424">「自家製チャーシューの作り方」</a>を公開してから1年半くらい。<br />
-美味しいけど、ちょっと醤油辛い、出汁がどうしても余るのが気になってたのを改善してできたメニューです😊<br />
-ちょうどいい出汁の量になって、そのままでも醤油辛くもなく、単独でも美味しく、またご飯の上にのせてチャーシュー丼にしてもいけるチャーシューになりました。
-お試しいただけると嬉しいです。つくれぽもおまちしております！</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-00.jpg" width="48%" style="border-radius:4px; margin-right:2px" />
-<img src="https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-01.jpg" width="48%" style="border-radius:4px;" />
-</div>
-
-<h3 id="自家製チャーシュー-ちょっと甘め">自家製チャーシュー ちょっと甘め</h3>
-<div class="post-image-center">
-<script src="https://widgets.cookpad.com/recipes/5959089.js?k=38fc25f2" type="text/javascript"></script>
-</div>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

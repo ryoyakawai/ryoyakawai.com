@@ -6,15 +6,15 @@
 <head>
 
 <meta charset="utf-8">
-<title>WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた &#8211; Delicious Days</title>
+<title>Web USBを使ってSuicaを読み取りWebアプリに入力する。 &#8211; Delicious Days</title>
 <meta name="description" content="">
-<meta name="keywords" content="Advent Calender 2012, Web Music, Web MIDI API">
+<meta name="keywords" content="Web USB, felica, kintone">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@ryoyakawai">
-<meta name="twitter:title" content="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた">
-<meta name="twitter:text:title" content="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた">
+<meta name="twitter:title" content="Web USBを使ってSuicaを読み取りWebアプリに入力する。">
+<meta name="twitter:text:title" content="Web USBを使ってSuicaを読み取りWebアプリに入力する。">
 <meta name="twitter:creator" content="@ryoyakawai">
 <meta name="twitter:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
 <meta name="twitter:description" content="">
@@ -24,16 +24,16 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:type" content="summary">
 <meta property="og:image" content="https://ryoyakawai.com/blog/images/background_sf_pano_300x300.jpg">
-<meta property="og:title" content="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた">
+<meta property="og:title" content="Web USBを使ってSuicaを読み取りWebアプリに入力する。">
 <meta property="og:description" content="">
-<meta property="og:url" content="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html">
-<meta property="og:site_name" content="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた">
+<meta property="og:url" content="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html">
+<meta property="og:site_name" content="Web USBを使ってSuicaを読み取りWebアプリに入力する。">
 
 
 
 
 
-<link rel="canonical" href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html">
+<link rel="canonical" href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html">
 <link href="https://ryoyakawai.com/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Delicious Days Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -138,9 +138,9 @@
     <header class="header-title">
       <div class="header-title-wrap entry-header">
         
-          <h1 class="entry-title entry-title-post header-title-text"><a href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html" rel="bookmark" title="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた">WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた</a></h1>
+          <h1 class="entry-title entry-title-post header-title-text"><a href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" rel="bookmark" title="Web USBを使ってSuicaを読み取りWebアプリに入力する。">Web USBを使ってSuicaを読み取りWebアプリに入力する。</a></h1>
         
-        <h2><span class="entry-date date published"><time datetime="2012-12-25T00:00:00+09:00">December 25, 2012</time></span></h2>
+        <h2><span class="entry-date date published"><time datetime="2021-06-04T00:00:00+09:00">June 04, 2021</time></span></h2>
 <!--
         
         <p class="entry-reading-time">
@@ -172,44 +172,58 @@ Reading time ~1 minute
     .pocket-btn {display:inline-block; height:20px; vertical-align:top;}
     .fb-like span {vertical-align: inherit !important}
   </style>
-  <a href="http://b.hatena.ne.jp/entry/https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+  <a href="http://b.hatena.ne.jp/entry/https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" class="hatena-bookmark-button" data-hatena-bookmark-title="Delicious Days" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
   <a class="twitter-share-button" href="https://twitter.com/share" data-via="ryoyakawai">Tweet</a>
-  <div class="fb-like" data-href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+  <div class="fb-like" data-href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
   <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
 </div>
 
 
       <div> </div>
-<p><a href="https://adventar.org/calendars/22" taget="_blank">Web Music Developers JPのアドベントカレンダー</a>の12月25日の記事です！</p>
 
-<p>前回、前々回とWeb MIDI APIのレビューと<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blanl">エミュレーションライブラリ(WebMIDIAPIShim:Polyfill)</a>を使ったMIDI INのサンプルを紹介してきました。MIDI INを紹介したのでMIDI OUTで何か作ろうと頭をひねったのですが「やっぱりMIDIファイルプレーヤーがいいかな〜？」という結論になりました。ちょっと思い返したら、12月2日のアドベントカレンダーで <a href="https://twitter.com/toyoshim" target="_blank">@toyoshim</a> さんが「<a hrer="http://toyoshim.blogspot.jp/2012/12/webmidilink.html" target="_blank">WebMidiLinkで遊んでみた</a>」と題してSMFプレーヤーを公開されていることに気がつき、横着応用をして対応することにしましたf(^-^;) 数行の改変ですので、改変に関しては文字で説明させていただき、動作に関しては動画でお送りすることにしました。曲はYs2のオープニングでMIDIデータは<a href="http://poteto.sakura.ne.jp/music_ys2.html" target="_blank">OnLine Game Friend’s</a>からダウンロードして使用しています。</p>
+<h2 id="これは何">これは何？</h2>
+<p>Web USBで接続したNFCカードリーダからSuicaの情報を読み取ってWebアプリに入力するデモです。<br />
+入力先のWebアプリは開発者向けのアカウントを用意してくださっている<a href="https://www.cybozu.com/" target="_blank">サイボウズ社</a>の<a href="https://kintone.cybozu.co.jp/" target="_blank">kintone</a>を利用しました。</p>
 
-<div>
-  <youtube-play contentid="5TKIaDrxMsI" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2012/12/20121225-webmidi.png" start="0" autoplay="1" rel="0" controls="0" showinfo="0" allowfullscreen="1"></youtube-play>
-</div>
+<h2 id="経緯">経緯</h2>
+<p>1年ほど前にSuicaを読む<a href="https://ryoyakawai.com/apps/nfccardreader/" target="_blank">[Webアプリ]</a> <a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" target="_blank">[Blog]</a> を公開しています。今回はその続編で「現実的なユースケース」を入れてより身近に感じられるようにしてみた、という感じです。</p>
 
-<p>原理はWebMIDLinkでは別ウィンドウに開いているWebシンセを鳴らす為にpostMessage() (HTML5 Web Messaging)を使い独自メッセージ(ほぼMIDIメッセージです)を送っていますが、このデモではそれをWeb MIDI APIのgetOutput()で取得したMIDIデバイスにsend()メソッドを使って送信しています。</p>
+<p>あっ、それからGoogle I/O 2021にも刺激されて「何かしたい」と感じたのも1つの経緯ですね（汗）この辺りを観て刺激されています。</p>
 
-<p>またデモではエミュレーションライブラリとプラグイン(<a href="http://jazz-soft.net/" target="_blank">Jazz-Soft.netのJazz-Plugin</a>)を使っていますが、数行のJavaScriptだけでMIDI機器を手軽に操ることのできる時代がそこまで来ていると思うとワクワクしちゃっていますf(^-^;)
-ちなみに今年2012年はMIDIの仕様が正式に世の中に出て30周年の節目(あと数日ですが、、、)。その節目の年にWeb MIDI APIという形で、もっと世の中に浸透するといいですね。</p>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=0UiaD059eqM" target="_blank">What’s new for the web platform | Keynote</a></li>
+  <li><a href="https://www.youtube.com/watch?v=EK1AkxgQwro" target="_blank">Excalidraw and Fugu: Improving core user journeys | Session</a></li>
+</ul>
 
-<p>Web MIDI API 2nd WDについて3回に分けての紹介してきました。せっかくなので、すっごく簡単なまとめとしてスライドにもしましたので、もしよろしかったらどうぞ！！
-（追記：Web MIDI APIの仕様は日に日に更新されています。2013年1月8日の段階で既にこの説明の説明からは変更されていますのでご注意ください。）</p>
+<p>「NativeアプリでできることをWebでも可能にしたい！」という考えで動いている Project Fugu🐡（Web Capabilities Project） は個人的にとても良いなー、っていつも思っています。Web MIDIに思い入れが強いし、Web＆デバイスが好きだからこそかもしれませんけど、とにかくWebの未来を感じるしワクワクしますw<br />
+ちなみに、Project Fuguの現在の状況はこんな感じです → <a href="https://fugu-tracker.web.app/" target="_blank">Fugu API Tracker</a></p>
 
+<h2 id="デモ動画">デモ動画</h2>
+<p>デモの中では<a href="https://www.sony.co.jp/Products/felica/business/products/RC-S380.html" target="_blank">Sony社のRC-S380/sというカードリーダ</a>を使っていまして、入力は以下の3ステップ。</p>
+
+<ol>
+  <li>カードリーダを接続</li>
+  <li>読み込みたいカードをカードリーダに乗せる</li>
+  <li>kintoneアプリ内の読み込みボタンをタップ</li>
+  <li>入力したいテキストエリアにフォーカスして、入力したい項目をクリック</li>
+</ol>
+
+<p>扱いはとても簡単です。こんな機能が出張精算のアプリにに組み込まれたら便利だなー、と思います。<br />
+「現代は多くの人がモバイルSuicaだよねーっ！」という難点はありますw</p>
 <div class="post-image-center">
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/yfJ0SGZBEj4KkH" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/P6vl_s74_kU?start=51" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </div>
-<div style="margin-bottom:5px" class="post-image-center"> <strong> <a href="//www.slideshare.net/ryoyakawai/web-midiapi-2ndwd" title="Web MIDI API 2nd WD" target="_blank">Web MIDI API 2nd WD</a> </strong> from <strong><a href="https://www.slideshare.net/ryoyakawai" target="_blank">Ryoya Kawai</a></strong> </div>
 
-<p>というネタでWeb Music Developers JPの2012年のアドベントカレンダーを〆させて頂きます！！</p>
+<p>動画内の右上のカメラの映像は<a href="https://twitter.com/massie_g" target="_blanl">@massie_g</a>の<a href="https://qiita.com/massie_g/items/b9863e4366cfed339528" target="_blank">「WebRTCに使うデバイスを選択するには（＋おまけ）」</a>に書いてあったWebアプリを使わせていただきました。PinPもできてすごく便利でした！ありがとうございました！</p>
 
-<hr />
+<h2 id="感想">感想</h2>
+<p>いろいろありコードが公開できないのが残念ですが、Webの未来が少しでも見てもらえたなら嬉しいです。<br />
+そして、Web USBじゃないけど、、、kintoneの柔軟性に驚きました。JavaScriptを使うことはできるけど、何か制約があってWeb USBとか使えないかも、、、と思ってましたがあっさり動作してビックリ。kintoneは業務用途のアプリケーションプラットフォームなので、バーコードを読むハンディースキャナとか、その他のデバイスをWeb USBだったり、Web Bluetoothなどを経由して使えるようになると、もっともっと業務効率化のネタが出てきてをおもしろいんじゃないかな？なんてWebとデバイス好きな自分は感じました。</p>
 
-<p>Web Music Developers JPのアドベントカレンダーは2012年10月初旬の発足以来、実質的に最初のイベントでした。顔を合わせていないにも関わらず、たくさんの方にご賛同いただき、そして何よりもお忙しい師走の時期にお時間を裂いていただき、楽しい＆興味深い＆ハイレベルな内容のネタをご提供いただき本当にありがとうございました。心から御礼申し上げます。皆様の記事のお陰で僕自身は間違いなく毎日アドベントした毎日でしたが、僕と同じように多くの方がアドベントした毎日をお送り頂けたと信じております。今後もWeb Music Developers JPのコミュニティ活動は継続し発展をして行きたいと考えておりますので、今後ともどうぞよろしくおねがいいたします。</p>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="https://ryoyakawai.com/blog/tags/#Advent Calender 2012" title="Pages tagged Advent Calender 2012" class="tag"><span class="term">Advent Calender 2012</span></a><a href="https://ryoyakawai.com/blog/tags/#Web Music" title="Pages tagged Web Music" class="tag"><span class="term">Web Music</span></a><a href="https://ryoyakawai.com/blog/tags/#Web MIDI API" title="Pages tagged Web MIDI API" class="tag"><span class="term">Web MIDI API</span></a></span>
-        <span>Updated on <span class="entry-date date updated"><time datetime="2012-12-25">December 25, 2012</time></span></span>
+        <span class="entry-tags"><a href="https://ryoyakawai.com/blog/tags/#Web USB" title="Pages tagged Web USB" class="tag"><span class="term">Web USB</span></a><a href="https://ryoyakawai.com/blog/tags/#felica" title="Pages tagged felica" class="tag"><span class="term">felica</span></a><a href="https://ryoyakawai.com/blog/tags/#kintone" title="Pages tagged kintone" class="tag"><span class="term">kintone</span></a></span>
+        <span>Updated on <span class="entry-date date updated"><time datetime="2021-06-04">June 04, 2021</time></span></span>
         <span class="author vcard"><span class="fn">Ryoya Kawai</span></span>
       </footer>
     </div><!-- /.entry-content -->
@@ -217,12 +231,12 @@ Reading time ~1 minute
     <div class="read-more">
   
   <div class="read-more-header">
-    <a href="https://ryoyakawai.com/blog/2012/12/20/webmidiapi-samplecode.html" class="read-more-btn">Read More</a>
+    <a href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html" class="read-more-btn">Read More</a>
   </div><!-- /.read-more-header -->
   <div class="read-more-content">
-    <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" title="Web USBを使ってSuicaを読み取りWebアプリに入力する。">Web USBを使ってSuicaを読み取りWebアプリに入力する。</a></h3>
-    <span class="read-more-next">Published on June 04, 2021</span>
-    <p> <a href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html">Continue reading</a></p>
+    <h3 class="read-more-next"><a href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html" title="2020年の振り返り">2020年の振り返り</a></h3>
+    <span class="read-more-next">Published on December 31, 2020</span>
+    <p> <a href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html">Continue reading</a></p>
   </div><!-- /.read-more-content -->
   <!-- Adsense -->
   <!-- Here to paste Adsense -->
@@ -231,13 +245,13 @@ Reading time ~1 minute
   <div class="read-more-list">
     
     <div class="list-item">
-      <h4><a href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html" title="2020年の振り返り">2020年の振り返り</a></h4>
-      <span>Published on December 31, 2020</span>
+      <h4><a href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" title="GitHub Codespacesを使ってみた。">GitHub Codespacesを使ってみた。</a></h4>
+      <span>Published on August 05, 2020</span>
     </div><!-- /.list-item -->
     
     <div class="list-item">
-      <h4><a href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" title="GitHub Codespacesを使ってみた。">GitHub Codespacesを使ってみた。</a></h4>
-      <span>Published on August 05, 2020</span>
+      <h4><a href="https://ryoyakawai.com/blog/2020/08/02/studying-english.html" title="TOEIC受験の為に英語を勉強してみて。">TOEIC受験の為に英語を勉強してみて。</a></h4>
+      <span>Published on August 02, 2020</span>
     </div><!-- /.list-item -->
     
   </div><!-- /.read-more-list -->
