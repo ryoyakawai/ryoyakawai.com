@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ed487dc7ed4f46bae04",
-    "url": "css/app.36020867.css"
+    "revision": "3299ad8659d6c68cfc51",
+    "url": "css/app.d90c9965.css"
   },
   {
     "revision": "df98d6f3521336f89215",
@@ -84,6 +84,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/pwa-icons/android-chrome-96x96.png"
   },
   {
+    "revision": "d03c603d290b37b1d9b865785cc124e4",
+    "url": "images/pwa-icons/maskable_icon-192x192.png"
+  },
+  {
+    "revision": "b0b251d2d49975a8c10005d69e7a449c",
+    "url": "images/pwa-icons/maskable_icon-512x512.png"
+  },
+  {
     "revision": "90100a77a007e8c854092e1e260df1c3",
     "url": "images/webautio-ctrls/knobs/ANGEL_Sewage_62x62knob.png"
   },
@@ -116,19 +124,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/logo.63a7d78d.svg"
   },
   {
-    "revision": "e91d8787a7be3fcd6da99299ef1710e4",
+    "revision": "6fc2dee1ae985682d0f60521bbfda70d",
     "url": "index.html"
   },
   {
-    "revision": "8ed487dc7ed4f46bae04",
-    "url": "js/app.11dd4c3a.js"
+    "revision": "3299ad8659d6c68cfc51",
+    "url": "js/app.04706c02.js"
   },
   {
     "revision": "df98d6f3521336f89215",
     "url": "js/chunk-vendors.fd0ed48d.js"
   },
   {
-    "revision": "542cc5c52d17a3c60e1ceb675f914e2e",
+    "revision": "1f5b8e813feef158a2d24c3f4f4fe0d0",
     "url": "manifest.json"
   },
   {
