@@ -52,32 +52,36 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/favicon_ico.png"
   },
   {
-    "revision": "c23806284d66e5eddf8971e99aa70f27",
+    "revision": "7baed9d3df63afdf15416c2d50ca9132",
     "url": "images/pwa-icons/android-chrome-128x128.png"
   },
   {
-    "revision": "ef5cd3bba2d06a56311b938277a9fe70",
+    "revision": "131991995b6cd65f0c934232a531446d",
+    "url": "images/pwa-icons/android-chrome-144x144.png"
+  },
+  {
+    "revision": "c96986710e8ac65e7503371cc9d69709",
+    "url": "images/pwa-icons/android-chrome-180x180.png"
+  },
+  {
+    "revision": "9b8a252a127e393105b8c3fba94879aa",
     "url": "images/pwa-icons/android-chrome-192x192.png"
   },
   {
-    "revision": "1e57bd48d1c6abf0ddc81c0bc0f15b93",
+    "revision": "ef39489780047171ec6b8db5a3e3aacb",
+    "url": "images/pwa-icons/android-chrome-48x48.png"
+  },
+  {
+    "revision": "77a3c347772b1f54fe61661a576e51f7",
     "url": "images/pwa-icons/android-chrome-512x512.png"
   },
   {
-    "revision": "52ecf6a8729d44caba82d8bbdedec92d",
+    "revision": "8c3eec77dc5bb8661e25948af39b7a73",
     "url": "images/pwa-icons/android-chrome-72x72.png"
   },
   {
-    "revision": "f61a3afe3c6c5db76a9bb2a5b626905e",
+    "revision": "87b843940e5c9182ef1bf142e9aafc5d",
     "url": "images/pwa-icons/android-chrome-96x96.png"
-  },
-  {
-    "revision": "ef5cd3bba2d06a56311b938277a9fe70",
-    "url": "images/pwa-icons/android-chrome-maskable-192x192.png"
-  },
-  {
-    "revision": "1e57bd48d1c6abf0ddc81c0bc0f15b93",
-    "url": "images/pwa-icons/android-chrome-maskable-512x512.png"
   },
   {
     "revision": "90100a77a007e8c854092e1e260df1c3",
@@ -124,7 +128,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/chunk-vendors.fd0ed48d.js"
   },
   {
-    "revision": "6df394c31c4dbf60a6881743fca7a404",
+    "revision": "542cc5c52d17a3c60e1ceb675f914e2e",
     "url": "manifest.json"
   },
   {
