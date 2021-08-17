@@ -84,6 +84,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "images/pwa-icons/android-chrome-96x96.png"
   },
   {
+    "revision": "fd3bbd121f845c603b1f2021406a866a",
+    "url": "images/pwa-icons/fb-ogp-200x200.png"
+  },
+  {
     "revision": "d03c603d290b37b1d9b865785cc124e4",
     "url": "images/pwa-icons/maskable_icon-192x192.png"
   },
@@ -124,7 +128,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/logo.63a7d78d.svg"
   },
   {
-    "revision": "a3bd36f26b5968bcca078b56b2dab103",
+    "revision": "4e53c38ff432037b08f2fc4b9f1b7eb1",
     "url": "index.html"
   },
   {
