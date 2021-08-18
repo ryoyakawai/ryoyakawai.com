@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.030160cf7456a58eb9a6b86eb5490c67.js"
+  "precache-manifest.18e8d52e27fb8159e9a547061404d41a.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "ewi4000s-editor-web"});

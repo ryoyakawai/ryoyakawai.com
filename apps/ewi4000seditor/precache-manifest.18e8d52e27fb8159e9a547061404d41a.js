@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "00d14c40551d97ed2028",
-    "url": "css/app.fcc02c20.css"
+    "revision": "80fa7db82d45a9faaa64",
+    "url": "css/app.8ccf8fe8.css"
   },
   {
     "revision": "df98d6f3521336f89215",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "26071d242d45e29cfb07c9e524395656",
     "url": "images/akai-professional-1.svg"
+  },
+  {
+    "revision": "acd3bde59d337672fd36fe9f1a75005d",
+    "url": "images/akai_pro_logo.png"
   },
   {
     "revision": "dd0aeff19c013db0037d9b5acf9cfbe0",
@@ -128,12 +132,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "img/logo.63a7d78d.svg"
   },
   {
-    "revision": "ed6462d211dc404018464a9605b24da4",
+    "revision": "a2a3e1335a89c3072e6a1c8d1a08f294",
     "url": "index.html"
   },
   {
-    "revision": "00d14c40551d97ed2028",
-    "url": "js/app.fced1e99.js"
+    "revision": "80fa7db82d45a9faaa64",
+    "url": "js/app.9aa41959.js"
   },
   {
     "revision": "df98d6f3521336f89215",
