@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-29T11:45:49+09:00</updated><id>http://localhost:4000/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>2021年の振り返り</title><link href="http://localhost:4000/2021/12/29/year-end-summary.html" rel="alternate" type="text/html" title="2021年の振り返り" /><published>2021-12-29T00:00:00+09:00</published><updated>2021-12-29T00:00:00+09:00</updated><id>http://localhost:4000/2021/12/29/year-end-summary</id><content type="html" xml:base="http://localhost:4000/2021/12/29/year-end-summary.html">&lt;div&gt; &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="https://ryoyakawai.com/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://ryoyakawai.com/blog/" rel="alternate" type="text/html" /><updated>2021-12-29T11:45:49+09:00</updated><id>https://ryoyakawai.com/blog/</id><title>Delicious Days</title><subtitle>Life is delicious every day.</subtitle><entry><title>2021年の振り返り</title><link href="https://ryoyakawai.com/blog/2021/12/29/year-end-summary.html" rel="alternate" type="text/html" title="2021年の振り返り" /><published>2021-12-29T00:00:00+09:00</published><updated>2021-12-29T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2021/12/29/year-end-summary</id><content type="html" xml:base="https://ryoyakawai.com/blog/2021/12/29/year-end-summary.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;2021年&quot;&gt;2021年&lt;/h2&gt;
 &lt;p&gt;オリンピック、コロナ対策ワクチン接種など大きめのイベントがあった2021年。まだ3日残ってますがスキー場での年越しになるので早めにまとめちゃいます。&lt;br /&gt;
@@ -34,8 +34,8 @@
 &lt;p&gt;それからクリスマスには「ローストチキンを作る」イベントをアンロック。個人的には大きな一歩だったように思います。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2021/12/20211229_roasted_chicken.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2021/12/20211229_tomato_spagetti.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2021/12/20211229_roasted_chicken.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2021/12/20211229_tomato_spagetti.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;「せっかく食べるなら少しでも美味しく作りたい」という気持ちが強まったのか仕込みをワリとしっかりしたのが今年で、
@@ -84,7 +84,7 @@
 個人的にはいろいろと考え込むこともあったけど「まぁいいか！」と言い聞かせ、その先に進んでみたら自分自身にとって見えてなかった部分が見えてきた、みたいな1年でした。&lt;br /&gt;
 そして何よりも、家族含めて大きな病気も怪我もせず1年を過ごせたことに感謝です！来年も今年の後半のように進めるといいな、と願いつつスキーで2021年を納めてきます！！&lt;/p&gt;
 
-&lt;p&gt;それでは、よいお年を！&lt;/p&gt;</content><category term="summary" /><category term="年末" /><summary></summary></entry><entry><title>Web USBを使ってSuicaを読み取りWebアプリに入力する。</title><link href="http://localhost:4000/2021/06/04/webusb-felica-kintone-demo.html" rel="alternate" type="text/html" title="Web USBを使ってSuicaを読み取りWebアプリに入力する。" /><published>2021-06-04T00:00:00+09:00</published><updated>2021-06-04T00:00:00+09:00</updated><id>http://localhost:4000/2021/06/04/webusb-felica-kintone-demo</id><content type="html" xml:base="http://localhost:4000/2021/06/04/webusb-felica-kintone-demo.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;それでは、よいお年を！&lt;/p&gt;</content><category term="summary" /><category term="年末" /><summary></summary></entry><entry><title>Web USBを使ってSuicaを読み取りWebアプリに入力する。</title><link href="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html" rel="alternate" type="text/html" title="Web USBを使ってSuicaを読み取りWebアプリに入力する。" /><published>2021-06-04T00:00:00+09:00</published><updated>2021-06-04T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo</id><content type="html" xml:base="https://ryoyakawai.com/blog/2021/06/04/webusb-felica-kintone-demo.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
 &lt;p&gt;Web USBで接続したNFCカードリーダからSuicaの情報を読み取ってWebアプリに入力するデモです。&lt;br /&gt;
@@ -123,7 +123,7 @@
 
 &lt;h2 id=&quot;感想&quot;&gt;感想&lt;/h2&gt;
 &lt;p&gt;いろいろありコードが公開できないのが残念ですが、Webの未来が少しでも見てもらえたなら嬉しいです。&lt;br /&gt;
-そして、Web USBじゃないけど、、、kintoneの柔軟性に驚きました。JavaScriptを使うことはできるけど、何か制約があってWeb USBとか使えないかも、、、と思ってましたがあっさり動作してビックリ。kintoneは業務用途のアプリケーションプラットフォームなので、バーコードを読むハンディースキャナとか、その他のデバイスをWeb USBだったり、Web Bluetoothなどを経由して使えるようになると、もっともっと業務効率化のネタが出てきてをおもしろいんじゃないかな？なんてWebとデバイス好きな自分は感じました。&lt;/p&gt;</content><category term="Web USB" /><category term="felica" /><category term="kintone" /><summary></summary></entry><entry><title>2020年の振り返り</title><link href="http://localhost:4000/2020/12/31/summary-of-2020.html" rel="alternate" type="text/html" title="2020年の振り返り" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>http://localhost:4000/2020/12/31/summary-of-2020</id><content type="html" xml:base="http://localhost:4000/2020/12/31/summary-of-2020.html">&lt;div&gt; &lt;/div&gt;
+そして、Web USBじゃないけど、、、kintoneの柔軟性に驚きました。JavaScriptを使うことはできるけど、何か制約があってWeb USBとか使えないかも、、、と思ってましたがあっさり動作してビックリ。kintoneは業務用途のアプリケーションプラットフォームなので、バーコードを読むハンディースキャナとか、その他のデバイスをWeb USBだったり、Web Bluetoothなどを経由して使えるようになると、もっともっと業務効率化のネタが出てきてをおもしろいんじゃないかな？なんてWebとデバイス好きな自分は感じました。&lt;/p&gt;</content><category term="Web USB" /><category term="felica" /><category term="kintone" /><summary></summary></entry><entry><title>2020年の振り返り</title><link href="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html" rel="alternate" type="text/html" title="2020年の振り返り" /><published>2020-12-31T00:00:00+09:00</published><updated>2020-12-31T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/12/31/summary-of-2020</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/12/31/summary-of-2020.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;2020年&quot;&gt;2020年&lt;/h2&gt;
 &lt;p&gt;今年もあと24時間を切りました！&lt;br /&gt;
@@ -185,7 +185,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 その他、今までと同じように難しいこともあるだろうけど、美味しいものを食べて、元気にやっていこうと思っています。&lt;/p&gt;
 
 &lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
-&lt;p&gt;よいお年を🐮！！&lt;/p&gt;</content><category term="summary" /><category term="年末" /><summary></summary></entry><entry><title>GitHub Codespacesを使ってみた。</title><link href="http://localhost:4000/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>http://localhost:4000/2020/08/05/github-codespaces</id><content type="html" xml:base="http://localhost:4000/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;よいお年を🐮！！&lt;/p&gt;</content><category term="summary" /><category term="年末" /><summary></summary></entry><entry><title>GitHub Codespacesを使ってみた。</title><link href="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html" rel="alternate" type="text/html" title="GitHub Codespacesを使ってみた。" /><published>2020-08-05T00:00:00+09:00</published><updated>2020-08-05T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/05/github-codespaces</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/05/github-codespaces.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;短いまとめ&quot;&gt;短いまとめ&lt;/h2&gt;
 &lt;p&gt;GitHub Codespacesを使ってみた時の感想です。&lt;/p&gt;
@@ -241,7 +241,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 &lt;p&gt;まだJekyllを動かすくらいでしか試してないけど、使い方によっては便利に使えそう、という感想です。とはいえ、開発環境自体もクラウド側に吸収されると開発者としては楽になる一方で、学ぶ場が減っちゃわない？って心配も浮かびました。&lt;br /&gt;
 それからVS Codeで、ここ最近かなり使われてる感があるからVS CodeのExtensionを公開することに対しては未来がありそう、という印象も持ってます。&lt;br /&gt;
 何はともあれ今後に期待。というか「emacsだったりviはIDEですか？」って聞いてみたいw
-あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。&lt;/p&gt;</content><category term="GitHub" /><category term="Tool" /><summary></summary></entry><entry><title>TOEIC受験の為に英語を勉強してみて。</title><link href="http://localhost:4000/2020/08/02/studying-english.html" rel="alternate" type="text/html" title="TOEIC受験の為に英語を勉強してみて。" /><published>2020-08-02T00:00:00+09:00</published><updated>2020-08-02T00:00:00+09:00</updated><id>http://localhost:4000/2020/08/02/studying-english</id><content type="html" xml:base="http://localhost:4000/2020/08/02/studying-english.html">&lt;div&gt; &lt;/div&gt;
+あと、このコンテナっていつまで保持されるんだろう？というのも気になるところですが、追って調査するということにします。&lt;/p&gt;</content><category term="GitHub" /><category term="Tool" /><summary></summary></entry><entry><title>TOEIC受験の為に英語を勉強してみて。</title><link href="https://ryoyakawai.com/blog/2020/08/02/studying-english.html" rel="alternate" type="text/html" title="TOEIC受験の為に英語を勉強してみて。" /><published>2020-08-02T00:00:00+09:00</published><updated>2020-08-02T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/08/02/studying-english</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/08/02/studying-english.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;h2 id=&quot;短いまとめ&quot;&gt;短いまとめ&lt;/h2&gt;
 &lt;p&gt;TOEICで880点に達したときの「それまでの道のり」と「何にでも壁ってあるのだな〜」と感想を持ったときのお話です。&lt;/p&gt;
@@ -335,7 +335,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 
 &lt;h2 id=&quot;蛇足&quot;&gt;蛇足&lt;/h2&gt;
 &lt;p&gt;試験の1-2時間前に「Monster Energy」（エナジードリンク）を飲んでドーピングしました。これが集中力を高めるのに効果があったように思います。&lt;br /&gt;
-効果には個人差がありますし、また利尿作用が高いので用法、用量を守って正しくご使用ください😅&lt;/p&gt;</content><category term="English" /><category term="TOEIC" /><summary></summary></entry><entry><title>ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</title><link href="http://localhost:4000/2020/05/06/nfccardreader.html" rel="alternate" type="text/html" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" /><published>2020-05-06T00:00:00+09:00</published><updated>2020-05-06T00:00:00+09:00</updated><id>http://localhost:4000/2020/05/06/nfccardreader</id><content type="html" xml:base="http://localhost:4000/2020/05/06/nfccardreader.html">&lt;div&gt; &lt;/div&gt;
+効果には個人差がありますし、また利尿作用が高いので用法、用量を守って正しくご使用ください😅&lt;/p&gt;</content><category term="English" /><category term="TOEIC" /><summary></summary></entry><entry><title>ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</title><link href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" rel="alternate" type="text/html" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" /><published>2020-05-06T00:00:00+09:00</published><updated>2020-05-06T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2020/05/06/nfccardreader</id><content type="html" xml:base="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://w3c.github.io/web-nfc/&quot;&gt;Web NFC&lt;/a&gt;を調べてて、実はWebUSBで&lt;a href=&quot;https://bit.ly/35wE8nl&quot;&gt;Sony PaSoRi（パソリ） RC-S380&lt;/a&gt;を読む為の&lt;a href=&quot;https://www.sony.co.jp/Products/felica/business/products/ICS-DCWC1.html&quot;&gt;ドライバ&lt;/a&gt;があることを知り、せっかく見つけたし、スマホ版のリーダはあるけど、ブラウザから読み取れるのは出会ったことがないので作り始めました。&lt;br /&gt;
 以下がアプリへのリンクですが、動作には「Sony PaSoRi（パソリ） RC-S380」が必須です。このリーダは公的認証にも使えるものなので、もしかすると最近は持ってる人は少なくないかも？とか思ってます。&lt;/p&gt;
@@ -344,7 +344,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;a href=&quot;//ryoyakawai.com/apps/nfccardreader/&quot; target=&quot;_blank&quot; style=&quot;align-items:center; justify-content:center; display:flex;&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2020/05/20200506-nfccardreader-00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2020/05/20200506-nfccardreader-00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 
@@ -356,7 +356,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://qiita.com/YasuakiNakazawa/items/3109df682af2a7032f8d&quot;&gt;[PASMO] FeliCa から情報を吸い出してみる - FeliCaの仕様編 - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。&lt;/p&gt;</content><category term="Web USB" /><category term="Web" /><category term="Google I/O" /><summary></summary></entry><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="http://localhost:4000/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>http://localhost:4000/2019/12/22/roasted-pork</id><content type="html" xml:base="http://localhost:4000/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
+&lt;p&gt;CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。&lt;/p&gt;</content><category term="Web USB" /><category term="Web" /><category term="Google I/O" /><summary></summary></entry><entry><title>「自家製チャーシュー ちょっと甘め」のレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html" rel="alternate" type="text/html" title="「自家製チャーシュー ちょっと甘め」のレシピを追加！" /><published>2019-12-22T00:00:00+09:00</published><updated>2019-12-22T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/12/22/roasted-pork</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://cookpad.com/recipe/5959089&quot;&gt;「自家製チャーシュー ちょっと甘め」&lt;/a&gt;&lt;/p&gt;
 
@@ -366,14 +366,14 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 お試しいただけると嬉しいです。つくれぽもおまちしております！&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/12/20191222-roasted-pork-00.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/12/20191222-roasted-pork-01.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-00.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; margin-right:2px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/12/20191222-roasted-pork-01.jpg&quot; width=&quot;48%&quot; style=&quot;border-radius:4px;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;自家製チャーシュー-ちょっと甘め&quot;&gt;自家製チャーシュー ちょっと甘め&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5959089.js?k=38fc25f2&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Immersive Web Meetupを開催したよ！</title><link href="http://localhost:4000/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>http://localhost:4000/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="http://localhost:4000/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><summary></summary></entry><entry><title>Immersive Web Meetupを開催したよ！</title><link href="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html" rel="alternate" type="text/html" title="Immersive Web Meetupを開催したよ！" /><published>2019-09-13T00:00:00+09:00</published><updated>2019-09-13T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/09/13/immersive-web-meetup.html">&lt;div style=&quot;margin-bottom:5px&quot;&gt; &lt;/div&gt;
 
 &lt;p&gt;2019年9月13日（金）にメルカリさんで「Immersive Web Meetup」を開催しました。&lt;br /&gt;
 9月16日から1週間の日程でTPAC（W3C年次会議）が福岡であり、せっかくの機会なのでTPACに参加されるついでに東京に立ち寄るW3C関係者の方々をお招きして
@@ -401,7 +401,7 @@ WFHの正直な感想は以下です。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1dlZ3ThCDsYqv6QEuDi07tkK0KC3D3IxfNY4uhHa2KPc/&quot;&gt;（スライドはこちら）&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_01.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_01.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 Web Audioが最初に実装された2010年から今までの経緯、そしてこれから議論が始まる &lt;b&gt;Audio Device Client&lt;/b&gt; の紹介と続きました。  
@@ -415,7 +415,7 @@ Web Audioが最初に実装された2010年から今までの経緯、そして�
 &lt;p&gt;&lt;a href=&quot;https://docs.google.com/presentation/d/1ukRQLp1H_gl7NMB5UZR8JMtH-qlcy37-lyNeXtGjyhE/&quot;&gt;（スライドはこちら）&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_02.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_02.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 WebXRのキーとなるピース、そしてウェブでのVR、ARの状況（実装方法も含む）、そしてW3CのでのVR、ARを扱うImmersive Web WGの状況、
@@ -429,7 +429,7 @@ WebXRを簡単に実装できるThree.jsやA Frame経由でも利用できるこ
 &lt;h3 id=&quot;playcanvasで始めるwebxr---羽賀-流登&quot;&gt;「PlayCanvasで始めるWebXR」 - 羽賀 流登&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start; margin-bottom:0&quot;&gt;
 &lt;div&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_03.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_03.png&quot; width=&quot;180px&quot; style=&quot;margin-top:10px&quot; /&gt;
 &lt;/div&gt;
 &lt;div style=&quot;margin-left: 20px; width:80%&quot;&gt;
 WebXRやるならPlayCanvasががとても良い、というお話。実例、またそのデモも含めた内容でした。  
@@ -447,22 +447,22 @@ Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い
 
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0&quot;&gt;
   &lt;div style=&quot;display:flex;flex-direction:column;align-items:flex-start;width:45%;text-align:center&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_chris_hongchan.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_chris_hongchan.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;左2人目から、Hongchan、Chris、えーじさん&lt;/div&gt;
   &lt;/div&gt;
   &lt;div style=&quot;width:45%;margin-left:10px&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_haga.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_haga.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;羽賀さん&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;post-image-center&quot; style=&quot;display:flex;flex-direction:row;align-items:flex-start;margin-bottom:0&quot;&gt;
   &lt;div style=&quot;display:flex;flex-direction:column;align-items:flex-start;width:45%;text-align:center&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_ikkou_manpuku.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_ikkou_manpuku.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div&gt;&lt;a href=&quot;https://www.twitter.com/ikkou&quot; target=&quot;_blank&quot;&gt;WebXRの@ikkouさん&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div style=&quot;float:none;width:45%;margin-left:10px&quot;&gt;
-    &lt;div&gt;&lt;img src=&quot;http://localhost:4000/images/2019/09/20190913_musubi.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/09/20190913_musubi.jpg&quot; style=&quot;margin-bottom:0px&quot; /&gt;&lt;/div&gt;
     &lt;div style=&quot;margin:auto&quot;&gt;オススメの&lt;a href=&quot;http://www.manpukumusubi.com/&quot; target=&quot;_blank&quot;&gt;「まんぷくにぎり」のおむすび&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -472,7 +472,7 @@ Meetup全体に関しては、WebXRとWebAudio(Music)が一緒にMeetupを行い
   &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The receptionists at yesterday&amp;#39;s event were famous people &lt;a href=&quot;https://twitter.com/sisidovski?ref_src=twsrc%5Etfw&quot;&gt;@sisidovski&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/kosamari?ref_src=twsrc%5Etfw&quot;&gt;@kosamari&lt;/a&gt; &lt;a href=&quot;https://t.co/AzVL3d6nEL&quot;&gt;pic.twitter.com/AzVL3d6nEL&lt;/a&gt;&lt;/p&gt;&amp;mdash; Eiji Kitamura / えーじ (@agektmr) &lt;a href=&quot;https://twitter.com/agektmr/status/1172862027162800128?ref_src=twsrc%5Etfw&quot;&gt;September 14, 2019&lt;/a&gt;&lt;/blockquote&gt; &lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
   &lt;div&gt;豪華受付の方々！ありがとうございました！&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><category term="Web Music" /><category term="WebXR" /><category term="Meetup" /><summary></summary></entry><entry><title>パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！</title><link href="http://localhost:4000/2019/08/04/pandaex-chowmein.html" rel="alternate" type="text/html" title="パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！" /><published>2019-08-04T00:00:00+09:00</published><updated>2019-08-04T00:00:00+09:00</updated><id>http://localhost:4000/2019/08/04/pandaex-chowmein</id><content type="html" xml:base="http://localhost:4000/2019/08/04/pandaex-chowmein.html">&lt;div&gt; &lt;/div&gt;
+&lt;/div&gt;</content><category term="Web Music" /><category term="WebXR" /><category term="Meetup" /><summary></summary></entry><entry><title>パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！</title><link href="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html" rel="alternate" type="text/html" title="パンダエクスプレスのChow Mein（中華風焼きそば）風なレシピを追加！" /><published>2019-08-04T00:00:00+09:00</published><updated>2019-08-04T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/08/04/pandaex-chowmein.html">&lt;div&gt; &lt;/div&gt;
 
 &lt;p&gt;やっと追加のみんな大好きパンダエクスプレスの「&lt;a href=&quot;https://cookpad.com/recipe/5771364&quot;&gt;Chow Mein、やきそば、チョーメン&lt;/a&gt;」！！&lt;br /&gt;
 自分で言うのもアレですが、パンダのそれよりも少し上品な味になってるかも😅&lt;br /&gt;
@@ -480,15 +480,15 @@ BBQとか定番の「ソース焼きそば」に飽きたら是非！我が家�
 （本家パンダエクスプレスの&lt;a href=&quot;https://www.pandaexpress.com/menu/sides/chow-mein&quot;&gt;Chow Meinはこちら&lt;/a&gt;）&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/08/20190804-chowmein_00.jpg&quot; width=&quot;90%&quot; style=&quot;border-radius:4px;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/08/20190804-chowmein_00.jpg&quot; width=&quot;90%&quot; style=&quot;border-radius:4px;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;焼きそば-chowmein-チョーメン&quot;&gt;焼きそば-ChowMein-チョーメン&lt;/h3&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
 &lt;script src=&quot;https://widgets.cookpad.com/recipes/5771364.js?k=fcd0a8a9&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><category term="パンダエクスプレス" /><summary></summary></entry><entry><title>AndroidアプリをBitriseでCIする。</title><link href="http://localhost:4000/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>http://localhost:4000/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="http://localhost:4000/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
-&lt;p&gt;「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
-Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;http://localhost:4000/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
+&lt;/div&gt;</content><category term="Cookpad" /><category term="料理" /><category term="パンダエクスプレス" /><summary></summary></entry><entry><title>AndroidアプリをBitriseでCIする。</title><link href="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html" rel="alternate" type="text/html" title="AndroidアプリをBitriseでCIする。" /><published>2019-07-25T00:00:00+09:00</published><updated>2019-07-25T00:00:00+09:00</updated><id>https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00</id><content type="html" xml:base="https://ryoyakawai.com/blog/2019/07/25/ci-android-bitrise-00.html">&lt;h2 id=&quot;これは何&quot;&gt;これは何？&lt;/h2&gt;
+&lt;p&gt;「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」のCircleCIをBitriseに変更した時のメモです。&lt;br /&gt;
+Bitriseの設定のみを書いていこうと思いますので、詳細は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html&quot;&gt;AndroidアプリをCircleCIでCIする。&lt;/a&gt;」を御覧ください。&lt;/p&gt;
 
 &lt;h2 id=&quot;概要&quot;&gt;概要&lt;/h2&gt;
 &lt;h3 id=&quot;bitrise&quot;&gt;Bitrise&lt;/h3&gt;
@@ -516,8 +516,8 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;h3 id=&quot;アプリを追加する&quot;&gt;アプリを追加する&lt;/h3&gt;
 &lt;p&gt;下右図のように、ターゲットになるリポジトリを指定してアプリを追加します。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee; margin-right: 5px&quot; /&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_01.png&quot; width=&quot;48%&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_00.png&quot; width=&quot;48%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee; margin-right: 5px&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_01.png&quot; width=&quot;48%&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;workflowの設定画面を表示する&quot;&gt;Workflowの設定画面を表示する&lt;/h3&gt;
@@ -526,7 +526,7 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 次にWorkflowのタブをクリック（下図(2)）して表示します。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_workflow00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_workflow00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;タスクを追加する&quot;&gt;タスクを追加する&lt;/h3&gt;
@@ -540,14 +540,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 
 &lt;p&gt;赤四角の中の2つを追加する。&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190725_bitrise_addtask00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190725_bitrise_addtask00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-gradle-runnerの追加&quot;&gt;＞ Gradle Runnerの追加&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Android Unit Test&lt;/strong&gt; のアイコンの直下にある「＋」ボタン（下図（1））をクリックして、「Gradle Runner」で検索すると絞込まれて表示されますので
 クリックして追加します。（下図(2)）&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_gradlerunner00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
@@ -558,14 +558,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_gradlerunner01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_gradlerunner01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h4 id=&quot;-beta-virtual-device-testing-for-androidの追加&quot;&gt;＞ [BETA] Virtual Device Testing for Androidの追加&lt;/h4&gt;
 &lt;p&gt;先程追加した&lt;strong&gt;Gradle Runner&lt;/strong&gt; の次に追加しますので、直下にある「＋」ボタン（下図（1））をクリックして、「[BETA] Virtual」で検索します。すると絞込まれて表示されますので
 クリックして追加します。（下図(2)）&lt;/p&gt;
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_virtualdevice00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice00.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;追加すると設定画面が表示されますので以下の2つの四角を変更します。&lt;/p&gt;
@@ -576,7 +576,7 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 &lt;/ul&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_virtualdevice01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_virtualdevice01.png&quot; width=&quot;80%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;なお、&lt;strong&gt;Test devices&lt;/strong&gt; はサンプルアプリに &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion 26&lt;/code&gt; と指定しているので26以上に設定しています。&lt;br /&gt;
@@ -584,14 +584,14 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
 テスト用のAPK(&lt;code class=&quot;highlighter-rouge&quot;&gt;app-debug-androidTest.apk&lt;/code&gt;)が作成されず、&lt;strong&gt;API path&lt;/strong&gt; で使う環境変数の &lt;strong&gt;$BITRISE_APK_PATH&lt;/strong&gt; に &lt;code class=&quot;highlighter-rouge&quot;&gt;app-release-unsigned.apk&lt;/code&gt;等に指定あれてしまい
 &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; が動作できずエラーになりますので、確実に変更するようにしてください。&lt;/p&gt;
 
-&lt;p&gt;ちなみに、この &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; は「&lt;a href=&quot;http://localhost:4000/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」
+&lt;p&gt;ちなみに、この &lt;strong&gt;[BETA] Virtual Device Testing for Android&lt;/strong&gt; は「&lt;a href=&quot;https://ryoyakawai.com/blog/2019/07/16/ci-android-firebase-00.html&quot;&gt;Firebase Test LabでUI Testを実行する&lt;/a&gt;」
 でも紹介しているのと同じくGCPコマンドから &lt;a href=&quot;https://console.cloud.google.com/marketplace/details/google/testing.googleapis.com&quot;&gt;Cloud Testing API(Firebase Test Lab)&lt;/a&gt; をラップして使っているようです。&lt;/p&gt;
 
 &lt;h3 id=&quot;実行する&quot;&gt;実行する&lt;/h3&gt;
 &lt;p&gt;以上でUI Testまで実行できるようになったはずなので画面内にある &lt;strong&gt;[Start/Schedule a Build]&lt;/strong&gt; ボタンをクリックしてビルドを実行します。&lt;/p&gt;
 
 &lt;div class=&quot;post-image-center&quot;&gt;
-&lt;img src=&quot;http://localhost:4000/images/2019/07/20190726_bitrise_start_button00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
+&lt;img src=&quot;https://ryoyakawai.com/blog/images/2019/07/20190726_bitrise_start_button00.png&quot; width=&quot;30%&quot; style=&quot;border-radius:4px; border:1px solid #eeeeee;&quot; /&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;おわりに&quot;&gt;おわりに&lt;/h2&gt;
