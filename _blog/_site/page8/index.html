@@ -160,6 +160,114 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2018-05-27T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html">May 27, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/05/27/fitbit-clockface.html" rel="bookmark" title="Fitbit OS向けのClock Faceを開発してみた" itemprop="url">Fitbit OS向けのClock Faceを開発してみた</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p><a href="http://amzn.asia/flUA9LK">Fitbit Versa</a>を買って1ヶ月くらいとっても便利に使ってて満足なんだけど「タイムゾーンを2つ表示できるClock Faceがあったらもっと便利だな〜」とは思ってはいて、<a href="https://dev.fitbit.com/build/guides/clockfaces/">ググってみたらJavaScriptで開発できる</a>って書いてったので試してみました。</p>
+
+<h2 id="fitbit-versaとは">Fitbit Versaとは</h2>
+<p>所謂スマートウォッチで、心拍計、歩数計、睡眠計(と表現したらよいのかな？)とかがついてて、基本的にフィットネス向けです。スマホのアプリからユーザログインを行い、スマートウォッチのセンサが取得した時系列のデータはペアリングしているスマホからクラウドにアップロードされる、というよくある仕組みです。</p>
+
+<p>デバイス自体に関して、デザイン的にもスッキリしていて、それでいて軽く、交換用ベルトも豊富でとても好印象です。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/05/20180527_Versa.jpg" width="70%" />
+</div>
+
+<h2 id="開発のいろは">開発のいろは</h2>
+<p><a href="https://www.fitbit.com/fitbitos">Fitbit OS</a>とはFitbit社の開発しているOSで、現在のところFitbit社のFitbit IonicとFitbit Versaに搭載されています。ここからはこのOS上での開発について、Clock Faceを開発した経験から少しご紹介します。</p>
+
+<p>開発に関してデバイス周辺の接続図を簡単に描くと以下のようにつながります。母艦となるスマホとはBluetoothで接続されていますが開発はBluetooth経由で行うわけではなく、それぞれの機器がインターネットにWi-Fiで直接接続してFitbit社が用意したクラウドを経由することでやりとりが行われます。</p>
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/05/20180527_sdk_connection.jpg" width="70%" />
+</div>
+
+<h3 id="fitbit-studioの準備と開発そして実機へのデプロイ">Fitbit Studioの準備と、開発、そして実機へのデプロイ</h3>
+<p>アプリにせよ、Clock Faceにせよ開発は<a href="https://dev.fitbit.com/blog/2017-09-26-fitbit-sdk-preview-get-started/"><strong>Fitbit Studio</strong></a>というブラウザで動作するIDE上で行います。コードのアップロードがドラッグ＆ドロップでしかできないところが不便だった（2018年5月27日現在）ので、CLI（Command-line interface）が提供されることを期待しています。（<a href="https://community.fitbit.com/t5/SDK-Development/Fitbit-CLI-Command-Line-Tool-Or-all-Fitbit-Studio/td-p/2163131">開発中かも</a>）。</p>
+
+<p>実機（スマホとスマートウォッチ）にFitbit Studioからコードを送る準備は以下のような手順です。実機側からFitbit社のクラウドへの接続を行います。Fitbit Studioはユーザログインが必要になっており、このユーザログインで利用したメールアドレスとスマホでログインしたメールアドレスとが同じである場合に紐付けられ、先ほどクラウドに接続した実機がFitbit Studioの接続メニューにリストされ、開発者がFitbit Studioから接続を行う、という準備をします。</p>
+
+<p>デプロイはFitbit Studioで<strong>Run</strong>をクリックすると開始されます。コンパイルされて、上記の図のCode（青色の矢印）の流れでFitbit Studioに接続された実機（スマホとスマートウォッチ）にデプロイされます。</p>
+
+<h3 id="開発言語">開発言語</h3>
+<p>Fitbit OS上のアプリは<a href="http://jerryscript.net/">JerryScript</a>で開発することになります。JerryScriptとは、ハードウェアからの制約が大きな、例えばIoTデバイスで使われることを想定しているLightweightなJavaScriptです。Fitbit OSがJerryScriptを使ったことが<a href="https://js.foundation/blog/2018/02/07/javascript-internet-things-jerryscript-fitbit-ionic">JS Foundiationの記事</a>にもなっています。
+スマホ側で設定画面を用意する場合はJSXを使います。ちなみに、ES6 Modules, Arrow Function、Classは利用することができました。</p>
+
+<p>開発に関しての公式ドキュメントは<a href="https://dev.fitbit.com/">こちら</a>です。気になる方はご覧になってください。</p>
+
+<h3 id="デバッグ">デバッグ</h3>
+<p>デバッグする場合のログはFitbit Studioへ送られ、Consoleとして表示されます。（Logの流れは上図のオレンジ色のLogの矢印）Chrome DevToolsのコンソールのようにArray、Objectがすべて展開されての表示ではないので、少し勝手が違うところはあります。</p>
+
+<h3 id="アプリclock-faceの公開">アプリ、Clock Faceの公開</h3>
+<p>開発したアプリ、Clock Faceは<a href="https://dev.fitbit.com/blog/2017-11-17-app-gallery-submit/">公開してFitbit Gallery（以下「ギャラリ」と略）に並べることが可能</a>です。
+<a href="https://gam.fitbit.com/apps">Fitbit Gallery App Manager(GAM)</a>に以下の項目をを入力して、Fitbit社のレビュー受けて通過すると公開されるようです。以下はClock Faceの公開時に記入、アップロードが必要だった項目です。</p>
+
+<ul>
+  <li>タグ（Analog, Digital, Status Heabyの3つから1つ以上を選択）</li>
+  <li>サポート情報（メールアドレス、または、サポートウェブサイトのURL）</li>
+  <li>アプリ名</li>
+  <li>アプリの説明</li>
+  <li>スクリーンショット（Clock FaceはFitbit Studioから取得可能）</li>
+  <li>コード本体のアップロード（Fitbit Stusioから所得したhoge.fbaというファイル）</li>
+  <li>コードのVersion情報</li>
+</ul>
+
+<h2 id="今回の開発したclock-face">今回の開発したClock Face</h2>
+<p>以下のようなClock Faceを作りました。</p>
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2018/05/secondarytimezone00.png" width="50%" />
+</div>
+<p>特徴は心拍計、歩数計、消費カロリーと同時に2つのTimezoneの時間を同時に表示できる、というところです。メインのTimezoneはスマホ側の時間に合わせられ、その下に表示される時間のTimezoneはスマホから任意の時間が設定できるようになっています。改善の余地はいろいろあると思っていますが、重要なのをリストすると以下かなと思っています。</p>
+
+<ul>
+  <li>メインのTimezoneの時間の文字の色を変更できるように</li>
+  <li>12時間表示、24時間表示をユーザが指定できるように</li>
+</ul>
+
+<p>コードは<a href="https://github.com/ryoyakawai/secondarytimezone">こちらで公開しています</a>。このブログを書いている時点ではFitbitのレビュー中で、ギャラリには並んでおりませんで、リンク等は書けませんが、問題なく無事に並べられることを祈っています・・・。</p>
+
+<h2 id="感想">感想</h2>
+<p>開発自体はいつも通りで楽しかったです。提供されているSDKのAPIにはバグがあるみたいでドキュメント通り動かないところがある（<a href="https://dev.fitbit.com/build/reference/companion-api/settings/">このSettings APIは動きませんでした</a>、<a href="https://community.fitbit.com/t5/SDK-Development/SettingsStorage-getItem-from-settings-component/td-p/2577978">公式回答</a>）のですが、JavaScriptだけでここまで開発できるのは明らかに便利だし、分かりやすいし（個人的に・・・）、いい時代だな〜、と思いました。</p>
+
+<p>積み残しは、いつか実装したいと思っています。</p>
+
+<h2 id="要望とか">要望とか</h2>
+<p>以下の2つが強化されると快適になると思いました。</p>
+
+<ul>
+  <li>ファイルアップロード用のCLIの提供</li>
+  <li>Fitbit StudioとFitbit Gallery App Managerが統合しシームレスな公開作業を提供</li>
+</ul>
+
+<h2 id="リンク">リンク</h2>
+<ul>
+  <li><a href="https://dev.fitbit.com/blog/2017-09-26-fitbit-sdk-preview-get-started/">“Ready, Set, Go!” with the Fitbit SDK（公式ブログ）</a></li>
+  <li><a href="https://dev.fitbit.com/blog/2017-11-17-app-gallery-submit/">App, App, and Away! The Fitbit App Gallery is Open for Submissions（公式ブログ）</a></li>
+</ul>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2018-04-18T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/18/impossible-burger.html">April 18, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -552,76 +660,6 @@ Thank you very much for Polymer as well as Web Components.
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2018-04-05T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/05/youtube-play-polymer-element.html">April 05, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/04/05/youtube-play-polymer-element.html" rel="bookmark" title="YouTubeをキレイに埋め込めむPolymer Elementを作ってみた。" itemprop="url">YouTubeをキレイに埋め込めむPolymer Elementを作ってみた。</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <h2 id="何かが重い">何かが重い</h2>
-<p>Blogを移転の為に記事の引越しをしてみて気づいたページロードの遅さ。</p>
-
-<p>調べてみると、YouTubeの埋め込みがあると重くなることが判明。
-‘X-XSS-Protection’ってエラーが1つの埋め込みに対して1つ出るので、複数埋め込んであるとページのロードのスピードにかなり影響していました。</p>
-
-<p>どうやって解決しようか？と思い返しながらいると「時間を指定して埋め込んでもサムネイルは時間ゼロの表示になってて残念な想いをしていたこと」を思い出した。なので、例えば、ノンストップで録画したイベントの紹介をしたい場合、再生開始時間を指定して紹介してもそれができなくて、何が再生できるのかイマイチ伝えられなくて悔しかった。とか、他にもいろいろあったので、それ以上深く考えずに「じゃあPolymerも2.0になってるし、Web Componentで解決を図ってみよう」というノリで作りはじめました。</p>
-
-<h2 id="youtube-play-エレメント">youtube-play エレメント</h2>
-<p>できたのがこちら。こんな感じのがページに埋め込めます。</p>
-
-<youtube-play contentid="WsptdUFthWI" imgsrc="https://ryoyakawai.com/blog/images/2018/04/youtube-play-sample-02.png" start="1:48" autoplay="1" size="75%" rel="0" controls="1" showinfo="0" width="447.75px"></youtube-play>
-
-<p>Polymer(Web Components)のElementなのでもちろんHTMLを書くことで埋め込み完了です。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"import"</span> <span class="na">href=</span><span class="s">"[PathTo]/youtube-play.html"</span><span class="nt">&gt;</span>
-
-<span class="nt">&lt;youtube-play</span> <span class="na">contentid=</span><span class="s">"WsptdUFthWI"</span> <span class="na">imgsrc=</span><span class="s">"https://ryoyakawai.com/blog/images/2018/04/youtube-play-sample-02.png"</span> <span class="na">start=</span><span class="s">"1:48"</span> <span class="na">autoplay=</span><span class="s">"1"</span> <span class="na">size=</span><span class="s">"75%"</span> <span class="na">rel=</span><span class="s">"0"</span> <span class="na">controls=</span><span class="s">"1"</span> <span class="na">showinfo=</span><span class="s">"0"</span> <span class="na">width=</span><span class="s">"447.75px"</span><span class="nt">&gt;&lt;/youtube-play&gt;</span>
-</code></pre></div></div>
-
-<p>Attribute は以下を用意しています。</p>
-
-<ul>
-  <li><strong>contentid</strong> : YouTubeの動画にユニークに付与されるIDを指定</li>
-  <li><strong>imgsrc</strong> : YouTube動画を再生していない時に表示する画像のPathを指定</li>
-  <li><strong>start</strong> : 開始位置を指定（HH:MM:SS、秒のフォーマットのどちらでも正しくParseします）</li>
-  <li><strong>autoplay</strong> : ‘1’を指定すると、画像をクリックすると再生されます</li>
-  <li><strong>size</strong> : Window幅に対する画像、動画の幅を％で表記します（AspectRatioは16:9でFixしています）</li>
-  <li><strong>rel</strong> : ‘1’を指定すると動画再生完了後に関連リンクを表示</li>
-  <li><strong>controls</strong> : ‘1’を指定すると動画再生時にコントロール（再生、停止、シーク等）を表示</li>
-  <li><strong>showinfo</strong> : ‘1’を指定すると動画のタイトル等が動画再生時に表示されます。</li>
-</ul>
-
-<p>あまり調べずに作ったので、もっと優れたのが既に公開されているかもですのでお気をつけください。</p>
-
-<p>また、このエレメントを使っても、結局のところ’X-XSS-Protection’のエラーは再生時に発生してしまいます。ページロード時のスピードを上げることを目的としたエレメントですのでご了承ください。</p>
-
-<h2 id="リポジトリ">リポジトリ</h2>
-<p><a href="//github.com/ryoyakawai/youtube-play/" target="_blank">https://github.com/ryoyakawai/youtube-play</a></p>
-
-<h2 id="live-demo">Live Demo</h2>
-<p><a href="https://ryoyakawai.github.io/youtube-play/">Demo: youtube-play</a></p>
-
-<h2 id="動作の確認状況">動作の確認状況</h2>
-<p>2018年4月5日現在、macOS High Sierra(10.13.3)上でChrome 65.0.3325.181、Firefox 59.0.2、Safari 11.0.3で動作の確認をしています。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -704,7 +742,7 @@ Reading time ~1 minute
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2021 Ryoya Kawai.</span>
+    <span>&copy; 2022 Ryoya Kawai.</span>
 
   </footer>
 </div><!-- /.footer-wrapper -->

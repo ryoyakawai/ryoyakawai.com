@@ -160,6 +160,64 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-09-05T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/09/05/web-midi-event.html">September 05, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/09/05/web-midi-event.html" rel="bookmark" title="ついに旬がきた？！ Web Audio / Web MIDI 関連のイベントが目白押しです！！" itemprop="url">ついに旬がきた？！ Web Audio / Web MIDI 関連のイベントが目白押しです！！</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p>9月5日のGDL(Google Developers Live)はご覧になられましたか？
+「WebAudioAPIを使った音の扱い方」というタイトルで<a href="//twitter.com/g200kg" target="_blank">g200kg</a>さんが出演されました。
+基本的な使い方から、WebAudioAPIが実装されていないブラウザから使う為の
+Polyfill：<a href="https://github.com/g200kg/WAAPISim" target="_blank">WAAPIShim</a> についての説明と、とても詳しくご説明くださりかなり勉強になりました！</p>
+
+<div>
+  <youtube-play contentid="sMoQHFz2AMo" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2013/09/20130905-webaudio.png" start="0" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>そして次回、えーじさんからの告知がありました通りWeb MIDI APIについてになります。内容は以下を予定しています。</p>
+
+<ul>
+  <li>MIDIの歴史やユースケース、仕様の説明</li>
+  <li>Web MIDI APIの使い方</li>
+  <li>Web MIDI API Wrapperの説明</li>
+</ul>
+
+<p>さらに、何よりもChromeで実装を担当されています豊島さんもご一緒してくださり、とても豪華な感じになると思いますので、ご興味のある方はぜひ御覧くださいね^^</p>
+
+<p>また「Hackathonもします」と告知もありましたが、日程は10月19日、場所はGoogle Japanオフィスでやりますよ！！
+お題は「Web Audio API、Web MIDI API を使ったアプリケーションを作る」です。募集開始はもう少し先になってしまいますが、お楽しみにしててください^^
+参加を迷ってしまいそうな方は、募集開始までにHackする具体的なアイデアとか、Hackする方向性とかをモヤっと考えてるとアイデアが降りてくるかもしれないですよ！</p>
+
+<p>一例ですが、こんなのも作れちゃうんです！</p>
+
+<h4 id="アプリケーションの事例">アプリケーションの事例</h4>
+<ul>
+  <li><a href="http://aikelab.net/pg01/" target="_blank">PowerChord Guitars</a><br /></li>
+  <li><a href="http://www.g200kg.com/teburin/" target="_blank">Air Teburin</a><br /></li>
+  <li><a href="http://db.tt/i8HuvYfI" target="_blank">HE MIDI</a></li>
+</ul>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2013-08-24T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html">August 24, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -617,71 +675,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-06-01T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/06/01/webmidi-to-chrome-canary.html">June 01, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/06/01/webmidi-to-chrome-canary.html" rel="bookmark" title="Web MIDI API が Chrome Canary にやってきた!!!!" itemprop="url">Web MIDI API が Chrome Canary にやってきた!!!!</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>ついにMIDI機器をブラウザで扱える日を迎えました！！そうです、<a href="http://webaudio.github.io/web-midi-api/" target="_blank">Web MIDI API</a>です。W3C的にはもうすぐLC(Last Call:最終草案)の段階で、ここを迎えるには「2つ以上のブラウザに実装されている」ことが条件になってる1つをGoogleさんが90%以上(sendが未実装なので)超えてくださいました。感謝感謝です！！！
-オリジナルの記事は<a href="https://plus.google.com/+ChrisWilson/posts/cs4J6sS9qmJ" target="_blank">こちら</a>！！</p>
-
-<p>まずは仕様の変更点。</p>
-
-<h4 id="0-変更じゃないけどまだflag付きです">(0) 変更じゃないけど、まだflag付きです。</h4>
-<p><strong>chrome://flags/#enable-web-midi</strong><br />
-をenableにしてください。しかしながら、send() は未実装です。</p>
-
-<h4 id="1-requestmidiaccess-の引数が変更されました">(1) requestMIDIAccess の引数が変更されました。</h4>
-
-<ul>
-  <li>変更前 navigator.requestMIDIAccess( successCallback, failureCallback );</li>
-  <li>変更後 navigator.requestMIDIAccess({sysex:true/false}).then( successCallback, failureCallback );</li>
-</ul>
-
-<p>SysExで楽器の情報をDumpできちゃので、それを明示的に指定するのが目的だと思われます。今後、{sysex:true} になってる場合、ユーザに許可を求めるダイアログが出るかもしれないです。</p>
-
-<h4 id="2-event名-message-が-midimessage-に変更されました">(2) event名 message が midimessage に変更されました。</h4>
-
-<h4 id="3-getinputs---getinputidgetoutputs---getoutputidが1段階になりました">(3) getInputs() -&gt; getInput(id)、getOutputs() -&gt; getOutput(id)が、1段階になりました。</h4>
-<p>inputs()、outputs() するとMIDI機器のリストが配列が返ってきて、配列のIDを指定することでそのMIDI機器を扱えるようになります。<br />
-※ この変更で扱いが更に手軽になりました。</p>
-
-<p>変更点は以上です。
-<a href="//twitter.com/cwilso" target="_blank">Chris Wilson</a>氏の<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blank">Polifill</a>もこれらの変更に対応済みでした。</p>
-
-<p><br />
-そして今回は「Web MIDI API！！」と騒いでる自分も何かできないか？？と考えた結果、需要があるか分かりませんが事始めにテストでも書いてみることにしました。というのも、先月 Test the Web Forward という「Web標準の仕様書を見て実際にテストを書いてContributeしちゃおう！！」という<a href="http://fumit.blogspot.jp/2013/06/test-web-forward-testtwf.html" target="_blank">イベント</a>に参加してきまして、その応用でもあります。このイベントで重要なのは「みんなでテストを書いてContributeすることで、ブラウザ間のInteroperabilityを高めよう」というところだと私は理解しました。</p>
-
-<p><br />
-そしてWeb MIDI APIのテストはこれ <a href="https://dl.dropboxusercontent.com/u/695740/WebMusicDevelopersJP/WebMIDIAPITest/index.html" target="_blank">Web MIDI API Test</a><br />※スゴイモノではありませんのでびっくりしないでください(&gt;&lt;)<br />
-OSX の Chrome Canary以外で動作させるには、<a href="http://jazz-soft.net/" target="_blank">http://jazz-soft.net/</a> の Jazz-Plugin のインストールが必須です。</p>
-
-<p>このテストを使って、以下の組み合わせで動作することを確認をしました。(全てPolyfillを使ってのテストになります)ここに書いてないのは試していないだけなので、情報をいただけるとありがたいです(・ω&lt;)</p>
-<ul>
-  <li>OSX: Chrome(27.0.1453.116)、Firefox(22)、Safafi(6.0.5 (8536.30.1))、Opera(15.0.1147.132)</li>
-  <li>Windows8: IE10、Firefox(22)、Chrome(27.0.1453.110)</li>
-</ul>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -764,7 +757,7 @@ OSX の Chrome Canary以外で動作させるには、<a href="http://jazz-soft.
 
 <div class="footer-wrapper">
   <footer role="contentinfo">
-    <span>&copy; 2021 Ryoya Kawai.</span>
+    <span>&copy; 2022 Ryoya Kawai.</span>
 
   </footer>
 </div><!-- /.footer-wrapper -->
