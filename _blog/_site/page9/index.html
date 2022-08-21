@@ -160,6 +160,106 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2018-04-12T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/12/language-selector.html">April 12, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2018/04/12/language-selector.html" rel="bookmark" title="手軽にマルチ言語ページを！" itemprop="url">手軽にマルチ言語ページを！</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h2 id="手軽にマルチ言語ページを簡単に作りたかったけど">手軽にマルチ言語ページを簡単に作りたかったけど・・・</h2>
+<p>前回のページロードの遅さにつづいて第二弾。</p>
+
+<p>頻繁にではないけど、たまに多言語でBlogを書くことがありますが、恐らく読む側からするとかなりストレスがあったかな・・・と思っていました。
+日本語圏外の方は、英語ページを探さないといけない、けどそもそも探すページって日本語だよね・・・みたいな感じです。</p>
+
+<p>そして、結論を言うと「作ったけど、現在のBlogに導入するのは失うものが多そうだから導入しないだろう・・・」という結果になってしまいましたがエントリだけは書いちゃいます。せっかく作ったのでw
+「Markdownが使えるのに、このエレメントを使うとHTMLを書くことになる」ので気軽さが失われるのです。</p>
+
+<h2 id="language-selector-エレメント">language-selector エレメント</h2>
+
+<p>こんな感じで埋め込めます。</p>
+
+<div style="border:1px solid rgba(240,240,240,0.8); padding:2%; border-radius:3px; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); margin:10px 20px 15px;">
+
+<p><language-selector deflang="ja" langs="en:ja" switcher=""></language-selector></p>
+<language-selector>
+<span class="translation" lang="ja">
+こんな感じでマルチ言語対応ページがHTMLタグだけで実現可能です。<br />
+JavaScriptを書く必要はないんです :-) <br />
+Web ComponentsとPolymer、ホントにありがとう！！
+</span>
+<span class="translation" lang="en">
+This element enables to make multi language page something like this by HTML tag.<br />
+No JavaScript code is required :-)<br />
+Thank you very much for Polymer as well as Web Components.
+</span>
+</language-selector>
+
+</div>
+
+<p>コードはこんな感じです。</p>
+
+<p>言語セレクタ（「English」「日本語」と表示されてる部分）はこう書いて設置します。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;language-selector</span> <span class="na">deflang=</span><span class="s">"ja"</span> <span class="na">langs=</span><span class="s">"en:ja"</span> <span class="na">switcher</span><span class="nt">&gt;&lt;/language-selector&gt;</span>
+</code></pre></div></div>
+
+<p>Attribute は以下です。</p>
+
+<ul>
+  <li><strong>deflang</strong> : デフォルト（ページロード時）に表示される言語を指定</li>
+  <li><strong>langs</strong> : 用意している言語を<a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1(2文字のアルファベット)</a>のフォーマットでコロン(:)区切りで指定します（現状の対応言語はen、ja。）</li>
+  <li><strong>switcher</strong> : これをつけると言語セレクタとなります。（つけないとコンテンツ本体と認識します）</li>
+</ul>
+
+<p>次にコンテンツ本体です。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;language-selector&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"translation"</span> <span class="na">lang=</span><span class="s">"ja"</span><span class="nt">&gt;</span>
+    こんな感じでマルチ言語対応ページがHTMLタグだけで実現可能です。<span class="nt">&lt;br&gt;</span>
+    JavaScriptを書く必要はないんです :-) <span class="nt">&lt;br&gt;</span>
+    Web ComponentsとPolymer、ホントにありがとう！！
+  <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"translation"</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    This element enables to make multi language page something like this by HTML tag.<span class="nt">&lt;br&gt;</span>
+    No JavaScript code is required :-)<span class="nt">&lt;br&gt;</span>
+    Thank you very much for Polymer as well as Web Components.
+  <span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/language-selector&gt;</span>
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">language-selector</code> のタグの中に、適当なタグを入れ（ここでは<code class="highlighter-rouge">span</code>）、その中に書いた言語を<code class="highlighter-rouge">lang="xx"</code>で指定すれば、言語セレクタとリンクされます。
+言語セレクタの属性の <code class="highlighter-rouge">langs</code> で指定した言語のみ切替えの対象になります。</p>
+
+<p>注意：<code class="highlighter-rouge">language-selector</code>の直前に別のタグで囲むと認識してくれないバグがあります。</p>
+
+<h2 id="リポジトリ">リポジトリ</h2>
+<p><a href="//github.com/ryoyakawai/language-selector/" target="_blank">https://github.com/ryoyakawai/language-selector</a></p>
+
+<h2 id="live-demo">Live Demo</h2>
+<p><a href="https://ryoyakawai.github.io/language-selector/">Demo: language-selector</a></p>
+
+<h2 id="動作の確認状況">動作の確認状況</h2>
+<p>2018年4月12日現在、macOS High Sierra(10.13.3)上でChrome 65.0.3325.181、Firefox 59.0.2、Safari 11.0.3で動作の確認をしています。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2018-04-05T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2018/04/05/youtube-play-polymer-element.html">April 05, 2018</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -771,66 +871,6 @@ Such as:</p>
 </div>
 
 <p>Web Music Hackathon might be back. So please stay tuned!! See you next time!!</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-11-30T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2015/11/30/display-size-keyboard-touch-surface.html">November 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2015/11/30/display-size-keyboard-touch-surface.html" rel="bookmark" title="画面サイズとかキーボードとかタッチパネルとか" itemprop="url">画面サイズとかキーボードとかタッチパネルとか</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>ほぼ勢いで買ってきた <a href="https://www.asus.com/jp/Notebooks/ASUS_Chromebook_Flip_C100PA/" targert="_blank">Chromebook Flip</a> があまりにも衝撃的なデバイスだったので久々にブログにしてみた。<br />
-スマホの出現してからというもの、様々な画面サイズだったり、物理キーボードとかが試されている気がする。例えばNexusシリーズのスマホの変遷は4インチ程度から今は6インチに拡大、タブレットの変遷は10インチ、7インチ、9インチと小さくなったり大きくなったり。<br />
-そしてやっと最近日本でも購入できるようになったChromeOSなデバイスは基本キーボドがついていて、タッチパネルがついていたり、ついていなかったりしている。<br />
-<br />
-で、最近売りだされたのがChromebook Flip。このデバイスにはキーボード、タッチパネル、そして難ならキーボードはフィリップしてタブレットのようにも使える。<br /></p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2015/11/20151130-tablet-keybord.jpg" width="80%" />
-</div>
-
-<p>ユースケースを考える。<br />
-（手の大きい小さいはあるとは思うけど）個人的にはこんな印象。</p>
-
-<ul>
-  <li><strong>5インチ以下</strong>：片手でほとんど操作可能で、移動中の操作に最高、そして軽い</li>
-  <li><strong>6、7インチ</strong>：操作に両手が必要だけど画面が大きく見やすく、そこそこ軽い</li>
-  <li><strong>9、10インチ</strong>：見やすいけど、操作に大きな動きが必要、重い</li>
-</ul>
-
-<p>そして 9、10インチになるとできることが増えるので、文字入力にキーボードが欲しくなりますよね。で、Bluetoothのキーボードとか買って試すんだけど「快適」とは言いがたい・・・<br />
-<br />
-そこで気になるのがFlip的なキーボードもタッチパネルも備えてる端末。10インチなのでデカイタブレットと条件はあまり変わらない、けどキーボードとマウスがついてる。使う前は「キーボードが取り外せないのは欠点かもな・・・」と思ってた。<br />
-で使ってみると、<br /></p>
-
-<div class="post-image-center">
-<span style="font-weight:bold; font-size:1.2em;">「タブレットに戻れない・戻りたくない」</span>
-</div>
-
-<p>という結果。<br />
-で、実はタブレットに戻れない理由は「キーボードが取り外せない＆画面とキーボードが180度になる」ところにあるんじゃないかと思った。<br />
-人に依存するかもだけど、Webサイトを見ているとSNS投稿したくなったり、メール書きたくなったり、メッセンジャが飛んできたり、いろいろと割込みが入る。そしてそれらには、ある程度の文字入力が必要なもので推敲（大した文章は書けないけどw）をしたくなる場合、数文字とかステッカーで済む場合の2通りあるはず。そんな時、前者の場合ササッとキーボード・マウスで対応できる、後者の場合はタッチ操作でササッと対応できる、このどちらも自らの選択できるのが心地いいんじゃないかという予想です。<br />
-「画面とキーボードが180度」に関しては単純に寝転んで使う時にお腹でもホールドできるから僕には便利なのです。（お腹の膨らみ具合的にw）<br />
-<br />
-まとめると「Chromebook Flip最高」ということだけど、結論は「スマホの延長としてのタブレットは7インチまでじゃないかな？（6インチでも代用可）」という気がしています。（タブレットをスマホの延長として使わない場合はその限りではありません。）</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
