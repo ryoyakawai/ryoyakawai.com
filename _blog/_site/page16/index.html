@@ -160,6 +160,216 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-12-25T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html">December 25, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/25/webmidiapi-demo.html" rel="bookmark" title="WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた" itemprop="url">WebMIDIAPIShimを使ってブラウザでMIDI機器を動かしてみた</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+<p><a href="https://adventar.org/calendars/22" taget="_blank">Web Music Developers JPのアドベントカレンダー</a>の12月25日の記事です！</p>
+
+<p>前回、前々回とWeb MIDI APIのレビューと<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blanl">エミュレーションライブラリ(WebMIDIAPIShim:Polyfill)</a>を使ったMIDI INのサンプルを紹介してきました。MIDI INを紹介したのでMIDI OUTで何か作ろうと頭をひねったのですが「やっぱりMIDIファイルプレーヤーがいいかな〜？」という結論になりました。ちょっと思い返したら、12月2日のアドベントカレンダーで <a href="https://twitter.com/toyoshim" target="_blank">@toyoshim</a> さんが「<a hrer="http://toyoshim.blogspot.jp/2012/12/webmidilink.html" target="_blank">WebMidiLinkで遊んでみた</a>」と題してSMFプレーヤーを公開されていることに気がつき、横着応用をして対応することにしましたf(^-^;) 数行の改変ですので、改変に関しては文字で説明させていただき、動作に関しては動画でお送りすることにしました。曲はYs2のオープニングでMIDIデータは<a href="http://poteto.sakura.ne.jp/music_ys2.html" target="_blank">OnLine Game Friend’s</a>からダウンロードして使用しています。</p>
+
+<div>
+  <youtube-play contentid="5TKIaDrxMsI" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2012/12/20121225-webmidi.png" start="0" autoplay="1" rel="0" controls="0" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>原理はWebMIDLinkでは別ウィンドウに開いているWebシンセを鳴らす為にpostMessage() (HTML5 Web Messaging)を使い独自メッセージ(ほぼMIDIメッセージです)を送っていますが、このデモではそれをWeb MIDI APIのgetOutput()で取得したMIDIデバイスにsend()メソッドを使って送信しています。</p>
+
+<p>またデモではエミュレーションライブラリとプラグイン(<a href="http://jazz-soft.net/" target="_blank">Jazz-Soft.netのJazz-Plugin</a>)を使っていますが、数行のJavaScriptだけでMIDI機器を手軽に操ることのできる時代がそこまで来ていると思うとワクワクしちゃっていますf(^-^;)
+ちなみに今年2012年はMIDIの仕様が正式に世の中に出て30周年の節目(あと数日ですが、、、)。その節目の年にWeb MIDI APIという形で、もっと世の中に浸透するといいですね。</p>
+
+<p>Web MIDI API 2nd WDについて3回に分けての紹介してきました。せっかくなので、すっごく簡単なまとめとしてスライドにもしましたので、もしよろしかったらどうぞ！！
+（追記：Web MIDI APIの仕様は日に日に更新されています。2013年1月8日の段階で既にこの説明の説明からは変更されていますのでご注意ください。）</p>
+
+<div class="post-image-center">
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/yfJ0SGZBEj4KkH" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe> 
+</div>
+<div style="margin-bottom:5px" class="post-image-center"> <strong> <a href="//www.slideshare.net/ryoyakawai/web-midiapi-2ndwd" title="Web MIDI API 2nd WD" target="_blank">Web MIDI API 2nd WD</a> </strong> from <strong><a href="https://www.slideshare.net/ryoyakawai" target="_blank">Ryoya Kawai</a></strong> </div>
+
+<p>というネタでWeb Music Developers JPの2012年のアドベントカレンダーを〆させて頂きます！！</p>
+
+<hr />
+
+<p>Web Music Developers JPのアドベントカレンダーは2012年10月初旬の発足以来、実質的に最初のイベントでした。顔を合わせていないにも関わらず、たくさんの方にご賛同いただき、そして何よりもお忙しい師走の時期にお時間を裂いていただき、楽しい＆興味深い＆ハイレベルな内容のネタをご提供いただき本当にありがとうございました。心から御礼申し上げます。皆様の記事のお陰で僕自身は間違いなく毎日アドベントした毎日でしたが、僕と同じように多くの方がアドベントした毎日をお送り頂けたと信じております。今後もWeb Music Developers JPのコミュニティ活動は継続し発展をして行きたいと考えておりますので、今後ともどうぞよろしくおねがいいたします。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-12-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/20/webmidiapi-samplecode.html">December 20, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/20/webmidiapi-samplecode.html" rel="bookmark" title="Second Web MIDI API Working Draft のサンプルコード レビュー" itemprop="url">Second Web MIDI API Working Draft のサンプルコード レビュー</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+<p><a href="https://adventar.org/calendars/22" taget="_blank">Web Music Developers JPのアドベントカレンダー</a>の12月20日の記事です！</p>
+
+<p><strong>追記：Web MIDI APIの仕様は日に日に更新されています。2013年1月8日の段階で既にこの説明の説明からは変更されていますのでご注意ください。</strong></p>
+
+<p>前回は「<a href="https://ryoyakawai.com/blog/2012/12/webmidi-workingdraft-review.html" target="_blank">Second Web MIDI API Working Draftのレビュー</a>」を行いました。今回は<a href="https://www.w3.org/TR/webmidi/" target="_blank">Web MIDI APIのWorkingDraft 第二版</a>の末尾にあるサンプルコードのレビューを行います。とてもシンプルで分かりやすいサンプルコードになっていてとても参考になると思います。</p>
+
+<p>ではさっそくレビューにはいります。</p>
+
+<h2 id="midi機器を取得">MIDI機器を取得</h2>
+<p>MIDI機器を扱う為の準備。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">midi</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// global MIDIAccess object</span>
+
+<span class="kd">function</span> <span class="nx">onMIDISuccess</span><span class="p">(</span> <span class="nx">midiAccess</span> <span class="p">)</span> <span class="p">{</span>
+ <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"MIDI ready!"</span> <span class="p">);</span>
+ <span class="nx">midi</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">;</span>  <span class="c1">// store in the global </span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">onMIDIFailure</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"Failed to get MIDI access - "</span> <span class="o">+</span> <span class="nx">msg</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">navigator</span><span class="p">.</span><span class="nx">getMIDIAccess</span><span class="p">(</span> <span class="nx">onMIDISuccess</span><span class="p">,</span> <span class="nx">onMIDIFailure</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">getMIDIAccess</code>メソッド成功時のcallback関数を<code class="highlighter-rouge">onMIDISuccess</code>[3-6行目]とする。<code class="highlighter-rouge">onMIDISuccess</code>でGlobal変数midi[1行目]にインターフェイス<code class="highlighter-rouge">MIDIAccess</code>を代入[5行目]。<code class="highlighter-rouge">getMIDIAccess</code>メソッドがエラーとなった場合のcallback関数として<code class="highlighter-rouge">onMIDIFailure</code>[8-9行目]をと指定。</p>
+
+<h2 id="midi機器のリストアップ">MIDI機器のリストアップ</h2>
+<p>MIDI入力元、出力先を指定する為にリストアップ。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">enumerateInputsAndOutputs</span><span class="p">(</span> <span class="nx">midiAccess</span> <span class="p">)</span> <span class="p">{</span>
+ <span class="kd">var</span> <span class="nx">inputs</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">enumerateInputs</span><span class="p">();</span>
+ <span class="kd">var</span> <span class="nx">outputs</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">enumerateOutputs</span><span class="p">();</span>
+ <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+
+ <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">inputs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">inputs</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+ <span class="p">}</span>
+
+ <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">outputs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">outputs</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>インターフェイス<code class="highlighter-rouge">MIDIAccess</code>のメソッド<code class="highlighter-rouge">enumerateInputs</code>[2行目]/<code class="highlighter-rouge">enumerateOutputs</code>[3行目]を実行してMIDI機器のリストを取得して入力機器、出力機器を別々に<code class="highlighter-rouge">console.log</code>でデバッガのWebコンソールに出力[入力機器：6-8行目、出力機器：10-12行目]。</p>
+
+<h2 id="midiの入力信号を処理">MIDIの入力信号を処理</h2>
+<p>受け取ったMIDI信号を処理。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">onMIDIMessage</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s2">"MIDI message received at timestamp "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span> <span class="o">+</span> <span class="s2">"["</span> <span class="o">+</span>
+               <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">" bytes]: "</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="nx">str</span> <span class="o">+=</span> <span class="s2">"0x"</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" "</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="nx">str</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">startLoggingMIDIInput</span><span class="p">(</span> <span class="nx">midiAccess</span><span class="p">,</span> <span class="nx">indexOfPort</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">getInput</span><span class="p">(</span> <span class="nx">indexOfPort</span> <span class="p">);</span>
+  <span class="nx">input</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">onMIDIMessage</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>インターフェイス<code class="highlighter-rouge">MIDIAccess</code>のメソッドgetInputで入力機器を指定して取得[9行目]し、MIDIメッセージを受信した場合のcallback関数(onmessage)を<code class="highlighter-rouge">onMIDIMessage</code>に指定[10行目]。
+関数<code class="highlighter-rouge">onMIDIessage</code>は、MIDI入力を16進数変換して<code class="highlighter-rouge">console.log</code>でデバッガのWebコンソールに出力。</p>
+
+<h2 id="midiの出力ポートからmidi信号を出力">MIDIの出力ポートからMIDI信号を出力</h2>
+<p>MIDI信号を送信。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sendMiddleC</span><span class="p">(</span> <span class="nx">midiAccess</span><span class="p">,</span> <span class="nx">indexOfPort</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">getOutput</span><span class="p">(</span> <span class="nx">indexOfPort</span> <span class="p">);</span>
+  <span class="nx">output</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span> <span class="p">[</span><span class="mh">0x90</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mh">0x7f</span><span class="p">]</span> <span class="p">);</span>
+   <span class="c1">// note on, middle C, full velocity - omitting the timestamp means send immediately.</span>
+  <span class="nx">output</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span> <span class="p">[</span><span class="mh">0x80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">],</span> <span class="nb">window</span><span class="p">.</span><span class="nx">performance</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1000.0</span> <span class="p">);</span>
+   <span class="c1">// note off, middle C, release velocity = 64, </span>
+   <span class="c1">// timestamp = now + 1000ms.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>インターフェイス<code class="highlighter-rouge">MIDIAccess</code>のメソッド<code class="highlighter-rouge">getOutput</code>で出力機器を指定して取得[2行目]し、即座(timestampなし)に[90 60 7f]を実行するようMIDIメッセージを送信[3行目]、次に1000ms後に[80 60 40]が実行されるようMIDIメッセージを送信[4行目]。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">[90 60 7f]</code>:「MIDIポート1のC4を127の音量で発音する」というMIDIメッセージ</li>
+  <li><code class="highlighter-rouge">[80 60 40]</code>:「MIDIポート1のC4を64の速度(機器によって異なる)で発音を停止する」というMIDIメッセージ</li>
+</ul>
+
+<p>(RunningStatusの送信は許可されていません。)</p>
+
+<h2 id="midiの入力機器から受信したmidiメッセージを出力機器へ送信するloopback">MIDIの入力機器から受信したMIDIメッセージを出力機器へ送信するLoopback</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">midi</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>  <span class="c1">// global MIDIAccess object</span>
+<span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">echoMIDIMessage</span><span class="p">(</span> <span class="nx">event</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">output</span><span class="p">)</span>
+    <span class="nx">output</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">timestamp</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">onMIDISuccess</span><span class="p">(</span> <span class="nx">midiAccess</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"MIDI ready!"</span> <span class="p">);</span>
+  <span class="k">try</span> <span class="p">{</span> 
+    <span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">getInput</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+    <span class="nx">output</span> <span class="o">=</span> <span class="nx">midiAccess</span><span class="p">.</span><span class="nx">getOutput</span><span class="p">(</span> <span class="mi">0</span> <span class="p">);</span>
+    <span class="nx">input</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="nx">echoMIDIMessage</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Exception! Couldn't get i/o ports."</span> <span class="o">+</span> <span class="nx">e</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">onMIDIFailure</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s2">"Failed to get MIDI access - "</span> <span class="o">+</span> <span class="nx">msg</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">navigator</span><span class="p">.</span><span class="nx">getMIDIAccess</span><span class="p">(</span> <span class="nx">onMIDISuccess</span><span class="p">,</span> <span class="nx">onMIDIFailure</span> <span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>インターフェイス<code class="highlighter-rouge">MIDIAccess</code>を代入するGlobal変数midiを初期化[1行目]。</li>
+  <li>インターフェイス<code class="highlighter-rouge">MIDIAccess</code>のメソッドgetOutputで取得するインターフェイスMIDIOutputを代入するGlobal変数outputを初期化[2行目]。</li>
+  <li><code class="highlighter-rouge">getMIDIAccess</code>メソッド成功時のcallback関数を<code class="highlighter-rouge">onMIDISuccess</code>[9-19行目]とする[25行目]。</li>
+  <li><code class="highlighter-rouge">MIDISuccess</code>では、<code class="highlighter-rouge">getInput</code>で先頭ににリストアップされた入力機器を取得[12行目]、getOutputで先頭ににリストアップされた出力機器を取得[13行目]、MIDIメッセージを受信した場合のcallback関数として<code class="highlighter-rouge">echoMIDIMessage</code>を指定[14行目]。</li>
+  <li><code class="highlighter-rouge">echoMIDIMessage</code>では、選択した入力機器から受信したMIDIメッセージをそのまま選択した出力機器へ送信[6行目]。</li>
+</ul>
+
+<p>というのがサンプルコードになります。
+これでかなりイメージが湧くかな、と思います。</p>
+
+<p>そして、Web MIDI APIの編集者の1人である<a href="//twitter.com/cwilso" target="_blank">Chris Wilson</a>さんが公開くださっているプラグインを使ったエミュレーションライブラリ(<a href="https://github.com/cwilso/WebMIDIAPIShim" target="_blank">Polyfill</a>)を実際に使って簡単なMIDI INのみのデモを作ってみましのた！！動作にはUSB-MIDIキーボードとJazz SoftのJazz-Pluginのインストールが必須となります。こんなに簡単にUSB-MIDI機器がブラウザにつながってしまう世の中になるのか〜、って思うとワクワクしちゃいます！</p>
+
+<p><a href="http://dl.dropbox.com/u/695740/WebMusicDevelopersJP/oscillator/index.html" target="_blank">デモはこちらです！</a></p>
+
+<p>それでは次回Web Music Developers JPのAdventCalenderの最終日は、MIDI OUTなデモが作成できたらな〜、と考えています！（作成できなかった場合、すみません。。。）</p>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-12-14T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/14/webmidi-workingdraft-review.html">December 14, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -429,81 +639,6 @@ Reading time ~1 minute
 <p>まとまりのないダラダラとした説明になっていますが「Google+コミュニティいいね！」とも言いたいですが、実は「Google+いいよ〜」ともいいたいのですf(^-^;)ということで、まだ使った事ない方は使ってみると心地の良いSocialな日々が送れる思いますよ〜</p>
 
 <p>ちなみに、蛇足ですが僕はここにいます。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-12-09T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/09/coco-curry-chips.html">December 09, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/09/coco-curry-chips.html" rel="bookmark" title="CoCo壱番屋 カツカレーチップス@おやつカンパニー" itemprop="url">CoCo壱番屋 カツカレーチップス@おやつカンパニー</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>「<a href="http://www.082.oyatsu.co.jp/product/detailwindow.php?genre=babystar&amp;imageno=04314" target="_blank">CoCo壱番屋 カツカレーチップス</a>」（限定商品）です。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2012/12/20121209-coco-curry-chips-01.jpg" width="40%" />
-</div>
-
-<p>名前の通り、CoCo壱番屋のカツカレーの味がするチップスです。味の再現性が結構高いです。個人的に<a href="http://www.ichibanya.co.jp/index.html" target="_blank">CoCo壱番屋</a>のカレーって独特の味で、カレーというより「ココイチ」というジャンルを作ってもいいんじゃないか、って思ってる（もちろん悪い意味ではないですよ！）のですが、その味が再現されてておいしいチップスでした。もちろん単なるカレーの味ではなくて「カツカレー」の味の再現です。ちょっと感動しました。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2012/12/20121209-coco-curry-chips-02.jpg" width="40%" />
-</div>
-
-<p>ビールのお供に最適かな〜って思いました！限定商品らしいので、これを見かけたビール好きの方は一度お試しあれ〜！！</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-12-09T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/09/cinamonroll-lawson.html">December 09, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/09/cinamonroll-lawson.html" rel="bookmark" title="とっておき宣言 シナモンロール@ローソン" itemprop="url">とっておき宣言 シナモンロール@ローソン</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>ふらっと立ち寄ったローソンで見つけた「とっておき宣言 シナモンロール」です。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2012/12/20121209-lawson-sinamonroll.jpg" width="40%" />
-</div>
-
-<p>経験からすると、コンビニに売ってるシナモンロールって菓子パンの亜種的な食感だったり、味が薄かったりでガッカリすることが多いので、そこまで期待はしてませんでした。しかしながら今回のはレベル高かったです。味もそこそこ濃く、日本的な甘さで、かつ菓子パンの亜種の域を脱していて、おいしかったですよ〜！！
-「シナモンロールって甘過ぎるんでしょ？？」って方にもお勧めできるんじゃないかな？って思いました。</p>
-
-<p>ちょうど六本木に<a href="http://www.cinnabon-jp.com/" target="_blank">シナボン&lt;/a2&gt;が再上陸したと聞いて（できるだけ美味しい）シナモンロールを望んでたところでしたのでとても満足でした。でも、やっぱり本物食べたいので今年中にシナボン行きたいな、って思っています。（改めて比べるとシナボンのシナモンのトップの砂糖の量が相当違いそうですねf(^-^;)）</a></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
