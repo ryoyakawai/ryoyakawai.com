@@ -160,6 +160,52 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2020-05-06T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html">May 06, 2020</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2020/05/06/nfccardreader.html" rel="bookmark" title="ブラウザで動く「交通系カードリーダアプリ」を作ってみた。" itemprop="url">ブラウザで動く「交通系カードリーダアプリ」を作ってみた。</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p><a href="https://w3c.github.io/web-nfc/">Web NFC</a>を調べてて、実はWebUSBで<a href="https://bit.ly/35wE8nl">Sony PaSoRi（パソリ） RC-S380</a>を読む為の<a href="https://www.sony.co.jp/Products/felica/business/products/ICS-DCWC1.html">ドライバ</a>があることを知り、せっかく見つけたし、スマホ版のリーダはあるけど、ブラウザから読み取れるのは出会ったことがないので作り始めました。<br />
+以下がアプリへのリンクですが、動作には「Sony PaSoRi（パソリ） RC-S380」が必須です。このリーダは公的認証にも使えるものなので、もしかすると最近は持ってる人は少なくないかも？とか思ってます。</p>
+
+<p><a href="https://ryoyakawai.com/apps/nfccardreader/">交通系カードリーダ （ブラウザ版）</a></p>
+
+<div class="post-image-center">
+<a href="//ryoyakawai.com/apps/nfccardreader/" target="_blank" style="align-items:center; justify-content:center; display:flex;">
+<img src="https://ryoyakawai.com/blog/images/2020/05/20200506-nfccardreader-00.png" width="48%" style="border-radius:4px; margin-right:2px" />
+</a>
+</div>
+
+<p>仕様に関してはSonyさんが多くを公開してくださっていますし、その他はググる、GitHubのスマホアプリのコードを読んだりすることで何とかなりました。<br />
+利用した資料等は以下です。ありがとうございます！！また参考にさせていただきます🙂</p>
+<ul>
+  <li><a href="https://www.sony.co.jp/Products/felica/business/tech-support/">技術情報 - Sony Japan - FeliCa </a></li>
+  <li><a href="https://github.com/codebutler/farebot">codebutler/farebot: Read data from public transit cards using your NFC Android phone!</a></li>
+  <li><a href="https://qiita.com/YasuakiNakazawa/items/3109df682af2a7032f8d">[PASMO] FeliCa から情報を吸い出してみる - FeliCaの仕様編 - Qiita</a></li>
+</ul>
+
+<p>CSVエクスポートの機能だったり、他のカード、例えばサンフランシスコ周辺で使わるClipperカードを次に挑戦してみようかなと思ってます。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2019-12-22T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/12/22/roasted-pork.html">December 22, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -584,229 +630,6 @@ ForkもしくはCloneしてリポジトリに追加しておいてください�
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2019-07-18T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html">July 18, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2019/07/18/ci-android-espresso-00.html" rel="bookmark" title="Espresso, UI AutomatorでAndroidのUI Testを書く" itemprop="url">Espresso, UI AutomatorでAndroidのUI Testを書く</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <h2 id="これは何">これは何？</h2>
-<p>「<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">AndroidアプリをCircleCIでCIする。</a>」のUI Testの書き方について説明した記事です。
-具体的には<a href="https://github.com/ryoyakawai/uitest_sample_android">サンプルアプリ</a>の<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">UI Testであるこれ</a>の説明です。</p>
-
-<h2 id="概要">概要</h2>
-<h3 id="androidでui-testを書く">AndroidでUI Testを書く</h3>
-<p>Androidが公式にサポートしているUI Testのツールは <a href="https://developer.android.com/training/testing/espresso">Espresso</a>、
-<a href="https://developer.android.com/training/testing/ui-automator">UI Automator</a> の2種類あります。
-それぞれ以下の特徴がありますので「どちらを使うか？」については「どちらも併用して使う」のがいいように感じています。</p>
-
-<h4 id="espresso">Espresso</h4>
-<p>「to write concise, beautiful, and reliable Android UI tests」と公式サイトには説明されています。特定のアプリのUIに対してのスクリプトで動作をさせることを可能にするテストフレームワークです。単一のアプリの操作を自動化する場合に使うとよいでしょう。Google社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。<br />
-サンプルアプリではアプリの操作のすべてをEspressoで書いています。</p>
-
-<h4 id="ui-automator">UI Automator</h4>
-<p>「suitable for cross-app functional UI testing across system and installed apps.」と公式サイトに説明されている通りで、Espressoと比べると、よりAndroidのOSに近い側に位置しているテストフレームワークで、複数アプリを行き来するよう動作をスクリプトで定義することの可能です。Espressoとは違い、複数のアプリの操作を自動化する場合に使うとよいでしょう。こちらもEspressoと同じくGoogle社が開発していますので、Anroidの公式のテストツールと言ってよいでしょう。<br />
-サンプルアプリではスクリーンショットの撮影、Permissionリクエストのウィンドウの操作の2つをUI Automatorで書いています。</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2019/07/20190703-uitesttool_00.png" width="50%" />
-</div>
-
-<h3 id="espressoui-automatorでtestを書く準備をする">Espresso、UI AutomatorでTestを書く準備をする</h3>
-<p>以下の2つのファイルに追加して準備完了です。</p>
-
-<h4 id="-buildgradle-に以下を追加">＞ <code class="highlighter-rouge">build.gradle</code> に以下を追加</h4>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
-<span class="n">allprojects</span> <span class="p">{</span>
-<span class="o">....</span>
-  <span class="n">tasks</span><span class="p">.</span><span class="n">matching</span> <span class="p">{</span><span class="n">it</span> <span class="n">instanceof</span> <span class="n">Test</span><span class="p">}.</span><span class="n">all</span> <span class="p">{</span>
-    <span class="n">testLogging</span><span class="p">.</span><span class="n">events</span> <span class="p">=</span> <span class="p">[</span><span class="s">"failed"</span><span class="p">,</span> <span class="s">"passed"</span><span class="p">,</span> <span class="s">"skipped"</span><span class="p">]</span>
-  <span class="p">}</span>
-<span class="o">....</span>
-<span class="p">}</span>
-<span class="o">....</span>
-</code></pre></div></div>
-
-<h4 id="-appbuildgradle-に以下を追加"><code class="highlighter-rouge">＞ app/build.gradle</code> に以下を追加</h4>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
-<span class="n">dependencies</span> <span class="p">{</span>
-<span class="o">....</span>
-  <span class="c1">// for connected Android test
-</span>  <span class="n">androidTestUtil</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">orchestrator</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">runner</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">espresso</span><span class="p">:</span><span class="n">espresso</span><span class="p">-</span><span class="n">core</span><span class="p">:</span><span class="m">3.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">espresso</span><span class="p">:</span><span class="n">espresso</span><span class="p">-</span><span class="n">intents</span><span class="p">:</span><span class="m">3.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">.</span><span class="n">uiautomator</span><span class="p">:</span><span class="n">uiautomator</span><span class="p">-</span><span class="n">v18</span><span class="p">:</span><span class="m">2.1</span><span class="p">.</span><span class="m">3</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">test</span><span class="p">:</span><span class="n">rules</span><span class="p">:</span><span class="m">1.0</span><span class="p">.</span><span class="m">2</span><span class="err">'</span>
-  <span class="n">androidTestImplementation</span> <span class="err">'</span><span class="n">junit</span><span class="p">:</span><span class="n">junit</span><span class="p">:</span><span class="m">4.12</span><span class="err">'</span>
-<span class="o">....</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<h3 id="テストを書く">テストを書く</h3>
-<p>テストは<code class="highlighter-rouge">app/src/androidTest/[Package名]</code>以下に書いていきます。<br />
-今回のパッケージ名は <code class="highlighter-rouge">com.example.uitestsample</code> 
-ですので <a href="app/src/androidTest/java/com/example/uitestsample/"><code class="highlighter-rouge">app/src/androidTest/java/com/example/uitestsample/</code></a>
-以下にコードを書いていきます。<br />
-ファイル作成の粒度はActivity毎、Fragment毎、機能毎等、自由にまとめてしまって問題ありません。
-サンプルアプリではActivity毎でまとめて<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">MainActivityInstrumentedTest.kt</a>に書いています。</p>
-
-<h4 id="前準備">前準備</h4>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">@RunWith</span><span class="p">(</span><span class="n">AndroidJUnit4</span><span class="o">::</span><span class="k">class</span><span class="p">)</span>
-<span class="n">@SdkSuppress</span><span class="p">(</span><span class="n">minSdkVersion</span> <span class="p">=</span> <span class="m">26</span><span class="p">)</span>
-<span class="n">@LargeTest</span>
-<span class="kd">class</span> <span class="nc">MainActivityInstrumentedTest</span> <span class="p">{</span>
-
-    <span class="k">private</span> <span class="kd">val</span> <span class="py">_packageName</span> <span class="p">=</span> <span class="s">"com.example.uitestsample"</span>
-    <span class="k">private</span> <span class="kd">val</span> <span class="py">mUTs</span><span class="p">:</span> <span class="n">UiTestUtils</span> <span class="p">=</span> <span class="n">UiTestUtils</span><span class="p">()</span>
-    <span class="c1">// ^^^ ツールをインスタンス化 ^^^
-</span>
-    <span class="n">@Rule</span>
-    <span class="n">@JvmField</span>
-    <span class="kd">val</span> <span class="py">mActivityTestRule</span><span class="p">:</span> <span class="n">ActivityTestRule</span><span class="p">&lt;</span><span class="n">MainActivity</span><span class="p">&gt;</span> <span class="p">=</span>
-        <span class="n">ActivityTestRule</span><span class="p">(</span><span class="n">MainActivity</span><span class="o">::</span><span class="k">class</span><span class="p">.</span><span class="n">java</span><span class="p">)</span>
-
-    <span class="n">@Rule</span>
-    <span class="n">@JvmField</span>
-    <span class="kd">val</span> <span class="py">cGrantPermissionRule</span><span class="p">:</span> <span class="n">GrantPermissionRule</span> <span class="p">=</span>
-        <span class="n">GrantPermissionRule</span><span class="p">.</span><span class="n">grant</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="n">Manifest</span><span class="p">.</span><span class="n">permission</span><span class="p">.</span><span class="n">WRITE_EXTERNAL_STORAGE</span><span class="p">)</span>
-    <span class="c1">// ^^^ スクリーンショット保存の為にSTORAGEへのアクセスを強制的に許可 ^^^
-</span>
-    <span class="n">@Rule</span>
-    <span class="n">@JvmField</span>
-    <span class="kd">val</span> <span class="py">screenshotRule</span> <span class="p">=</span> <span class="n">ScreenshotTakingRule</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">)</span>
-    <span class="c1">// ^^^ Test失敗時をスクリーンショットを撮影するように指定 ^^^
-</span>
-    <span class="n">@Before</span>
-    <span class="k">fun</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">setActivity</span><span class="p">(</span><span class="n">mActivityTestRule</span><span class="p">.</span><span class="n">activity</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="n">@After</span>
-    <span class="k">fun</span> <span class="nf">teardown</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
-
-<span class="o">....</span>
-
-<span class="p">}</span>
-</code></pre></div></div>
-<p>「Test失敗時をスクリーンショット」の動作は <code class="highlighter-rouge">uitestutils/UiTestUtils.kt</code> の最後に定義されています。</p>
-
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
-<span class="kd">class</span> <span class="nc">ScreenshotTakingRule</span><span class="p">(</span><span class="n">mUTs</span><span class="p">:</span> <span class="n">UiTestUtils</span><span class="p">)</span> <span class="p">:</span> <span class="n">TestWatcher</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">private</span> <span class="kd">var</span> <span class="py">mUTs</span> <span class="p">=</span> <span class="n">mUTs</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">failed</span><span class="p">(</span><span class="n">e</span><span class="p">:</span> <span class="n">Throwable</span><span class="p">?,</span> <span class="n">description</span><span class="p">:</span> <span class="n">org</span><span class="p">.</span><span class="n">junit</span><span class="p">.</span><span class="n">runner</span><span class="p">.</span><span class="n">Description</span><span class="p">?)</span> <span class="p">{</span>
-        <span class="k">super</span><span class="p">.</span><span class="n">failed</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
-        <span class="kd">val</span> <span class="py">path</span> <span class="p">=</span> <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">"FAIL-$description"</span><span class="p">)</span>
-        <span class="n">mUTs</span><span class="p">.</span><span class="n">log_d</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; !!! TEST FAILED !!! &lt;&lt;&lt; ScreenShot Taken method=[$description] filename=[$path]"</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-</code></pre></div></div>
-<h4 id="テストケース">テストケース</h4>
-<p>サンプルアプリではテストケースは以下の3つです。
-「ケースとして足りない！」とかツッコミはありかもしれませんが、UI Testを動かすことを目的としていますのでご容赦ください。</p>
-
-<ul>
-  <li><code class="highlighter-rouge">useAppContext()</code>：テストしているアプリのパッケージ名を確認</li>
-  <li><code class="highlighter-rouge">checkTextHelloWorld()</code>：アプリ起動時、中心の「Hello World!」の表示を確認</li>
-  <li><code class="highlighter-rouge">checkButtonIncrementFloating()</code>：画面右下のボタンをタップすると表示している数字がカウントアップしSnackbarが表示され、またメニューからResetするとゼロになることを確認</li>
-</ul>
-
-<p><code class="highlighter-rouge">checkButtonIncrementFloating()</code> のポイントをインラインで説明します。<br />
-<a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/androidTest/java/com/example/uitestsample/MainActivityInstrumentedTest.kt">Testのコード全体はこちら</a>になりますので合わせて御覧ください。</p>
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
-<span class="n">@Test</span>
-<span class="k">fun</span> <span class="nf">checkButtonIncrementFloating</span><span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// false にすることでTestが成功した場合でもスクリーンショットを残せます。
-</span>    <span class="c1">// デフォルトでは、Testが成功するとスクリーンショットは全削除となります。
-</span>    <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">prepareScreenShot</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
-
-<span class="o">....</span>
-
-    <span class="kd">val</span> <span class="py">willTap</span> <span class="p">=</span> <span class="m">5</span>
-    <span class="c1">// 右下の赤色のFabを指定
-</span>    <span class="kd">val</span> <span class="py">incrementButton</span> <span class="p">=</span>  <span class="n">withId</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">increment_fab_text</span><span class="p">)</span>
-
-    <span class="c1">// カウンターを増加させて表示が想定通りであるか確認する
-</span>    <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">1</span><span class="o">..</span><span class="n">willTap</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// スクリーンショットを撮影
-</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"BEFORE &gt;&gt;&gt; カウンター：インクリメント IDX=[$i]"</span><span class="p">)</span>
-        <span class="c1">// 指定した赤色のFabをタップ
-</span>        <span class="n">onView</span><span class="p">(</span><span class="n">incrementButton</span><span class="p">).</span><span class="n">perform</span><span class="p">(</span><span class="n">click</span><span class="p">())</span>
-
-        <span class="c1">// Permissionリクエストが出てたら許可（このテスト中は出ないはず）
-</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">allowPermissionsIfNeeded</span><span class="p">()</span>
-
-        <span class="c1">// スクリーンショットを撮影
-</span>        <span class="n">mUTs</span><span class="p">.</span><span class="n">screenShot</span><span class="p">(</span><span class="s">""</span><span class="p">,</span> <span class="s">"AFTER &gt;&gt;&gt; カウンター：インクリメント IDX=[$i]"</span><span class="p">)</span>
-        <span class="c1">// 要素内の文字列を取得
-</span>        <span class="n">actualCount</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">getText</span><span class="p">(</span><span class="n">withId</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">main_content_text</span><span class="p">))</span>
-        <span class="c1">// ログを残す
-</span>        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">log_d</span><span class="p">(</span><span class="s">"[Counter SEQ] 🍏🍎 expected=[$i] actual=[$actualCount]"</span><span class="p">)</span>
-        <span class="c1">// 文字列をAssert
-</span>        <span class="n">assertEquals</span><span class="p">(</span><span class="s">"[Counter SEQ] 🍏🍎"</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">toString</span><span class="p">(),</span> <span class="n">actualCount</span><span class="p">)</span>
-
-        <span class="c1">// Snackbarの文言チェック
-</span>        <span class="kd">val</span> <span class="py">snackBarTapped</span> <span class="p">=</span> <span class="n">allOf</span><span class="p">(</span><span class="n">withId</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">design</span><span class="p">.</span><span class="n">R</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">snackbar_text</span><span class="p">),</span> <span class="n">withText</span><span class="p">(</span><span class="s">"Tapped $i times."</span><span class="p">))</span>
-        <span class="c1">// Snackbarがから消えるのを待つ
-</span>        <span class="n">waitForSnackbarDisappear</span><span class="p">(</span><span class="n">snackBarTapped</span><span class="p">)</span>
-        <span class="c1">// Sleepする
-</span>        <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="s">"SHR"</span><span class="p">)</span>
-    <span class="p">}</span>
-
-<span class="o">....</span>
-
-    <span class="c1">// this.mUTs.prepareScreenShot() に false をセットしていなければ
-</span>    <span class="c1">// スクリーンショットを削除する（）
-</span>    <span class="k">this</span><span class="p">.</span><span class="n">mUTs</span><span class="p">.</span><span class="n">removeSuccessScreenShots</span><span class="p">()</span>
-
-<span class="o">....</span>
-
-<span class="p">}</span>
-<span class="o">....</span>
-</code></pre></div></div>
-
-<h3 id="idが指定されていないエレメントの指定方法">IDが指定されていないエレメントの指定方法</h3>
-<p>エレメントに対してIDが振られている場合は大抵の場合そのIDを使うことで指定することが可能ですが、
-指定されていない場合は <strong>Layout Inspector</strong> （<a href="https://developer.android.com/studio/debug/layout-inspector">公式ドキュメント</a>）で階層構造を取得
-して解析をしてから、以下のように指定を行います。</p>
-
-<div class="post-image-center">
-<img src="https://ryoyakawai.com/blog/images/2019/07/20190718-layoutinspector-00.png" width="90%" />
-</div>
-
-<p>Fragmentの重なり方が操作によって変化する場合があり、表示は同じでも階層が違う場合が多々発生します。
-ですので、Layout Inspectorで階層構造を取得するときはUI Testでのシナリオ通りに一度画面を遷移させて、それから取得すると良いでしょう。</p>
-
-<h2 id="おわりに">おわりに</h2>
-<p>iOS標準のUI Testツールである<a href="https://developer.apple.com/documentation/xctest">XCTest</a>に比べると
-癖が少し強いです。とっつきにくいところもありますが、そこまで難しくはないので気になっている場合は挑戦してみてください。<br />
-自分の作ったアプリが自動で動くのを見るのも楽しいと思います。</p>
-
-<h2 id="reference">Reference</h2>
-<ul>
-  <li><a href="https://developer.android.com/training/testing/espresso">Espresso -  Android Developers</a></li>
-  <li><a href="https://developer.android.com/training/testing/ui-automator">UI Automator - Android Developers</a></li>
-</ul>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -863,7 +686,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="https://ryoyakawai.com/blog/page18/">18</a></li>
+      <li><a href="https://ryoyakawai.com/blog/page19/">19</a></li>
     
 
     

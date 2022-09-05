@@ -160,6 +160,258 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-08-24T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html">August 24, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/08/24/webmidiapi-wrapper-02.html" rel="bookmark" title="Web MIDI API Wrapper 公開したよ ^^v (2)" itemprop="url">Web MIDI API Wrapper 公開したよ ^^v (2)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p><a href="https://ryoyakawai.com/blog/2013/08/webmidiapi-wrapper.html" target="_blank">前回</a>に引き続き <a href="https://github.com/ryoyakawai/WebMIDIAPIWrapper" target="_blank">Web MIDI API Wrapper</a> についての説明です。今回は具体的な MIDI メッセージの送信の方法になります。</p>
+
+<p>本題の前に、またまた MIDI ってどこで使われているかコーナーです。
+MIDI には Show Control(MSC) という仕様があります。
+前回の Universal Studio の Water World も MSC の一例でした。今回もその続きです。
+そして Showといえば、Las Vegas かな？っていう勝手な想いがありまして、
+今回はそこで利用されている例です。<a href="http://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%B3%E3%82%BA11" target="_blank">映画 Ocean’s Eleven</a> って御存知ですか？？
+Las Vegas のカジノに泥棒に入るっていうストーリーですが、
+最後のシーンで噴水ショーがが出てくるんです。あれが Las Vegas の
+ベラージオ (<a href="http://www.bellagiolasvegas.com/ja/" target="_blank">Bellagio</a>) のショーというのは有名だと思います。なんと、あのコントロールのオリジナルのシステムは MIDI なんですよ〜！！</p>
+
+<div>
+  <youtube-play contentid="401wv1eKc2c" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2013/08/20130824-fountain.png" start="0" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>さて、本題です。前回もお伝えしましたが、Web MIDI API Wrapperは基本的な以下のメッセージに対応にしています。</p>
+
+<ul>
+  <li>NoteOn：音を鳴らす</li>
+  <li>NoteOff：音を止める</li>
+  <li>PitchBend：ピッチを上下させる</li>
+  <li>Sustain：ダンパーペダルの操作</li>
+  <li>Modulation：揺らぎ</li>
+  <li>AllSoundOff：残響、Sustainを含め即時に全ての音を止める</li>
+  <li>ResetAllController：PitchBend、After-Touchなどのコントローラを初期値に戻す</li>
+  <li>AllNoteOff：発音している音を全て止める</li>
+</ul>
+
+<p>ということで、まずは NoteOn/NoteOff についてです。
+NoteOnは「音を発音させてね」、NoteOffは「発音している音を停止させてね」
+を知らせる Message です。えっ「コンピュータで音を鳴らすんだから、
+例えばNoteOnの時にどれだけ長さ(時間)音を出すか指定しちゃえばいいじゃない。」
+という印象をお持ちの方もいらっしゃると思いますが、もともと MIDI というのは電子楽器と電子楽器を
+つなげ相互にコントロールを可能とする Protocol なので、コンピュータなら最初から音を出す時間を指定できちゃいますが、
+リアルタイムの演奏ではそれはできないですよね〜、というところから NoteOn、NoteOff に分かれているのです。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendNoteOn</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">note</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>note：鳴らすnote番号を指定</li>
+  <li>velocity：鳴らすnoteのvelocityを指定</li>
+  <li>time：音を鳴らすタイミング(いつ音を鳴らすかをミリ秒で指定)</li>
+</ul>
+
+<p>NoteOnのvelocityに関して：velocityを直訳すると「速さ、速力」ですが、MIDI機器側では音の強弱に割り当てられている場合がほとんどです。数値の目安は1：ppp、64：mpとmfの中間、127：fff というのが目安です。
+note番号に関して：中央のC(C4：ド)を60として白鍵、黒鍵関係なく鍵盤1つに対して数字が割り当てられています。
+よって、88鍵ですと21〜108まで割り当てられていることになります。
+例えばC4の右隣の白鍵D4は62、その間にある黒鍵は61です。<a href="http://upload.wikimedia.org/wikipedia/commons/7/7a/NoteNamesFrequenciesAndMidiNumbers.svg" target="_blank">note番号の図</a>  右にスクロールすると見えてきます。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendNoteOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">note</span><span class="p">,</span> <span class="nx">velocity</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>note：停止するnote番号を指定</li>
+  <li>velocity：停止するnoteのvelocityを指定</li>
+  <li>time：音を停止するタイミング(いつ音を鳴らすかをミリ秒で指定)</li>
+  <li>NoteOffのvelocityに関して：鍵盤から手を離す速度と認識する機器もあり、その場合は音の余韻の長さを指定できます。NoteOnのvelocityをゼロにしてNoteOffの代わりにすることも可能です。
+<br />
+<br /></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendProgramChange</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">programNo</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>programNo：変更する音色番号</li>
+  <li>time：適応するタイミング(いつ音色を変更するかミリ秒で指定)</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setPitchBendValue</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">center</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：設定するMIDI機器(Port)を指定</li>
+  <li>min：PitchBendの最小値</li>
+  <li>max：PitchBendの最大値</li>
+  <li>center：PitchBendの中央値(PitchBendがかかっていない状態)</li>
+  <li>PitchBendに関して：範囲は16383と決まっていますが、MIDI機器によって中央を0、または中央が8192と違う場合があります。Web MIDI API Wrapperの初期設定値は中央：8192、最小：0、最大：16383 としています。</li>
+  <li>sendPitchBend(portNo, ch, value, time);</li>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>value：適応するPitchBendの値を指定</li>
+  <li>time：適応するタイミング(いつPitchBendを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>数値に関してはここが参考になると思います。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendSustainStatus</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>status：Sustainの指定を”on”、”off”で指定</li>
+  <li>time：適応するタイミング(いつSustainを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>Sustainとは：ピアノで言うと一番右のペダルを踏んだ時の効果です。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendModulationValue</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>value：Modulationのかけ具合を数値で指定</li>
+  <li>time：適応するタイミング(いつModulationを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>Modulationとは：音の揺らぎです。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">endAllSoundOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつallSoundOffを適応すかをミリ秒で指定)</li>
+  <li>Sustainが動作していて、残響があったとしても即座に全ての音を停止する。AllNoteOffよりも強力。
+<br />
+<br /></li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendAllNoteOff</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつallNoteOffを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>その名の通りで、全てのNoteOnをNoteOffにする。よって、Sustainが動作していて残響ある場合はこの範囲ではない。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendResetAllController</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">ch</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>ch：送信先のMIDI機器(portNoで指定)のチャンネルを指定</li>
+  <li>time：適応するタイミング(いつResetAllControllerを適応すかをミリ秒で指定)</li>
+</ul>
+
+<p>PitchBend, After-Touch等のコントローラを初期値に戻す。 
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">sendRaw</span><span class="p">(</span><span class="nx">portNo</span><span class="p">,</span> <span class="nx">msg</span><span class="p">,</span> <span class="nx">time</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>portNo：送信先のMIDI機器(Port)を指定</li>
+  <li>msg：送信するMIDIメッセージをArray型で指定</li>
+  <li>time：適応するタイミング(いつSustainを適応すかをミリ秒で指定)
+生のMIDIメッセージを送ることができます。例えばSysExを送信します。</li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">initializePerformanceNow</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>時間を初期化して、現在をスタート時間とします。再生する前に必ず実行してください。</p>
+
+<p>さて、以上が Web MIDI API Wrapper が現状サポートしている MIDI メッセージになります。それでは引き続き実際に、 NoteOn/NoteOff と ProgramChange で馴染みのあるだろうこんなのを作ってみました。
+<br />
+<br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** 
+ * 前回からの引き続きですので、Constructor は引き継いていでいます。
+ * 詳しくは前回のPOSTを御覧ください。 
+ */</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">initializePerformanceNow</span><span class="p">();</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendProgramChange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">240</span><span class="p">);</span>
+<span class="nx">wmaw</span><span class="p">.</span><span class="nx">sendNoteOff</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>詳しく見てみます。</p>
+
+<ul>
+  <li>5行目：時間を初期化</li>
+  <li>6行目：音色を12（マリンバ）に変更</li>
+  <li>8, 9行目：D4(レ)を120ms鳴らす</li>
+  <li>11, 12行目：A4(ラ)を120ms鳴らす</li>
+  <li>14, 15行目：D5(レ)を120ms鳴らす</li>
+</ul>
+
+<p>ということが行われています。
+実際にどうなるかというのは <a href="https://dl.dropboxusercontent.com/u/695740/WebMIDIAPIWrapper/index.html" target="_blank">デモページ</a> のここ▼に実装してありますので試してみてください。多分聞いたことがあると思いますよ。</p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2013/08/20130824-webmidiapiwrapper-demo.png" width="80%" />
+</div>
+
+<p>では今回はこの辺にして、次回は初心に戻り、素で Web MIDI API を使う場合について説明していこうと思います！！</p>
+
+<p>お楽しみに^^v
+<br />
+<br /></p>
+
+<p>[更新履歴] 2013/08/26 sendRaw() の説明を追加しました。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2013-08-22T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/08/22/web-midi-api-send.html">August 22, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -430,57 +682,6 @@ OSX の Chrome Canary以外で動作させるには、<a href="http://jazz-soft.
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-02-22T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/02/22/chrome-packaged-app.html">February 22, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/02/22/chrome-packaged-app.html" rel="bookmark" title="Chrome Packaged Apps" itemprop="url">Chrome Packaged Apps</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p><a href="http://www.slideshare.net/" target="_blank">Slideshare</a>に「Chrome Packaged Apps」なんて資料を上げちゃった訳ですけど、、、その経緯などを書いてみます。</p>
-
-<p>まず、Chrome Packaged Appsって何？？ってところです。</p>
-
-<p>ど〜ん！！これです <a href="http://developer.chrome.com/trunk/apps/about_apps.html" target="_blank">http://developer.chrome.com/trunk/apps/about_apps.html</a></p>
-
-<p>Google I/O 2012でアナウンスされ、Chromium Blogで 2012/08/09 に正式に告知されったぽいです。( <a href="http://goo.gl/R1yVp" target="_blank">http://goo.gl/R1yVp</a> ) 簡単にいうと「Chrome Packaged AppsとはWebAppsをNative Appsのように見せることができちゃう＆WebAppsでは使えないRawSocketを送受信できたり、BluetoothとかのデバイスにアクセスできるAPIが用意されたPlatform(?)」という感じです。個人的にはLaunch当初にちょっとお触りしたきり、気になりつつも放置しちゃっていました。</p>
-
-<p>が、1月末に仕事(NAMM Show)でアメリカに行った際、Chromebookを購入してみて、「なるほどChrome Packaged AppsはChromeOS(WebOS)上でのNativeAppsか！」と気がつき(今更。。。)「やっぱりおもしろいじゃん。」ということで現状をまとめた、結果がこの(あの？)資料▼だということになります。特に勉強会等で発表をした訳ではありませんf(^-^;)</p>
-
-<div class="post-image-center">
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/9UWbjngdOqMpD" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe> 
-</div>
-<div class="post-image-center">
-<div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/ryoyakawai/chrome-packaged-apps" title="Chrome Packaged Apps" target="_blank">Chrome Packaged Apps</a> </strong> from <strong><a href="https://www.slideshare.net/ryoyakawai" target="_blank">Ryoya Kawai</a></strong> </div>
-</div>
-
-<p>Chrome Packaged Appsは基本WebAppsですので、その言語はHTML、JavaScript、CSSなので「開発言語はHTML5です！」と言えますね。資料の中でも書いてますが、一度の覚えてしまえばNativeApps的なものまで書けちゃうHTML5。NTTコミュニケーションズさん主催のWeb of Things カンファレンスにお邪魔させていただいたときに株式会社ニューフォリア 取締役 最高技術責任者 の 羽田野氏 が「HTML5の最大の魅力は言語を複数勉強する必要がないんですよ」とおっしゃっていてものすごく納得し、「Build Once, Run Everywhere」という夢のような言葉に対抗するこんな言葉を思いつきました。</p>
-
-<p><strong>「Learn Once, Build Everywhere」</strong></p>
-
-<p>そのままですが「一度学習(Learn)したら、どこでもアプリを作れます(Build)よ」という意味で、自分ではかなりお気に入りの言葉ですf(^-^;) ちょっと言い過ぎですかね。</p>
-
-<p>ということで、何が言いたかったのかよくわからないPOSTになってしまいましたが、今回はこのへんで。</p>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -541,13 +742,6 @@ Reading time ~1 minute
         <li><a href="https://ryoyakawai.com/blog/page16/">16</a></li>
       
     
-      
-        
-        
-        
-        <li><a href="https://ryoyakawai.com/blog/page17/">17</a></li>
-      
-    
 
     
     
@@ -555,7 +749,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="https://ryoyakawai.com/blog/page18/">18</a></li>
+      <li><a href="https://ryoyakawai.com/blog/page19/">19</a></li>
     
 
     
