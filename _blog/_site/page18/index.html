@@ -160,6 +160,73 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-12-01T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/12/01/fm-synth-html5.html">December 01, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2012/12/01/fm-synth-html5.html" rel="bookmark" title="WebAudioでVocalキャンセラー（簡単な方）書きます。" itemprop="url">WebAudioでVocalキャンセラー（簡単な方）書きます。</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+<p><a href="https://adventar.org/calendars/22" taget="_blank">Web Music Developers JPのアドベントカレンダー</a>の初日（12月7日）の記事です！</p>
+
+<p>ネタは「WebAudioでVocalキャンセラー（簡単な方）」です。
+Web Audio APIに組込まれていない信号処理だったので作ってみました。</p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2012/12/20121207-vocalcanceling.png" width="40%" />
+</div>
+
+<h3 id="遊び方">遊び方</h3>
+<p>音楽ファイルを点線の中にドロップして音源をロードします。ロードが完了するとボタンが「START」に変わるので、それをクリックすると再生が始まります。Vocalキャンセルは「START」ボタンの隣の「Vocal OFF」をクリックすることでキャンセルされます。
+青い（緑？）デカイ丸はDrag&amp;Dropをブラウザがサポートしているかを示しています。黄色の場合はDrag&amp;Dropはできないので、、、試せません。。。Chromeなら間違いなくサポートしていますので、Chromeでお試しくださいね。</p>
+
+<h3 id="原理">原理</h3>
+<p>簡単な方のVocalキャンセラーなので簡単な原理ですw ステレオな楽曲のVocalは音像が中央に位置するように録音されています。このことを逆手にとってVocalのキャンセルを行います。LチャンネルからRチャンネルの差分をとる、ただそれだけで実現できてしまいます。
+既にお気づきかもですが、この方法では以下の2点のデメリットがあります。
+Vocalキャンセルを行った楽曲はモノラルになる
+ドラム等の音像が中央に位置している音もキャンセルさる
+左右のスペクトル、振幅を見てVocalをキャンセルしつつステレオを保てるさらに精度のよい方法もありますので、実装すれば実現可能なんじゃないかな〜？と思いますが、今回は簡単な方でやっちゃいましたf(^-^;)</p>
+
+<h3 id="web-audio-apiで表現する">Web Audio APIで表現する</h3>
+<p>ポイントは1行です。<a href="https://dl.dropboxusercontent.com/u/695740/vocalCanceller/js/basicSet.js" target="_blank">js/basicSet.js</a>の49行目。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">outLch</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">outRch</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">inLch</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">inRch</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>この1行がLチャンネルからRチャンネルの差分をとっている部分です。簡単ですよね？
+その他のWeb Audio APIの部分は、、、説明すると長くなりそうなのでまたの機会にしようかな、、、なんて思います。すみません。。。</p>
+
+<h3 id="その他">その他</h3>
+<p>今回のスクリプト群を使うとDrag&amp;Dropで音楽再生を始められるWeb Audio APIのアプリが簡単に作れますので、もしよろしかったらご利用ください！！
+Web Audio APIってクライアント側のJavaScriptで動作するのでサーバ側にJava、Perl、PHPとかミドルウェアは必要なく、クライアントにWeb Audio APIに対応したブラウザ（例えば Chrome !!）がインストールされてさえいれば音が鳴る仕組みですので公開は非常に簡単です。「音ネタをたくさん用意して試してもらいたい。」と思っても、楽曲等をサーバに上げる場合には必ず著作権の問題があって難しい、、、という時の解決策がコレかなって思います。ユーザー自身で音ネタを用意できるので、ユーザーにも楽しんでもらえると思います。
+今回のスクリプト群の中の「<a href="https://dl.dropboxusercontent.com/u/695740/vocalCanceller/js/fileAPI.js" targt="_blank">js/fileApi.js</a>」がDrag&amp;Dropについて書いた部分になります。詳しくは「HTML5  FileAPI」でググると情報がたくさん出てきます。</p>
+
+<p>さらに、今回の「Vocalキャンセラー」は<a href="http://dl.dropbox.com/u/695740/vocalCanceller/js/basicSet.js" target="_blank">js/basicSet.js</a>の47〜54行目で実現しています。もし、その他の信号処理を書きたい場合はここに上書きすれば独自の信号処理を入れられます。
+1点注意点としては、</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">outRch</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">inRch</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="nx">outLch</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">inLch</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</code></pre></div></div>
+
+<p>のようにoutRch、outLchに信号を入れないと音は出ないので忘れないように気をつけてくださいね！</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-11-17T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2012/11/17/famima-naget.html">November 17, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -365,174 +432,6 @@ Reading time ~1 minute
 相当な情熱を持ってる場合は別として、Ust配信とかのネット生配信はとてもありがたいのだけど、生で観るのに比べると観る側の集中力が欠けるので結果として得られる情報量も減るように思う、、、。
 これを感じるのは僕だけなのだろうか？？</p>
 
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-      <div class="entry-image-index">
-        <a href="https://ryoyakawai.com/blog/2005/04/01/cheat-sheet-markdown.html" title="Cheat sheet of markdown :-)"><img src="https://ryoyakawai.com/blog/images/abstract-3.jpg" alt="Cheat sheet of markdown :-)"></a>
-      </div><!-- /.entry-image -->
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2005-04-01T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2005/04/01/cheat-sheet-markdown.html">April 01, 2005</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2005/04/01/cheat-sheet-markdown.html" rel="bookmark" title="Cheat sheet of markdown :-)" itemprop="url">Cheat sheet of markdown :-)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.</p>
-
-<h1 id="heading-1">Heading 1</h1>
-
-<h2 id="heading-2">Heading 2</h2>
-
-<h3 id="heading-3">Heading 3</h3>
-
-<h4 id="heading-4">Heading 4</h4>
-
-<h5 id="heading-5">Heading 5</h5>
-
-<h6 id="heading-6">Heading 6</h6>
-
-<h3 id="body-text">Body text</h3>
-
-<p>Lorem ipsum dolor sit amet, test link adipiscing elit. <strong>This is strong</strong>. Nullam dignissim convallis est. Quisque aliquam.</p>
-
-<p class="image-right"><img src="https://ryoyakawai.com/blog/images/3953273590_704e3899d5_m.jpg" alt="Smithsonian Image" /></p>
-
-<p><em>This is emphasized</em>. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times <cite>(That’s a citation)</cite>. <u>Underline</u>. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-
-<p>HTML and <abbr title="cascading stylesheets">CSS<abbr> are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</abbr></abbr></p>
-
-<h3 id="blockquotes">Blockquotes</h3>
-
-<blockquote>
-  <p>Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.</p>
-</blockquote>
-
-<h2 id="list-types">List Types</h2>
-
-<h3 id="ordered-lists">Ordered Lists</h3>
-
-<ol>
-  <li>Item one
-    <ol>
-      <li>sub item one</li>
-      <li>sub item two</li>
-      <li>sub item three</li>
-    </ol>
-  </li>
-  <li>Item two</li>
-</ol>
-
-<h3 id="unordered-lists">Unordered Lists</h3>
-
-<ul>
-  <li>Item one</li>
-  <li>Item two</li>
-  <li>Item three</li>
-</ul>
-
-<h2 id="tables">Tables</h2>
-
-<table rules="groups">
-  <thead>
-    <tr>
-      <th style="text-align: left">Header1</th>
-      <th style="text-align: center">Header2</th>
-      <th style="text-align: right">Header3</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">cell1</td>
-      <td style="text-align: center">cell2</td>
-      <td style="text-align: right">cell3</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">cell4</td>
-      <td style="text-align: center">cell5</td>
-      <td style="text-align: right">cell6</td>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr>
-      <td style="text-align: left">cell1</td>
-      <td style="text-align: center">cell2</td>
-      <td style="text-align: right">cell3</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">cell4</td>
-      <td style="text-align: center">cell5</td>
-      <td style="text-align: right">cell6</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td style="text-align: left">Foot1</td>
-      <td style="text-align: center">Foot2</td>
-      <td style="text-align: right">Foot3</td>
-    </tr>
-  </tfoot>
-</table>
-
-<h2 id="code-snippets">Code Snippets</h2>
-
-<p>Syntax highlighting via Rouge</p>
-
-<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">#container</span> <span class="p">{</span>
-  <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
-  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">-240px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Non Pygments code example</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="awesome"&gt;
-    &lt;p&gt;This is great isn't it?&lt;/p&gt;
-&lt;/div&gt;
-</code></pre></div></div>
-
-<h2 id="buttons">Buttons</h2>
-
-<p>Make any link standout more when applying the <code class="highlighter-rouge">.btn</code> class.</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-success"</span><span class="nt">&gt;</span>Success Button<span class="nt">&lt;/a&gt;</span>
-</code></pre></div></div>
-
-<div><a href="#" class="btn">Primary Button</a></div>
-<div><a href="#" class="btn btn-success">Success Button</a></div>
-<div><a href="#" class="btn btn-warning">Warning Button</a></div>
-<div><a href="#" class="btn btn-danger">Danger Button</a></div>
-<div><a href="#" class="btn btn-info">Info Button</a></div>
-
-<h2 id="command-for-compiling-and-checking-site">command for compiling and checking site</h2>
-
-<h3 id="python">Python</h3>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># &gt;= Python 3</span>
-<span class="nv">$ </span>python <span class="nt">-m</span> http.server
-
-<span class="c"># &lt;= Python 2</span>
-<span class="nv">$ </span>python <span class="nt">-m</span> SimpleHTTPServer
-</code></pre></div></div>
-
-<h3 id="macos-x">macOS X</h3>
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>jekyll serve <span class="nt">--watch</span> <span class="nt">--future</span><span class="p">;</span>
-</code></pre></div></div>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
