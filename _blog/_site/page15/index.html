@@ -160,6 +160,57 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-06-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/06/20/speech-jammer-google.html">June 20, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/06/20/speech-jammer-google.html" rel="bookmark" title="SpeechJammer+つくった＆展示してきたよ!" itemprop="url">SpeechJammer+つくった＆展示してきたよ!</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<p>7月19日に GoogleJapan で行われた <a href="http://googledevjp.blogspot.jp/2013/07/demo-party-2013.html" target="_blank">DemoParty</a> に<a href="http://dl.dropboxusercontent.com/u/695740/speechJammerPlus/index.html" target="_blank">SpeechJammer+</a>というアプリケーションを展示させていただきました。以前 <a href="http://dl.dropboxusercontent.com/u/695740/IgNobelPrize/2012/index.html" target="_blank">SpeechJammer</a> というのを作って公開していたのですが、何かが起こったみたいでアクセスがとても伸びていまして、ならばもう少し楽しくできないか？？という発想で続編的なのをりました。</p>
+
+<p>まず、SpeechJammer の説明です。2012年のイグノーベル賞アコースティック部門を受賞した<a href="https://sites.google.com/site/qurihara/top-english/speechjammer" target="_blank">アルゴリズム、および物理ガジェット</a>です。（注：アルゴリズムの発明者は産総研にいらっしゃる栗原一貴氏で私ではありません。）アルゴリズムは「集めた音を0.2秒後に再生をする」という極めてシンプルなものですが「集める音」を自分の会話の声として「0.2秒前の自分の会話が再生される」のを実際に体験すると、違和感を感じ会話をストップしたくなってしまいます。名前の由来もここにあると思います。ユースケースとしては「ちょっとおしゃべりな人に静かにしていただきたいときに使う」という感じになります。
+ただ、「0.2秒前の自分の会話が再生される」というのに違和感はあるのですが、何か楽しさもあるんです、不思議と。そこで「もっと面白くできないかな〜？？しかもブラウザ上で。」と考えたところ「0.2秒前の会話にサウンドエフェクトをかけて再生してまえ！あと0.2秒前の映像も流してしまえ！」と思いつき実装をしてみました。個人的には理由はわかりませんが、暇つぶしに遊んでしまう、おもちゃ的な楽しさがあると感じています。</p>
+
+<p>技術的には、マイク入力・カメラの扱いで getUserMedia() (WebRTC)、サウンドエフェクトには WebAudioAPI、あと細かいところですがノブには polymer/WebComponents (<a href="//twitter.com/agektmr" target="_blank">@agektmr</a>氏作)を使っています。（Web MIDI API も使いたかったのですがアイデア不足の為、今回は組み込めませんでした。。。orz）SpeechJammer+ のソースコードは github で公開しているので、気になる方はこちらからどうぞ！！  <br />
+<a href="https://github.com/ryoyakawai/speechJammerPlus/" target="_blank">ソースコード&gt;</a><br />
+そして、LiveDemoはこちらになります  <a href="http://dl.dropboxusercontent.com/u/695740/speechJammerPlus/index.html" target="_blank">LiveDemo</a><br />
+ライブデモは <a href="https://www.google.co.jp/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CC0QFjAA&amp;url=http%3A%2F%2Fwww.google.co.jp%2Fintl%2Fja%2Fchrome%2Fbrowser&amp;ei=JqXqUZS7MZDrlAXt6oCwBQ&amp;usg=AFQjCNEU0qcH2Zlo56thVf_Ubs61GwnDiA&amp;sig2=BDaCLs5AcKr3V1BuybjH2A" target="_blank">Google Chrome（ブラウザ）</a>での動作を、またハウリングを起こしやすいので、ヘッドホンをしてお試しください。映像のプレイバックは力技でやっていまして、遅延が時間とともに酷くなりますので、おまけ程度ということでお願いします。。。</p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2013/07/20130720-speechJammer.png" width="60%" />
+</div>
+
+<p>DemoPartyについては、MAKERな方々が集まってワィワィやる的なイベントでした。
+すっごく楽しかったです。そして<a href="http://uda.la/" target="_blank">ウダー</a>の宇田さん、<a href="http://www.maywadenki.com/otamatone/" target="_blank">オタマトーン</a>で明和電機さんもいらっしゃってデモ兼プレゼンテーションをされていました。
+私もプレゼンテーションをさせていただきましたが、デモで音声を出せなくちょっと残念でした＆準備不足ですみませんでした、、、orz<br />
+こんな感じでプレゼンテーション(<a href="//twitter.com/tyone" target="_blank">@tyone</a>さん、写真ありがとうございました！！)▼</p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2013/07/20130720-speechJammer-02.png" width="30%" />
+</div>
+
+<p>MAKER Conferenceには1度だけ参加経験はあるものの、展示する側としてMAKER系のイベントに参加するのは初めてでしたので、かなりドキドキでした。終わってみると展示する側として参加して、また違った楽しみ方があることを知りました。ホント、楽しかったです。こんな素敵な場を提供くださったGoogleの皆様本当にありがとうございました！！</p>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2013-06-01T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/06/01/webmidi-to-chrome-canary.html">June 01, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -459,51 +510,6 @@ Reading time ~1 minute
 <div class="post-image-center">
   <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130124_200630.jpg" width="40%" />
   <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130124_201850.jpg" width="40%" />
-</div>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-01-23T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/01/23/namm-show.html">January 23, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/01/23/namm-show.html" rel="bookmark" title="NAMM2013に来ています" itemprop="url">NAMM2013に来ています</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>毎年1月に楽器のトレードショー（通称：<a href="http://www.namm.org/thenammshow/2013" target="_blank">NAMM</a> ）が通例だとAnaheimで行われます。数年前はCESとNAMMに行かせていただくというとってもありがたい海外出張をさせていただいて以来のNAMM出張に来ています。今年も場所はAnaheim, Californiaです。<br />
-<br />
-さて、特にアメリカだと歩いて行けるコンビニ的なところがホテルの近くになかったりして、時間に制約があるのに朝ご飯で時間を取られてしまう事が多いと思うのですが、僕はいつも「サンドイッチ（野菜なし）」を朝ご飯に食べられるように用意しています。<br />
-今回もホテルの近くにあるスーパーマーケットを事前に調査しておいて、ホテルに到着して一息入れたらすぐにスーパーマーケット（今回はWalmartでも食料品だけ売ってるWalmart Neighborhood Market）に行って材料を買ってきました。距離は1.5kmくらいでそこそこ近かったです。<br /></p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130123_154224.jpg" width="40%" />
-  <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130123_200757.jpg" width="40%" />
-</div>
-
-<p>これで朝ご飯はスピーディで、美味しく食べられます。パンにマヨネーズ、マスタード、ハム、チーズだけを挟むだけなんですが、おいしいんですよ。ポイントはパンと持参したマヨネーズ。アメリカだと日本のサイズの70％くらいのパンが売っていて、これがチーズの大きさにぴったりなんです。日本で感じられる「えっ、まだチーズに達してないじゃん」的な経験はすることがないのです。<br />
-ということでまた機会がありましたら、お試しくださーい！<br />
-<br />
-ちなみに現地のスーパーに行くとこんなのが見られてなかなか楽しいです！！日本ではなかなかお目にかかれない感じですよね。<br />
-バレンタインデーだと思われるピンクのクッキー↓</p>
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2013/01/IMG_20130123_154338.jpg" width="50%" />
 </div>
 
 

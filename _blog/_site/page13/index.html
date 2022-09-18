@@ -160,6 +160,104 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-01-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2014/01/20/webmusic-hachathon.html">January 20, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2014/01/20/webmusic-hachathon.html" rel="bookmark" title="Web Music ハッカソン &#35;2 やりました。" itemprop="url">Web Music ハッカソン &#35;2 やりました。</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+<p><a href="/blog/2014/01/20/webmusic-hachathon-en.html" target="_blank">English Version</a><br />
+<br /></p>
+
+<p><a href="/2013/10/webmusic-hackathon.html" target="_blank">10月19日</a>に引き続き Web Music ハッカソン #2 を Google さんと <a href="https://groups.google.com/forum/#!forum/web-music-developers-jp" target="_blank">Web Music Developers JP</a>の共催、<a href="http://amei.or.jp/" trget="_blank">AMEI（音楽電子事業協会）</a> の後援で開催しました。</p>
+
+<p>今回の参加者は30+名で、合計20を超える作品が生まれ、最後にプレゼンタイムをもちました。<a href="http://www.youtube.com/watch?v=dCvuBz1FYWg&amp;feature=share&amp;t=22m57s" target="_blank">ヒカリモノ</a>、<a href="http://www.youtube.com/watch?v=dCvuBz1FYWg&amp;feature=share&amp;t=2h15m7s" target="_blank">アコースティック楽器（缶）</a>、<a href="http://www.youtube.com/watch?v=dCvuBz1FYWg&amp;feature=share&amp;t=1h3m34s" target="_blank">Twitter連携</a>、<a href="http://www.youtube.com/watch?v=dCvuBz1FYWg&amp;feature=share&amp;t=47m23s" target="_blank">Google Docsスプレッドシート</a> と幅の広い作品で、ここからWeb Audio API（信号処理を行う音楽系のAPI）、Web MIDI API（MIDI機器と接続しコントロールするAPI）のポテンシャルの高さを再認識できる会になったと思います。</p>
+
+<p>ここでは当日参加してくださった初心者（Web Audio API、Web MIDI API初心者）の方がどのような作品を作ったかを少し紹介します。その他の作品は Google の<a href="http://google.com/+agektmr" target="_blank">えーじさん</a>の<a href="http://blog.agektmr.com/2014/01/web-music-2.html" target="_blank">ブログ</a>にお任せします〜。<br />
+初心者の皆様には<a href="https://github.com/ryoyakawai/WebMusicDevelopersJP/tree/master/codeLabs" target="_blank">チュートリアル</a>を実施いただくことで慣れてもらいました。チュートリアルは、虫食いになっているソースコードに、アプリケーションを作るのに重要な method を入力していってもらうようになっています。2時間で終えられた方から、挫折された方がいるみたいですね。それでは早速作品を見てみましょう！（画像はYouTubeに開始時間指定でリンクしています）<br />
+<br />
+けんこふさんのドローバーオルガンです。音源部を実装されて、鍵盤部分は webaudio-controls を使って実装されたとのことです。</p>
+<div>
+  <youtube-play contentid="dCvuBz1FYWg" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2014/01/20140120-webmusic-hackathon-yt-01.png" start="5469" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+<p><br />
+<br />
+つづいてみでぃゃっぴーの声を作って音声の再生＋作動モーションセンサで動きを検知してMIDIで音声の再生をする作品です。ゆるい声でなかなかおもしろかったですww</p>
+<div>
+  <youtube-play contentid="dCvuBz1FYWg" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2014/01/20140120-webmusic-hackathon-yt-02.png" start="6364" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>こういった作品をチュートリアルから初めて、数時間で完成されていますので、使うハードルはそこまで高くないということがお分かりになると思いますので、気になる方はぜひ挑戦してみてください！<br />
+<br />
+<br />
+この先は初心者からカテゴリを変えます。
+まずはWebブラウザの枠を超えた「ハードウェアなやつ」です。</p>
+
+<div>
+  <youtube-play contentid="dCvuBz1FYWg" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2014/01/20140120-webmusic-hackathon-yt-03.png" start="7830" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+<p>MIDIメッセージを赤外線信号に変えてハードウェアを制御するアプリとパルス信号を作成してサーボモータを直接制御するアプリです。<br />
+<br />
+<br />
+次は今回から登場したのがゆるキャラ「みでぃゃっぴー」です。<a href="//twitter.com/g200kg" target="_blank">g200kg</a> さんがデザインされた <strong>W3C非公認のWeb MIDI API のゆるキャラ</strong>です。そのアプリケーションがこちら。</p>
+
+<div>
+  <youtube-play contentid="dCvuBz1FYWg" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2014/01/20140120-webmusic-hackathon-yt-04.png" start="8513" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
+</div>
+
+<p>マスコットも3Dプリンタで作成されています。</p>
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/01/20140120-midiapi.jpg" width="70%" />
+</div>
+
+<p>ステッカーはAMEIで作らせていただき、当日参加者の皆様にお配りをしました。</p>
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/01/20140120-midiapi_sticker.jpg " width="70%" />
+</div>
+
+<p>というところで、何が起こるかわからないのがハッカソンだと思いますが、Web Music ハッカソンも第1回目からいろいろなことが起こり、そして第2回目にはWeb MIDI APIのゆるキャラが出てきました。もちろん、アプリケーションのアイデアも楽しく、ハッキングもプレゼンタイムも楽しんでいただけたと思っています。
+<br />
+懇親会では、いろいろなアイデアを頂いております。今後も継続的に開催をしていきたいと思っていますので、ぜひ今後の参考にさせてください。
+<br />
+次回以降のハッカソンについてです。日程は決めていませんが、行う予定でおりますので初心者の方も躊躇せずぜひご参加いただければと考えております。
+お知らせは、<a href="https://groups.google.com/forum/#!forum/web-music-developers-jp" target="_blank">Web Music Developers JP@Google Groups</a>、<a href="https://plus.google.com/communities/111657869969887793180" target="_blank">Web Music Developers JP@Google+ Community</a> などで行いますので気になる方はご参加ください！</p>
+
+<p>それでは、また次回お会いしましょう！！<br />
+<br />
+最後に、今回チューターとして参加してくださった方々の紹介です。<br />
+<br /></p>
+
+<ul>
+  <li><a href="//twitter.com/aike1000">@aike1000</a> こと藍 圭介さん ： Web Audio API、 Web MIDI API</li>
+  <li><a href="//twitter.com/g200kg">@g200kg</a> こと新谷垣谷さん： Web Audio API、 Web MIDI API</li>
+  <li><a href="//twitter.com/komasshu">@komasshu</a> こと小松健作さん：WebRTC</li>
+  <li><a href="//twitter.com/Tukimikage">@Tukimikage</a> こと仲裕介さん：WebRTC</li>
+</ul>
+
+<p>ありがとうございました！！<br />
+<br />
+（次回は「みでぃゃっぴー」の着ぐるみが会場にいるかもですよ〜！！（予定は未定ですがw））<br />
+<br />
+P.S. Web Music ハッカソン #2の模様は、<a href="http://www.kohgakusha.co.jp/io/" target="_blank">工学社 月刊 I/O</a> 2014年3月号（2014/2/18発売予定）に掲載予定です。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2014-01-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2014/01/20/webmusic-hachathon-en.html">January 20, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -441,60 +539,6 @@ Reading time ~1 minute
 <div class="post-image-center">
 <iframe name="f28f719ebbf604c" width="550px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:post Facebook Social Plugin" src="https://www.facebook.com/plugins/post.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FFdM1l_dpErI.js%3Fversion%3D42%23cb%3Df335d497e37aa4%26domain%3Dmiscfeeling.blogspot.com%26origin%3Dhttp%253A%252F%252Fmiscfeeling.blogspot.com%252Ff160453fa5414c4%26relation%3Dparent.parent&amp;container_width=750&amp;href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D670129796344802%26set%3Da.205619039462549.54185.100000433633356%26type%3D1&amp;locale=ja_JP&amp;sdk=joey&amp;width=550" style="border: none; visibility: visible; width: 550px; height: 541px;" class=""></iframe>
 </div>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-10-13T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/10/13/camera-getusermedia.html">October 13, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/10/13/camera-getusermedia.html" rel="bookmark" title="プレゼン中に手元の実物を見せたいことありませんか？" itemprop="url">プレゼン中に手元の実物を見せたいことありませんか？</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>プレゼンテーション中はスライドを表示してると思います。けど、そんな時に「実は、手元の実物を見せたい、、、」って思ったことはありまえんか？？<br />
-僕は直前になるといろいろアイデアが浮かびプレゼン前に例えばデモを作ってることもありますf(^-^;) それと同じように、直前に「あっ、これ見せたほうが臨場感が伝わるよな。。。でも資料作成完了してて画像・動画は入れられないし、そもそも時間がない。。。(´・ω・｀)」という場合、「カメラを用意して、ケーブルを用意して、プレゼン中に切り替える？えっ、それ失敗したら悲惨だな〜」とか物理的にも、気分的にも大変ですよね。<br />
-そんな場合、ネットにつながっているorお使いのコンピュータにWebサーバが動いている場合に使えるのが今回ご紹介するWeb Cameraとブラウザを使う方法です。</p>
-
-<p>早速、それが<a href="http://goo.gl/kUJ98e" target="_blank">こちら</a></p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2013/10/20131013-camera-gum.png" width="80%" />
-</div>
-
-<p>使い方は超簡単の2Step。</p>
-
-<ol>
-  <li>Web CameraをPCに接続（PC内蔵のCameraも使えます）</li>
-  <li><a href="http://goo.gl/kUJ98e">ココ</a>にアクセス、表示されたウィンドウ内のどこかをクリック</li>
-</ol>
-
-<p>以上です^^<br />
-あとは見せたい実物をCameraで映すだけ！！<br />
-PCに複数Cameraが接続されている場合はアドレスバーの右に出てくるカメラのマークをクリックすると選択できます。(Chrome)</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2013/10/20131013-gum-02.png" width="50%" />
-</div>
-
-<p>これWebRTCで定義されているgetUserMedia()というAPIを使っています。気になる方はソース見てみてくださいね〜</p>
-
-<p>（Web CameraはiBuffaloの<a href="http://buffalo.jp/products/catalog/supply/multimedia/webcamera/320/bsw32km03/" target="_blank">BSW32KM03BK</a>を使ってます。）</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
