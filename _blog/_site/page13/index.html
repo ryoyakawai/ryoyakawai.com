@@ -160,6 +160,76 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-03-12T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2014/03/12/chromebook-webmidiapi.html">March 12, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2014/03/12/chromebook-webmidiapi.html" rel="bookmark" title="Chromebook で Web MIDI API を使ってみる" itemprop="url">Chromebook で Web MIDI API を使ってみる</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <div> </div>
+
+<ul>
+  <li>Q. Chromebook で Web MIDI API は動く？</li>
+  <li>A. Canary BuildのChromeOSにすると動作します！！</li>
+</ul>
+
+<p>ということでやってみました。<br />
+(※ Chrome への Web MIDI API の実装について2013年末の状況は<a href="http://blog.toyoshima-house.net/2013/12/chromeweb-midi-api.html" target="_blank">とよしま語録</a>の通りです。)<br />
+<br /></p>
+
+<p>まず、 Chromebook を Stable から Canary Build へ移行する必要がありますので、Developer Modeにします。手順は以下です。<br /></p>
+
+<ol>
+  <li>Recovery Modeで起動<br /> [Esc]+[Refresh]+[Power] を同時押しで起動。</li>
+  <li>Developer Mode を有効にする<br /> 起動したら、[Ctrl]+[D] を押下して、次の画面で [Enter] を押下してDeveloper Modeへ。<br /> Developer Mode への初期化に10分程度かかりました）</li>
+  <li>Chromebookのセットアップ<br /> 再起動すると見慣れない画面がでてきますので、[Ctrl]+[D] で起動先に進んでください。先に進むと、Chromebookの初期設定画面が出てくるので、通常通りセットアップを行います。</li>
+  <li>Canary Build に移行する<br /> ブラウザを起動して [Ctrl]+[Alt]+[T] で “crosh” (Chrome OS Developer shell) を開く。<br />crosh に “shell” と入力し、その後 “sudo su” します。<br />
+続けて以下の2行を入力すると、Canary への移行が始まります。（完了までには10分程度かかります）<br /></li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>update_engine_client <span class="nt">--channel</span><span class="o">=</span>canary-channel<span class="p">;</span>
+<span class="o">(</span><span class="nv">$update_engine_client</span> <span class="nt">--channel</span><span class="o">=</span>stable-channel<span class="p">;</span> <span class="o">(</span>to get it back<span class="o">))</span>
+update_engine_client <span class="nt">-update</span>
+</code></pre></div></div>
+<p>以上で Canary Build への移行作業完了。<br />
+<br />
+次に、Web MIDI API を使うときの（今のところの）お約束のフラグを変更します。<br />
+ブラウザの URL を入力するテキストボックスに <code class="highlighter-rouge">chrome://flags/#enable-web-midi</code> を入力して “enable” にして再起動です。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/03/20140312-chroomebook-01.png" width="70%" />
+</div>
+
+<p>これで Chromebook で Web MIDI API を使う準備が整いました。あとは、USB-MIDI機器を接続して Web MIDI を使ったアプリケーションにアクセスすれば機器を認識してくれます。<br />
+ここでは <a hrefr="http://www.switch-science.com/catalog/1490/" target="_blank">eVY1 Shield</a> と <a href="http://yamaha-webmusic.github.io/nsx1-apps/text-input/" target="_blanl">専用ウェブアプリ</a> で動作させてみました。<br /></p>
+
+<div class="post-image-center">
+  <img src="https://ryoyakawai.com/blog/images/2014/03/20140312-chroomebook-02.jpg" width="70%" />
+</div>
+
+<p>Mac、Windows で動作させたときと変わりなく動作しました！！<br />
+<br />
+このChromebookですが、2014年3月13日現在、日本では個人輸入等をしないと手に入りませんが、<a href="http://getnews.jp/archives/529237" target="_blank">2014年4月</a>に来るかも！な記事も出ています。値段は3万円前後ですので、DAW ウェブアプリケーションとか出現したとしたら、本当に手軽にDTMが始められそうですね^^<br />
+<br />
+ちなみに、今回利用した Chromebook は <a href="http://www.google.com/intl/ja/chrome/devices/hp-chromebook-11/" target="_blank">HP Chromebook 11</a> です。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2014-01-20T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2014/01/20/webmusic-hachathon.html">January 20, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -451,94 +521,6 @@ Offline動作の検証にはWebブラウザにパッケージをインストー�
 
 <p>[追記]
 2013/12/03 SysExを使わない場合、file:// とURLを指定する形での利用も可能な旨を追記。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-10-21T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2013/10/21/webmusic-hackathon.html">October 21, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2013/10/21/webmusic-hackathon.html" rel="bookmark" title="Web Music ハッカソン &#35;1 やりました。" itemprop="url">Web Music ハッカソン &#35;1 やりました。</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>10月19日にWebで音楽系のアプリを作ろう！というその名も「Web Music ハッカソン #1」を行いました。(このPOSTはWeb Music Developers JPの管理人として書いています。)
-<br />
-<br />
-すーーーーっごく楽しかったです^^ 不思議だったのは初心者チーム。参加者の方々は単にWeb Audio/MIDIの初心者なだけで、Webに関してはかなりのやり手というところ。間違いではないんだけどw それがあったからか初心者チームのレベルが高かった。更に他のチームの方々の発想もバリバリな音楽、ブラウジングを楽しむツール、80円の自作LeapMotionを使った楽器、メディアアートのようなアプリが生まれ、本当に予想もしていなかったWeb Musicの大きな世界が広がっていて、多種多様だったという点がとても面白かったです。そして、興味深かったし、本当に勉強になりました。<br />
-そして、チューターの方々（Web Audio/MIDI: <a href="//twitter.com/aike1000" target="_blank">@aike1000</a>、<a href="//twitter.com/g200gkg" target="_blank">@g200kg</a>、WebAPI: <a href="//twitter.com/komasshu" target="_blank">@komasshu</a>）も素晴らしくしっかり皆さんに教えてくださっていて、それでいてさりげなくアプリをかいてしまう、、、、マジで感動しました！！ありがとうございました。
-そして、ハック後の懇親会、Twitterで「次回までにはもっと勉強してきます！」というような抱負、また「次回はいつですか？」というような質問をいただけたことを、本当に嬉しく思うのと同時に、まだ何も決まっていないのに僕自身次回のハッカソンに向けてワクワクし始めています。（自分自身ネタを探さねば&gt;&lt;）<br />
-<br />
-当日のイベントの熱さはこちらで！！▼</p>
-
-<div class="post-image-center">
-<a href="https://blog.agektmr.com/2013/10/web-music.html" target="_blanl">ウェブはどこまで楽器と融合できるのか？ (Tender Surrender by えーじさん)</a>
-</div>
-<p>ということで、Web Music ハッカソン #2 やります。乞うご期待！！！（忘年会が先になるかもf(^-^;)）</p>
-
-<p>ここで参加された皆様へのお願いです。
-参加者の皆様からのお声を Web Music ハッカソン #2 の参考にさせていただきたいと考えていますので、ぜひアンケートにお答えください！！  <a href="http://goo.gl/DG1OqF" target="_blank">http://goo.gl/DG1OqF</a>
-<br />
-<br /></p>
-
-<p>最後に、会場を貸していただきましたGoogle Japan様、並びにGoogleの及川様、北村様、豊島様、また楽器の提供の呼びかけをしてくださったAMEI様、また賛同していただき楽器の提供くださましたクリムゾンテクノロジー様、KORG様、YAMAHA様、更に当日お手伝いをしてくださいましたスタッフの皆様、準備にご協力いただきました皆様、陰ながらお支えくださった皆様、本当にお世話になりました。心からお礼をさせていただきたく思います。ありがとうございました。
-<br />
-<br />
-余談ですが、Web Music ハッカソン#2 とか 忘年会の情報はGoogle Groups（<a href="https://groups.google.com/forum/#!forum/web-music-developers-jp" targert="_blank">Web Music Developers JP</a>）、Google+ Community <a href="https://plus.google.com/u/0/communities/111657869969887793180" target="_blank">Web Music Developers JP</a>でも行いますので、気になってる方はぜひご参加くださいね！！！
-<br />
-<br />
-さてここからは、当日の写真と動画のピックアップです。その他の写真、動画は<a href="https://plus.google.com/events/gallery/c0l8pcb5n0321sno0p503tsacn4" target="_blanl">こちら</a>にあります。参加者の方で、手元にあるけどアップしていないという方はぜひ上げてください^^
-当日はリアルに寒かったのでダウンのチョッキを着て登場。
-<br />
-<br />
-アメリカからhangoutにてWeb MIDI API EditorのChris Wilson(Google)登場！！！
-その後チーム分け。</p>
-
-<ul>
-  <li>シンセサイザー</li>
-  <li>タンジブル</li>
-  <li>デバイス連携</li>
-  <li>初心者</li>
-</ul>
-
-<p>の5チームに分かれてハック開始。
-開始しましたが、初心者チームにはチューターからの説明があり、その後本格的なハックタイムに突入しました。</p>
-
-<div class="post-image-center">
-  <img src="https://ryoyakawai.com/blog/images/2013/10/20131021-webmusic-hackathon.jpg" width="80%" />
-</div>
-<p><br />
-<br />
-最後に発表会を行いました。<br />
-動画はこちらです ▼</p>
-<div>
-  <youtube-play contentid="MocPwUT4UTk" size="80%" imgsrc="https://ryoyakawai.com/blog/images/2013/10/20131021-webmusic-hack-yt.png" start="2" autoplay="1" rel="0" controls="1" showinfo="0" allowfullscreen="1"></youtube-play>
-</div>
-
-<p>ここではスペシャルゲストとして <a href="//twitter.com/mohayonao" target="_blank">@mohayonao</a> さんがhangoutで参加！！<br />
-優勝作品は、デバイス連携チームのテノリオンを使ったVJになりました。(動画は1:04:42辺りからです)
-<br />
-<br />
-そして最後に懇親会での集合写真＠中国茶房8。（藤本健さんのFacebookより）</p>
-
-<div class="post-image-center">
-<iframe name="f28f719ebbf604c" width="550px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:post Facebook Social Plugin" src="https://www.facebook.com/plugins/post.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FFdM1l_dpErI.js%3Fversion%3D42%23cb%3Df335d497e37aa4%26domain%3Dmiscfeeling.blogspot.com%26origin%3Dhttp%253A%252F%252Fmiscfeeling.blogspot.com%252Ff160453fa5414c4%26relation%3Dparent.parent&amp;container_width=750&amp;href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D670129796344802%26set%3Da.205619039462549.54185.100000433633356%26type%3D1&amp;locale=ja_JP&amp;sdk=joey&amp;width=550" style="border: none; visibility: visible; width: 550px; height: 541px;" class=""></iframe>
-</div>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

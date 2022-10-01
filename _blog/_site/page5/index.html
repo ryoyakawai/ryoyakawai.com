@@ -160,6 +160,224 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2019-07-10T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html">July 10, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+
+
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2019/07/10/ci-android-unittest-00.html" rel="bookmark" title="AndroidアプリでのUnit Testについての解説" itemprop="url">AndroidアプリでのUnit Testについての解説</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h2 id="これは何">これは何？</h2>
+<p>「<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">AndroidアプリをCircleCIでCIする。</a>」のUnit Testを説明した記事です。
+<a href="https://github.com/ryoyakawai/uitest_sample_android">サンプルアプリ</a>のUnit Testについて解説していきます。</p>
+
+<h2 id="概要">概要</h2>
+<h3 id="ciの流れでunit-testが実行されている箇所">CIの流れでUnit Testが実行されている箇所</h3>
+<p>「<a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">AndroidアプリをCircleCIでCIする。</a>」のCIの流れでは <strong>(2) Build</strong> で実行されています。</p>
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2019/07/20190703-circleci_firebase_00.png" width="80%" />
+</div>
+<p>ここで使うコードは以下の通りです。</p>
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/tree/master/app/src/test/java/com/example/uitestsample">サンプルアプリのリポジトリ</a></li>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/MainActivityUnitTest.kt">Unit Testのスクリプト</a></li>
+</ul>
+
+<p><a href="https://developer.android.com/training/testing/unit-testing/local-unit-tests">公式ドキュメントはこれ</a>です。</p>
+
+<h3 id="ポイント条件など">ポイント、条件など</h3>
+<p><a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html#aboutunittest">Unit Testについて（AndroidアプリをCircleCIでCIする。）</a>にも書いていますがポイントは以下です。</p>
+<ul>
+  <li>MVP（Model-View-Presenter）のアーキテクチャに対してのUnit Testを実行する</li>
+  <li><a href="https://junit.org/junit4/">JUnit</a>を使ってUnit Testを実行する</li>
+  <li><a href="https://site.mockito.org/">Mockito</a>でViewをモックする</li>
+  <li>HTTPでのアクセスをモックする</li>
+  <li>テストする場所は以下の図の <strong>Point for Unit Testing</strong></li>
+</ul>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2019/07/20190703-mvp-diagram-00.png" width="90%" />
+</div>
+
+<p>アーキテクチャはMVPに限っている訳ではありませんが、Interfaceを定義しているとテストを書くのが楽になることから
+ここではMVPを採用しています。</p>
+
+<h3 id="テストのシナリオ">テストのシナリオ</h3>
+<p>アプリの機能としては無駄に実装された<a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>
+のREST APIに接続をしてJSONを取得し、Viewに反映させる部分の動作に関してテストを実施します。<br />
+具体的に説明すると上図の <strong>Data Interaction</strong> をモックしてJSONを固定し、<strong>UI Behavior</strong> をモックして
+指定されている振る舞いを行うか、を確認します。
+<br />
+よって、今回はこのシナリオを確認する為に以下の2つのテストのケースを用意しました。</p>
+<ul>
+  <li>HTTPレスポンスコード200でJSONを正しく受け取った場合の値の確認とViewに対する動作確認</li>
+  <li>HTTPレスポンスコード500を受け取った場合のViewに対する動作確認</li>
+</ul>
+
+<h3 id="準備">準備</h3>
+<p><code class="highlighter-rouge">build.gradle</code>に追記、<code class="highlighter-rouge">org.mockito.plugins.MockMaker</code> の作成の2つが必要です。</p>
+
+<h4 id="-buildgradleに追記">＞ <code class="highlighter-rouge">build.gradle</code>に追記</h4>
+<p><code class="highlighter-rouge">app/build.gradle</code> に以下を追記します。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">dependencies</span> <span class="p">{</span>
+<span class="o">....</span>
+    <span class="c1">// Unit and UI Test
+</span>    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">junit</span><span class="p">:</span><span class="n">junit</span><span class="p">:</span><span class="m">4.12</span><span class="err">'</span>
+    <span class="n">testImplementation</span> <span class="s">"org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"</span>
+    <span class="n">testImplementation</span> <span class="s">"com.android.support:support-annotations:${android.defaultConfig.targetSdkVersion}"</span>
+    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">org</span><span class="p">.</span><span class="n">robolectric</span><span class="p">:</span><span class="n">robolectric</span><span class="p">:</span><span class="m">4.0</span><span class="err">'</span>
+    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">nhaarman</span><span class="p">:</span><span class="n">mockito</span><span class="p">-</span><span class="n">kotlin</span><span class="p">-</span><span class="n">kt1</span><span class="p">.</span><span class="m">1</span><span class="p">:</span><span class="m">1.5</span><span class="p">.</span><span class="m">0</span><span class="err">'</span>
+    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">squareup</span><span class="p">.</span><span class="n">retrofit2</span><span class="p">:</span><span class="n">converter</span><span class="p">-</span><span class="n">moshi</span><span class="p">:</span><span class="m">2.2</span><span class="p">.</span><span class="m">0</span><span class="err">'</span>
+    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">squareup</span><span class="p">.</span><span class="n">retrofit2</span><span class="p">:</span><span class="n">retrofit</span><span class="p">-</span><span class="n">mock</span><span class="p">:</span><span class="m">2.3</span><span class="p">.</span><span class="m">0</span><span class="err">'</span>
+    <span class="n">testImplementation</span> <span class="err">'</span><span class="n">com</span><span class="p">.</span><span class="n">squareup</span><span class="p">.</span><span class="n">okhttp3</span><span class="p">:</span><span class="n">mockwebserver</span><span class="p">:</span><span class="m">3.10</span><span class="p">.</span><span class="m">0</span><span class="err">'</span>
+<span class="o">....</span>
+<span class="p">}</span>
+<span class="o">....</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">build.gradle</code> に以下が書かれていることが前提です。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">....</span>
+<span class="n">buildscript</span> <span class="p">{</span>
+<span class="o">....</span>
+    <span class="n">ext</span><span class="p">.</span><span class="n">kotlin_version</span> <span class="p">=</span> <span class="err">'</span><span class="m">1.3</span><span class="p">.</span><span class="m">31</span><span class="err">'</span>
+<span class="o">....</span>
+<span class="p">}</span>
+<span class="o">....</span>
+</code></pre></div></div>
+
+<h4 id="-orgmockitopluginsmockmaker-を作成">＞ <code class="highlighter-rouge">org.mockito.plugins.MockMaker</code> を作成</h4>
+<p><code class="highlighter-rouge">app/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker</code> を新規で作成して、以下の1行を書き込みます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mock-maker-inline
+</code></pre></div></div>
+
+<h3 id="unit-testを書く">Unit Testを書く</h3>
+
+<h4 id="-rest-apiをモックして出力を固定する">＞ REST APIをモックして出力を固定する</h4>
+<p><strong>Data Interaction</strong> の部分をモックして出力を固定します。具体的には<a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>のREST APIの出力を固定する為に
+HTTPのクライアント<a href="https://square.github.io/okhttp/">OkHttp</a>をモックします。
+扱いやすいように、 <strong>Unit Test本体</strong> と、 <strong>モック</strong> を1つのファイルにまとめちゃっています。</p>
+
+<ul>
+  <li><a href="https://github.com/ryoyakawai/uitest_sample_android/blob/master/app/src/test/java/com/example/uitestsample/MainActivityUnitTest.kt">MainActivityUnitTest.kt</a></li>
+</ul>
+
+<p><code class="highlighter-rouge">MockServerDispatcher</code>のクラスがそれになります。<br />
+ここでは、<code class="highlighter-rouge">Resp200</code>、<code class="highlighter-rouge">Resp400</code>、<code class="highlighter-rouge">Resp500</code> の3つのClassを定義することで、以下の用に出力を固定します。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Resp200</code>：正常系の場合で、JSONを返す</li>
+  <li><code class="highlighter-rouge">Resp400</code>：異常系で、HTTP Statusの400を返す</li>
+  <li><code class="highlighter-rouge">Resp500</code>：異常系で、HTTP Statusの500を返す</li>
+</ul>
+
+<h4 id="-unit-testを書く">＞ Unit Testを書く</h4>
+<p>2つのテストケースのうちの「HTTPレスポンスコード200でJSONを正しく受け取った場合の値の確認とViewに対する動作の確認」
+の説明を、以下にインラインで行います。。
+以下は、</p>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivityUnitTest</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kd">var</span> <span class="py">mMockTestUtils</span> <span class="p">=</span> <span class="n">UnitTestUtils</span><span class="p">()</span>
+
+    <span class="n">@Test</span>
+    <span class="k">fun</span> <span class="nf">sampleUnitDataFetchSuccessTest</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// vvv 正常系でJSONを返すよう指定
+</span>        <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">mockServerBehaviorSwitcher</span> <span class="p">=</span> <span class="p">{</span>
+            <span class="n">MockServerDispatcher</span><span class="p">().</span><span class="n">Resp200</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="kd">val</span> <span class="py">expectedResponse</span> <span class="p">=</span> <span class="n">MockServerDispatcher</span><span class="p">().</span><span class="n">mockedResponse</span>
+
+        <span class="kd">var</span> <span class="py">mMainActivityPresenter</span> <span class="p">=</span> <span class="n">MainActivityPresenter</span><span class="p">()</span>
+        <span class="c1">// vvv Viewに対する動作の確認の為にMainActivityViewContract()のClassをモック
+</span>        <span class="kd">var</span> <span class="py">mMainActivityViewContract</span> <span class="p">=</span> <span class="n">mock</span><span class="p">&lt;</span><span class="n">MainActivityViewContract</span><span class="p">&gt;()</span>
+
+        <span class="c1">// vvv PresentorにモックしたMainActivityViewContract()を叩かせるようにセット
+</span>        <span class="n">mMainActivityPresenter</span><span class="p">.</span><span class="n">setView</span><span class="p">(</span><span class="n">mMainActivityViewContract</span><span class="p">)</span>
+
+        <span class="c1">// vvv 非同期での処理を同期で動作させるように変更
+</span>        <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">prepareRxForTesting</span><span class="p">()</span>
+
+        <span class="c1">// vvv ここでMockしたサーバを起動する
+</span>        <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">startMockServer</span><span class="p">()</span>
+
+        <span class="c1">// vvv 以下の2行で、サンプルアプリの接続先をMockしたサーバに入れ替える
+</span>        <span class="kd">var</span> <span class="py">mApiConnection</span> <span class="p">=</span> <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">setupMockServer</span><span class="p">()</span>
+        <span class="n">setConnection</span><span class="p">(</span><span class="n">mApiConnection</span><span class="p">)</span>
+
+        <span class="c1">// vvv PresenterのMethodを叩いて、動作させる
+</span>        <span class="n">mMainActivityPresenter</span><span class="p">.</span><span class="n">getJsonSampleResponse</span><span class="p">()</span>
+        <span class="c1">// vvv MainActivityViewContractのhandleSuccess()が叩かれれ、
+</span>        <span class="c1">// 固定したデータ（JSON）の取得ができているかを確認
+</span>        <span class="n">argumentCaptor</span><span class="p">&lt;</span><span class="n">Array</span><span class="p">&lt;</span><span class="n">SinglePostResponse</span><span class="p">&gt;&gt;().</span><span class="n">apply</span> <span class="p">{</span>
+            <span class="n">verify</span><span class="p">(</span><span class="n">mMainActivityViewContract</span><span class="p">,</span> <span class="n">times</span><span class="p">(</span><span class="m">1</span><span class="p">)).</span><span class="n">handleSuccess</span><span class="p">(</span><span class="n">capture</span><span class="p">())</span>
+
+            <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">expectedResponse</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">val</span> <span class="py">expected</span> <span class="p">=</span> <span class="n">expectedResponse</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="kd">val</span> <span class="py">actual</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">firstValue</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">assertDataClass</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span>
+        <span class="c1">// vvv ここでMockしたサーバを停止
+</span>        <span class="n">mMockTestUtils</span><span class="p">.</span><span class="n">shutdownMockServer</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="o">....</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="実行してみる">実行してみる</h3>
+<p>実行方法には「コマンドラインから」、また「Android Studioから」の2つがあります。</p>
+
+<h4 id="-コマンドラインから実行">&gt; コマンドラインから実行</h4>
+
+<p>Unit Testの全てを実行する</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./gradlew testDebugUnitTest<span class="p">;</span>
+</code></pre></div></div>
+
+<p>指定したClass、MethodのUnit Testを実行る</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Classを指定
+// <span class="nt">--tests</span> のパラメータとして <span class="o">[</span>Package Name].[Class Name] を指定
+<span class="nv">$ </span>./gradlew testDebugUnitTest <span class="nt">--tests</span> com.example.uitestsample.MainActivityUnitTest<span class="p">;</span>
+
+// ClassとMethodを指定
+// <span class="nt">--tests</span> のパラメータとして <span class="o">[</span>Package Name].[Class Name].[Method Name] を指定
+<span class="nv">$ </span>./gradlew testDebugUnitTest <span class="nt">--tests</span> com.example.uitestsample.MainActivityUnitTest.sampleUnitDataFetchSuccessTest<span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-android-studioから">&gt; Android Studioから</h4>
+<p><code class="highlighter-rouge">@Test</code>のアノテーションかを書くとTestとして認識されます。
+するとAndroid Studioだと下図の赤丸のように、その左側に <span style="color:green">▶︎</span>（再生マーク）が表示されるので、
+それをクリックすると実行することが可能です。</p>
+
+<div class="post-image-center">
+<img src="https://ryoyakawai.com/blog/images/2019/07/20190710-unittest-androidstudio-00.png" width="80%" style="border-radius:4px;border:1px solid #eeeeee" />
+</div>
+
+<h2 id="おわりに">おわりに</h2>
+<p>「Cloneしたらすぐに試せる」を目標に書きましたので、興味を持たれた方は試してみていただえると嬉しいです。<br />
+間違ってる！とかありましたらPR、またご指摘ください。</p>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2019-07-03T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/07/03/ci-android-00.html">July 03, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
       
       <span class="entry-reading-time">
@@ -912,79 +1130,6 @@ Reading time ~1 minute
 <p>味は、、、おすすめ出来ませんww<br />
 食べてて、「蕎麦を炒める」だなんてなんて米国的発想をしてるんだ、、、と自分にビックリでした😅</p>
 
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2019-03-21T00:00:00+09:00"><a href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html">March 21, 2019</a></time></span><span class="author vcard"><span class="fn"><a href="https://ryoyakawai.com/blog/about/" title="About Ryoya Kawai">Ryoya Kawai</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-
-
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="https://ryoyakawai.com/blog/2019/03/21/update-xwebmidi.html" rel="bookmark" title="x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました" itemprop="url">x-webmidiをES6 Modulesに変更しxwebmidi.jsにしました</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <div> </div>
-
-<p>x-webmidiとして公開していたPolymerのエレメントをES6 Modulesに変更しxwebmidi.jsとすることにました。<br />
-理由は簡単でHTML ImportがChromeから削除されてしまうからです。</p>
-
-<p><a href="https://github.com/ryoyakawai/x-webmidi">コードはGitHub</a>にあります。</p>
-
-<p>xwebmidi.jsでできることは以下です。</p>
-
-<ul>
-  <li>コンピュータに接続されているMIDIデバイスのリスト化</li>
-  <li>接続・切断したMIDIデバイスを自動でデバイスリストから追加・削除</li>
-  <li>MIDI InputデバイスからのMIDIメッセージの受け取り</li>
-  <li>MIDI OutputデバイスへのMIDIメッセージの送信</li>
-  <li>MIDI Messageを自動でParse</li>
-</ul>
-
-<p>まだあるかもしれませんが、これくらいが主な機能になります。</p>
-
-<p>できる限り今までのx-webmidiと同じように簡単に実装できるようしています。詳細なREADMEを出来ていませんが、このHTML、JavaScriptを書くとブラウザ上に↑の機能を実装の土台ができあがります。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"./xwebmidi.css"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    INPUT: <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"midiin"</span> <span class="na">class=</span><span class="s">"xwebmidi-select-midi"</span><span class="nt">&gt;&lt;/select&gt;</span>
-    <span class="nt">&lt;br&gt;</span>
-    OUTPUT: <span class="nt">&lt;select</span> <span class="na">id=</span><span class="s">"midiout"</span> <span class="na">class=</span><span class="s">"xwebmidi-select-midi"</span><span class="nt">&gt;&lt;/select&gt;</span>
-
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"module"</span><span class="nt">&gt;</span>
-     <span class="k">import</span> <span class="p">{</span> <span class="nx">xWebMIDI</span> <span class="p">}</span> <span class="k">from</span> <span class="s2">"./xwebmidi.js"</span><span class="p">;</span>
-     <span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-       <span class="kd">const</span> <span class="nx">xwm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">xWebMIDI</span><span class="p">();</span>
-       <span class="kr">await</span> <span class="nx">xwm</span><span class="p">.</span><span class="nx">requestMIDIAccess</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-       <span class="nx">xwm</span><span class="p">.</span><span class="nx">initInput</span><span class="p">(</span><span class="s1">'midiin'</span><span class="p">);</span>
-       <span class="nx">xwm</span><span class="p">.</span><span class="nx">initOutput</span><span class="p">(</span><span class="s1">'midiout'</span><span class="p">);</span>
-
-       <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'midiin-event:midiin'</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
-         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-         <span class="nx">xwm</span><span class="p">.</span><span class="nx">sendRawMessage</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-       <span class="p">});</span>
-     <span class="p">})();</span>
-    <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</code></pre></div></div>
-
-<p>ということで、快適なWeb Musicな生活を！！！</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

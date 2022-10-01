@@ -13,7 +13,7 @@ image:
 
 <div> </div>
 
-5件目は自宅でハンドメイド（レシピは3回目と同じ <a href="{{ site.url }}/2022/09/01/canele-marathon-03.html" target="_blank">カヌレマラソン ＃3</a>）。  
+6件目は自宅でハンドメイド（レシピは3回目と同じ <a href="{{ site.url }}/2022/09/01/canele-marathon-03.html" target="_blank">カヌレマラソン ＃3</a>）。  
 ■ **カリっともちっとが美味しいカヌレ** [<a href="https://recipe.cotta.jp/recipe.php?recipeid=00015437">レシピ</a>]  
 
 
